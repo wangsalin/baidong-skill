@@ -64,7 +64,7 @@ export function subs(t, SUBS) {
   for (let i = act.length - 1; i >= 0; i--) {
     const s = act[i], a = i === act.length - 1 ? 1 : .7, lines = wrap(s.text), [name, bg, fg] = WHO[s.who] || [s.who || '未命名角色', INK, PAPER];
     g.setTransform(1, 0, 0, 1, 0, 0); g.font = SUBF;
-    const tw = Math.max(...lines.map(l => g.measureText(l).width)), nw = 96;
+    const tw = Math.max(...lines.map(l => g.measureText(l).width)), nw = Math.max(96, g.measureText(name).width + 24);
     const x0 = (W - (nw + 18 + tw)) / 2, y0 = y - (lines.length - 1) * 68;
     reset(); g.globalAlpha = a;
     push(); translate(x0 + nw / 2, y0); scale(back(seg(t, s.t0, s.t0 + .12), 2)); translate(-nw / 2, 0);

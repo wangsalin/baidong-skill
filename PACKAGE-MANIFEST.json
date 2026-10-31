@@ -16,8 +16,8 @@
     },
     {
       "path": "assets/episode-template/brand.js",
-      "bytes": 7628,
-      "sha256": "53e5b49bd10fbafa01da270b7b8a4e9514ae80b933e7ea8723304027f783540b"
+      "bytes": 7670,
+      "sha256": "639d6b3e639d044b27c54a68e416b8873c1f9746ceb58bdc7f673d1ebd4d17fa"
     },
     {
       "path": "assets/episode-template/build.sh",
