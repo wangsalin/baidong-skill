@@ -1,0 +1,10 @@
+# 白洞中文制作链；不需要英文Kokoro模型或大型乐器采样库。
+numpy
+scipy
+soundfile
+soxr
+pillow
+edge-tts
+faster-whisper
+av<19
+fonttools[woff]

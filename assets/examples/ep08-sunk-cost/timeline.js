@@ -1,0 +1,41 @@
+// timeline.js — 按 story.js 的 BEATS 和真实配音时长，自动排出整期时间线。
+// 每个 beat 是一个对象，可以组合这些键（按出现顺序处理）：
+//   shot: '镜头名', world: '场景名'   从当前时刻开始一个新镜头（main.js 里的 SH[镜头名]）
+//   wipe: true                        在当前时刻做白洞转场（自动留出 0.25 秒）
+//   tag: '凌晨两点 · 卧室'            左上角场景标签，到下一个 tag 或片尾为止
+//   seg: 's2', segTitle: '……'         六段结构的分段点（用于章节和自查）
+//   cue: 'theme'                      音乐段落从这里开始（music/score.py 认的名字）
+//   mark: '名字'                      记下当前时刻，镜头里用 T.名字 对动作
+//   fx: 'pop' 或 ['pop', 0.1]         在当前时刻（或稍后几秒）放一个音效
+//   line: 'l3', gap: 0.08             一句台词，默认句间隔 0.08 秒；关键定义和因果须完整可听
+//                                     gap 可以是负数（比如 -0.15），让下一句抢话、压在上一句的尾巴上
+//   pause: 0.8                        为动作、犹豫或反应留白，时长按表演决定，不设统一半秒上限
+//   opener: 2.0                       片头（白洞 No.xx + 本期问题）
+//   end: 4.0                          片尾卡
+export function buildTimeline(BEATS, vdur) {
+  let t = 0, cur = null;
+  const VO = {}, SHOTS = [], WIPES = [], TAGS = [], CUES = [], SEGS = [], T = {}, FX = [];
+  const startShot = (name, world) => { if (cur) cur[1] = t; cur = [t, null, name, world || (cur && cur[3]) || 'studio']; SHOTS.push(cur); };
+  const closeTag = () => { const last = TAGS[TAGS.length - 1]; if (last && last.t1 == null) last.t1 = t; };
+  const closeCue = () => { const last = CUES[CUES.length - 1]; if (last && last.t1 == null) last.t1 = t; };
+  for (const b of BEATS) {
+    if (b.wipe) { WIPES.push(t + .12); t += .25; }
+    if (b.opener) { closeTag(); startShot('opener', 'opener'); T.opener = t; t += b.opener; }
+    if (b.end) { closeTag(); closeCue(); CUES.push({ t0: t, t1: null, name: b.cue || 'end' }); startShot('end', 'end'); T.end = t; t += b.end; continue; }
+    if (b.shot) startShot(b.shot, b.world);
+    if (b.tag) { closeTag(); TAGS.push({ t0: t + .1, t1: null, text: b.tag }); }
+    if (b.seg) SEGS.push({ t, k: b.seg, title: b.segTitle || '' });
+    if (b.cue) { closeCue(); CUES.push({ t0: t, t1: null, name: b.cue }); }
+    if (b.mark) T[b.mark] = t;
+    if (b.fx) { const [name, dt] = Array.isArray(b.fx) ? b.fx : [b.fx, 0]; FX.push({ t: t + dt, name }); }
+    if (b.line) { VO[b.line] = t; t += Math.max(.2, vdur(b.line) + (b.gap ?? .08)); }
+    if (b.pause) t += b.pause;
+  }
+  if (cur) cur[1] = t;
+  closeTag(); closeCue();
+  const DUR = +t.toFixed(3);
+  const shotAt = x => SHOTS.find(s => x >= s[0] && x < s[1]) || SHOTS[SHOTS.length - 1];
+  // 字幕在转场开始前和换场景时清掉
+  const CUTS = [...WIPES.map(w => w - .2), ...SHOTS.filter((s, i) => i > 0 && s[3] !== SHOTS[i - 1][3]).map(s => s[0])].sort((a, b) => a - b);
+  return { DUR, VO, SHOTS, WIPES, TAGS, CUES, SEGS, T, FX, CUTS, shotAt };
+}

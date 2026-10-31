@@ -1,0 +1,227 @@
+{
+  "passed": true,
+  "film": {
+    "passed": true,
+    "film": "ep08-sunk-cost.mp4",
+    "duration_seconds": 153.25,
+    "video": {
+      "codec_name": "h264",
+      "width": 1920,
+      "height": 1080,
+      "pix_fmt": "yuv420p",
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "loudness_lufs": -14.0,
+      "true_peak_dbfs": -1.0
+    },
+    "decode_errors": 0,
+    "black_events": [],
+    "subtitle_lines": 62,
+    "voice": {
+      "individual_passed": 59,
+      "context_verified": [
+        "n39",
+        "n54",
+        "n55"
+      ],
+      "total_verified": 62
+    },
+    "mixed_audio_asr_similarity": 0.99122,
+    "asr_differences": [
+      {
+        "expected": "坐",
+        "transcribed": "做"
+      },
+      {
+        "expected": "的",
+        "transcribed": ""
+      },
+      {
+        "expected": "儿",
+        "transcribed": ""
+      },
+      {
+        "expected": "白",
+        "transcribed": "摆"
+      },
+      {
+        "expected": "得",
+        "transcribed": "的"
+      },
+      {
+        "expected": "补",
+        "transcribed": "不"
+      },
+      {
+        "expected": "从",
+        "transcribed": ""
+      }
+    ],
+    "asr_normalization": "统一中阿数字和标点；字符序列匹配autojunk=False。原始听写保留在out/final-asr.txt。",
+    "music": {
+      "source": "/mnt/g/vibe/baidong/music-library/audio/vibe-bgm-reference-20261027.m4a",
+      "sourceSha256": "497d2f3d0f79f60a842ea4b982f2db004dcae42430ff0e131aff057ef002b435",
+      "title": "未核实曲名：用户提供的Vibe知识大赏视频音轨",
+      "author": "未核实",
+      "license": "用户指定音源，未另行核实传播授权",
+      "sourceSeconds": 160.0319375,
+      "durationSeconds": 153.261,
+      "crossfadeSeconds": 3,
+      "loopSeams": [],
+      "speed": 1,
+      "pitchChange": false,
+      "method": "原速原调；必要时3秒等功率交叉淡化衔接；对白自动压低"
+    },
+    "mix_levels": {
+      "bgm_gain_db": 9.0,
+      "key_dialogue_music_reduction_db": -3,
+      "voice_rms_dbfs_during_speech": -16.852425124297504,
+      "music_rms_dbfs_during_speech": -22.458577910436173,
+      "voice_music_gap_db": 5.606152786138669,
+      "measurement": "Final stem RMS at active speech samples, before loudness normalization."
+    },
+    "size_bytes": 20934439,
+    "sha256": "44273bb1720f08dc6f95ae2e70ec5093b6c433e893c93ff4f1093dc7b7d88462",
+    "limits": "已检查实际关键帧与动作连续帧；自动完整解码、黑帧、响度和成片听写。未进行真人试听或真实受众测试；未发布，未云端同步工作台。"
+  },
+  "clip": {
+    "file": "clip-1.mp4",
+    "duration_seconds": 39.458333,
+    "loudness_lufs": -14.5,
+    "true_peak_dbfs": -1.7,
+    "decode_errors": 0,
+    "black_events": [],
+    "sha256": "f29897b06e3ca84fc4cdba5847f4981e57b2748c3de9fe02c7eb76744c59f13f",
+    "source": {
+      "start": 104.13800000000002,
+      "sourceEnd": 143.06199999999998,
+      "sourceDuration": 38.923999999999964,
+      "tail": 0.5,
+      "duration": 39.423999999999964,
+      "subtitleLines": 19
+    },
+    "subtitle_lines": 19
+  },
+  "covers": [
+    {
+      "file": "cover-16x9.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "9d7975ac858ecb910e289e42231da44f319574bb275f086592ff0c1920250698"
+    },
+    {
+      "file": "cover-16x9.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "72dc1027519fa05ae6681a4e7d6431d75f78f2d598dc74caee4eccc4458b7a6b"
+    },
+    {
+      "file": "cover-4x3.jpg",
+      "size": [
+        1440,
+        1080
+      ],
+      "sha256": "df7a280f840267acf13fb55aa2db9957498d9ac983f519e64f61b6c03e687a0c"
+    },
+    {
+      "file": "cover-4x3.png",
+      "size": [
+        1440,
+        1080
+      ],
+      "sha256": "5d77b89f1e578b45ffbb44d74625a3c3e6c7aee19e1e7d8c7ebcab379547941a"
+    },
+    {
+      "file": "cover-3x4.jpg",
+      "size": [
+        1080,
+        1440
+      ],
+      "sha256": "abbc20f652e53b47c41be97049730a2f99e6ad43b2e0275844f9e57bcd4cd25d"
+    },
+    {
+      "file": "cover-3x4.png",
+      "size": [
+        1080,
+        1440
+      ],
+      "sha256": "72e4001f02772a84c38d11c993c8c6f431382134b6d43c97572b945f4b49e93f"
+    },
+    {
+      "file": "cover-9x16.jpg",
+      "size": [
+        1080,
+        1920
+      ],
+      "sha256": "e3a08a19daa8eb8696ba3b7a9e27e4a920083707b9b1482e91db8ddd4114ff6f"
+    },
+    {
+      "file": "cover-9x16.png",
+      "size": [
+        1080,
+        1920
+      ],
+      "sha256": "d9066952560d614927e497c3a5861db4d256d1290d842319c0a964e24f623dd5"
+    }
+  ],
+  "cover_text_bounds_checked": true,
+  "font_coverage": [
+    {
+      "file": "notosanssc-900.woff2",
+      "sha256": "3327272323127124dd2f5c9a952a6ee83edac2216a7e0de8ebc3c1c0d9b8adcb",
+      "missing": []
+    },
+    {
+      "file": "notoserifsc-900.woff2",
+      "sha256": "abf374aa70549c1d050de016ae600d07edd5bd42b50174ffa94741c202b22492",
+      "missing": []
+    },
+    {
+      "file": "notoserifsc-400.woff2",
+      "sha256": "8d02660800e6866f63a33831b171f49b6910c40d7021a86307de3519cf43378f",
+      "missing": []
+    }
+  ],
+  "chapters": [
+    "00:00 一百块，你说走就走？",
+    "00:13 走或留，票钱都拿不回来",
+    "00:37 两种选择，一笔共同的旧花费",
+    "01:02 别让旧花费，再扣一小时",
+    "01:40 轮到小问：都排半小时了！",
+    "02:05 继续或放弃，看接下来值不值得"
+  ],
+  "playback": [
+    {
+      "film": "ep08-sunk-cost.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 153.25,
+      "playedTo": 0.693607,
+      "seeks": [
+        22.9875,
+        76.625,
+        153.1
+      ]
+    },
+    {
+      "film": "clip-1.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 39.458333,
+      "playedTo": 0.732496,
+      "seeks": [
+        5.918749,
+        19.729166,
+        39.308333
+      ]
+    }
+  ],
+  "workbench_cloud_synced": false,
+  "limits": "已检查实际关键帧与动作连续帧；自动完整解码、黑帧、响度和成片听写。未进行真人试听或真实受众测试；未发布，未云端同步工作台。"
+}

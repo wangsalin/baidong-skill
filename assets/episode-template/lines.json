@@ -1,0 +1,7 @@
+[
+  {"id": "x1", "who": "XIAOWEN", "text": "明明困得要死，我为什么就是不想睡？", "voice": "zh-CN-XiaoyiNeural", "rate": "+10%", "pitch": "+6Hz"},
+  {"id": "l1", "who": "LAOBAI", "text": "因为白天的时间，都不是你的。", "voice": "zh-CN-YunjianNeural", "rate": "-8%", "pitch": "-4Hz"},
+  {"id": "x2", "who": "XIAOWEN", "text": "那晚上的呢？", "voice": "zh-CN-XiaoyiNeural", "rate": "+10%", "pitch": "+6Hz"},
+  {"id": "l2", "who": "LAOBAI", "text": "晚上那两个小时，是你唯一说了算的时间。", "asr": "晚上那两个小时是你唯一说了算的事件", "voice": "zh-CN-YunjianNeural", "rate": "-8%", "pitch": "-4Hz"},
+  {"id": "x3", "who": "XIAOWEN", "text": "所以我熬的不是夜，是自由？", "voice": "zh-CN-XiaoyiNeural", "rate": "+8%", "pitch": "+6Hz"}
+]

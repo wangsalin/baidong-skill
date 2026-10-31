@@ -1,0 +1,27 @@
+白洞 · 本期使用的第三方素材与许可
+
+字体（按本期用到的字符取子集，存放在 fonts/）
+- Noto Sans SC（思源黑体）Black — Google Fonts，SIL Open Font License 1.1
+- Noto Serif SC（思源宋体）Heavy / Regular — Google Fonts，SIL Open Font License 1.1
+
+配音
+- 微软 Azure 神经网络语音 zh-CN-YunjianNeural（老白）、zh-CN-XiaoyiNeural（小问），通过 edge-tts（GPL-3.0）调用。商用前请自行查阅微软语音服务的使用条款。
+- 配音校对：faster-whisper（MIT），仅用于检查，不进入成片。
+
+代码
+- 矢量画线引擎 toon.js 改编自 Lemo-Opuscar 风格库（MIT License，https://github.com/lemomo-ai/lemo-opuscar）；渲染、混音与合成工具来自同一库的 core/。
+
+音乐
+- 默认使用用户提供音源，具体选择、指纹和已核实署名见 music/selection.json、music/source.json 和 music/credits.txt；不要标成原创或沿用采样乐器许可。
+- 可选采样配乐（music/score-sampled.py），只有实际使用该模式时才保留下面的乐器署名：
+  - Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+  - 弦乐、铜管、定音鼓、大鼓、镲：VS Chamber Orchestra: Community Edition (Versilian Studios)，CC0 1.0
+  - 马林巴、拍手、沙锤、踩镲：Versilian Community Sample Library (Versilian Studios)，CC0 1.0
+  - 本期实际用到的乐器署名见 music/credits.txt
+音效
+- 全部在 numpy 中原创合成（mix.py），没有使用采样。
+
+画面
+- 角色、场景和图示均为代码绘制的原创内容。
+
+（本期如果用了其他素材，在这里补充来源和许可。）

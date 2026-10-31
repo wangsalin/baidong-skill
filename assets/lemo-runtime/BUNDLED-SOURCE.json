@@ -1,0 +1,5 @@
+{
+  "upstream": "https://github.com/lemomo-ai/lemo-opuscar",
+  "commit": "413a6bd6d78ebd3bdd5abaec9538a26867f890df",
+  "scope": "本期制作所需文本源码与风格文档；排除环境、模型、大型素材与其他风格demo。"
+}

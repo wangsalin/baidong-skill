@@ -1,0 +1,56 @@
+{
+  "updated_date": "2026-10-27",
+  "project": "白洞",
+  "selection_policy": {
+    "preferred_track_id": "vibe-bgm-reference-20261027",
+    "user_request": "以后的音乐尝试使用这个",
+    "application": "后续制作优先尝试本次视频中的音乐，按主题情绪、叙事推进和对白节奏选段；We Never 保留备选，不强制每期同曲。",
+    "previous_user_preference": "两首都可以使用，根据不同主题选择。"
+  },
+  "tracks": [
+    {
+      "id": "vibe-bgm-reference-20261027",
+      "label": "用户指定 · Vibe知识大赏视频配乐",
+      "title": null,
+      "artist": null,
+      "identity_status": "曲名及作者尚未核实；不据文件名猜测曲名，也未断言与此前抖音链接为同一录音。",
+      "priority": "preferred_candidate",
+      "source_type": "user_provided_video",
+      "source_path": "C:/Users/Administrator/Downloads/Vibe知识大赏_最火的那首BGM__vibe知识大赏 _bgm _嘉豪 _抖音科技.mp4",
+      "source_sha256": "82d6fbcbf4e3d52161a9e9165f83658c74529dc75e9462426f81ce3bdee8bf93",
+      "audio_path": "audio/vibe-bgm-reference-20261027.m4a",
+      "audio_sha256": "497d2f3d0f79f60a842ea4b982f2db004dcae42430ff0e131aff057ef002b435",
+      "duration_seconds": 160.020998,
+      "codec": "aac",
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "extraction": "AAC stream copy to M4A; no re-encoding, tempo change, pitch change or voice separation.",
+      "validation": {
+        "full_audio_decode": "passed",
+        "decoded_pcm_matches_source": true,
+        "technical_report": "audio-verification.json",
+        "speech_report": "speech-check.json"
+      },
+      "speech_check": "本次自动检查未检出清晰讲话，未作人工试听；不能据此保证完全无人声。正式剪辑前试听所选段落。",
+      "credit_status": "用户提供音源；发布物料如实记录来源，曲名及作者待核实，不标为原创或采样乐器的 CC 许可。"
+    },
+    {
+      "id": "we-never-hi-noise",
+      "title": "We Never",
+      "artist": "Hi Noise",
+      "identity_status": "曲名和歌手来自用户提供的 MP3 文件名。",
+      "priority": "alternative",
+      "source_type": "user_provided_mp3",
+      "source_path": "C:/Users/Administrator/Downloads/We Never-Hi Noise#2pQx22.mp3",
+      "audio_path": "audio/we-never-hi-noise.mp3",
+      "audio_sha256": "8098c8811dc231672aa8bc2407832753df281d642336d3529b969303b58aa34a",
+      "duration_seconds": 248.571429,
+      "previous_use": "ep05-hometown（为什么不愿意离开家乡）"
+    }
+  ],
+  "earlier_douyin_reference": {
+    "url": "https://v.douyin.com/zj9PBwOV7Tc/",
+    "work_id": "7697546640952970532",
+    "relationship_to_new_video": "尚未核对是否为同一录音，保留原始参考。"
+  }
+}

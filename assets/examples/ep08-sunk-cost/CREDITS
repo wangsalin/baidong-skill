@@ -1,0 +1,22 @@
+白洞 No.08《都花这么多了，现在放弃多亏啊！》
+
+内容：沿用用户已认可的老白 × 小问对白；本期场景、装置与封面为白洞项目绘制。
+制作：白洞 v4 skill（本机提交04130ea）、Lemo-Opuscar、Canvas、Playwright、FFmpeg。
+风格参考：Lemo-Opuscar scifi-toon 科幻情景喜剧卡通。
+上游代码：https://github.com/lemomo-ai/lemo-opuscar
+上游代码许可：MIT，完整文本见 LICENSE-lemo.txt。角色沿用用户确认的白洞角色代码。
+
+字体：Noto Sans SC / Noto Serif SC，来自 Google Fonts，SIL Open Font License 1.1。
+字体由 fonts/fetch_fonts.py 对本期文本取子集；使用源公开字体许可，见字体项目页面：
+https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE
+https://github.com/notofonts/noto-cjk/blob/main/Serif/LICENSE
+
+AI配音：微软在线神经语音 zh-CN-YunjianNeural / zh-CN-XiaoyiNeural。
+音效：本期 mix.py 通过噪声、滤波与合成振荡器生成；未使用替代原创配乐。
+配乐：用户提供的《Vibe知识大赏_最火的那首BGM》视频原音轨，库内文件 vibe-bgm-reference-20261027.m4a。
+实际音源指纹、裁切时长与处理方式见 music/source.json。曲名与作者未核实，不标为原创或CC音乐。
+
+事实来源：CFI Sunk Cost，正文已实际读取；具体摘录与情景边界见 FACTS.md。
+电影票价、剩余时间、排队时长、预计等候和取餐号为情景演绎；不是真实抓取数据。
+
+交付范围：本地审片与发布物料；未向任何平台发布，工作台云端未连接。

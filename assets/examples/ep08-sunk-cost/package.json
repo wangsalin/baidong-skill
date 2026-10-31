@@ -1,0 +1,8 @@
+{
+  "name": "baidong-ep08-sunk-cost",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "note": "Run build.sh in WSL with tools/with-linux.sh; no npm dependencies are required."
+  }
+}

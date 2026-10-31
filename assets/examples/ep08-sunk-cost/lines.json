@@ -1,0 +1,562 @@
+[
+  {
+    "id": "n01",
+    "who": "LAOBAI",
+    "text": "一百块一张！你说走就走？",
+    "say": "一百块一张！你说走就走？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n02",
+    "who": "XIAOWEN",
+    "text": "这电影，你看得下去？",
+    "say": "这电影，你看得下去？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n03",
+    "who": "LAOBAI",
+    "text": "看不下去，也得把票钱看回来！",
+    "say": "看不下去，也得把票钱看回来！",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n04",
+    "who": "XIAOWEN",
+    "text": "看完能退钱？",
+    "say": "看完能退钱？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n05",
+    "who": "LAOBAI",
+    "text": "……不能。",
+    "say": "……不能。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n06",
+    "who": "XIAOWEN",
+    "text": "那你准备怎么“看回来”？",
+    "say": "那你准备怎么“看回来”？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n07",
+    "who": "LAOBAI",
+    "text": "我就是觉得，现在走太亏了。",
+    "say": "我就是觉得，现在走太亏了。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n08",
+    "who": "XIAOWEN",
+    "text": "可现在走，一百块没了。",
+    "say": "可现在走，一百块没了。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n09",
+    "who": "XIAOWEN",
+    "text": "坐到散场，一百块不也没了？",
+    "say": "坐到散场，一百块不也没了？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz",
+    "asr": "做到散场，一百块部也没了？"
+  },
+  {
+    "id": "n10",
+    "who": "LAOBAI",
+    "text": "对。这一百块，就叫“沉没成本”。",
+    "say": "对。这一百块，就叫“沉没成本”。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n11",
+    "who": "XIAOWEN",
+    "text": "什么意思？",
+    "say": "什么意思？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n12",
+    "who": "LAOBAI",
+    "text": "已经付出，而且现在怎么选都收不回来的代价。",
+    "say": "已经付出，而且现在怎么选都收不回来的代价。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n13",
+    "who": "XIAOWEN",
+    "text": "就是已经搭进去，拿不回来的？",
+    "say": "就是已经搭进去，拿不回来的？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n14",
+    "who": "LAOBAI",
+    "text": "对。这张票已经不能退、不能转卖。",
+    "say": "对。这张票已经不能退、不能转卖。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n15",
+    "who": "LAOBAI",
+    "text": "走或者留，都改变不了这笔花费。",
+    "say": "走或者留，都改变不了这笔花费。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n16",
+    "who": "XIAOWEN",
+    "text": "可剩下的一小时，还没花掉啊！",
+    "say": "可剩下的一小时，还没花掉啊！",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n17",
+    "who": "LAOBAI",
+    "text": "对。你现在能决定的，是这一小时怎么用。",
+    "say": "对。你现在能决定的，是这一小时怎么用。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n18",
+    "who": "XIAOWEN",
+    "text": "那你为什么还拦我？",
+    "say": "那你为什么还拦我？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n19",
+    "who": "LAOBAI",
+    "text": "……因为走了，就得承认这票买错了。",
+    "say": "……因为走了，就得承认这票买错了。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n20",
+    "who": "XIAOWEN",
+    "text": "所以你留下，是想看电影，还是不想认？",
+    "say": "所以你留下，是想看电影，还是不想认？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n21",
+    "who": "LAOBAI",
+    "text": "不想认。",
+    "say": "不想认。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n22",
+    "who": "LAOBAI",
+    "text": "问题就在这儿。",
+    "say": "问题就在这儿。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz",
+    "asr": "问题就在这。"
+  },
+  {
+    "id": "n23",
+    "who": "LAOBAI",
+    "text": "我一直想着，之前的钱不能白花。",
+    "say": "我一直想着，之前的钱不能白花。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n24",
+    "who": "LAOBAI",
+    "text": "却没问，后面的时间值不值得花。",
+    "say": "却没问，后面的时间值不值得花。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n25",
+    "who": "XIAOWEN",
+    "text": "为了不心疼那一百块，",
+    "say": "为了不心疼那一百块，",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n26",
+    "who": "XIAOWEN",
+    "text": "还得再搭进去一小时？",
+    "say": "还得再搭进去一小时？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n27",
+    "who": "LAOBAI",
+    "text": "对。这就是沉没成本容易影响判断的地方。",
+    "say": "对。这就是沉没成本容易影响判断的地方。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n28",
+    "who": "LAOBAI",
+    "text": "舍不得已经收不回来的投入，",
+    "say": "舍不得，已经收不回来的投入。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n29",
+    "who": "LAOBAI",
+    "text": "就可能继续付出新的代价。",
+    "say": "就可能继续付出新的代价。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n30",
+    "who": "XIAOWEN",
+    "text": "可坚持下去，也可能有好结果啊！",
+    "say": "可坚持下去，也可能有好结果啊！",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n31",
+    "who": "LAOBAI",
+    "text": "当然。所以有沉没成本，不代表必须放弃。",
+    "say": "当然。所以有沉没成本，不代表必须放弃。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n32",
+    "who": "XIAOWEN",
+    "text": "那到底怎么选？",
+    "say": "那到底怎么选？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n33",
+    "who": "LAOBAI",
+    "text": "看从现在开始，继续能得到什么，",
+    "say": "看从现在开始，继续能得到什么，",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n34",
+    "who": "LAOBAI",
+    "text": "还要付出什么。",
+    "say": "还要付出什么。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n35",
+    "who": "XIAOWEN",
+    "text": "比如我觉得后面会好看，我可以留下？",
+    "say": "比如我觉得后面会好看，我可以留下？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n36",
+    "who": "LAOBAI",
+    "text": "可以。那你留下，是因为还想看。",
+    "say": "可以，那你留下，是因为还想看。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n37",
+    "who": "LAOBAI",
+    "text": "如果只是“钱都花了”，就得重新想想。",
+    "say": "如果只是“钱都花了”，就得重新想想。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n38",
+    "who": "XIAOWEN",
+    "text": "走，吃点东西。我饿了。",
+    "say": "走，吃点东西。我饿了。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n39",
+    "who": "XIAOWEN",
+    "text": "怎么还没到？不想等了。",
+    "say": "怎么还没到？不想等了！",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+6%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n40",
+    "who": "LAOBAI",
+    "text": "那换一家？",
+    "say": "那，换一家？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n41",
+    "who": "XIAOWEN",
+    "text": "不行！都排半小时了，现在走多亏！",
+    "say": "不行！都排半小时了，现在走多亏！",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n42",
+    "who": "XIAOWEN",
+    "text": "……这句怎么这么耳熟？",
+    "say": "……这句怎么这么耳熟？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n43",
+    "who": "LAOBAI",
+    "text": "沉没成本，也可以是时间。",
+    "say": "沉没成本，也可以是时间。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n44",
+    "who": "XIAOWEN",
+    "text": "已经排掉的半小时，走不走都回不来？",
+    "say": "已经排掉的半小时，走不走都回不来？",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n45",
+    "who": "LAOBAI",
+    "text": "对。现在该问什么？",
+    "say": "对。现在该问什么？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n46",
+    "who": "XIAOWEN",
+    "text": "还要付出多久。",
+    "say": "还要付出多久。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n47",
+    "who": "XIAOWEN",
+    "text": "还有，我到底想不想吃。",
+    "say": "还有，我到底想不想吃。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n48",
+    "who": "LAOBAI",
+    "text": "那你选？",
+    "say": "那你选？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n49",
+    "who": "XIAOWEN",
+    "text": "预计再等五分钟，我接受。",
+    "say": "预计再等五分钟，我接受。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n50",
+    "who": "XIAOWEN",
+    "text": "而且我确实想吃这家。",
+    "say": "而且我确实想吃这家。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n51",
+    "who": "LAOBAI",
+    "text": "那就等。",
+    "say": "那就等。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n52",
+    "who": "XIAOWEN",
+    "text": "明白了。",
+    "say": "明白了。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n53",
+    "who": "XIAOWEN",
+    "text": "继续可以，放弃也可以。",
+    "say": "继续可以，放弃也可以。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n54",
+    "who": "XIAOWEN",
+    "text": "理由得是接下来值不值得。",
+    "say": "理由得是，接下来值不值得。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+6%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n55",
+    "who": "LAOBAI",
+    "text": "对。之前花了多少，",
+    "say": "对。之前，花了多少？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-8%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n56",
+    "who": "LAOBAI",
+    "text": "不能单独决定后面还要花多少。",
+    "say": "不能单独决定后面还要花多少。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n57",
+    "who": "XIAOWEN",
+    "text": "下次我再说“都已经投入这么多了”——",
+    "say": "下次我再说“都已经投入这么多了”——",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n58",
+    "who": "LAOBAI",
+    "text": "再补问一句。",
+    "say": "再补问一句。",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n59",
+    "who": "XIAOWEN",
+    "text": "“从现在开始，继续做，还值得吗？”",
+    "say": "“从现在开始，继续做，还值得吗？”",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  },
+  {
+    "id": "n60",
+    "who": "LAOBAI",
+    "text": "你有没有因为“都花这么多了”，",
+    "say": "你有没有因为“都花这么多了”，",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n61",
+    "who": "LAOBAI",
+    "text": "继续一件自己已经不想做的事？",
+    "say": "继续一件自己已经不想做的事？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "n62",
+    "who": "XIAOWEN",
+    "text": "下一个为什么，白洞见。",
+    "say": "下一个为什么，白洞见。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+6Hz"
+  }
+]

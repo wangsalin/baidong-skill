@@ -1,0 +1,498 @@
+{
+  "n01": {
+    "expected": "一百块一张！你说走就走？",
+    "matchedReference": "一百块一张！你说走就走？",
+    "transcript": "一百块一张。你说走就走。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "e82ed53c937217eafd37900dfc2ab30b292b7b2ec8eccdf9823fd2551ad4f3d6"
+  },
+  "n02": {
+    "expected": "这电影，你看得下去？",
+    "matchedReference": "这电影，你看得下去？",
+    "transcript": "这电影,你看得下去。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "b75bd5d406f8f2980500141223cf800281519a1e114ed1c8d28ba090cb181980"
+  },
+  "n03": {
+    "expected": "看不下去，也得把票钱看回来！",
+    "matchedReference": "看不下去，也得把票钱看回来！",
+    "transcript": "看不下去,也得把票钱看回来。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "8d549a7d7d2a19ffc91107e7c181758fb049ad302c2801273c8f9ad219e37645"
+  },
+  "n04": {
+    "expected": "看完能退钱？",
+    "matchedReference": "看完能退钱？",
+    "transcript": "看完能退钱?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "065a064427ddbb480002e274d1e1495717023f700b6b6d9c32f63f01fc9e4f33"
+  },
+  "n05": {
+    "expected": "……不能。",
+    "matchedReference": "……不能。",
+    "transcript": "不能，",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "b9834faf0c5e30ae0f3b13ec90ad18687d917ae0414fd4261cf017449ad19f0c"
+  },
+  "n06": {
+    "expected": "那你准备怎么“看回来”？",
+    "matchedReference": "那你准备怎么“看回来”？",
+    "transcript": "那你准备怎么看回来?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "4767aa25ea409266372e9da268ed0ee8ccc2c52af25667652c22595418a4ec5c"
+  },
+  "n07": {
+    "expected": "我就是觉得，现在走太亏了。",
+    "matchedReference": "我就是觉得，现在走太亏了。",
+    "transcript": "我就是觉得现在走太亏了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "f23b146c1f5d182184cc3ee39f9aa1bee01e3353bdb6426be48108c72575a291"
+  },
+  "n08": {
+    "expected": "可现在走，一百块没了。",
+    "matchedReference": "可现在走，一百块没了。",
+    "transcript": "可现在走,一百块没了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "bb3e850d16fee89f4beb4c2fdb8dc8d06db741fe642e5e93237dc4424b3b3eb6"
+  },
+  "n09": {
+    "expected": "做到散场，一百块部也没了？",
+    "matchedReference": "做到散场，一百块部也没了？",
+    "transcript": "做到散场,一百块部也没了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "4d3378e4c773c09c28f93b2eb3c9967d1686c4b5ecddf282348be5f58d7c8fe1"
+  },
+  "n10": {
+    "expected": "对。这一百块，就叫“沉没成本”。",
+    "matchedReference": "对。这一百块，就叫“沉没成本”。",
+    "transcript": "对，这一百块就叫 沉没成本。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "165e0e8e166617855ef2e26e7d8d4caa00bfcc46b49d7e3430ea61d52ba39e23"
+  },
+  "n11": {
+    "expected": "什么意思？",
+    "matchedReference": "什么意思？",
+    "transcript": "什么意思?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "e9e57128cd5756a2d3547ef312f821ba6c365350d8a1f60df527a0f3c18810bf"
+  },
+  "n12": {
+    "expected": "已经付出，而且现在怎么选都收不回来的代价。",
+    "matchedReference": "已经付出，而且现在怎么选都收不回来的代价。",
+    "transcript": "已经付出，而且现在，怎么选都收不回来的代价。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "7cdc016799b303fa535526c1386e54faa1dc41115dd00270475fda760b98489d"
+  },
+  "n13": {
+    "expected": "就是已经搭进去，拿不回来的？",
+    "matchedReference": "就是已经搭进去，拿不回来的？",
+    "transcript": "就是已经搭进去,拿不回来的。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "74e0fbb1e8087a460ddd02285c50e52af429bafc5c527e4f413ebb6088c4cd27"
+  },
+  "n14": {
+    "expected": "对。这张票已经不能退、不能转卖。",
+    "matchedReference": "对。这张票已经不能退、不能转卖。",
+    "transcript": "对，这张票已经不能退，不能转卖。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "9aba90004d576bc265315ba9948c2dbb91534af807f7460f0e33eaa461981e33"
+  },
+  "n15": {
+    "expected": "走或者留，都改变不了这笔花费。",
+    "matchedReference": "走或者留，都改变不了这笔花费。",
+    "transcript": "走或者留，都改变不了这笔花费。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "47ff1efecd5abbb770f69b4d34e5a79551d2f7de57d4dd98af203d6e2d4601d5"
+  },
+  "n16": {
+    "expected": "可剩下的一小时，还没花掉啊！",
+    "matchedReference": "可剩下的一小时，还没花掉啊！",
+    "transcript": "可剩下一小时还没花掉啊。",
+    "passed": true,
+    "similarity": 0.9565,
+    "sha256": "609ccc1a6d5e1b8aca849b7079a0beaa8bfec4df918f6817b547564fe8e610e3"
+  },
+  "n17": {
+    "expected": "对。你现在能决定的，是这一小时怎么用。",
+    "matchedReference": "对。你现在能决定的，是这一小时怎么用。",
+    "transcript": "对，你现在能决定的是这一小时怎么用?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "ffe5360ed9e42db1c6152e2a2d0a5234dc9b0b8bd8f69f944130e707db247f0c"
+  },
+  "n18": {
+    "expected": "那你为什么还拦我？",
+    "matchedReference": "那你为什么还拦我？",
+    "transcript": "那你为什么还拦我?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "6d89e25c118fba95fe99bbf6a6f1ef2bface862c407e384fe8db84b794daa992"
+  },
+  "n19": {
+    "expected": "……因为走了，就得承认这票买错了。",
+    "matchedReference": "……因为走了，就得承认这票买错了。",
+    "transcript": "因为走了,就得承认这票买错了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "a531d9421a2a8b6708201ed738e4b5b3706ed8d560d2ff782584d1cde52f86c9"
+  },
+  "n20": {
+    "expected": "所以你留下，是想看电影，还是不想认？",
+    "matchedReference": "所以你留下，是想看电影，还是不想认？",
+    "transcript": "所以,你留下,是想看电影,还是不想认?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "09f1785cb9950ba2b4ac3e14355d1aa9a2b122b2b3d488b1c721f12fd9baa156"
+  },
+  "n21": {
+    "expected": "不想认。",
+    "matchedReference": "不想认。",
+    "transcript": "不想认。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "f8ba6bd3e9637bf55836bae79710bb92e3fda5413a12702d2fd576ae92517254"
+  },
+  "n22": {
+    "expected": "问题就在这。",
+    "matchedReference": "问题就在这。",
+    "transcript": "问题就在这，",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "6500864a8dd470cb6fac7f7ddff65cc2792c43404fec0717c6cef2a49958a686"
+  },
+  "n23": {
+    "expected": "我一直想着，之前的钱不能白花。",
+    "matchedReference": "我一直想着，之前的钱不能白花。",
+    "transcript": "我一直想着 之前的钱不能白话。",
+    "passed": true,
+    "similarity": 0.9231,
+    "sha256": "264eba25ead5e2e12d691a3165a0d513e0cb82967fc06c9cfb03503b61d96979"
+  },
+  "n24": {
+    "expected": "却没问，后面的时间值不值得花。",
+    "matchedReference": "却没问，后面的时间值不值得花。",
+    "transcript": "却没问后面的时间值不值得话。",
+    "passed": true,
+    "similarity": 0.9231,
+    "sha256": "671beadb3c614cdad6e3dbe1d0718d0f37b0eb407f597a21408a7b778350fdb4"
+  },
+  "n25": {
+    "expected": "为了不心疼那一百块，",
+    "matchedReference": "为了不心疼那一百块，",
+    "transcript": "为了不心疼那一百块。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "1c0133bb7ba016064ee353e1793d23788913f85ff451f8e4d45f0f37368bb7cd"
+  },
+  "n26": {
+    "expected": "还得再搭进去一小时？",
+    "matchedReference": "还得再搭进去一小时？",
+    "transcript": "还得再搭进去一小时?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "1ec5dd7f8df70702f035b4722a54a5617c5f4681ec99450be84288ae17ea4751"
+  },
+  "n27": {
+    "expected": "对。这就是沉没成本容易影响判断的地方。",
+    "matchedReference": "对。这就是沉没成本容易影响判断的地方。",
+    "transcript": "对,这就是沉没成本容易影响判断的地方。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "d25378bb5432edff600f7450004ac76babb22ea633ef4a7d0d6c88765964f1a5"
+  },
+  "n28": {
+    "expected": "舍不得已经收不回来的投入，",
+    "matchedReference": "舍不得已经收不回来的投入，",
+    "transcript": "舍不得，已经收不回来的投入。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "9d9f2a88f5b4c6fa92ea376571fb805b78714c82800b1aee4a89d2583600ab33"
+  },
+  "n29": {
+    "expected": "就可能继续付出新的代价。",
+    "matchedReference": "就可能继续付出新的代价。",
+    "transcript": "就可能继续付出新的代价。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "2198ca8a794e17e9e97272108786398a2a6f4613869c05d2360f1aaa5fa97671"
+  },
+  "n30": {
+    "expected": "可坚持下去，也可能有好结果啊！",
+    "matchedReference": "可坚持下去，也可能有好结果啊！",
+    "transcript": "可坚持下去,也可能有好结果啊。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "f7b0ea25f67a0eb3324d6dfdde9c665f0858ee8c9460788825aaae587ee70e48"
+  },
+  "n31": {
+    "expected": "当然。所以有沉没成本，不代表必须放弃。",
+    "matchedReference": "当然。所以有沉没成本，不代表必须放弃。",
+    "transcript": "当然，所以有沉没成本不代表必须放弃。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "1378c5e430fbb3b424273e6a10e50afd32393a44b1602df078ffbbb2ea3bfe26"
+  },
+  "n32": {
+    "expected": "那到底怎么选？",
+    "matchedReference": "那到底怎么选？",
+    "transcript": "那到底怎么选?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "2b43d8aa32a6b2f51f373599a9eec6cfd96bbf14c9b9db26feacc1476e8403c2"
+  },
+  "n33": {
+    "expected": "看从现在开始，继续能得到什么，",
+    "matchedReference": "看从现在开始，继续能得到什么，",
+    "transcript": "看从现在开始,继续能得到什么。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "0c7e4ed175e37cf65e1976e463aa81b62ec9dd69eea6cc48c9a44f3894dee961"
+  },
+  "n34": {
+    "expected": "还要付出什么。",
+    "matchedReference": "还要付出什么。",
+    "transcript": "还要付出什么?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "99ccde9ca996ef1b930305852095788475c55c2ddeae40f7e154747fbdad2109"
+  },
+  "n35": {
+    "expected": "比如我觉得后面会好看，我可以留下？",
+    "matchedReference": "比如我觉得后面会好看，我可以留下？",
+    "transcript": "比如,我觉得后面会好看,我可以留下。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "5336ae4186aa48066712ab04bef4bca9603ff7ce9613222f1a6aa186976481d4"
+  },
+  "n36": {
+    "expected": "可以。那你留下，是因为还想看。",
+    "matchedReference": "可以。那你留下，是因为还想看。",
+    "transcript": "可以，那你留下，是因为还想看。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "c78c68abb13cd72f120b6696d4934d15e0e8c693d7b2fc3e9729f43c6a52da71"
+  },
+  "n37": {
+    "expected": "如果只是“钱都花了”，就得重新想想。",
+    "matchedReference": "如果只是“钱都花了”，就得重新想想。",
+    "transcript": "如果只是钱都花了,就得重新想想。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "61505815a1f0a46d3ad0de1e023bb1aad872f6c0e9a0f295e6bf9ed019a969b0"
+  },
+  "n38": {
+    "expected": "走，吃点东西。我饿了。",
+    "matchedReference": "走，吃点东西。我饿了。",
+    "transcript": "走,吃点东西。我饿了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "f64ce1b5f602e7bb76d82367c3b5e6ea637672e18f3d571b42c39a69b06d166f"
+  },
+  "n39": {
+    "expected": "怎么还没到？不想等了。",
+    "matchedReference": "怎么还没到？不想等了。",
+    "transcript": "怎么还没到，不想等啊，",
+    "passed": false,
+    "similarity": 0.8889,
+    "sha256": "b08610c935fadacf33ebf72bd28d59a040ec51da8260563a786f415b4f85691a"
+  },
+  "n40": {
+    "expected": "那换一家？",
+    "matchedReference": "那换一家？",
+    "transcript": "那,换一家。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "b9c003ef31ccb466903b5f1f8441b12c29adc79f7f97154ea6b7aca1a930d379"
+  },
+  "n41": {
+    "expected": "不行！都排半小时了，现在走多亏！",
+    "matchedReference": "不行！都排半小时了，现在走多亏！",
+    "transcript": "不行，都排半小时了，现在走多亏。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "2f49d66c66ab5ae7c4e6e014fedf1ed245675834dedcc89b08624670a7ab42cc"
+  },
+  "n42": {
+    "expected": "……这句怎么这么耳熟？",
+    "matchedReference": "……这句怎么这么耳熟？",
+    "transcript": "这句怎么这么耳熟?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "95da94c0a14133fc30455b91d4af35a864c33774df6e8bf0b7da5618bfc4da72"
+  },
+  "n43": {
+    "expected": "沉没成本，也可以是时间。",
+    "matchedReference": "沉没成本，也可以是时间。",
+    "transcript": "沉没成本也可以是时间。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "c23ee12b1953358f8ae82bb8f1291ed3c32b5c0458361d26c86c618b72f033d2"
+  },
+  "n44": {
+    "expected": "已经排掉的半小时，走不走都回不来？",
+    "matchedReference": "已经排掉的半小时，走不走都回不来？",
+    "transcript": "已经排掉的半小时,走不走都回不来。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "0e07992b4fe6786a9e5efe318f9074348f5021ccb2cf7393b2d2399201247c34"
+  },
+  "n45": {
+    "expected": "对。现在该问什么？",
+    "matchedReference": "对。现在该问什么？",
+    "transcript": "对，现在该问什么?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "850e0c14a3c48b1d5b20148f2f78f22f8dbb8cf783ec8c0a48e0939b339b62fe"
+  },
+  "n46": {
+    "expected": "还要付出多久。",
+    "matchedReference": "还要付出多久。",
+    "transcript": "还要付出多久?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "f524ea0289d16d57b8c393a4171488ca30e77ecaf3488a2d12e6c61497766096"
+  },
+  "n47": {
+    "expected": "还有，我到底想不想吃。",
+    "matchedReference": "还有，我到底想不想吃。",
+    "transcript": "还有,我到底想不想吃。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "a51dc3e64e279f71750fc9dbae7c488763e7fca7d3d036470f5e9ab6e788f426"
+  },
+  "n48": {
+    "expected": "那你选？",
+    "matchedReference": "那你选？",
+    "transcript": "那你选。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "17e350e1ce51fed7be653cffd10641858bc40b179b73dbd1c7fe349af0ab0cd2"
+  },
+  "n49": {
+    "expected": "预计再等五分钟，我接受。",
+    "matchedReference": "预计再等五分钟，我接受。",
+    "transcript": "预计再等五分钟,我接受。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "204007d60ad063a872e68fbb9e0d3987a8dde5b715f87f0cff026861de472ff5"
+  },
+  "n50": {
+    "expected": "而且我确实想吃这家。",
+    "matchedReference": "而且我确实想吃这家。",
+    "transcript": "而且,我确实想吃这家。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "0b5838e14c27c4ecaf394e21bc707f8dbd04ec4841f2af9d830234975efb7ace"
+  },
+  "n51": {
+    "expected": "那就等。",
+    "matchedReference": "那就等。",
+    "transcript": "那就等，",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "dede6921226f817514163ab828582a1eb25eeb8a71118e2a692441e12cc63db0"
+  },
+  "n52": {
+    "expected": "明白了。",
+    "matchedReference": "明白了。",
+    "transcript": "明白了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "ba42bccff9a6a4f59913e3501e64c0614a7893ad2e4ba352674177e22f5a53aa"
+  },
+  "n53": {
+    "expected": "继续可以，放弃也可以。",
+    "matchedReference": "继续可以，放弃也可以。",
+    "transcript": "继续可以，放弃也可以。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "6dd79c7687805147e34c7e63a8aa761c27effb53be1bc8fc4e1c28c61cb398a0"
+  },
+  "n54": {
+    "expected": "理由得是接下来值不值得。",
+    "matchedReference": "理由得是接下来值不值得。",
+    "transcript": "理由的是，接下来值不值得。",
+    "passed": false,
+    "similarity": 0.9091,
+    "sha256": "1a4937716c6970da410fb4dfc6752232e4ef479d3494baf697874290d68f3f90"
+  },
+  "n55": {
+    "expected": "对。之前花了多少，",
+    "matchedReference": "对。之前花了多少，",
+    "transcript": "对，之前，画了多少?",
+    "passed": false,
+    "similarity": 0.8571,
+    "sha256": "b6818975c2f72350111fc14ad1888bbe096dd7dde0d5f43dc08a69c0b952b872"
+  },
+  "n56": {
+    "expected": "不能单独决定后面还要花多少。",
+    "matchedReference": "不能单独决定后面还要花多少。",
+    "transcript": "不能单独决定后面还要花多少。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "3629b39b8a60ade936f2db24572c5c61ba00433a693fd6b8ab0bdd2e05c5b8af"
+  },
+  "n57": {
+    "expected": "下次我再说“都已经投入这么多了”——",
+    "matchedReference": "下次我再说“都已经投入这么多了”——",
+    "transcript": "下次我再说都已经投入这么多了。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "be118a46209b5c4a3c0728fadb07e78b1361a6c9cbb4152541ef8353af0ccbdf"
+  },
+  "n58": {
+    "expected": "再补问一句。",
+    "matchedReference": "再补问一句。",
+    "transcript": "再补问一句。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "2d680d5303b233ace2f16b9eb9b01e7d215839dd9552cad6eabeb29fb98d3652"
+  },
+  "n59": {
+    "expected": "“从现在开始，继续做，还值得吗？”",
+    "matchedReference": "“从现在开始，继续做，还值得吗？”",
+    "transcript": "从现在开始,继续做,还值得吗?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "3dbe543f84387b06dddc2e944f73c88cae43799964fdcc55b16625e77967e9a7"
+  },
+  "n60": {
+    "expected": "你有没有因为“都花这么多了”，",
+    "matchedReference": "你有没有因为“都花这么多了”，",
+    "transcript": "你有没有因为都花这么多了?",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "28df1a8b916d1d3ed029618bba19f250d5acd472ef2d9e44e89da1372f6d0ead"
+  },
+  "n61": {
+    "expected": "继续一件自己已经不想做的事？",
+    "matchedReference": "继续一件自己已经不想做的事？",
+    "transcript": "继续一见，自己已经不想做的事。",
+    "passed": true,
+    "similarity": 0.9231,
+    "sha256": "2de7262d2e3a8586b31f1bb40f7ffe7559fc68327682888530da42cfe9c27d41"
+  },
+  "n62": {
+    "expected": "下一个为什么，白洞见。",
+    "matchedReference": "下一个为什么，白洞见。",
+    "transcript": "下一个为什么，白洞见。",
+    "passed": true,
+    "similarity": 1.0,
+    "sha256": "dde2c6e170365dbd251bf0d839198a0a5a7a9b854a0663ee740d0a25ab4dda97"
+  }
+}

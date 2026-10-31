@@ -1,0 +1,8 @@
+{
+  "bgm_gain_db": 9.0,
+  "key_dialogue_music_reduction_db": -3,
+  "voice_rms_dbfs_during_speech": -16.852425124297504,
+  "music_rms_dbfs_during_speech": -22.458577910436173,
+  "voice_music_gap_db": 5.606152786138669,
+  "measurement": "Final stem RMS at active speech samples, before loudness normalization."
+}

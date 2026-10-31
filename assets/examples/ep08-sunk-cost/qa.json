@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "film": "ep08-sunk-cost.mp4",
+  "duration_seconds": 153.25,
+  "video": {
+    "codec_name": "h264",
+    "width": 1920,
+    "height": 1080,
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "24/1"
+  },
+  "audio": {
+    "codec": "aac",
+    "loudness_lufs": -14.0,
+    "true_peak_dbfs": -1.0
+  },
+  "decode_errors": 0,
+  "black_events": [],
+  "subtitle_lines": 62,
+  "voice": {
+    "individual_passed": 59,
+    "context_verified": [
+      "n39",
+      "n54",
+      "n55"
+    ],
+    "total_verified": 62
+  },
+  "mixed_audio_asr_similarity": 0.99122,
+  "asr_differences": [
+    {
+      "expected": "坐",
+      "transcribed": "做"
+    },
+    {
+      "expected": "的",
+      "transcribed": ""
+    },
+    {
+      "expected": "儿",
+      "transcribed": ""
+    },
+    {
+      "expected": "白",
+      "transcribed": "摆"
+    },
+    {
+      "expected": "得",
+      "transcribed": "的"
+    },
+    {
+      "expected": "补",
+      "transcribed": "不"
+    },
+    {
+      "expected": "从",
+      "transcribed": ""
+    }
+  ],
+  "asr_normalization": "统一中阿数字和标点；字符序列匹配autojunk=False。原始听写保留在out/final-asr.txt。",
+  "music": {
+    "source": "/mnt/g/vibe/baidong/music-library/audio/vibe-bgm-reference-20261027.m4a",
+    "sourceSha256": "497d2f3d0f79f60a842ea4b982f2db004dcae42430ff0e131aff057ef002b435",
+    "title": "未核实曲名：用户提供的Vibe知识大赏视频音轨",
+    "author": "未核实",
+    "license": "用户指定音源，未另行核实传播授权",
+    "sourceSeconds": 160.0319375,
+    "durationSeconds": 153.261,
+    "crossfadeSeconds": 3,
+    "loopSeams": [],
+    "speed": 1,
+    "pitchChange": false,
+    "method": "原速原调；必要时3秒等功率交叉淡化衔接；对白自动压低"
+  },
+  "mix_levels": {
+    "bgm_gain_db": 9.0,
+    "key_dialogue_music_reduction_db": -3,
+    "voice_rms_dbfs_during_speech": -16.852425124297504,
+    "music_rms_dbfs_during_speech": -22.458577910436173,
+    "voice_music_gap_db": 5.606152786138669,
+    "measurement": "Final stem RMS at active speech samples, before loudness normalization."
+  },
+  "size_bytes": 20934439,
+  "sha256": "44273bb1720f08dc6f95ae2e70ec5093b6c433e893c93ff4f1093dc7b7d88462",
+  "limits": "已检查实际关键帧与动作连续帧；自动完整解码、黑帧、响度和成片听写。未进行真人试听或真实受众测试；未发布，未云端同步工作台。"
+}

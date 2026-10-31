@@ -1,0 +1,4 @@
+/* Google Fonts, SIL Open Font License 1.1 — subset to the characters this episode shows (fetch_fonts.py) */
+@font-face { font-family: 'Noto Sans SC'; font-weight: 900; font-display: block; src: url(notosanssc-900.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Serif SC'; font-weight: 900; font-display: block; src: url(notoserifsc-900.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Serif SC'; font-weight: 400; font-display: block; src: url(notoserifsc-400.woff2) format('woff2'); }

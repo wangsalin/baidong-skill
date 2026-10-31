@@ -1,0 +1,14 @@
+{
+  "source": "/mnt/g/vibe/baidong/music-library/audio/vibe-bgm-reference-20261027.m4a",
+  "sourceSha256": "497d2f3d0f79f60a842ea4b982f2db004dcae42430ff0e131aff057ef002b435",
+  "title": "未核实曲名：用户提供的Vibe知识大赏视频音轨",
+  "author": "未核实",
+  "license": "用户指定音源，未另行核实传播授权",
+  "sourceSeconds": 160.0319375,
+  "durationSeconds": 153.261,
+  "crossfadeSeconds": 3,
+  "loopSeams": [],
+  "speed": 1,
+  "pitchChange": false,
+  "method": "原速原调；必要时3秒等功率交叉淡化衔接；对白自动压低"
+}

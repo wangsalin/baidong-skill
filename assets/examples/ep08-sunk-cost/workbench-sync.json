@@ -1,0 +1,6 @@
+{
+  "status": "local_candidate_only",
+  "cloudSynced": false,
+  "reason": "当前没有ArtifactData工具；未读取线上版本，未对云端执行写入。",
+  "candidate": "workbench-episode.json"
+}
