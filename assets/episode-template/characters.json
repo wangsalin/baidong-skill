@@ -1,0 +1,16 @@
+{
+  "formal": {
+    "A1": { "name": "阿津", "voice": "zh-CN-YunyangNeural", "rate": "-6%", "pitch": "-4Hz", "target": "天津话｜相声演员" },
+    "A2": { "name": "跳跳", "voice": "zh-CN-XiaoyiNeural", "rate": "+12%", "pitch": "+5Hz", "target": "四川方向｜明亮女声" },
+    "B1": { "name": "丁叔", "voice": "zh-CN-YunxiaNeural", "rate": "+2%", "pitch": "+1Hz", "target": "东北方向｜温厚男声" },
+    "B2": { "name": "小算盘", "voice": "zh-CN-XiaoxiaoNeural", "rate": "-2%", "pitch": "+0Hz", "target": "上海方向｜清亮女声" },
+    "C1": { "name": "流程哥", "voice": "zh-CN-YunjianNeural", "rate": "-4%", "pitch": "-2Hz", "target": "陕西方向｜沉稳男声" },
+    "C2": { "name": "小账本", "voice": "zh-HK-WanLungNeural", "rate": "-7%", "pitch": "-2Hz", "target": "粤语方向｜克制男声" },
+    "D1": { "name": "有戏", "voice": "zh-CN-YunxiNeural", "rate": "+10%", "pitch": "+6Hz", "target": "河南方向｜夸张男声" },
+    "D2": { "name": "反问姐", "voice": "zh-CN-liaoning-XiaobeiNeural", "rate": "+0%", "pitch": "+2Hz", "target": "北京方向｜清醒女声" }
+  },
+  "legacy": {
+    "LAOBAI": { "name": "老白", "voice": "zh-CN-YunjianNeural", "rate": "-8%", "pitch": "-4Hz" },
+    "XIAOWEN": { "name": "小问", "voice": "zh-CN-XiaoyiNeural", "rate": "+10%", "pitch": "+6Hz" }
+  }
+}

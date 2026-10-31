@@ -11,6 +11,7 @@ ARG=${1:-}; FROM=${ARG#from=}; [ "$FROM" = "$ARG" ] && FROM=tts
 STARTED=
 run() { case "$STARTED$1" in "$FROM"*|yes*) STARTED=yes; shift; "$@";; esac; }
 cd "$LIB"
+"$PY" "$HERE/check-characters.py"                                                        # 0. 角色、姓名和固定音色校验
 run tts    "$PY" core/tts/tts_zh.py "$HERE/lines.json" "$HERE/voices/raw"                     # 1. 中文配音（edge-tts，需要联网）
 run voice  "$PY" "$HERE/voice.py"                                                              # 2. 按角色处理 + 口型数据
 run asr    env HF_ENDPOINT=${HF_ENDPOINT:-https://hf-mirror.com} "$PY" core/tts/asr_check.py "$HERE/lines.json" "$HERE/voices" --lang zh   # 3. Whisper 逐句复核

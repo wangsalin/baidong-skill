@@ -2,6 +2,7 @@
 import { clamp, lerp, seg, ss, back, hash } from '/core/lib.js';
 import { W, H, INK, g, push, pop, translate, scale, shape, fillOnly, stroke, ell, rr, rect, text, screenRect, reset } from './toon.js';
 import { C } from './chars.js';
+import { CHARACTERS, CHARACTER_IDS } from './characters.js';
 export const SERIF = '"Noto Serif SC"', SANS = '"Noto Sans SC"';
 const { BLUE, GREY, LIGHT, PAPER, RING } = C;
 
@@ -38,8 +39,16 @@ export function tag(t, TAGS, NO) {
   }
 }
 
-// 字幕：粗黑体白字加黑描边；左边一个说话人小牌（老白黑底白字，小问白底黑字）
-const WHO = { LAOBAI: ['老白', INK, PAPER], XIAOWEN: ['小问', PAPER, INK] };
+// 字幕：粗黑体白字加黑描边；人物名牌由正式角色注册表生成。
+// 旧期仍可用 LAOBAI/XIAOWEN，新期台词必须使用 A1–D2。
+const WHO = {
+  LAOBAI: ['老白', INK, PAPER],
+  XIAOWEN: ['小问', PAPER, INK],
+  ...Object.fromEntries(CHARACTER_IDS.map(id => {
+    const c = CHARACTERS[id];
+    return [id, [c.name, c.visual.accent || INK, PAPER]];
+  })),
+};
 const SUBF = `900 52px ${SANS}`;
 function wrap(str, max = 1300) {
   g.setTransform(1, 0, 0, 1, 0, 0); g.font = SUBF;
@@ -53,7 +62,7 @@ export function subs(t, SUBS) {
   const act = SUBS.filter(s => t >= s.t0 && t < s.t1).slice(-2);
   let y = H - 86;
   for (let i = act.length - 1; i >= 0; i--) {
-    const s = act[i], a = i === act.length - 1 ? 1 : .7, lines = wrap(s.text), [name, bg, fg] = WHO[s.who] || ['', INK, PAPER];
+    const s = act[i], a = i === act.length - 1 ? 1 : .7, lines = wrap(s.text), [name, bg, fg] = WHO[s.who] || [s.who || '未命名角色', INK, PAPER];
     g.setTransform(1, 0, 0, 1, 0, 0); g.font = SUBF;
     const tw = Math.max(...lines.map(l => g.measureText(l).width)), nw = 96;
     const x0 = (W - (nw + 18 + tw)) / 2, y0 = y - (lines.length - 1) * 68;

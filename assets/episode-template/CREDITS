@@ -5,7 +5,7 @@
 - Noto Serif SC（思源宋体）Heavy / Regular — Google Fonts，SIL Open Font License 1.1
 
 配音
-- 微软 Azure 神经网络语音 zh-CN-YunjianNeural（老白）、zh-CN-XiaoyiNeural（小问），通过 edge-tts（GPL-3.0）调用。商用前请自行查阅微软语音服务的使用条款。
+- 微软 Azure 神经网络语音通过 edge-tts（GPL-3.0）调用；A1–D2 的实际 `voice`、语速和音调以本期 `lines.json` 与 skill 的 `characters.json` 为准。商用前请自行查阅微软语音服务的使用条款。
 - 配音校对：faster-whisper（MIT），仅用于检查，不进入成片。
 
 代码

@@ -21,7 +21,7 @@ description: 「白洞」自媒体账号的专属制作流程：从一个选题�
 | `references/production.md` | 开始制作前：WSL 环境、模板结构、命令、坑 |
 | `references/distribution.md` | 出封面、切片、物料和写回工作台时 |
 | `references/vertical.md` | 制作完整竖屏版或竖屏短片时：第九期版式、中英文适配、按主题配色、渲染与验收 |
-| `references/characters.md` | 画角色、配音之前：老白和小问的造型、表情参数、音色；随 skill 一起分发 |
+| `references/characters.md` | 画角色、配音之前：A1–D2 八位正式人物的姓名、造型、性格、说话方式和固定音色；旧版老白/小问只作兼容；随 skill 一起分发 |
 
 账号档案（Claude Doc）：https://claude.ai/artifact/TzCAC2GwrzYr7zuSkgUdYw ，用 Artifact 工具的 `read` 读，不要 web fetch。账号档案用于确认账号定位、角色和平台信息；当档案中的旧色彩规则与本地 `references/account.md` 冲突时，采用用户最近明确确认的色彩方向，并在交付时指出线上档案尚未同步。其他档案差异仍需说明。
 
@@ -44,8 +44,8 @@ description: 「白洞」自媒体账号的专属制作流程：从一个选题�
 按 `production.md` 执行。概要：
 
 1. 用 `scripts/new_episode.sh <期号> <英文短名>` 从模板建项目，放在 `G:\vibe\baidong\ep<期号>-<短名>\`。
-2. 把脚本写成 `lines.json`，用 edge-tts 生成配音，`voice.py` 处理并算口型，`asr_check.py` 逐句复核（同音字写进 `asr` 字段）。
-3. 在 `story.js` 里按台词顺序排时间线（模板会根据真实配音时长自动算出每句的开始时间和每个镜头的长度），在 `main.js` 里写镜头。按 `references/visual.md` 设计人物行动、科幻表达、反应镜头和必要的表演停顿；画面帮助解释，台词直接讲清原理。按 `references/account.md` 为不同场景设计鲜明、彼此区分的色盘；人物主体继续黑白，克莱因蓝围巾保留为角色识别点，但不再限制它是画面里唯一的鲜艳颜色。颜色按主题与场景选择，不固定使用黄底、玫红底或其他单一色组。封面在 `COVER` 中设置本期背景色和撞色。
+2. 把脚本写成 `lines.json`，每句台词的 `who` 使用 A1–D2，并填写注册表规定的 `voice`、`rate`、`pitch`；先运行模板的 `check-characters.py`，再用 edge-tts 生成配音，`voice.py` 按人物处理并算口型，`asr_check.py` 逐句复核（同音字写进 `asr` 字段）。同一人物在不同内容形式中不得更换声音。
+3. 在 `story.js` 里按台词顺序排时间线（模板会根据真实配音时长自动算出每句的开始时间和每个镜头的长度），在 `main.js` 里用 `character('A1', ...)` 等正式入口写镜头。按 `references/visual.md` 设计人物行动、科幻表达、反应镜头和必要的表演停顿；画面帮助解释，台词直接讲清原理。按 `references/account.md` 为不同场景设计鲜明、彼此区分的色盘；人物主体继续黑白，克莱因蓝围巾保留为角色识别点，但不再限制它是画面里唯一的鲜艳颜色。颜色按主题与场景选择，不固定使用黄底、玫红底或其他单一色组。封面在 `COVER` 中设置本期背景色和撞色。
 4. 先用本期绘制代码检查人物冲突或反应、机制解释两张代表性样帧；关键动作按约 0.2 秒间隔检查。再每 2 秒截一帧拼总览图自查，修完再渲染。
 5. 合成配乐和音效，混音，渲染，`build.sh` 最后一步会转成 yuv420p 并把索引放到文件开头（不转的话手机和 Windows 播放器打不开）。
 6. 检查响度（−14 LUFS）、黑帧，用 Whisper 听写成片确认对白没被盖住。

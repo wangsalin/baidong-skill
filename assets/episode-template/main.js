@@ -2,7 +2,7 @@
 // ?mode=cover&size=16x9 出封面，?mode=clipframe 出竖版切片底图（见 cover.js）
 import { lerp, seg, ss, eo, back, hash, clamp } from '/core/lib.js';
 import { W, H, INK, init, frame, g, reset, screenRect } from './toon.js';
-import { laobai, xiaowen, extra, POSES, ARMS, C } from './chars.js';
+import { laobai, xiaowen, extra, character, FORMAL_POSES, POSES, ARMS, C } from './chars.js';
 import * as Wd from './worlds.js';
 import { cam, ringWipe, tag, subs, buildSubs, opener, endCard } from './brand.js';
 import { buildTimeline } from './timeline.js';
@@ -36,9 +36,14 @@ function talk(who, t) {
   return { o: 0, w: 1, talking: false };
 }
 const autoBlink = (t, seed) => { const k = Math.floor(t * 12), c = Math.floor(k / 30); return hash(c * 7.1 + seed) > .35 && k % 30 < 2; };
-// 两位主角的默认状态：呼吸、说话时轻微点头、自动眨眼。镜头里用 LB(t, {...}) / XW(t, {...}) 覆盖
+// 新期角色入口：固定人物 ID、固定声音；内容形式只决定谁出场，不改变角色身份。
+const ROLE_SEED = { A1: 3, A2: 9, B1: 13, B2: 17, C1: 21, C2: 25, D1: 29, D2: 33 };
+const ROLE = (id, t, o = {}) => ({ x: 960, y: FLOOR, s: 1, face: 1, t, talk: talk(id, t), blink: autoBlink(t, ROLE_SEED[id] || 1), ...o });
+const drawRole = (id, t, o = {}) => character(id, ROLE(id, t, o));
+// 旧期两位主角的兼容入口，老项目仍可继续渲染。
 const LB = (t, o = {}) => { const m = talk('LAOBAI', t), tq = q(t); return { x: 1230, y: FLOOR, s: 1, face: -1, talk: m, blink: autoBlink(t, 3), sq: 1 + .008 * Math.sin(tq * 2.3), headTilt: m.talking ? (m.o - .3) * .05 : 0, ...o }; };
 const XW = (t, o = {}) => { const m = talk('XIAOWEN', t), tq = q(t); return { x: 690, y: FLOOR, s: 1, face: 1, t, talk: m, blink: autoBlink(t, 9), sq: 1 + .012 * Math.sin(tq * 3.1), headTilt: m.talking ? (m.o - .3) * .08 : 0, ...o }; };
+// 新期镜头示例：character('A1', ROLE('A1', t, { x: 1220, face: -1, ...FORMAL_POSES.A1.explain }));
 const WORLD = { studio: Wd.studio, office: Wd.office, street: Wd.street, home: Wd.home, night: t => Wd.home(t, { night: true }) };
 const world = (name, t, o) => (WORLD[name] || Wd.studio)(t, o);
 
@@ -47,24 +52,24 @@ const SH = {};
 SH.hook = (t, tq) => {
   cam(700, 520, lerp(1.7, 1.8, seg(t, 0, 3)));
   world('night', t);
-  xiaowen(XW(t, { ...POSES.xiaowen.shocked, nerv: .4 }));
+  drawRole('A1', t, { x: 700, face: 1, ...FORMAL_POSES.A1.cross, E: { lid: .8, look: [.5, 0], m: { sm: -.6, w: .6 } } });
 };
 SH.two = (t, tq) => {
   cam(960, 560, lerp(1.0, 1.05, ss(seg(t, T.opener + 2, T.opener + 8))));
   world('studio', t);
-  xiaowen(XW(t, POSES.xiaowen.raise));
-  laobai(LB(t, POSES.laobai.explain));
+  drawRole('A2', t, { x: 690, face: 1, ...FORMAL_POSES.A2.point });
+  drawRole('A1', t, { x: 1230, face: -1, ...FORMAL_POSES.A1.explain });
 };
 SH.ex = (t, tq) => {
   cam(960, 560, 1.0);
   world('office', t);
   Wd.board(1260, 200, 560, 330, ['9:00–18:00  老板的', '18:00–24:00  通勤、家务', '24:00–02:00  我的'], { title: '时间归谁' });
-  laobai(LB(t, { ...POSES.laobai.point, x: 860, face: 1 }));
+  drawRole('B2', t, { x: 860, face: 1, ...FORMAL_POSES.B2.point });
 };
 SH.aha = (t, tq) => {
   cam(700, 575, 1.8);   // 近景：镜头中心对准脸（小问的脸在 y - 334*s ≈ 566）
   world('office', t);
-  xiaowen(XW(t, { ...POSES.xiaowen.aha, bob: -20 * Math.sin(seg(tq, T.aha + .2, T.aha + .6) * Math.PI) }));
+  drawRole('C1', t, { x: 700, face: 1, ...FORMAL_POSES.C1.think, bob: -20 * Math.sin(seg(tq, T.aha + .2, T.aha + .6) * Math.PI) });
 };
 
 // —— 渲染 ——
@@ -100,7 +105,7 @@ function events() {
 
 if (MODE === 'cover') {
   const P = { ...COVER, no: NO, size: QS.get('size') || '16x9' };
-  for (const k of ['title', 'hl', 'laobai', 'xiaowen']) if (QS.get(k)) P[k] = QS.get(k);
+  for (const k of ['title', 'hl', 'laobai', 'xiaowen', 'characterA', 'characterB', 'poseA', 'poseB']) if (QS.get(k)) P[k] = QS.get(k);
   window.render = () => renderCover(cv.width, cv.height, P); window.DUR = 1;
 } else if (MODE === 'clipframe') {
   window.render = () => renderClipFrame(cv.width, cv.height, { question: QS.get('question') || QUESTION, flow: QS.get('flow') || '', takeaway: QS.get('takeaway') || '', closing: QS.get('closing') || '', no: NO, bg: '#FFF9EC', pop: COVER.pop, accent: COVER.bg }); window.DUR = 1;

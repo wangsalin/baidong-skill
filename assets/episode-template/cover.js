@@ -1,7 +1,7 @@
 // cover.js — 用片中的真实角色画封面和竖版切片底图。由 main.js 在 ?mode=cover / ?mode=clipframe 时调用。
 // 主角继续黑白造型与蓝围巾；背景和撞色图形按本期主题选色。
 import { INK, g, push, pop, translate, scale, stroke, ell, text, reset } from './toon.js';
-import { laobai, xiaowen, C } from './chars.js';
+import { laobai, xiaowen, character, FORMAL_POSES, C } from './chars.js';
 import { SERIF } from './brand.js';
 const { BLUE, PAPER } = C;
 const spaced = s => [...s].join('  ');
@@ -34,29 +34,34 @@ function coverAccents(w, h, pop) {
   g.fillStyle = BLUE; g.beginPath(); g.arc(w * .92, h * .83, Math.max(12, Math.min(w, h) * .025), 0, Math.PI * 2); g.fill();
 }
 
-// size: '16x9' | '4x3' | '3x4' | '9x16'；title 用 / 分两行；hl 关键词；laobai / xiaowen 表情名
-export function renderCover(w, h, { size = '16x9', title = '', hl = '', bg = '#FFD23F', pop = '#12B8A6', laobai: eL = 'seeThrough', xiaowen: eX = 'shocked', no = 0 } = {}) {
+// size: '16x9' | '4x3' | '3x4' | '9x16'；title 用 / 分两行；新期用 characterA/B + poseA/B。
+// laobai/xiaowen 仅为旧期工程保留。
+export function renderCover(w, h, { size = '16x9', title = '', hl = '', bg = '#FFD23F', pop = '#12B8A6', characterA = 'A1', characterB = 'A2', poseA = 'point', poseB = 'point', laobai: eL = 'seeThrough', xiaowen: eX = 'shocked', no = 0 } = {}) {
   const lines = title.split('/').map(s => s.trim()).filter(Boolean);
   const m = frameBase(w, h, no, { square: pop, bg });
   coverAccents(w, h, pop);
+  const draw = (id, P, legacy) => {
+    if (/^[A-D][12]$/.test(id)) return character(id, { ...FORMAL_POSES[id][P] || FORMAL_POSES[id].stand, ...legacy });
+    return id === 'LAOBAI' ? laobai({ ...legacy, expr: eL, scarf: BLUE }) : xiaowen({ ...legacy, expr: eX, t: .3 });
+  };
   if (size === '16x9') {
     rings(1460, 600, 130);
     lines.forEach((l, i) => titleLine(l, m + 80, 430 + i * 170, 124, 'left', hl));
     text('每期看懂一个机制。', m + 80, h - m - 60, { font: `400 30px ${SERIF}`, fill: INK, align: 'left' });
-    reset(); laobai({ x: 1300, y: 1406, s: 1.55, face: -1, expr: eL, scarf: BLUE });
-    reset(); xiaowen({ x: 1610, y: 1390, s: 2.3, face: -1, expr: eX, t: .3 });
+    reset(); draw(characterA, poseA, { x: 1300, y: 1406, s: 1.55, face: -1 });
+    reset(); draw(characterB, poseB, { x: 1610, y: 1390, s: 2.3, face: -1 });
   } else if (size === '4x3') {   // B 站封面：横版 16x9 的排法收窄
     rings(1020, 600, 120);
     lines.forEach((l, i) => titleLine(l, m + 70, 270 + i * 112, 88, 'left', hl));
     text('每期看懂一个机制。', m + 70, h - m - 60, { font: `400 30px ${SERIF}`, fill: INK, align: 'left' });
-    reset(); laobai({ x: 880, y: 1666, s: 1.55, face: -1, expr: eL, scarf: BLUE });
-    reset(); xiaowen({ x: 1170, y: 1650, s: 2.3, face: -1, expr: eX, t: .3 });
+    reset(); draw(characterA, poseA, { x: 880, y: 1666, s: 1.55, face: -1 });
+    reset(); draw(characterB, poseB, { x: 1170, y: 1650, s: 2.3, face: -1 });
   } else {
     const tall = size === '9x16', ty = tall ? 470 : 300, fs = 108;
     rings(w / 2, tall ? 1180 : 920, 120);
     lines.forEach((l, i) => titleLine(l, w / 2, ty + i * 150, fs, 'center', hl));
-    reset(); laobai({ x: 370, y: (tall ? 1150 : 830) + 604 * 1.5, s: 1.5, face: 1, expr: eL, scarf: BLUE });
-    reset(); xiaowen({ x: 730, y: (tall ? 1300 : 970) + 334 * 2.0, s: 2.0, face: -1, expr: eX, t: .3 });
+    reset(); draw(characterA, poseA, { x: 370, y: (tall ? 1150 : 830) + 604 * 1.5, s: 1.5, face: 1 });
+    reset(); draw(characterB, poseB, { x: 730, y: (tall ? 1300 : 970) + 334 * 2.0, s: 2.0, face: -1 });
   }
 }
 // 竖版原理短片：紧凑标题、完整横版画面、逐期定制的因果链与结论。

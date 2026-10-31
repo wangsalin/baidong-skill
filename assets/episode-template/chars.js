@@ -4,6 +4,7 @@
 // 动作：POSES 里是现成的整套姿势，用法 laobai({ x, y, ...POSES.laobai.explain, talk, t })
 import { hash } from '/core/lib.js';
 import { INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, quad, dot } from './toon.js';
+import { CHARACTER_IDS, CHARACTERS, getCharacter } from './characters.js';
 
 export const C = { BLUE: '#002FA7', GREY: '#8A8A8A', LIGHT: '#E6E6E6', PAPER: '#FFFFFF', RING: '#C3C3C3', SK: '#F3F1EE', SKS: '#DCD8D2', MOUTH: '#3A1420', TONGUE: '#B8B8B8' };
 const { BLUE, GREY, LIGHT, PAPER, SK, SKS, MOUTH, TONGUE } = C;
@@ -307,3 +308,104 @@ export function extra(P = {}) {
   shape(noodle([76, -380], [92, -230], 8, 46, 40), { fill: coat });
   pop();
 }
+
+// ———————— A1–D2 正式角色 ————————
+// 八位角色共用白洞的粗线条、平涂和硬边阴影，但通过体块、脸型、服装和配饰区分。
+// 生产镜头用 character('A1', P)；不要把某个角色重新映射成老白/小问或临时叙事身份。
+const FORMAL_STYLE = {
+  A1: { variant: 'tall', bodyW: 104, bodyH: 340, headW: 74, headH: 88, legW: 38, legH: 250 },
+  A2: { variant: 'slim', bodyW: 88, bodyH: 292, headW: 82, headH: 82, legW: 29, legH: 198 },
+  B1: { variant: 'broad', bodyW: 132, bodyH: 318, headW: 96, headH: 84, legW: 44, legH: 230 },
+  B2: { variant: 'broad', bodyW: 118, bodyH: 306, headW: 86, headH: 80, legW: 40, legH: 220 },
+  C1: { variant: 'long', bodyW: 96, bodyH: 376, headW: 78, headH: 92, legW: 36, legH: 270 },
+  C2: { variant: 'long', bodyW: 92, bodyH: 358, headW: 74, headH: 86, legW: 34, legH: 254 },
+  D1: { variant: 'angular', bodyW: 124, bodyH: 318, headW: 98, headH: 92, legW: 42, legH: 232 },
+  D2: { variant: 'diamond', bodyW: 112, bodyH: 304, headW: 88, headH: 86, legW: 38, legH: 218 },
+};
+
+const formalBase = id => ['A2', 'B2', 'C2', 'D2'].includes(id) ? EXPR.xiaowen : EXPR.laobai;
+const formalArm = id => ['A2', 'B2', 'C2', 'D2'].includes(id) ? ARMS.xiaowen : ARMS.laobai;
+
+export const FORMAL_POSES = Object.freeze(Object.fromEntries(CHARACTER_IDS.map(id => {
+  const a = formalArm(id);
+  const light = ['A2', 'B2', 'C2', 'D2'].includes(id);
+  return [id, {
+    stand: { expr: light ? 'calm' : 'calm' },
+    explain: { expr: light ? 'happy' : 'explain', armF: a.explain || a.open || a.rest },
+    point: { expr: light ? 'defiant' : 'seeThrough', armF: a.point || a.open || a.rest },
+    think: { expr: light ? 'calm' : 'think', armF: a.chin || a.headF || a.rest },
+    shrug: { expr: light ? 'sad' : 'speechless', armF: a.shrugF || a.droop || a.rest, armB: a.shrugB || a.restB },
+    cross: { expr: light ? 'defiant' : 'seeThrough', armF: a.crossF || a.fist || a.rest, armB: a.crossB || a.fistB || a.restB },
+  }];
+})));
+
+function formalHead(spec, E) {
+  const { headW: w, headH: h, variant } = spec;
+  const angular = variant === 'angular' || variant === 'diamond';
+  const outline = angular
+    ? [[0, -h], [w * .72, -h * .72], [w * .84, h * .12], [w * .45, h * .78], [0, h], [-w * .45, h * .78], [-w * .84, h * .12], [-w * .72, -h * .72]]
+    : spline([[-w * .72, h * .2], [-w * .82, -h * .45], [-w * .42, -h * .92], [0, -h], [w * .48, -h * .84], [w * .82, -h * .35], [w * .74, h * .38], [w * .35, h], [-w * .34, h]]);
+  shape(outline, { fill: SK, shade: () => fillOnly(spline([[w * .42, -h * .72], [w * .95, -h * .12], [w * .65, h * .78], [w * .25, h * .9], [w * .48, h * .05]]), SKS, { boil: .35 }) });
+  if (variant === 'tall' || variant === 'long') stroke(spline([[-8, -h * .92], [-18, -h * 1.3], [2, -h * 1.48], [22, -h * 1.3], [14, -h * .98]], false), 7);
+  if (variant === 'slim') { shape(spline([[-w * .8, -h * .45], [-w * .35, -h * .95], [w * .12, -h * .88], [w * .7, -h * .44], [w * .45, -h * .2], [-w * .65, -h * .2]]), { fill: INK }); stroke([[w * .55, -h * .32], [w * .7, -h * .2]], 7, { line: CHARACTERS.A2.visual.accent }); }
+  if (variant === 'broad') shape(spline([[-w * .88, -h * .25], [-w * .74, -h * .85], [0, -h * 1.02], [w * .74, -h * .82], [w * .88, -h * .18], [w * .55, -h * .42], [-w * .55, -h * .42]]), { fill: '#343434' });
+  if (variant === 'long') shape(spline([[-w * .78, -h * .3], [-w * .72, -h * .86], [-w * .1, -h * 1.04], [w * .72, -h * .76], [w * .78, h * .1], [w * .62, h * .46], [w * .55, -h * .24]]), { fill: INK });
+  if (angular) stroke([[0, -h], [w * .72, -h * .72], [w * .84, h * .12]], 5, { line: INK });
+  const lid = E.lid ?? 0, look = E.look || [.15, 0], es = E.eS ?? 1;
+  eye(-w * .31, -h * .08, w * .22 * es, h * .26 * es, { lid, look, pupil: E.pupil ?? 4 });
+  eye(w * .3, -h * .08, w * .2 * es, h * .25 * es, { lid, look, pupil: E.pupil ?? 4 });
+  brow(-w * .3, -h * .48, w * .34, E.bl ?? 0, -1, E.blDy || 0, 6);
+  brow(w * .3, -h * .5, w * .32, E.br ?? 0, 1, E.brDy || 0, 6);
+  if (variant === 'broad') { stroke(arc(-w * .31, -h * .08, w * .28, h * .3, 0, Math.PI * 2, 20), 4); stroke(arc(w * .3, -h * .08, w * .26, h * .29, 0, Math.PI * 2, 20), 4); stroke([[-w * .04, -h * .08], [w * .04, -h * .08]], 4); }
+  mouth(0, h * .64, w * .52, { sm: -.15, ...E.m });
+  if (E.sweat) { sweat(-w * .98, -h * .1, .8); sweat(w * .98, h * .1, .65); }
+}
+
+function formalAccessory(spec, character, bodyTop) {
+  const { accessory, accent } = character.visual;
+  const w = spec.bodyW;
+  if (accessory === 'long-scarf') {
+    shape(spline([[-w * .45, bodyTop + 2], [w * .45, bodyTop + 2], [w * .38, bodyTop + 38], [-w * .38, bodyTop + 38]]), { fill: accent });
+    shape(spline([[w * .18, bodyTop + 24], [w * .42, bodyTop + 28], [w * .42, bodyTop + 210], [w * .16, bodyTop + 188]]), { fill: accent });
+  } else if (accessory === 'hair-clip') {
+    shape(rr(w * .42, bodyTop - 128, 28, 14, 5), { fill: accent, lw: 4 });
+  } else if (accessory === 'check-neckerchief') {
+    shape(spline([[-w * .44, bodyTop + 2], [w * .44, bodyTop + 2], [w * .3, bodyTop + 54], [-w * .3, bodyTop + 54]]), { fill: accent, lw: 4 });
+    for (let k = -2; k <= 2; k++) stroke([[k * 20, bodyTop + 6], [k * 20, bodyTop + 48]], 3, { line: '#F4D8C2' });
+  } else if (accessory === 'blue-cuff') {
+    shape(rr(-w * .72, bodyTop + 112, 34, 46, 6), { fill: accent, lw: 4 }); shape(rr(w * .48, bodyTop + 112, 34, 46, 6), { fill: accent, lw: 4 });
+  } else if (accessory === 'headphones') {
+    stroke(arc(0, bodyTop - 86, spec.headW * 1.16, spec.headH * 1.1, Math.PI * 1.08, Math.PI * 1.92, 18), 8, { line: accent });
+    shape(rr(-spec.headW * 1.08, bodyTop - 58, 18, 42, 6), { fill: accent, lw: 4 }); shape(rr(spec.headW * .9, bodyTop - 58, 18, 42, 6), { fill: accent, lw: 4 });
+  } else if (accessory === 'badge-bag') {
+    stroke([[w * .35, bodyTop + 6], [w * .7, bodyTop + 270]], 7, { line: accent }); shape(rr(w * .45, bodyTop + 132, 56, 70, 5), { fill: PAPER, lw: 4 }); fillOnly(rect(w * .45 + 12, bodyTop + 151, 32, 9), accent, { boil: 0 });
+  } else if (accessory === 'triangle-scarf') {
+    shape([[0, bodyTop + 2], [w * .46, bodyTop + 42], [0, bodyTop + 154], [-w * .46, bodyTop + 42]], { fill: accent, lw: 5 });
+  } else if (accessory === 'geo-brooch') {
+    shape([[w * .2, bodyTop + 22], [w * .34, bodyTop + 42], [w * .2, bodyTop + 62], [w * .06, bodyTop + 42]], { fill: accent, lw: 4 });
+  }
+}
+
+function drawFormal(id, P = {}) {
+  const character = getCharacter(id), spec = FORMAL_STYLE[id];
+  if (!character || !spec) throw new Error(`Unknown formal character: ${id}`);
+  const base = formalBase(id), E = mergeE(base[P.expr || 'calm'] || {}, P), legs = P.walk != null ? legsWalk(P.walk, P.stride ?? 28) : [[0, 0], [0, 0]];
+  const bodyTop = -spec.bodyH;
+  begin(P);
+  for (const [sx, i] of [[-1, 0], [1, 1]]) {
+    const lg = legs[i];
+    shape(noodle([sx * spec.bodyW * .18, -spec.legH], [sx * spec.bodyW * .2 + lg[0], -26 + lg[1]], 0, spec.legW, spec.legW * .82), { fill: i ? GREY : LEGF });
+    shoe(sx * spec.bodyW * .2 + lg[0], lg[1], INK, PAPER);
+  }
+  push(); rotate(P.lean ?? 0);
+  armOf([-spec.bodyW * .48, bodyTop + 34], P.armB || formalArm(id).restB, spec.variant === 'broad' ? 45 : 34, 30, character.visual.coat);
+  shape(spline([[-spec.bodyW * .5, bodyTop + 18], [-spec.bodyW * .38, bodyTop - 24], [spec.bodyW * .38, bodyTop - 24], [spec.bodyW * .5, bodyTop + 18], [spec.bodyW * .42, -56], [-spec.bodyW * .42, -56]]), { fill: character.visual.coat, shade: () => fillOnly(spline([[spec.bodyW * .34, bodyTop], [spec.bodyW * .6, bodyTop + 30], [spec.bodyW * .54, -62], [spec.bodyW * .25, -62]]), character.visual.shade, { boil: .35 }) });
+  if (id === 'A2' || id === 'D2') for (let k = 0; k < 4; k++) stroke([[-spec.bodyW * .42, bodyTop + 50 + k * 36], [spec.bodyW * .42, bodyTop + 50 + k * 36]], 6, { line: INK });
+  formalAccessory(spec, character, bodyTop);
+  armOf([spec.bodyW * .48, bodyTop + 34], P.armF || formalArm(id).rest, spec.variant === 'broad' ? 45 : 34, 30, character.visual.coat);
+  push(); translate(0, bodyTop - 100); rotate(P.headTilt ?? 0); formalHead(spec, E); pop();
+  pop(); pop();
+}
+
+export function character(id, P = {}) { return drawFormal(id, P); }
+export const drawCharacter = character;

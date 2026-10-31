@@ -1,6 +1,6 @@
 {
-  "version": "v4-full-20261030",
-  "created_utc": "2026-10-30T10:49:55.828662+00:00",
+  "version": "v4-full-20261031-roles",
+  "created_utc": "2026-10-31T10:39:06.664029+00:00",
   "skill_commit": "e258f2106014feca0bc212544379bdcdcf29e691",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
@@ -15,34 +15,44 @@
       "sha256": "b36f7758b6bfa2af05920728e17bc88666ce9b1900833d7396e6b713ae2dc76a"
     },
     {
-      "path": "SKILL.md",
-      "bytes": 10671,
-      "sha256": "d2d15292dedd5620dba30fda4d0b4a0f39dbcc50ced21f5f37b5ea888e97263f"
-    },
-    {
-      "path": "assets/episode-template/CREDITS",
-      "bytes": 1724,
-      "sha256": "382f8991a3f26e5cf73db5789f363f8831046a76a2908e852d8967fb5db41a41"
-    },
-    {
       "path": "assets/episode-template/brand.js",
-      "bytes": 7348,
-      "sha256": "1bfea85fa38fb2af1f822879133cd2dda56d4499da7f1fa85aa00b26f95c97ed"
+      "bytes": 7628,
+      "sha256": "53e5b49bd10fbafa01da270b7b8a4e9514ae80b933e7ea8723304027f783540b"
     },
     {
       "path": "assets/episode-template/build.sh",
-      "bytes": 2413,
-      "sha256": "9de7126be6045ac11ffde991f30a19747b3f8680b8ca054cfb81ded1c39ac960"
+      "bytes": 2544,
+      "sha256": "b043aa74d2e25f6ccb7f412a579b9c70a4dc3d839b66585864e210cac99af81a"
+    },
+    {
+      "path": "assets/episode-template/characters.js",
+      "bytes": 5635,
+      "sha256": "31cf23003fcaa8b51fd7cab68b82215bd10c2ecdda8d131446d4d3570da8bb0c"
+    },
+    {
+      "path": "assets/episode-template/characters.json",
+      "bytes": 1353,
+      "sha256": "97b3ec492752e872ed8a1ecfe0a906c3140a4a2534ffe03a673f69d5aa0090ce"
     },
     {
       "path": "assets/episode-template/chars.js",
-      "bytes": 25597,
-      "sha256": "0e07744e4a32b1f9595af1189cf82015860c254e732d230dd96bc4cf4502e524"
+      "bytes": 33924,
+      "sha256": "794766aea5383892d2d714506210e57ae607a73593be43dc3fbe98269bc4e6d9"
+    },
+    {
+      "path": "assets/episode-template/check-characters.py",
+      "bytes": 2014,
+      "sha256": "f6aa97d33c84c3a8d28247e6b1ac27a670f2d0afa9292394e7e957107b570c62"
     },
     {
       "path": "assets/episode-template/cover.js",
-      "bytes": 6844,
-      "sha256": "8ba8a8790e7d1da061a34275bc66e0d4476a14842bb83812648be2d4b6cf93d5"
+      "bytes": 7237,
+      "sha256": "4a7ac8b9ee6a25e68308edd5cfb961344beafd0a244c75be5a7008a6de3ccb7f"
+    },
+    {
+      "path": "assets/episode-template/CREDITS",
+      "bytes": 1763,
+      "sha256": "6efaeb69c994d996a1851911aefc6647d99f4bdfd8ba1606abb25914261b66ef"
     },
     {
       "path": "assets/episode-template/fonts/fetch_fonts.py",
@@ -56,13 +66,13 @@
     },
     {
       "path": "assets/episode-template/lines.json",
-      "bytes": 819,
-      "sha256": "7cd1c6af4a12540ca9fb14fda045bd0712f23b9503bc0763159c19251c9d9269"
+      "bytes": 797,
+      "sha256": "a8193d714630f3bb24a0717b2ac13e4caec7f7b34606ee86d11b660e7dea68c7"
     },
     {
       "path": "assets/episode-template/main.js",
-      "bytes": 6621,
-      "sha256": "2e24294a4348f23f4a431ea03e62235f2c33b7415d0c196c62c6764cb013fdab"
+      "bytes": 7303,
+      "sha256": "93809bb803ff5f23b953755e218658e247c406e7130d1407d978fc6933cfd618"
     },
     {
       "path": "assets/episode-template/mix.py",
@@ -91,13 +101,13 @@
     },
     {
       "path": "assets/episode-template/srt.mjs",
-      "bytes": 1170,
-      "sha256": "5f63773bd08c177b84766a18a2703054d184adf4254ac72a898386eb94487971"
+      "bytes": 1206,
+      "sha256": "40281e999c8b596b089a90d586fff327513f396321f0f968fe1402d798349143"
     },
     {
       "path": "assets/episode-template/story.js",
-      "bytes": 1375,
-      "sha256": "9518d89f14a313aaa5484758087c4daf950fab32c5bb4b1ecf34b556ee90f053"
+      "bytes": 1401,
+      "sha256": "922bf968a9fc94d1803b8d0db91154b7177080bce8f7334ef1acda6613f32849"
     },
     {
       "path": "assets/episode-template/timeline.js",
@@ -111,48 +121,13 @@
     },
     {
       "path": "assets/episode-template/voice.py",
-      "bytes": 2204,
-      "sha256": "fde3d5a666e921c51818f5c08ce1d9133fc775bfc32b0ada8b1fee6f0133a9d4"
+      "bytes": 3183,
+      "sha256": "f66baa737938bed199575d71b0fd5968a225b076717d6a5a8fc88b2aba7d1a5f"
     },
     {
       "path": "assets/episode-template/worlds.js",
       "bytes": 4373,
       "sha256": "c7fcbd878b3536241d57a9d8ee36fffbed9e8324eb456c30afbd6104ba147c01"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/CREDITS",
-      "bytes": 1598,
-      "sha256": "8e03d0d42f256826e8e6bba62a83ecd2aa9834b6688296599abd91d8b3b802cf"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/DELIVERY.md",
-      "bytes": 1730,
-      "sha256": "b818e2c9a0bc547a633406d90b6089636f8614d68feb5da4b878fc4293e6d985"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/FACTS.md",
-      "bytes": 2779,
-      "sha256": "a67cd60ace6b868104b2493e7a1154b249cdbeca6bc2a530eab552f722d4b834"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/LICENSE-lemo.txt",
-      "bytes": 1064,
-      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/PROGRESS.md",
-      "bytes": 1336,
-      "sha256": "edc8a0bb4487d441d71ef3ed3f59b4832af1a75ccc662a8b497b94aeede22422"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/REFERENCE.md",
-      "bytes": 1049,
-      "sha256": "5307bd28c4c62f7934a803d30708287a525023bf43f721ed1bfd5e3e63d8f9d7"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/TREATMENT.md",
-      "bytes": 5436,
-      "sha256": "0db43676a4ba9b9c1e54e0ab241a35efe196cf74d9de0a4e74fff339ade1945b"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/brand.js",
@@ -190,9 +165,19 @@
       "sha256": "1209ae340ab486f5dd7f14e12e81213c651817bbcda4ea9447b7a36979b34c00"
     },
     {
+      "path": "assets/examples/ep08-sunk-cost/CREDITS",
+      "bytes": 1598,
+      "sha256": "8e03d0d42f256826e8e6bba62a83ecd2aa9834b6688296599abd91d8b3b802cf"
+    },
+    {
       "path": "assets/examples/ep08-sunk-cost/delivery-qa.json",
       "bytes": 6141,
       "sha256": "c11e21b071f5cfaaebb2220ff8d2703ef99afb685a2ba6d63c38840e76f9839e"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/DELIVERY.md",
+      "bytes": 1730,
+      "sha256": "b818e2c9a0bc547a633406d90b6089636f8614d68feb5da4b878fc4293e6d985"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/ep08-sunk-cost.mp4",
@@ -210,14 +195,9 @@
       "sha256": "91b1886640647e2b54e2a7b130460a736b67f39ed2ee0c83540c40f569ad6f5a"
     },
     {
-      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notosanssc.txt",
-      "bytes": 4387,
-      "sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notoserifsc.txt",
-      "bytes": 4350,
-      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6"
+      "path": "assets/examples/ep08-sunk-cost/FACTS.md",
+      "bytes": 2779,
+      "sha256": "a67cd60ace6b868104b2493e7a1154b249cdbeca6bc2a530eab552f722d4b834"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/fonts/fetch_fonts.py",
@@ -245,9 +225,24 @@
       "sha256": "abf374aa70549c1d050de016ae600d07edd5bd42b50174ffa94741c202b22492"
     },
     {
+      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notosanssc.txt",
+      "bytes": 4387,
+      "sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notoserifsc.txt",
+      "bytes": 4350,
+      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6"
+    },
+    {
       "path": "assets/examples/ep08-sunk-cost/index.html",
       "bytes": 332,
       "sha256": "0f01fe684644ee3a97a720049fc6b3bef1ed8ce16597a0c118d8d413f8be7e94"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/LICENSE-lemo.txt",
+      "bytes": 1064,
+      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/lines.json",
@@ -310,6 +305,11 @@
       "sha256": "565c4294521ecff182fd510ae908bd8151550ce0e26664805b8bec2fdc27ccb3"
     },
     {
+      "path": "assets/examples/ep08-sunk-cost/PROGRESS.md",
+      "bytes": 1336,
+      "sha256": "edc8a0bb4487d441d71ef3ed3f59b4832af1a75ccc662a8b497b94aeede22422"
+    },
+    {
       "path": "assets/examples/ep08-sunk-cost/publish.md",
       "bytes": 8140,
       "sha256": "1cff6d905d459694f9e501baf1f9f940a2851f94fa4b307e643aafe97ad9c6de"
@@ -318,6 +318,11 @@
       "path": "assets/examples/ep08-sunk-cost/qa.json",
       "bytes": 2433,
       "sha256": "9adbc3456c7d666a1d3330a27f6e6671b70e961e899bf162832ad7fad6eb8e74"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/REFERENCE.md",
+      "bytes": 1049,
+      "sha256": "5307bd28c4c62f7934a803d30708287a525023bf43f721ed1bfd5e3e63d8f9d7"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/srt.mjs",
@@ -373,6 +378,11 @@
       "path": "assets/examples/ep08-sunk-cost/toon.js",
       "bytes": 8921,
       "sha256": "23467f5855ee1c80cbdbe828a63a4ce198b80320bab6d976e8ed724a5a8f095b"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/TREATMENT.md",
+      "bytes": 5436,
+      "sha256": "0db43676a4ba9b9c1e54e0ab241a35efe196cf74d9de0a4e74fff339ade1945b"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/voice-check.json",
@@ -720,11 +730,6 @@
       "sha256": "c7fcbd878b3536241d57a9d8ee36fffbed9e8324eb456c30afbd6104ba147c01"
     },
     {
-      "path": "assets/examples/vertical-layout-demo/README.md",
-      "bytes": 588,
-      "sha256": "1aed7286dfde009ac1a37368434ba4933b8c6a3c22961208c3e61826fe4e8c0a"
-    },
-    {
       "path": "assets/examples/vertical-layout-demo/contact-sheet.jpg",
       "bytes": 476859,
       "sha256": "64829046847ea96c226352cf730949b6ec834618de7d135ed09ea70efdc6b861"
@@ -735,6 +740,11 @@
       "sha256": "4df58de637962d274023c78d6f9748db873d8d01b9dcc9a62b6d6789b3dc74ef"
     },
     {
+      "path": "assets/examples/vertical-layout-demo/README.md",
+      "bytes": 588,
+      "sha256": "1aed7286dfde009ac1a37368434ba4933b8c6a3c22961208c3e61826fe4e8c0a"
+    },
+    {
       "path": "assets/lemo-runtime/AGENTS.md",
       "bytes": 10132,
       "sha256": "511015d34b8705ebd6d758ec6424be0dcb0eacc0f83283ffcc27460fccfd7d66"
@@ -743,31 +753,6 @@
       "path": "assets/lemo-runtime/BUNDLED-SOURCE.json",
       "bytes": 239,
       "sha256": "e63f9f7d6f61ef4dfe14ee8e3996df7aa5d99b96ec5a9b030ee156d334436c67"
-    },
-    {
-      "path": "assets/lemo-runtime/DIRECTOR.md",
-      "bytes": 11356,
-      "sha256": "3b8b0c40011a0cea796bb1afe6dae0f212115b57e2aa4c9a976b1994a923d564"
-    },
-    {
-      "path": "assets/lemo-runtime/LICENSE",
-      "bytes": 1064,
-      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
-    },
-    {
-      "path": "assets/lemo-runtime/README.zh-CN.md",
-      "bytes": 33864,
-      "sha256": "425c9d46319bf71726f88aeeadffa4bc799912a2443e57b7de36ac46e4c3dcf3"
-    },
-    {
-      "path": "assets/lemo-runtime/TECHNIQUE.md",
-      "bytes": 13269,
-      "sha256": "8790803f846846032cba16c11c6f1c477625460e9df74f32d1c650717ea8526b"
-    },
-    {
-      "path": "assets/lemo-runtime/core/README.md",
-      "bytes": 7456,
-      "sha256": "c13c11532dda994b3e4c0933e8756286fa4f8b7f288cb47ba0beee26d399dbfa"
     },
     {
       "path": "assets/lemo-runtime/core/audio/INSTRUMENTS.md",
@@ -803,6 +788,11 @@
       "path": "assets/lemo-runtime/core/post/crt.js",
       "bytes": 10958,
       "sha256": "19d5385b5df36026dd13075a7a0fef2bc7c8763e8f3d719316dbf62ad4872a5c"
+    },
+    {
+      "path": "assets/lemo-runtime/core/README.md",
+      "bytes": 7456,
+      "sha256": "c13c11532dda994b3e4c0933e8756286fa4f8b7f288cb47ba0beee26d399dbfa"
     },
     {
       "path": "assets/lemo-runtime/core/render/browser.mjs",
@@ -880,6 +870,16 @@
       "sha256": "ee0196eb3c665531411be5721186e4f4f0514d1404ba439dc4a85aab31678aff"
     },
     {
+      "path": "assets/lemo-runtime/DIRECTOR.md",
+      "bytes": 11356,
+      "sha256": "3b8b0c40011a0cea796bb1afe6dae0f212115b57e2aa4c9a976b1994a923d564"
+    },
+    {
+      "path": "assets/lemo-runtime/LICENSE",
+      "bytes": 1064,
+      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
+    },
+    {
       "path": "assets/lemo-runtime/package-lock.json",
       "bytes": 1063,
       "sha256": "813ec295dae53e681217533ebc9babd2eedb170fc69a3c8b33a6df266d5248ac"
@@ -888,6 +888,11 @@
       "path": "assets/lemo-runtime/package.json",
       "bytes": 363,
       "sha256": "6b8067aaba294772db54db7d2763300021e0d1fe97b5f108c10ae7c42aa1350d"
+    },
+    {
+      "path": "assets/lemo-runtime/README.zh-CN.md",
+      "bytes": 33864,
+      "sha256": "425c9d46319bf71726f88aeeadffa4bc799912a2443e57b7de36ac46e4c3dcf3"
     },
     {
       "path": "assets/lemo-runtime/requirements-music.txt",
@@ -915,9 +920,19 @@
       "sha256": "9a720a57ce50dc554e9237e698a979cdf7311527e6e6a0dad803278dfe8ad2ce"
     },
     {
+      "path": "assets/lemo-runtime/TECHNIQUE.md",
+      "bytes": 13269,
+      "sha256": "8790803f846846032cba16c11c6f1c477625460e9df74f32d1c650717ea8526b"
+    },
+    {
       "path": "assets/lemo-runtime/tools/assets.json",
       "bytes": 1220,
       "sha256": "a03a688203dbce22968f2a4b54dc9e19b7014051929084e2a7f6adebd2bd7240"
+    },
+    {
+      "path": "assets/lemo-runtime/tools/directory/library-setup.sh",
+      "bytes": 3895,
+      "sha256": "fe0135ca42ebc73731ebf1fb44a6c488f8219e3efcff72b2c0080212b6767b09"
     },
     {
       "path": "assets/lemo-runtime/tools/directory/README.md",
@@ -930,19 +945,14 @@
       "sha256": "5f51b4a71db2b6b24e430339cc3cda2f375de08342c2e52613d290e48cc39af7"
     },
     {
-      "path": "assets/lemo-runtime/tools/directory/SKILL.md",
-      "bytes": 4139,
-      "sha256": "6b5948c594dd9fdb1c544e19fd0d0ecafefd9fb86bbee125299a5fd865c6c9cc"
-    },
-    {
-      "path": "assets/lemo-runtime/tools/directory/library-setup.sh",
-      "bytes": 3895,
-      "sha256": "fe0135ca42ebc73731ebf1fb44a6c488f8219e3efcff72b2c0080212b6767b09"
-    },
-    {
       "path": "assets/lemo-runtime/tools/directory/setup.sh",
       "bytes": 1406,
       "sha256": "bd1f641bb8c6bc89c82e284741205a3b2eae8cd05feb9aeb3cc005cefca02809"
+    },
+    {
+      "path": "assets/lemo-runtime/tools/directory/SKILL.md",
+      "bytes": 4139,
+      "sha256": "6b5948c594dd9fdb1c544e19fd0d0ecafefd9fb86bbee125299a5fd865c6c9cc"
     },
     {
       "path": "assets/lemo-runtime/tools/directory.py",
@@ -991,13 +1001,13 @@
     },
     {
       "path": "references/account.md",
-      "bytes": 5908,
-      "sha256": "9e26c865005cb697ce81ebd1277dab3ba69211d14688b7cebb2e31b58d94b24e"
+      "bytes": 6176,
+      "sha256": "0d8c531c9d8ca5d23cb437293dbc56317ffa6f43a1ea2c3ec9a5bdd73987a254"
     },
     {
       "path": "references/characters.md",
-      "bytes": 5862,
-      "sha256": "79a8a77500e170af4666a8bc912be3573d7055d9a4e402d3466fc83530465a52"
+      "bytes": 8709,
+      "sha256": "4e4ed16231798cf840fcaf49cee52abea934fe4afbdd45ecc24a79b847a83d71"
     },
     {
       "path": "references/content.md",
@@ -1016,8 +1026,8 @@
     },
     {
       "path": "references/production.md",
-      "bytes": 13674,
-      "sha256": "04b7bc85b8d8759dc8a5e9126f5260d1c33fefb47b0f2ba1a005114f83b79545"
+      "bytes": 14074,
+      "sha256": "c1c7a7984133671f1affb2bb49c204701dec643f842fdd9e7cfc4c10ea763e89"
     },
     {
       "path": "references/vertical.md",
@@ -1026,8 +1036,8 @@
     },
     {
       "path": "references/visual.md",
-      "bytes": 6424,
-      "sha256": "79684d5cd1dc925725f201a2f0637d41b5f1c87aa22cf232d6624be4423d8a46"
+      "bytes": 6522,
+      "sha256": "bd6c18f969c5bd74d2e3afe2b68f707d0e600836f427ceb7d5dc16180487bd18"
     },
     {
       "path": "scripts/chapters.py",
@@ -1073,6 +1083,11 @@
       "path": "scripts/verify_package.py",
       "bytes": 2564,
       "sha256": "fdefd684498f48cd8bca2284b5c48ae52be3299d8808009bb762dad98d3071ce"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 10990,
+      "sha256": "7b887e43136314cb86bd4fb8f5d555bd9dde23f8839322de3a2c9b7faa2c307b"
     }
   ],
   "excluded": [

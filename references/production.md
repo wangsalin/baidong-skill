@@ -38,24 +38,25 @@ sh "C:/Users/Administrator/.claude/skills/baidong/scripts/new_episode.sh" <期�
 
 得到 `G:\vibe\baidong\ep<期号>-<短名>\`。然后：写 `lines.json` 和 `story.js` → `python G:/vibe/baidong/ep.../fonts/fetch_fonts.py` 取字体（改了台词要重跑）→ 在 WSL 里生成配音。
 
-每期默认规划中英文横竖四版。新建脚本和模板只提供单语言横版起点，不会自动完成另外三版；在本期工程内分别维护各语言及竖屏专用稿的台词、配音、时间线、字幕和输出路径，避免覆盖中文工程。英语稿按英语观众改写，选择并记录能区分两位角色的英语音色；逐句配音和成片听写按英语复核。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
+每期默认规划中英文横竖四版。新建脚本和模板只提供单语言横版起点，不会自动完成另外三版；在本期工程内分别维护各语言及竖屏专用稿的台词、配音、时间线、字幕和输出路径，避免覆盖中文工程。英语稿按英语观众改写，仍需为 A1–D2 记录一一对应的独立英语音色；逐句配音和成片听写按英语复核。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
 
 ## 3. 项目里有什么
 
 | 文件 | 作用 | 每期要改吗 |
 |---|---|---|
-| `lines.json` | 台词：`id`、`who`（`LAOBAI`/`XIAOWEN`）、`text`（字幕）、`say`（实际读的文字，数字写汉字）、`asr`（复核时期望听到的文字）、`voice`、`rate`、`pitch` | 改 |
+| `lines.json` | 台词：`id`、`who`（新期使用 `A1`–`D2`；旧期兼容 `LAOBAI`/`XIAOWEN`）、`text`（字幕）、`say`（实际读的文字，数字写汉字）、`asr`（复核时期望听到的文字）、`voice`、`rate`、`pitch` | 改 |
 | `story.js` | 期号、本期问题、评论区问题、下期预告、封面设置、**BEATS 时间线顺序** | 改 |
-| `main.js` | 镜头 `SH.<镜头名>`；顶部的 `LB()` `XW()` 是两位主角的默认状态 | 改镜头部分 |
+| `main.js` | 镜头 `SH.<镜头名>`；新期用 `character('A1', ROLE('A1', t, ...))`，`LB()`/`XW()` 只保留旧期兼容 | 改镜头部分 |
 | `worlds.js` | 场景：`studio`（默认）、`office`、`street`、`home`、`night`、说明牌 `board()` | 需要新场景时加；场景用色按本期色彩方案调整 |
-| `chars.js` | 老白、小问、临时人物 `extra()`；四个角度、表情 `EXPR`、动作 `POSES`、手臂 `ARMS` | 一般不改 |
-| `brand.js` | 镜头 `cam()`、白洞转场、场景标签、字幕、片头、片尾 | 不改 |
+| `chars.js` | A1–D2 的 `character()`、`FORMAL_POSES`，以及旧版老白/小问和临时人物 `extra()` | 一般不改 |
+| `characters.js` / `characters.json` | 八位正式人物的姓名、造型、性格、说话方式、固定 TTS 音色和校验数据 | 角色调整时同步改 |
+| `brand.js` | 镜头 `cam()`、白洞转场、场景标签、按角色注册表显示字幕姓名、片头、片尾 | 一般不改 |
 | `timeline.js` | 按 BEATS 和配音时长自动排时间线 | 不改 |
 | `cover.js` | 封面和竖版切片底图 | 不改 |
-| `voice.py` `mix.py` `music/score.py` `srt.mjs` `build.sh` | 配音处理、混音、配乐、字幕、一键构建 | 一般不改；新音效加在 `mix.py` 的 `FX` 里 |
+| `check-characters.py` `voice.py` `mix.py` `music/score.py` `srt.mjs` `build.sh` | 角色校验、按人物处理配音、混音、配乐、字幕、一键构建 | 一般不改；新音效加在 `mix.py` 的 `FX` 里 |
 | `TREATMENT.md` `FACTS.md` `CREDITS` | 本期的分析和脚本、事实表、素材许可 | 写 |
 
-角色的完整用法见 `references/characters.md`；本机展示板路径仅供参考，迁移后可直接复用随包的 `assets/episode-template/chars.js`。
+角色的完整用法见 `references/characters.md`；本机展示板路径仅供参考，迁移后只复用随包的 `assets/episode-template/chars.js` 和 `characters.js`，不复制预览目录的独立视频代码。
 
 ## 4. 配音
 
@@ -66,7 +67,7 @@ cd $LIB
 HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目>/lines.json <项目>/voices --lang zh
 ```
 
-- 音色固定：老白 `zh-CN-YunjianNeural`（rate −6% 到 −10%，pitch −4Hz），小问 `zh-CN-XiaoyiNeural`（rate +6% 到 +14%，pitch +6Hz）。
+- 新期音色固定：A1–D2 的 `voice`、`rate`、`pitch` 以 `characters.json` 为准，构建前由 `check-characters.py` 校验；旧期老白和小问继续使用原配置。
 - 复核不通过时先判断：**同音字**（感灯/敢登、他/它、事/是）说明发音没问题，把模型听到的写进 `asr` 字段；**不是同音字**（头版 → 头吧）说明这个词在这个音色下容易听糊，观众也会听不清，改写台词。
 - `build.sh` 里的复核不通过时会停下来（这是有意的）。处理完 `lines.json` 后用 `sh build.sh from=asr` 从复核这一步接着跑；只改了 `asr` 字段时不需要重新生成配音。
 - 生成后看 `voices/dur.json` 的配音时长，再加上必要的表演停顿、片头片尾和转场。按本期内容预算检查，不用固定的“配音时长加八秒”估算，也不加快语速来掩盖内容过量。
