@@ -1,7 +1,7 @@
 {
   "version": "safe-production-20261101",
-  "created_utc": "2026-11-01T13:58:46.047542+00:00",
-  "skill_commit": "416f0d75e46328b2dd69bf52cc3182a79a068481",
+  "created_utc": "2026-11-01T14:01:22.310394+00:00",
+  "skill_commit": "8f7e10f1fbcb0c40acd1141f60309a3a053e2c86",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -86,13 +86,13 @@
     },
     {
       "path": "assets/episode-template/fonts/fetch_fonts.py",
-      "bytes": 2724,
-      "sha256": "eb8f91718bf7ad82675c0ded1da39ad903d8d1b47571715f0e18c426bf1ea8f0"
+      "bytes": 2738,
+      "sha256": "6f560311e3bee865ed83191929691e5563c8efa3f1757d8064fc8fe66b25403e"
     },
     {
       "path": "assets/episode-template/fonts/fonts.css",
-      "bytes": 512,
-      "sha256": "237e371c878311de3b4374ecba725a711543f1ce2aad11ea622c78269c5f004d"
+      "bytes": 508,
+      "sha256": "8f12fc1ab38a5f5ffce327681df62b3d7fd04e2ffef8c5fffa9df655c3950a7e"
     },
     {
       "path": "assets/episode-template/fonts/notosanssc-900.woff2",
@@ -162,12 +162,12 @@
     {
       "path": "assets/episode-template/production-contract.json",
       "bytes": 1853,
-      "sha256": "917f801a227714d7aa0da65d4effe1140149721bbf9003b14f73b94cb31e1e21"
+      "sha256": "8319a768462085971ce8a61742967f1cea565b317e4c1f54d6d699950bef9627"
     },
     {
       "path": "assets/episode-template/scenes.js",
-      "bytes": 1436,
-      "sha256": "2bc7e29ae9ce8a1d67f3945a0175bc3039733fbc7c527ea88e93e37d50197495"
+      "bytes": 1406,
+      "sha256": "a6f8cd93f6a0521dec37ffa1499f5151b6b861203af416967ee24a364b1034e8"
     },
     {
       "path": "assets/episode-template/srt.mjs",

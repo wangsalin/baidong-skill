@@ -29,7 +29,7 @@ if __name__ == '__main__':
     fetch('Noto Sans SC:wght@900', 'notosanssc-900.woff2', txt)
     fetch('Noto Serif SC:wght@900', 'notoserifsc-900.woff2', txt)
     fetch('Noto Serif SC:wght@400', 'notoserifsc-400.woff2', txt)
-    open(os.path.join(HERE, 'fonts.css'), 'w', encoding='utf-8').write(
+    open(os.path.join(HERE, 'fonts.css'), 'w', encoding='utf-8', newline='\n').write(
         "/* Google Fonts, SIL Open Font License 1.1 — subset to the characters this episode shows (fetch_fonts.py) */\n"
         "@font-face { font-family: 'Noto Sans SC'; font-weight: 900; font-display: block; src: url(notosanssc-900.woff2) format('woff2'); }\n"
         "@font-face { font-family: 'Noto Serif SC'; font-weight: 900; font-display: block; src: url(notoserifsc-900.woff2) format('woff2'); }\n"
