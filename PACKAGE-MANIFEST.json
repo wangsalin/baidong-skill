@@ -1,7 +1,7 @@
 {
-  "version": "v4-full-20261031-roles",
-  "created_utc": "2026-10-31T10:39:06.664029+00:00",
-  "skill_commit": "3f2c79b963b8e8bf7966678031d4896a667e35a2",
+  "version": "v4-full-20261101-story-transitions",
+  "created_utc": "2026-11-01T05:41:00.650607+00:00",
+  "skill_commit": "e9799d795b606b6b63d24eb50e4976087e778740",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -16,13 +16,13 @@
     },
     {
       "path": "assets/episode-template/brand.js",
-      "bytes": 7670,
-      "sha256": "639d6b3e639d044b27c54a68e416b8873c1f9746ceb58bdc7f673d1ebd4d17fa"
+      "bytes": 7697,
+      "sha256": "48621491a89e28ccb65113c14eddcbdf8e3b12c4bb933c71a3f46876055c1f2a"
     },
     {
       "path": "assets/episode-template/build.sh",
-      "bytes": 2544,
-      "sha256": "b043aa74d2e25f6ccb7f412a579b9c70a4dc3d839b66585864e210cac99af81a"
+      "bytes": 2817,
+      "sha256": "ee30e316e5aee9a57d70cf00b4bcdcd0e7d8fa1ef05a51e76e623f512939d381"
     },
     {
       "path": "assets/episode-template/characters.js",
@@ -71,8 +71,8 @@
     },
     {
       "path": "assets/episode-template/main.js",
-      "bytes": 7303,
-      "sha256": "93809bb803ff5f23b953755e218658e247c406e7130d1407d978fc6933cfd618"
+      "bytes": 7421,
+      "sha256": "5a15caa4b2a7d5df2a834c93a3c75f1b329aff2ee6b3db749d4a8bd288f47aba"
     },
     {
       "path": "assets/episode-template/mix.py",
@@ -111,8 +111,8 @@
     },
     {
       "path": "assets/episode-template/timeline.js",
-      "bytes": 3188,
-      "sha256": "6a282f7e903fa2ba3e157a184e2f5925bcade006fcf443777eb8b73836acb958"
+      "bytes": 3456,
+      "sha256": "db717a8142ae756dcb0470547e7a82595f657782d28a9f15bc30738354866af4"
     },
     {
       "path": "assets/episode-template/toon.js",
@@ -1026,8 +1026,8 @@
     },
     {
       "path": "references/production.md",
-      "bytes": 14074,
-      "sha256": "c1c7a7984133671f1affb2bb49c204701dec643f842fdd9e7cfc4c10ea763e89"
+      "bytes": 14539,
+      "sha256": "29dbacfe738d840b179641b2175f39c481f30d07e357cc69e5e230a1511b6053"
     },
     {
       "path": "references/vertical.md",
@@ -1036,8 +1036,8 @@
     },
     {
       "path": "references/visual.md",
-      "bytes": 6522,
-      "sha256": "bd6c18f969c5bd74d2e3afe2b68f707d0e600836f427ceb7d5dc16180487bd18"
+      "bytes": 8401,
+      "sha256": "a5bb080d7d225d107a26fe9b87634370d0dd80b0b6b92cb1d13647798d5fe596"
     },
     {
       "path": "scripts/chapters.py",
@@ -1098,5 +1098,13 @@
     "Whisper models",
     "instrument sample libraries"
   ],
-  "verification": "文件内容SHA256；清单本身不计入自校验。"
+  "verification": "文件内容SHA256；清单本身不计入自校验。",
+  "modified_from_commit": [
+    "assets/episode-template/brand.js",
+    "assets/episode-template/build.sh",
+    "assets/episode-template/main.js",
+    "assets/episode-template/timeline.js",
+    "references/production.md",
+    "references/visual.md"
+  ]
 }

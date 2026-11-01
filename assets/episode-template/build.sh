@@ -22,6 +22,7 @@ run srt    node "$HERE/srt.mjs"                                                 
 run video  node core/render/video.mjs "$HERE" --fps 24 --workers 4 --size 1920x1080 --out "$HERE/out/video.mp4"   # 8. 逐帧渲染
 run mux    sh core/render/mux.sh "$HERE/out/video.mp4" "$HERE/mix.wav" "$HERE/out/master.mp4" 24 0               # 9. 合成，响度 −14 LUFS，不加颗粒
 # 10. 转成手机、浏览器、Windows 播放器都能打开的格式（yuv420p、bt709、索引放在开头），音轨原样复制
-run final  ffmpeg -v error -y -i "$HERE/out/master.mp4" -c:v libx264 -profile:v high -level:v 4.2 -vf "scale=in_range=full:out_range=tv,format=yuv420p" \
-  -color_range tv -colorspace bt709 -color_primaries bt709 -color_trc bt709 -crf 18 -preset slow -r 24 -c:a copy -movflags +faststart "$HERE/$NAME.mp4"
+# 去掉截帧继承的 ICC，避免它覆盖 BT.709；转换输出矩阵并明确写入视频色彩信息。
+run final  ffmpeg -v error -y -i "$HERE/out/master.mp4" -map_metadata -1 -c:v libx264 -profile:v high -level:v 4.2 -vf "scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p,sidedata=mode=delete:type=ICC_PROFILE,setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709:range=tv" \
+  -color_range tv -colorspace bt709 -color_primaries bt709 -color_trc bt709 -crf 18 -preset slow -r 24 -c:a copy -movflags +faststart+write_colr "$HERE/$NAME.mp4"
 echo "done: $HERE/$NAME.mp4"

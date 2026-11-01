@@ -17,7 +17,7 @@ export function cam(cx, cy, z, shake = 0, t = 0) {
 export function ringWipe(t, WIPES, hw = .24) {
   for (const tc of WIPES) {
     const d = Math.abs(t - tc); if (d > hw) continue;
-    const u = 1 - d / hw, R = 1250 * Math.pow(u, .75);
+    const u = 1 - d / hw, R = Math.hypot(W / 2, H / 2) * 1.25 * Math.pow(u, .75);
     reset();
     for (const [k, a] of [[1.45, .35], [1.3, .55], [1.15, .8]]) stroke(ell(W / 2, H / 2, R * k + 20, R * k + 20, 90), 3, { line: `rgba(195,195,195,${a})`, boil: .3 });
     shape(ell(W / 2, H / 2, R + 2, R + 2, 90), { fill: INK, stroke: false, boil: .3 });

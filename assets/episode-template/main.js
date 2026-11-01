@@ -18,7 +18,7 @@ const LINES = (await J('lines.json')) || [], DURS = (await J('voices/dur.json'))
 const LINE = Object.fromEntries(LINES.map(l => [l.id, l]));
 const vdur = id => DURS[id] ?? (LINE[id] ? LINE[id].text.length * .2 : 1);
 const TL = buildTimeline(BEATS, vdur);
-const { DUR, VO, SHOTS, WIPES, TAGS, CUES, SEGS, T, FX, CUTS, shotAt } = TL;
+const { DUR, VO, SHOTS, WIPES, WIPE_HALF, TAGS, CUES, SEGS, T, FX, CUTS, shotAt } = TL;
 const q = t => Math.floor(t * 12 + 1e-6) / 12;
 const FLOOR = Wd.FLOOR;
 
@@ -80,9 +80,12 @@ function render(t) {
   if (name === 'opener') opener(t, T.opener, 2, NO, QUESTION);
   else if (name === 'end') endCard(t, T.end, 4, { COMMENT_Q, NEXT });
   else (SH[name] || SH.two)(t, tq);
-  ringWipe(t, WIPES);
-  if (name !== 'opener' && name !== 'end') tag(t, TAGS, NO);
-  subs(t, SUBS);
+  const wiping = WIPES.some(tc => Math.abs(t - tc) < WIPE_HALF);
+  if (!wiping) {
+    if (name !== 'opener' && name !== 'end') tag(t, TAGS, NO);
+    subs(t, SUBS);
+  }
+  ringWipe(t, WIPES, WIPE_HALF);
 }
 // —— 声音事件（music/score.py 和 mix.py 读 events.json）——
 function events() {
@@ -93,7 +96,7 @@ function events() {
   let cur = null;
   for (const [a, b, , w] of SHOTS) { if (cur && cur.w === w) cur.b = b; else { if (cur) add('amb', cur.a, { w: cur.w, d: +(cur.b - cur.a).toFixed(3) }); cur = { a, b, w }; } }
   if (cur) add('amb', cur.a, { w: cur.w, d: +(cur.b - cur.a).toFixed(3) });
-  for (const tc of WIPES) add('wipe', tc - .16);
+  for (const tc of WIPES) add('wipe', tc - WIPE_HALF);
   for (let i = 1; i < SHOTS.length; i++) {   // 普通切镜头加一声短促的“嗖”（转场、片头、片尾自己有音效）
     const [a, , name] = SHOTS[i];
     if (name !== 'opener' && name !== 'end' && !WIPES.some(w => Math.abs(w - a) < .4)) add('cut', a - .04);
