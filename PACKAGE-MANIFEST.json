@@ -1,7 +1,7 @@
 {
-  "version": "v4-full-20261101-story-transitions",
-  "created_utc": "2026-11-01T05:41:00.650607+00:00",
-  "skill_commit": "e9799d795b606b6b63d24eb50e4976087e778740",
+  "version": "v4-full-20261101-daily-life",
+  "created_utc": "2026-11-01T05:47:17.796191+00:00",
+  "skill_commit": "633e476fa2ce8d4f00a46a86595d90512cdb7675",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -1001,8 +1001,8 @@
     },
     {
       "path": "references/account.md",
-      "bytes": 6510,
-      "sha256": "39e6a088952934d137997ec6c4358af5ad39a68b8d0b1b2da7a07c9c8ccbb2fa"
+      "bytes": 6516,
+      "sha256": "1e453e7e5817d317e624c15bf2fb6acb6bcd17a59b96e4a953b8fd774449752a"
     },
     {
       "path": "references/characters.md",
@@ -1011,8 +1011,8 @@
     },
     {
       "path": "references/content.md",
-      "bytes": 25218,
-      "sha256": "52ecec1a8690e9a1acca8ee6d457555d17640de4327cef4fe5f8f024e9c43513"
+      "bytes": 23603,
+      "sha256": "6803ef7cc13ca9b3a165b106b5e90c788487c12b7b6865a858e6593b6af86125"
     },
     {
       "path": "references/distribution.md",
@@ -1026,18 +1026,18 @@
     },
     {
       "path": "references/production.md",
-      "bytes": 14539,
-      "sha256": "29dbacfe738d840b179641b2175f39c481f30d07e357cc69e5e230a1511b6053"
+      "bytes": 14530,
+      "sha256": "ef03a6dd9eaf309f1bb36fb81dde4d4366ef51577c3e30b84c32b60cb7df45f7"
     },
     {
       "path": "references/vertical.md",
-      "bytes": 7829,
-      "sha256": "3726707f378be9740dc9b78e0522f47391671250be9d9574e2a25e065f6a31be"
+      "bytes": 7796,
+      "sha256": "50166ccf7168b87906c3db37123d5f998a118a2387d47ead8fcd675a33976e0a"
     },
     {
       "path": "references/visual.md",
-      "bytes": 8401,
-      "sha256": "a5bb080d7d225d107a26fe9b87634370d0dd80b0b6b92cb1d13647798d5fe596"
+      "bytes": 8377,
+      "sha256": "75040a3f49180ece3a8e206da410b5a419d08ea466f2ddf4f458adf3e1eb68aa"
     },
     {
       "path": "scripts/chapters.py",
@@ -1086,8 +1086,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 11078,
-      "sha256": "a5e9952f5361c750c8f5afeb12d003b5a9b8427f7d084011f4592ab637d328a2"
+      "bytes": 11337,
+      "sha256": "c9dc564f183f5f7570b984274cde57c57a23fb70a668b0b8696d92a806c9da54"
     }
   ],
   "excluded": [
@@ -1100,11 +1100,11 @@
   ],
   "verification": "文件内容SHA256；清单本身不计入自校验。",
   "modified_from_commit": [
-    "assets/episode-template/brand.js",
-    "assets/episode-template/build.sh",
-    "assets/episode-template/main.js",
-    "assets/episode-template/timeline.js",
+    "SKILL.md",
+    "references/account.md",
+    "references/content.md",
     "references/production.md",
+    "references/vertical.md",
     "references/visual.md"
   ]
 }
