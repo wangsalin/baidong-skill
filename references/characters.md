@@ -17,6 +17,21 @@
 
 表中的 Edge TTS 是当前 skill 可直接运行的固定替代音色；“目标口音方向”是角色表演和后续供应商接入的方向，不能把替代音色冒充成已经接入的天津话、上海话或其他方言。A1 的天津话“相声演员”试听方向保留，但当前模板不调用火山引擎，也不触发付费服务。
 
+### 英语版本声音
+
+中文现有声音参数不变。英语独立技术默认映射保存于 `characters.json` 的 `languages.en` 与 `characters.js` 的 `ENGLISH_VOICES`；创建英文工程使用 `new_episode.sh ... --language en`。以下音色已通过当前 Edge 服务列表核实存在，但还未进行角色试听确认；不能标为用户已认可。语速、音调沿用同角色的既有参数，后处理仍按角色 ID。
+
+| ID | 英语技术默认音色 |
+|---|---|
+| A1 | `en-US-GuyNeural` |
+| A2 | `en-US-JennyNeural` |
+| B1 | `en-US-ChristopherNeural` |
+| B2 | `en-US-AriaNeural` |
+| C1 | `en-US-EricNeural` |
+| C2 | `en-US-RogerNeural` |
+| D1 | `en-US-SteffanNeural` |
+| D2 | `en-US-MichelleNeural` |
+
 ### 生产调用规则
 
 - `lines.json` 的 `who` 使用 `A1`–`D2`，并填写该角色对应的 `voice`、`rate`、`pitch`。模板中的 `check-characters.py` 会在配音前检查姓名、ID、声音、语速和音调是否一致。

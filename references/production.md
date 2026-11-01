@@ -33,12 +33,13 @@
 在 Git Bash 里：
 
 ```
-sh "C:/Users/Administrator/.claude/skills/baidong/scripts/new_episode.sh" <期号> <英文短名>
+# BAIDONG_SKILL_ROOT 指向当前安装的完整包根目录（含本文件的上级目录）
+sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" <期号> <英文短名>
 ```
 
 得到 `G:\vibe\baidong\ep<期号>-<短名>\`。然后：写 `lines.json` 和 `story.js` → `python G:/vibe/baidong/ep.../fonts/fetch_fonts.py` 取字体（改了台词要重跑）→ 在 WSL 里生成配音。
 
-每期默认规划中英文横竖四版。新建脚本和模板只提供单语言横版起点，不会自动完成另外三版；在本期工程内分别维护各语言及竖屏专用稿的台词、配音、时间线、字幕和输出路径，避免覆盖中文工程。英语稿按英语观众改写，仍需为 A1–D2 记录一一对应的独立英语音色；逐句配音和成片听写按英语复核。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
+每期默认规划中英文横竖四版。新建脚本和模板只提供单语言横版起点，不会自动完成另外三版；在本期工程内分别维护各语言及竖屏专用稿的台词、配音、时间线、字幕和输出路径，避免覆盖中文工程。英语工程可用 `new_episode.sh <期号> <短名> <输出根目录> --language en` 单独创建。`episode.json` 的 `language` 只接受 `zh/en`，`characters.json` 的 `languages.en` 注册了八个独立英语技术默认音色；已查服务列表，尚未试听确认，不冒称用户认可。英语稿按英语观众改写；`build.sh` 将语言同时用于声音校验与 ASR。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
 
 ## 3. 项目里有什么
 
@@ -71,6 +72,13 @@ HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目
 - 复核不通过时先判断：**同音字**（感灯/敢登、他/它、事/是）说明发音没问题，把模型听到的写进 `asr` 字段；**不是同音字**（头版 → 头吧）说明这个词在这个音色下容易听糊，观众也会听不清，改写台词。
 - `build.sh` 里的复核不通过时会停下来（这是有意的）。处理完 `lines.json` 后用 `sh build.sh from=asr` 从复核这一步接着跑；只改了 `asr` 字段时不需要重新生成配音。
 - 生成后看 `voices/dur.json` 的配音时长，再加上必要的表演停顿、片头片尾和转场。按本期内容预算检查，不用固定的“配音时长加八秒”估算，也不加快语速来掩盖内容过量。
+
+
+### 谁说话谁出镜
+
+生成真实配音和口型数据后执行 `LIB="$LIB" node <项目>/check-cast.mjs`。校验逐帧调用实际 `window.render(t)`，读取真实绘制角色及头部是否进入画面；覆盖整句发声区间、切镜前后和转场边界，不能仅检查中点或手写 cast 声明。`build.sh` 在渲染前强制执行，`from=video` 也会检查；发声期间角色不在镜内或被转场遮挡即失败。
+
+无音频时只能用 `--preview` 做估算时长的案头接线检查；它明确不算成片验收。画面覆盖、遮挡、对嘴和口音仍需带声人工复核。自建竖版需维持同样的实际绘制记录，并在 1080×1920 下核验，不能用横版报告替代。
 
 ## 5. 时间线（story.js）
 
@@ -106,8 +114,8 @@ export const BEATS = [
 SH.two = (t, tq) => {
   cam(960, 560, lerp(1.0, 1.05, ss(seg(t, T.opener + 2, T.opener + 8))));   // 慢推
   world('studio', t);
-  xiaowen(XW(t, POSES.xiaowen.raise));
-  laobai(LB(t, POSES.laobai.explain));
+  drawRole('A2', t, { x: 690, face: 1, ...FORMAL_POSES.A2.point });
+  drawRole('B1', t, { x: 1230, face: -1, ...FORMAL_POSES.B1.explain });
 };
 ```
 

@@ -1,9 +1,9 @@
-// chars.js — 白洞的两位主角：老白（主讲）和小问（提问者）。人物造型以黑白为主，老白围巾保留品牌蓝；场景配色见 worlds.js。
+// chars.js — A1–D2 八位正式角色；老白/小问仅作历史兼容。人物配饰按注册表保留，场景配色见 worlds.js。
 // 本地坐标：原点在脚底，y 向下；face = 1 朝右，-1 镜像。设定见 G:\vibe\baidong-brand\CHARACTERS.md
 // view：'q'（3/4 侧面，默认）| 'front' 正面 | 'side' 正侧面（朝右，用 face:-1 朝左）| 'back' 背面
 // 动作：POSES 里是现成的整套姿势，用法 laobai({ x, y, ...POSES.laobai.explain, talk, t })
 import { hash } from '/core/lib.js';
-import { INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, quad, dot } from './toon.js';
+import { W, H, tx, INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, quad, dot } from './toon.js';
 import { CHARACTER_IDS, CHARACTERS, getCharacter } from './characters.js';
 
 export const C = { BLUE: '#002FA7', GREY: '#8A8A8A', LIGHT: '#E6E6E6', PAPER: '#FFFFFF', RING: '#C3C3C3', SK: '#F3F1EE', SKS: '#DCD8D2', MOUTH: '#3A1420', TONGUE: '#B8B8B8' };
@@ -386,12 +386,22 @@ function formalAccessory(spec, character, bodyTop) {
   }
 }
 
+export const FRAME_CHARACTERS = new Map();
+export function resetCharacterFrame() { FRAME_CHARACTERS.clear(); }
+
 function drawFormal(id, P = {}) {
   const character = getCharacter(id), spec = FORMAL_STYLE[id];
   if (!character || !spec) throw new Error(`Unknown formal character: ${id}`);
   const base = formalBase(id), E = mergeE(base[P.expr || 'calm'] || {}, P), legs = P.walk != null ? legsWalk(P.walk, P.stride ?? 28) : [[0, 0], [0, 0]];
   const bodyTop = -spec.bodyH;
   begin(P);
+  // 使用绘图引擎实际变换后的头部边界检查出镜，避免镜外调用也被当作出镜。
+  const corners = [[-spec.headW, bodyTop - 100 - spec.headH], [spec.headW, bodyTop - 100 + spec.headH]].map(([x, y]) => tx(x, y));
+  const xs = corners.map(p => p[0]), ys = corners.map(p => p[1]);
+  const left = Math.min(...xs), right = Math.max(...xs), top = Math.min(...ys), bottom = Math.max(...ys);
+  const visible = Math.max(0, Math.min(right, W) - Math.max(left, 0)) * Math.max(0, Math.min(bottom, H) - Math.max(top, 0));
+  const area = (right - left) * (bottom - top);
+  if (area > 1 && visible >= area * .25) FRAME_CHARACTERS.set(id, true);
   for (const [sx, i] of [[-1, 0], [1, 1]]) {
     const lg = legs[i];
     shape(noodle([sx * spec.bodyW * .18, -spec.legH], [sx * spec.bodyW * .2 + lg[0], -26 + lg[1]], 0, spec.legW, spec.legW * .82), { fill: i ? GREY : LEGF });

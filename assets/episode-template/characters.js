@@ -79,3 +79,61 @@ export function getCharacter(id) {
 export function isFormalCharacter(id) {
   return CHARACTER_IDS.includes(id);
 }
+
+// 英文技术默认映射：与 characters.json 同步，尚未试听确认；中文既有参数不变。
+export const ENGLISH_VOICES = Object.freeze({
+  "A1": {
+    "voice": "en-US-GuyNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "A2": {
+    "voice": "en-US-JennyNeural",
+    "rate": "+12%",
+    "pitch": "+5Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "B1": {
+    "voice": "en-US-ChristopherNeural",
+    "rate": "+2%",
+    "pitch": "+1Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "B2": {
+    "voice": "en-US-AriaNeural",
+    "rate": "-2%",
+    "pitch": "+0Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "C1": {
+    "voice": "en-US-EricNeural",
+    "rate": "-4%",
+    "pitch": "-2Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "C2": {
+    "voice": "en-US-RogerNeural",
+    "rate": "-7%",
+    "pitch": "-2Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "D1": {
+    "voice": "en-US-SteffanNeural",
+    "rate": "+10%",
+    "pitch": "+6Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  },
+  "D2": {
+    "voice": "en-US-MichelleNeural",
+    "rate": "+0%",
+    "pitch": "+2Hz",
+    "status": "技术默认映射；已查当前服务音色列表，尚未试听确认"
+  }
+});
+export function getVoice(id, language = 'zh') {
+  if (!CHARACTER_IDS.includes(id)) throw new Error('Unknown formal character: ' + id);
+  if (language === 'en') return ENGLISH_VOICES[id];
+  if (language === 'zh') { const v = CHARACTERS[id].voice; return { voice: v.id, rate: v.rate, pitch: v.pitch }; }
+  throw new Error('Unsupported language: ' + language);
+}

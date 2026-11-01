@@ -4,13 +4,16 @@
 import os, re, json, urllib.request, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'}
-FILES = ['lines.json', 'story.js', 'main.js', 'brand.js', 'cover.js', 'worlds.js', 'chars.js']
+FILES = ['lines.json', 'story.js', 'main.js', 'brand.js', 'cover.js', 'worlds.js', 'chars.js',
+         'characters.js', 'characters.json', 'portrait.js']
 
 def chars():
     s = set()
     for f in FILES:
         p = os.path.join(ROOT, f)
-        if os.path.exists(p): s |= set(open(p, encoding='utf-8').read())
+        if os.path.exists(p):
+            with open(p, encoding='utf-8') as source:
+                s |= set(source.read())
     keep = {c for c in s if ord(c) > 0x2000}
     keep |= set('0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,:;!?-–·()/"\'%+')
     return ''.join(sorted(keep))

@@ -2,7 +2,7 @@
 // ?mode=cover&size=16x9 出封面，?mode=clipframe 出竖版切片底图（见 cover.js）
 import { lerp, seg, ss, eo, back, hash, clamp } from '/core/lib.js';
 import { W, H, INK, init, frame, g, reset, screenRect } from './toon.js';
-import { laobai, xiaowen, extra, character, FORMAL_POSES, POSES, ARMS, C } from './chars.js';
+import { laobai, xiaowen, extra, character, resetCharacterFrame, FRAME_CHARACTERS, FORMAL_POSES, POSES, ARMS, C } from './chars.js';
 import * as Wd from './worlds.js';
 import { cam, ringWipe, tag, subs, buildSubs, opener, endCard } from './brand.js';
 import { buildTimeline } from './timeline.js';
@@ -58,7 +58,7 @@ SH.two = (t, tq) => {
   cam(960, 560, lerp(1.0, 1.05, ss(seg(t, T.opener + 2, T.opener + 8))));
   world('studio', t);
   drawRole('A2', t, { x: 690, face: 1, ...FORMAL_POSES.A2.point });
-  drawRole('A1', t, { x: 1230, face: -1, ...FORMAL_POSES.A1.explain });
+  drawRole('B1', t, { x: 1230, face: -1, ...FORMAL_POSES.B1.explain });
 };
 SH.ex = (t, tq) => {
   cam(960, 560, 1.0);
@@ -75,7 +75,7 @@ SH.aha = (t, tq) => {
 // —— 渲染 ——
 const SUBS = buildSubs(VO, LINE, vdur, CUTS);
 function render(t) {
-  frame(t); reset(); screenRect(C.PAPER);
+  frame(t); resetCharacterFrame(); reset(); screenRect(C.PAPER);
   const [, , name] = shotAt(t), tq = q(t);
   if (name === 'opener') opener(t, T.opener, 2, NO, QUESTION);
   else if (name === 'end') endCard(t, T.end, 4, { COMMENT_Q, NEXT });
@@ -86,6 +86,8 @@ function render(t) {
     subs(t, SUBS);
   }
   ringWipe(t, WIPES, WIPE_HALF);
+  window.FRAME_CAST = [...FRAME_CHARACTERS.keys()];
+  window.FRAME_OCCLUDED = wiping;
 }
 // —— 声音事件（music/score.py 和 mix.py 读 events.json）——
 function events() {
@@ -114,6 +116,8 @@ if (MODE === 'cover') {
   window.render = () => renderClipFrame(cv.width, cv.height, { question: QS.get('question') || QUESTION, flow: QS.get('flow') || '', takeaway: QS.get('takeaway') || '', closing: QS.get('closing') || '', no: NO, bg: '#FFF9EC', pop: COVER.pop, accent: COVER.bg }); window.DUR = 1;
 } else {
   window.render = render; window.DUR = DUR; window.EV = events(); window.SUBS = SUBS; window.SEGS = SEGS;
+  window.CAST_CUES = Object.entries(VO).map(([id, t0]) => ({ id, who: LINE[id].who, t0, t1: t0 + vdur(id) }));
+  window.CAST_BOUNDARIES = [...SHOTS.flatMap(s => s.slice(0, 2)), ...WIPES.flatMap(w => [w - WIPE_HALF, w, w + WIPE_HALF])];
 }
 for (const f of ['900 52px "Noto Sans SC"', '900 60px "Noto Serif SC"', '400 30px "Noto Serif SC"']) { try { await document.fonts.load(f); } catch (e) { } }
 window.render(parseFloat(QS.get('t') ?? '1'));

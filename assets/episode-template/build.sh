@@ -12,10 +12,12 @@ STARTED=
 run() { case "$STARTED$1" in "$FROM"*|yes*) STARTED=yes; shift; "$@";; esac; }
 cd "$LIB"
 "$PY" "$HERE/check-characters.py"                                                        # 0. 角色、姓名和固定音色校验
-run tts    "$PY" core/tts/tts_zh.py "$HERE/lines.json" "$HERE/voices/raw"                     # 1. 中文配音（edge-tts，需要联网）
+LANGUAGE=$("$PY" "$HERE/check-characters.py" --language)
+run tts    "$PY" core/tts/tts_zh.py "$HERE/lines.json" "$HERE/voices/raw"                     # 1. 按 episode.json 语言配音（edge-tts，需要联网）
 run voice  "$PY" "$HERE/voice.py"                                                              # 2. 按角色处理 + 口型数据
-run asr    env HF_ENDPOINT=${HF_ENDPOINT:-https://hf-mirror.com} "$PY" core/tts/asr_check.py "$HERE/lines.json" "$HERE/voices" --lang zh   # 3. Whisper 逐句复核
+run asr    env HF_ENDPOINT=${HF_ENDPOINT:-https://hf-mirror.com} "$PY" core/tts/asr_check.py "$HERE/lines.json" "$HERE/voices" --lang "$LANGUAGE"   # 3. Whisper 逐句复核
 run events node core/render/events.mjs "$HERE" --size 1920x1080                              # 4. 时间线 → events.json
+node "$HERE/check-cast.mjs"                                                                 # 按真实发声区间检查出镜；from=video 也不能跳过
 run score  "$PY" "$HERE/music/score.py"                                                        # 5. 配乐
 run mix    "$PY" "$HERE/mix.py"                                                                # 6. 音效 + 配音 + 配乐 + 环境声 → mix.wav
 run srt    node "$HERE/srt.mjs"                                                              # 7. 字幕 → $NAME.srt

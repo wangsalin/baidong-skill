@@ -31,7 +31,12 @@ export function buildTimeline(BEATS, vdur, { wipeDuration = .48 } = {}) {
     if (b.cue) { closeCue(); CUES.push({ t0: t, t1: null, name: b.cue }); }
     if (b.mark) T[b.mark] = t;
     if (b.fx) { const [name, dt] = Array.isArray(b.fx) ? b.fx : [b.fx, 0]; FX.push({ t: t + dt, name }); }
-    if (b.line) { VO[b.line] = t; t += Math.max(.2, vdur(b.line) + (b.gap ?? .08)); }
+    if (b.line) {
+      if (Object.hasOwn(VO, b.line)) throw new Error(`重复引用台词 ID：${b.line}；重播请使用新的台词 ID，避免覆盖配音事件`);
+      const duration = vdur(b.line);
+      if (!Number.isFinite(duration) || duration <= 0) throw new Error(`台词 ${b.line} 时长无效：${duration}`);
+      VO[b.line] = t; t += Math.max(.2, duration + (b.gap ?? .08));
+    }
     if (b.pause) t += b.pause;
   }
   if (cur) cur[1] = t;
