@@ -114,7 +114,7 @@ class TemplateRegression(unittest.TestCase):
                 CHECK.validate(REGISTRY, lines, lang)
                 self.assertTrue((project / 'check-cast.mjs').is_file())
                 if lang == 'en':
-                    self.assertIn('Whose time?', (project / 'main.js').read_text(encoding='utf-8'))
+                    self.assertIn('Whose time?', (project / 'scenes.js').read_text(encoding='utf-8'))
                     self.assertNotIn('为什么', (project / 'story.js').read_text(encoding='utf-8'))
                 repeat = subprocess.run([sys.executable, '-B', str(ROOT / 'scripts/new_episode.py'), '9998', 'test-' + lang, tmp], capture_output=True)
                 self.assertNotEqual(repeat.returncode, 0)

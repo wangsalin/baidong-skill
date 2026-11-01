@@ -1,0 +1,11 @@
+{
+  "version": "confirmed-design-20261030",
+  "source": "User-selected four design groups A-D; all eight identities retained.",
+  "files": {
+    "cast.js": "b6600806dcf095efc742314efe7b91ee1c8c2030bce05520e235c485b55958aa",
+    "chars.js": "d5241770bf23d5edc22dd564a4e561e424cf75c951d9910232a8a69b6702cb9e",
+    "identity-lineup.png": "318df4a4818e7bbf4470cea1ac21c59593f138a663f2316024346baa8116adf7",
+    "toon.js": "f84bb0840279c96a66fc4739a9a6ec16385456d14e889879384d6db9bca8eff6",
+    "math.js": "0e16cd7a65647c02187c83402b7ee8176d914290e027495317718c90c0d5399a"
+  }
+}

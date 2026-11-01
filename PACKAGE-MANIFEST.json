@@ -1,6 +1,6 @@
 {
-  "version": "v4-full-20261101-conflict-portrait-covers-v5",
-  "created_utc": "2026-11-01T07:24:28.059195+00:00",
+  "version": "safe-production-20261101",
+  "created_utc": "2026-11-01T13:58:46.047542+00:00",
   "skill_commit": "416f0d75e46328b2dd69bf52cc3182a79a068481",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
@@ -16,8 +16,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 12124,
-      "sha256": "55aee0a2e7246846b72c5889041a89507b24a31cb4cb44b8cc42d5db30c4e47c"
+      "bytes": 14213,
+      "sha256": "58798372a9f8cbc2083ae398e9fba6eb8cd0fb9287e4a7d376c74518bb2d0c97"
     },
     {
       "path": "assets/episode-template/CREDITS",
@@ -26,23 +26,23 @@
     },
     {
       "path": "assets/episode-template/brand.js",
-      "bytes": 7697,
-      "sha256": "48621491a89e28ccb65113c14eddcbdf8e3b12c4bb933c71a3f46876055c1f2a"
+      "bytes": 8635,
+      "sha256": "9ab2af5bd3c5818d0007fdaf41d7fa515782fd83da6e9201497aa5ce1bdc4f61"
     },
     {
       "path": "assets/episode-template/build.sh",
-      "bytes": 3184,
-      "sha256": "7d141bca0700a487cd119e099897f3b7b275088459c3728c26a9a8f9d1c33741"
+      "bytes": 3418,
+      "sha256": "745d40e1c4c2175f42ae3999eb6a2bb8cb64c3898a6e4f52c588d945a0584b74"
     },
     {
       "path": "assets/episode-template/cast-check.js",
-      "bytes": 1338,
-      "sha256": "6cb2e142c4b56df12fccbe17efd9b5778ef1fcb370cb38c2565fa5e51a71b52f"
+      "bytes": 3001,
+      "sha256": "efb29fd3ac729b8c7958584676d7daed93748fa434afbebfd77b5e6dd6646477"
     },
     {
       "path": "assets/episode-template/characters.js",
-      "bytes": 7586,
-      "sha256": "cb9cc320afd1e4057a51f0b26834e9add2fbf2e035f22aca410eb7a37273298e"
+      "bytes": 7903,
+      "sha256": "9623eae52ce6ef94c36998498dbcd88c1981529e58c05418caedcd008ab1f8cc"
     },
     {
       "path": "assets/episode-template/characters.json",
@@ -51,18 +51,23 @@
     },
     {
       "path": "assets/episode-template/chars.js",
-      "bytes": 38368,
-      "sha256": "5f874900c3acd2dcda3fd4e56525aa4bb4910bb57cc2c4ef913190013586dd15"
+      "bytes": 28614,
+      "sha256": "e13fe6348f82245c08b4f7b8d05d891bd66936f7f80974c5aa96951417f1d92c"
     },
     {
       "path": "assets/episode-template/check-cast.mjs",
-      "bytes": 1656,
-      "sha256": "d4c943d338d8b562be03a9c349bde23856d4669f59b56e79272766a66471ebe7"
+      "bytes": 1779,
+      "sha256": "915ff91149896511646e1e30b71e6ea7f008d07150643c70bf5dbd6c582b2bf2"
     },
     {
       "path": "assets/episode-template/check-characters.py",
-      "bytes": 4017,
-      "sha256": "6280e351f785611c13f3f2b640f2f965de6513cf66c8c00c83372f67fcddb0bd"
+      "bytes": 4321,
+      "sha256": "1d9203058867bbe42be0557eb833295d864ed678ea882fe39973943be28c4548"
+    },
+    {
+      "path": "assets/episode-template/check-production.py",
+      "bytes": 7520,
+      "sha256": "8c570dd4378630dd023f3c559cd3aa6a8181677907009bd75bb4a431d9b53bcf"
     },
     {
       "path": "assets/episode-template/cover.js",
@@ -71,13 +76,43 @@
     },
     {
       "path": "assets/episode-template/episode.json",
-      "bytes": 53,
-      "sha256": "762134e1ef139d82ec1a7f1b184cd1dd879f373d2bf28ae13c9dbf7e1d6711f7"
+      "bytes": 100,
+      "sha256": "e8a9a6e02691f8ece20989df6542c171690f842cedd6ed15add8d2b71034ce0b"
+    },
+    {
+      "path": "assets/episode-template/fonts/coverage.json",
+      "bytes": 84,
+      "sha256": "bd1752e81f67567c6378ee8ee7bb26f6759373c87a79fafb7ea3b806247fc594"
     },
     {
       "path": "assets/episode-template/fonts/fetch_fonts.py",
-      "bytes": 2541,
-      "sha256": "94f7d122ee518ae8524dd082404505bbd39d6c61730b1661aebd907c78feaf53"
+      "bytes": 2724,
+      "sha256": "eb8f91718bf7ad82675c0ded1da39ad903d8d1b47571715f0e18c426bf1ea8f0"
+    },
+    {
+      "path": "assets/episode-template/fonts/fonts.css",
+      "bytes": 512,
+      "sha256": "237e371c878311de3b4374ecba725a711543f1ce2aad11ea622c78269c5f004d"
+    },
+    {
+      "path": "assets/episode-template/fonts/notosanssc-900.woff2",
+      "bytes": 95488,
+      "sha256": "d73ef6aba54bd2df0ad65a7ebd738411afe60621283d260d2e9444a0b91631f1"
+    },
+    {
+      "path": "assets/episode-template/fonts/notoserifsc-400.woff2",
+      "bytes": 122648,
+      "sha256": "24357242b2b5f14036e7857258cd29f3654163129619a168ee82c8d67aa35907"
+    },
+    {
+      "path": "assets/episode-template/fonts/notoserifsc-900.woff2",
+      "bytes": 123976,
+      "sha256": "713f15e13153a8003a1da47663b29ca8dc5d6909c767d9c951a8fef5f598d941"
+    },
+    {
+      "path": "assets/episode-template/formal-art.js",
+      "bytes": 17310,
+      "sha256": "f0e2fa97084f963c825ecf0b48a54d528f2da2719145b8f43ad26329ae18a7a6"
     },
     {
       "path": "assets/episode-template/index.html",
@@ -86,13 +121,13 @@
     },
     {
       "path": "assets/episode-template/lines.json",
-      "bytes": 797,
-      "sha256": "a8193d714630f3bb24a0717b2ac13e4caec7f7b34606ee86d11b660e7dea68c7"
+      "bytes": 923,
+      "sha256": "463c24b065555c1d1fee58ebe15050fc2443f1ef67380423c06caf799e4744c4"
     },
     {
       "path": "assets/episode-template/main.js",
-      "bytes": 7995,
-      "sha256": "3229d9e9fb7d240dae25c003e10fe0d61283504926b28a2cc08e15a8697d9c61"
+      "bytes": 7655,
+      "sha256": "ac5205b6065e2d8dd4dcac9430224dda03e16e11cbc5724a16794bcbcffd94fe"
     },
     {
       "path": "assets/episode-template/mix.py",
@@ -120,9 +155,24 @@
       "sha256": "eef9b70ff7900c13268579ec9f68571267a9b2fe9c6a48fba72b8799180407c2"
     },
     {
+      "path": "assets/episode-template/portrait.js",
+      "bytes": 953,
+      "sha256": "bb18dded7a8a2cb63afe0cef6c94113f77e5d1c27c31c90ebda32f0c87672158"
+    },
+    {
+      "path": "assets/episode-template/production-contract.json",
+      "bytes": 1853,
+      "sha256": "917f801a227714d7aa0da65d4effe1140149721bbf9003b14f73b94cb31e1e21"
+    },
+    {
+      "path": "assets/episode-template/scenes.js",
+      "bytes": 1436,
+      "sha256": "2bc7e29ae9ce8a1d67f3945a0175bc3039733fbc7c527ea88e93e37d50197495"
+    },
+    {
       "path": "assets/episode-template/srt.mjs",
-      "bytes": 1206,
-      "sha256": "40281e999c8b596b089a90d586fff327513f396321f0f968fe1402d798349143"
+      "bytes": 1446,
+      "sha256": "d8224480d0f1909b48899e016cc8bb2762886eb31138a01fc38c7ac25243bdd8"
     },
     {
       "path": "assets/episode-template/story.js",
@@ -131,18 +181,63 @@
     },
     {
       "path": "assets/episode-template/timeline.js",
-      "bytes": 3769,
-      "sha256": "e38955712e955d0ca057a85203acc1ea487ad853e2a5c6ee05b923e4b29bc9d8"
+      "bytes": 3774,
+      "sha256": "e7e330bd3b18fde21f386d968eac89e4c9d26173917d1919d04ef16900ad967a"
     },
     {
       "path": "assets/episode-template/toon.js",
-      "bytes": 8921,
-      "sha256": "23467f5855ee1c80cbdbe828a63a4ce198b80320bab6d976e8ed724a5a8f095b"
+      "bytes": 8952,
+      "sha256": "4dd6d76f4f7aa00fe054401af4de6052b234c3ddb8b764b830932180506cf9b9"
+    },
+    {
+      "path": "assets/episode-template/voice-reference.json",
+      "bytes": 5481,
+      "sha256": "6bca27a1c11f2d678e6f48cfcfc729be522b296a483960f4e99e2cff9046d8dc"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/A1.wav",
+      "bytes": 361960,
+      "sha256": "5671b258d3709c4cd3c36b2e231ffdae565c3718464ccd25eed15c10517e743b"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/A2.wav",
+      "bytes": 337124,
+      "sha256": "7879723d866bafaa5fcca39ae0332f365588421a1b46b553f2236e8ecbe33cdf"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/B1.wav",
+      "bytes": 289024,
+      "sha256": "3df5aa2817c9321c9b415f7ed362820cf9573cae63533087b8d8bc0e3b11d24e"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/B2.wav",
+      "bytes": 368412,
+      "sha256": "e5ff05bc01be1c7fd8db798aeb5fde15aee3720df5477efb9c6d8de41b60e36f"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/C1.wav",
+      "bytes": 432332,
+      "sha256": "8b79ec2b4c4efd82662c2344de9a75c277ea8538b025d3d018780fb016867cb6"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/C2.wav",
+      "bytes": 351740,
+      "sha256": "4a388ff69ea3ce2d003727aa6123e70208d8deb6334b661f1cd54faba42a5c10"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/D1.wav",
+      "bytes": 312536,
+      "sha256": "82cf26ef4c87fd0508bc9139be1eeb1dc203d13e821df280e113c3917629d751"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/D2.wav",
+      "bytes": 398804,
+      "sha256": "3a21eaa2d1e83646a0ac304b7f4dc25de13e73ac4193a819071eb5cf24f0eba1"
     },
     {
       "path": "assets/episode-template/voice.py",
-      "bytes": 3411,
-      "sha256": "940e377dc378dd3a9147a51385f547626de49b4c5f99017fd6211f80f64ad40a"
+      "bytes": 3776,
+      "sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e"
     },
     {
       "path": "assets/episode-template/worlds.js",
@@ -920,6 +1015,36 @@
       "sha256": "4df58de637962d274023c78d6f9748db873d8d01b9dcc9a62b6d6789b3dc74ef"
     },
     {
+      "path": "assets/identity-reference/cast.js",
+      "bytes": 15270,
+      "sha256": "b6600806dcf095efc742314efe7b91ee1c8c2030bce05520e235c485b55958aa"
+    },
+    {
+      "path": "assets/identity-reference/chars.js",
+      "bytes": 25647,
+      "sha256": "d5241770bf23d5edc22dd564a4e561e424cf75c951d9910232a8a69b6702cb9e"
+    },
+    {
+      "path": "assets/identity-reference/identity-lineup.png",
+      "bytes": 308397,
+      "sha256": "318df4a4818e7bbf4470cea1ac21c59593f138a663f2316024346baa8116adf7"
+    },
+    {
+      "path": "assets/identity-reference/manifest.json",
+      "bytes": 574,
+      "sha256": "81d94e6e826c945c119759b46624095181af3ce2f514eb23b581706940b6b775"
+    },
+    {
+      "path": "assets/identity-reference/math.js",
+      "bytes": 468,
+      "sha256": "0e16cd7a65647c02187c83402b7ee8176d914290e027495317718c90c0d5399a"
+    },
+    {
+      "path": "assets/identity-reference/toon.js",
+      "bytes": 8918,
+      "sha256": "f84bb0840279c96a66fc4739a9a6ec16385456d14e889879384d6db9bca8eff6"
+    },
+    {
       "path": "assets/lemo-runtime/AGENTS.md",
       "bytes": 10132,
       "sha256": "511015d34b8705ebd6d758ec6424be0dcb0eacc0f83283ffcc27460fccfd7d66"
@@ -1181,13 +1306,13 @@
     },
     {
       "path": "references/characters.md",
-      "bytes": 10638,
-      "sha256": "6f644f284aada16dab4abae435f1e1eedca9bdb049467debe0c69eceb1f51e52"
+      "bytes": 11757,
+      "sha256": "b69ffd76ed0536a4dd5c50e54c5350149d7a6e9df8d916ae049655ee02ca8eb3"
     },
     {
       "path": "references/content.md",
-      "bytes": 23561,
-      "sha256": "3edd689d25e3254d7cf39fbdeac1e1d5988ad27a587f66e9a8fabbfb7cb44be8"
+      "bytes": 25788,
+      "sha256": "50d6ef54a4068c78e1e3c76d56af3f3c1cedeef254099840e65feab681d93103"
     },
     {
       "path": "references/covers.md",
@@ -1201,23 +1326,23 @@
     },
     {
       "path": "references/installation.md",
-      "bytes": 6473,
-      "sha256": "f430a72533be2e588f0a7a6c64d8f51ec1cd84a2780b66e2fdc708bb68f1054f"
+      "bytes": 6561,
+      "sha256": "1995b4b110853a9c3745e2b5f3e5f333013d444086f394c418cbb3f7c804d584"
     },
     {
       "path": "references/production.md",
-      "bytes": 16905,
-      "sha256": "4830205ae59a9f3139fdebdc701630dacf691b8e89a4bdf654ff6ebf68af969c"
+      "bytes": 19022,
+      "sha256": "b3f88e632f199bb707bbd66123bde54a7a0ab86b0d4b24a5164f70613ecc1829"
     },
     {
       "path": "references/vertical.md",
-      "bytes": 7583,
-      "sha256": "a0c53fed8d60dbd6db4a46125c278ff78d490c0769bd8ec1c3647416a144cdc7"
+      "bytes": 7393,
+      "sha256": "6729c5295b66fce28a2bc4bd092538a38fe4cdef424372f887edee857fe208e6"
     },
     {
       "path": "references/visual.md",
-      "bytes": 8428,
-      "sha256": "99fb3234d2c498fb2a09430b77792de43b499aeee6b6f074d3381616e0034ad5"
+      "bytes": 10698,
+      "sha256": "df97946342637d6efd7c7915f3e0d9165a90cccc301312b3763f98d3969b387e"
     },
     {
       "path": "scripts/chapters.py",
@@ -1236,8 +1361,8 @@
     },
     {
       "path": "scripts/new_episode.py",
-      "bytes": 4519,
-      "sha256": "7371de6bf337667f4a98fda37745429c60cb6d8dd83d0044df5c37213cc3618c"
+      "bytes": 5004,
+      "sha256": "44263273d1035563a91b0ce4eb186dac546197482aa93c8160c1c140190c9f42"
     },
     {
       "path": "scripts/new_episode.sh",
@@ -1261,18 +1386,28 @@
     },
     {
       "path": "scripts/test_characters.mjs",
-      "bytes": 6273,
-      "sha256": "c95b5e2d4950c1f68d8ec4b6fdb64e16209096182acc1c8799f200aafdf36120"
+      "bytes": 8378,
+      "sha256": "8e9d9c0b420b693730bdea59bc141f7b4ad9f5c4df5de771142bbc6a91bfa3d3"
+    },
+    {
+      "path": "scripts/test_identity.mjs",
+      "bytes": 2676,
+      "sha256": "3596ecca5c35ef6bb36d1211a65243431bdd9e916c73d334e768b5835692015a"
+    },
+    {
+      "path": "scripts/test_production.py",
+      "bytes": 8248,
+      "sha256": "4db42c8bcdf585c15e39c6e6f8365aa7e26aec6ae11d5f60bfa9f994b2bf28c9"
     },
     {
       "path": "scripts/test_template.py",
-      "bytes": 8948,
-      "sha256": "e1808d589d404f69d544297758535f86909d534cab02396e59101181172979cc"
+      "bytes": 8950,
+      "sha256": "b6753c8f38b7e362dd9ec0502efcc92e60acd7ed77579650af56e90d53ee4571"
     },
     {
       "path": "scripts/verify_package.py",
-      "bytes": 2564,
-      "sha256": "fdefd684498f48cd8bca2284b5c48ae52be3299d8808009bb762dad98d3071ce"
+      "bytes": 3985,
+      "sha256": "07be77225f049c6894f254fd8fb2b64de1120118fd6204b730b4ececbe5b573f"
     }
   ],
   "excluded": [
@@ -1283,7 +1418,7 @@
     "Whisper models",
     "instrument sample libraries"
   ],
-  "verification": "文件内容SHA256；清单本身不计入自校验。",
+  "verification": "File SHA256 plus independently frozen identity reference and locked production assets; technical validation is not user approval.",
   "modified_from_commit": [
     "SKILL.md",
     "references/account.md",

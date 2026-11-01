@@ -1,20 +1,24 @@
-// main.js — 本期的镜头。时间线来自 story.js（timeline.js 自动排），包装来自 brand.js，角色来自 chars.js。
+// main.js — 固定制作壳；本期镜头在 scenes.js / portrait.js。时间线来自 story.js（timeline.js 自动排），包装来自 brand.js，角色来自 chars.js。
 // ?mode=cover&size=16x9 出封面，?mode=clipframe 出竖版切片底图（见 cover.js）
 import { lerp, seg, ss, eo, back, hash, clamp } from '/core/lib.js';
 import { W, H, INK, init, frame, g, reset, screenRect } from './toon.js';
-import { laobai, xiaowen, extra, character, resetCharacterFrame, FRAME_CHARACTERS, FORMAL_POSES, POSES, ARMS, C } from './chars.js';
+import { laobai, xiaowen, extra, character, resetCharacterFrame, FRAME_CHARACTERS, visibleCharacterIds, FORMAL_POSES, POSES, ARMS, C } from './chars.js';
 import * as Wd from './worlds.js';
-import { cam, ringWipe, tag, subs, buildSubs, opener, endCard } from './brand.js';
+import { cam, ringWipe, tag, subs, buildSubs, opener, endCard, setBrandLanguage } from './brand.js';
 import { buildTimeline } from './timeline.js';
 import { NO, QUESTION, COMMENT_Q, NEXT, COVER, BEATS } from './story.js';
+import { createScenes } from './scenes.js';
+import { createPortraitScenes } from './portrait.js';
 import { renderCover, renderClipFrame } from './cover.js';
 
 const QS = new URLSearchParams(location.search), MODE = QS.get('mode') || 'film';
-if (!['film', 'cover', 'clipframe'].includes(MODE)) throw new Error(`当前模板尚未实现 ${MODE} 模式；原生竖屏需先接入 portrait.js，不允许把横版误当作竖版。`);
+if (!['film','portrait','cover','clipframe'].includes(MODE)) throw new Error(`当前模板尚未实现 ${MODE} 模式；仅允许 film/portrait/cover/clipframe。`);
 const cv = document.getElementById('c');
-if (MODE !== 'film') { cv.width = innerWidth; cv.height = innerHeight; }
+if(MODE==='portrait'){cv.width=1080;cv.height=1920;} else if(MODE!=='film'){cv.width=innerWidth;cv.height=innerHeight;}
 init(cv);
 const J = async f => { try { const r = await fetch(f); if (r.ok) return await r.json(); } catch (e) { } return null; };
+const EP=(await J('episode.json'))||{language:'zh',stage:'preview'};
+setBrandLanguage(EP.language);
 const LINES = (await J('lines.json')) || [], DURS = (await J('voices/dur.json')) || (await J('voices/raw/dur.json')) || {}, LIPS = (await J('voices/lips.json')) || {};
 const LINE = Object.fromEntries(LINES.map(l => [l.id, l]));
 const vdur = id => DURS[id] ?? (LINE[id] ? LINE[id].text.length * .2 : 1);
@@ -28,8 +32,8 @@ function talk(who, t) {
   const tq = q(t);
   for (const [id, t0] of Object.entries(VO)) {
     const L = LINE[id]; if (!L || L.who !== who) continue;
-    if (tq >= t0 && tq < t0 + vdur(id)) {
-      const k = Math.floor((tq - t0) * 24), lp = LIPS[id];
+    if (t >= t0 && t < t0 + vdur(id)) {
+      const k = Math.floor((t - t0) * 24), lp = LIPS[id];
       const o = lp ? (lp.o[k] ?? 0) : .25 + .3 * Math.abs(Math.sin(tq * 11)), b = lp ? (lp.b[k] ?? .5) : .5;
       return { o, w: .8 + .45 * b - .2 * o, talking: true };
     }
@@ -39,7 +43,7 @@ function talk(who, t) {
 const autoBlink = (t, seed) => { const k = Math.floor(t * 12), c = Math.floor(k / 30); return hash(c * 7.1 + seed) > .35 && k % 30 < 2; };
 // 新期角色入口：固定人物 ID、固定声音；内容形式只决定谁出场，不改变角色身份。
 const ROLE_SEED = { A1: 3, A2: 9, B1: 13, B2: 17, C1: 21, C2: 25, D1: 29, D2: 33 };
-const ROLE = (id, t, o = {}) => ({ x: 960, y: FLOOR, s: 1, face: 1, t, talk: talk(id, t), blink: autoBlink(t, ROLE_SEED[id] || 1), ...o });
+const ROLE = (id, t, o = {}) => ({ x: 960, y: FLOOR, s: 1, face: 1, t, talk: talk(id, t), blink: autoBlink(t, ROLE_SEED[id] || 1), ...o, allowUnapprovedMotion: EP.stage!=='final' });
 const drawRole = (id, t, o = {}) => character(id, ROLE(id, t, o));
 // 旧期两位主角的兼容入口，老项目仍可继续渲染。
 const LB = (t, o = {}) => { const m = talk('LAOBAI', t), tq = q(t); return { x: 1230, y: FLOOR, s: 1, face: -1, talk: m, blink: autoBlink(t, 3), sq: 1 + .008 * Math.sin(tq * 2.3), headTilt: m.talking ? (m.o - .3) * .05 : 0, ...o }; };
@@ -48,30 +52,8 @@ const XW = (t, o = {}) => { const m = talk('XIAOWEN', t), tq = q(t); return { x:
 const WORLD = { studio: Wd.studio, office: Wd.office, street: Wd.street, home: Wd.home, night: t => Wd.home(t, { night: true }) };
 const world = (name, t, o) => (WORLD[name] || Wd.studio)(t, o);
 
-// ———————— 接线样例。正式一期按分镜和 references/visual.md 重写：人物行动、物件特写、反应近景和机制画面 ————————
-const SH = {};
-SH.hook = (t, tq) => {
-  cam(700, 520, lerp(1.7, 1.8, seg(t, 0, 3)));
-  world('night', t);
-  drawRole('A1', t, { x: 700, face: 1, ...FORMAL_POSES.A1.cross, E: { lid: .8, look: [.5, 0], m: { sm: -.6, w: .6 } } });
-};
-SH.two = (t, tq) => {
-  cam(960, 560, lerp(1.0, 1.05, ss(seg(t, T.opener + 2, T.opener + 8))));
-  world('studio', t);
-  drawRole('A2', t, { x: 690, face: 1, ...FORMAL_POSES.A2.point });
-  drawRole('B1', t, { x: 1230, face: -1, ...FORMAL_POSES.B1.explain });
-};
-SH.ex = (t, tq) => {
-  cam(960, 560, 1.0);
-  world('office', t);
-  Wd.board(1260, 200, 560, 330, ['9:00–18:00  老板的', '18:00–24:00  通勤、家务', '24:00–02:00  我的'], { title: '时间归谁' });
-  drawRole('B2', t, { x: 860, face: 1, ...FORMAL_POSES.B2.point });
-};
-SH.aha = (t, tq) => {
-  cam(700, 575, 1.8);   // 近景：镜头中心对准脸（小问的脸在 y - 334*s ≈ 566）
-  world('office', t);
-  drawRole('C1', t, { x: 700, face: 1, ...FORMAL_POSES.C1.think, bob: -20 * Math.sin(seg(tq, T.aha + .2, T.aha + .6) * Math.PI) });
-};
+const sceneContext={cam,world,drawRole,FORMAL_POSES,T,lerp,seg,ss,Wd};
+const SH=MODE==='portrait'?createPortraitScenes(sceneContext):createScenes(sceneContext);
 
 // —— 渲染 ——
 const SUBS = buildSubs(VO, LINE, vdur, CUTS);
@@ -80,14 +62,16 @@ function render(t) {
   const [, , name] = shotAt(t), tq = q(t);
   if (name === 'opener') opener(t, T.opener, 2, NO, QUESTION);
   else if (name === 'end') endCard(t, T.end, 4, { COMMENT_Q, NEXT });
-  else (SH[name] || SH.two)(t, tq);
+  else { if(!SH[name])throw new Error('镜头未实现：'+name); SH[name](t,tq); }
   const wiping = WIPES.some(tc => Math.abs(t - tc) < WIPE_HALF);
   if (!wiping) {
     if (name !== 'opener' && name !== 'end') tag(t, TAGS, NO);
     subs(t, SUBS);
   }
   ringWipe(t, WIPES, WIPE_HALF);
-  window.FRAME_CAST = [...FRAME_CHARACTERS.keys()];
+  window.FRAME_CAST=visibleCharacterIds();
+  window.FRAME_SPEAKING=[...FRAME_CHARACTERS].filter(([id,m])=>m.talking&&m.view!=='back').map(([id])=>id);
+  if(EP.stage!=='final'){g.save();g.font='900 24px sans-serif';g.fillStyle='#B00020';g.textAlign='left';g.fillText(EP.language==='en'?'PREVIEW / VOICES NOT APPROVED':'测试样片｜声音待确认',30,MODE==='portrait'?180:150);g.restore();}
   window.FRAME_OCCLUDED = wiping;
 }
 // —— 声音事件（music/score.py 和 mix.py 读 events.json）——

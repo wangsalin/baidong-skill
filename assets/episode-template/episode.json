@@ -1,4 +1,6 @@
 {
   "language": "zh",
-  "character_mode": "formal"
+  "character_mode": "formal",
+  "stage": "preview",
+  "aspect": "landscape"
 }

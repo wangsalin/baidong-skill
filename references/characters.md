@@ -17,6 +17,14 @@
 
 表中的 Edge TTS 是当前 skill 可直接运行的固定替代音色；“目标口音方向”是角色表演和后续供应商接入的方向，不能把替代音色冒充成已经接入的天津话、上海话或其他方言。A1 的天津话“相声演员”试听方向保留，但当前模板不调用火山引擎，也不触发付费服务。
 
+### 声音确认与可运行状态
+
+`assets/episode-template/voice-reference.json` 是逐角色声音确认记录。随包保存八条历史免费 Edge 试听，状态为 candidate；当前没有充分证据将它们标为最终认可，英语为 unreviewed。
+
+- preview：允许制作带水印的测试样片，不会触发付费供应商。
+- final：只接受本期出场角色的 approved 记录，且必须有真实确认依据、样音文件指纹、voice/rate/pitch 和 voice.py 后处理版本。缺少任一项立即阻止。
+- 用户确认应针对当前后处理后的具体样音；只在收到明确反馈后维护对应角色记录。不能自动填“已认可”、拿公开试听替代正式映射，或为了出片取消检查。
+
 ### 英语版本声音
 
 中文现有声音参数不变。英语独立技术默认映射保存于 `characters.json` 的 `languages.en` 与 `characters.js` 的 `ENGLISH_VOICES`；创建英文工程使用 `new_episode.sh ... --language en`。以下音色已通过当前 Edge 服务列表核实存在，但还未进行角色试听确认；不能标为用户已认可。语速、音调沿用同角色的既有参数，后处理仍按角色 ID。
@@ -34,25 +42,25 @@
 
 ### 生产调用规则
 
-- `lines.json` 的 `who` 使用 `A1`–`D2`，并填写该角色对应的 `voice`、`rate`、`pitch`。模板中的 `check-characters.py` 会在配音前检查姓名、ID、声音、语速和音调是否一致。
+- `lines.json` 的 `who` 使用 `A1`–`D2`，并填写该角色对应的 `voice`、`rate`、`pitch`。模板中的 `check-characters.py` 检查八个固定姓名、ID、声音、语速和音调；`check-production.py` 另检查固定资产与最终声音确认状态。
 - `assets/episode-template/chars.js` 是镜头调用入口：`character('A1', P)`。`brand.js` 和 `srt.mjs` 从同一注册表显示姓名，避免字幕叫错人。
 - `assets/episode-template/voice.py` 按人物 ID 做固定后处理。不能在不同内容形式里给同一个 ID 换声线。
 - `LAOBAI`、`XIAOWEN` 只作为旧期工程兼容别名，不属于新的八人角色库；`本我`、`自我`、`超我`、`同事`是剧情中的临时叙事身份，不能写进正式角色表。
 
 画法：科幻情景喜剧卡通（lemo-opuscar `scifi-toon`），执行细则见 skill 内 `references/visual.md`。会抖动的粗线条（12 fps 换三张线稿）、平涂、硬边阴影、大眼睛小瞳孔。
-主角主体保持墨黑 `#111111`、纸白 `#FFFFFF` 和黑白灰层次，老白保留克莱因蓝围巾 `#002FA7`。场景、道具、说明图和临时人物可使用鲜明彩色，按场景组织三至五种主色；不限制全画面只能出现一处蓝色。
+八位人物主体保持各自确认稿的黑白灰层次和识别配饰，不能把所有人改成同一条围巾。场景、道具、说明图和临时人物可使用鲜明彩色，按场景组织三至五种主色；不限制全画面只能出现一处蓝色。
 
 本文件与 skill 内 `references/characters.md` 同步维护。角色身份和造型以本设定为准，场景配色与镜头表演按 `references/account.md` 和 `references/visual.md` 执行。
 
-**生产用的绘制代码**：skill 根目录下的 `assets/episode-template/chars.js`，每期新建项目时复制一份。改角色时检查本期使用的代码及后续模板是否都需同步，再重新渲染角色展示板核对。
+**确认稿**：`assets/identity-reference/identity-lineup.png` 与冻结的 `cast.js`。**生产用的绘制代码**：skill 根目录下的 `assets/episode-template/chars.js`，每期新建项目时复制一份。改角色时检查本期使用的代码及后续模板是否都需同步，再重新渲染角色展示板核对。
 
 ## 正式人物的绘制与动作
 
 - 全身统一使用 `character('A1', P)`，角色 ID 来自 `characters.js`；姓名、服装和配饰保持八人注册表中的设定。
-- `P.view` 支持 `q/front/side/back` 四个实际角度，侧面配 `face:-1` 可朝左；背面不画五官。原有默认 `q` 造型与修复前逐像素一致，未重做角色设计。
+- 默认 `q` 造型恢复自用户确认的四组设计源码，八人与独立冻结参考逐像素对照。`front/side/back`、走路和坐姿目前为派生预览，并未独立获确认；正式阶段禁止调用这些未确认姿态，避免用通用转面替换人物。
 - `FORMAL_POSES[id]` 提供 `stand/explain/point/think/shrug/cross/walk/sit`，另有 `front/side/back` 转面预设。用 `character(id, {x,y,...FORMAL_POSES[id].sit})` 画坐姿；走路把 `walk` 设为当前时间 `t`，不把预设的单帧值当持续动画。
 - 表演继续通过 `expr/E`、`headTilt`、`lean`、`armF/armB`、`blink` 与 `talk` 控制；预设只是动作起点。坐姿有座椅、弯曲的大腿和小腿；转面不是更名或镜像同一张脸。
-- 运行 `LIB=... node scripts/test_characters.mjs <QA输出目录>` 可检查八人角度/动作差异、默认造型保持、镜外人物、错人出镜和转场抢话，并输出动作总览。该开发回归需要本仓库的历史基线；迁移后的成片验收使用项目自身 `check-cast.mjs`。
+- 运行 `LIB=... node scripts/test_characters.mjs <QA输出目录>` 可检查八人角度/动作差异、默认造型保持、镜外人物、错人出镜和转场抢话，并输出动作总览。基准保存在随包的 `assets/identity-reference/`，不需要 Git 历史。动作像素变化只证明参数有效，不能证明派生造型已认可。迁移后的成片仍运行项目自身 `check-cast.mjs`。
 
 ## 历史双人绘制 API（仅旧工程）
 
@@ -65,7 +73,7 @@
 - 头部单独画（封面、特写用）：`headLaobai / headLaobaiFront / headLaobaiSide / headLaobaiBack`，`headXiaowenQ / headXiaowen（正面） / headXiaowenSide / headXiaowenBack`，参数是表情 `E`。
 - 临时人物：`extra(P)`，可用 `coat` 和 `coatS` 设置衣服及硬边阴影色；按场景对比需要选色。
 
-**本机展示板**（转面图和动作表）：`G:\vibe\baidong-brand\turnaround\out\`，源码在 `turnaround\main.js`。早期设计稿在 `characters-v2\`（含嘉宾）。这些是本机可选参考，未随 skill 包附带；其他机器用随包的角色代码制作样帧。
+**旧版本机展示板**（仅历史参考，不能替代八人确认稿）：`G:\vibe\baidong-brand\turnaround\out\`，源码在 `turnaround\main.js`。早期设计稿在 `characters-v2\`（含嘉宾）。这些是本机可选参考，未随 skill 包附带；其他机器用随包的角色代码制作样帧。
 
 ## 旧版角色兼容（老白 / 小问）
 

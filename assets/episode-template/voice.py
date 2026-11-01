@@ -11,6 +11,9 @@ HERE = os.path.dirname(os.path.abspath(__file__)); SR = 48000
 L = json.load(open(os.path.join(HERE, 'lines.json'), encoding='utf-8'))
 checks = runpy.run_path(os.path.join(HERE, 'check-characters.py'))
 checks['validate'](json.loads(Path(HERE, 'characters.json').read_text(encoding='utf-8')), L, *checks['load_config'](Path(HERE)))
+gate=runpy.run_path(os.path.join(HERE,'check-production.py'))
+gate['validate'](Path(HERE))
+provenance={}
 dur, lips = {}, {}
 
 # 这是音色后处理的固定表。TTS voice、语速和音调由 characters.json 校验；这里再做
@@ -56,6 +59,10 @@ for l in L:
     cen = (S * freqs[:, None]).sum(0) / (S.sum(0) + 1e-9)
     lips[l['id']] = {'o': [round(float(np.clip((r / p - .1) / .8, 0, 1)), 2) for r in rms],
                      'b': [round(float(np.clip((c - 1200) / 2600, 0, 1)), 2) for c in cen]}
+    wav=Path(HERE,'voices',l['id']+'.wav')
+    provenance[l['id']]={'key':gate['audio_key'](l,gate['digest'](Path(__file__))), 'wav_sha256':gate['digest'](wav)}
     print(l['id'], dur[l['id']])
 json.dump(dur, open(os.path.join(HERE, 'voices/dur.json'), 'w'), indent=0)
 json.dump(lips, open(os.path.join(HERE, 'voices/lips.json'), 'w'))
+
+Path(HERE,'voices/source.json').write_text(json.dumps(provenance,indent=2)+'\n',encoding='utf-8')

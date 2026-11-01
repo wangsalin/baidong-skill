@@ -3,10 +3,10 @@
 // 2) line boil: resample in screen space every ~7 px and displace along the normal with low-frequency noise; the BOIL state cycles through 3 drawings at 12 fps
 // 3) flat colour: fill → draw hard-edged shadow blocks inside the clip → stroke last
 import { clamp, lerp, hash, vnoise, TAU } from '/core/lib.js';
-export const W = 1920, H = 1080;
+export let W = 1920, H = 1080;
 export const INK = '#1b1422';
 export let g = null;
-export function init(canvas) { g = canvas.getContext('2d'); return g; }
+export function init(canvas) { W=canvas.width; H=canvas.height; g = canvas.getContext('2d'); return g; }
 
 // —— matrix stack ——
 let M = [1, 0, 0, 1, 0, 0]; const ST = [];

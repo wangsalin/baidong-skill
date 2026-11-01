@@ -1,0 +1,159 @@
+{
+  "zh": {
+    "A1": {
+      "status": "candidate",
+      "sample": "voice-reference/A1.wav",
+      "sample_sha256": "5671b258d3709c4cd3c36b2e231ffdae565c3718464ccd25eed15c10517e743b",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-YunyangNeural",
+        "rate": "-6%",
+        "pitch": "-4Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "我有个没想全的想法，先抛出来，咱们慢慢捋。"
+    },
+    "A2": {
+      "status": "candidate",
+      "sample": "voice-reference/A2.wav",
+      "sample_sha256": "7879723d866bafaa5fcca39ae0332f365588421a1b46b553f2236e8ecbe33cdf",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-XiaoyiNeural",
+        "rate": "+12%",
+        "pitch": "+5Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "等等，我刚想到一个点子，先说出来，再看哪里不对！"
+    },
+    "B1": {
+      "status": "candidate",
+      "sample": "voice-reference/B1.wav",
+      "sample_sha256": "3df5aa2817c9321c9b415f7ed362820cf9573cae63533087b8d8bc0e3b11d24e",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-YunxiaNeural",
+        "rate": "+2%",
+        "pitch": "+1Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "这事儿我先给你办了，回头咱再唠两句。"
+    },
+    "B2": {
+      "status": "candidate",
+      "sample": "voice-reference/B2.wav",
+      "sample_sha256": "e5ff05bc01be1c7fd8db798aeb5fde15aee3720df5477efb9c6d8de41b60e36f",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-XiaoxiaoNeural",
+        "rate": "-2%",
+        "pitch": "+0Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "先把成本算清楚，省得最后又有人吃暗亏。"
+    },
+    "C1": {
+      "status": "candidate",
+      "sample": "voice-reference/C1.wav",
+      "sample_sha256": "8b79ec2b4c4efd82662c2344de9a75c277ea8538b025d3d018780fb016867cb6",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-YunjianNeural",
+        "rate": "-4%",
+        "pitch": "-2Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "现象已经确认，方案仍需验证，先按流程推进。"
+    },
+    "C2": {
+      "status": "candidate",
+      "sample": "voice-reference/C2.wav",
+      "sample_sha256": "4a388ff69ea3ce2d003727aa6123e70208d8deb6334b661f1cd54faba42a5c10",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-HK-WanLungNeural",
+        "rate": "-7%",
+        "pitch": "-2Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "记录一下：大家都赞成了，但没人先说。"
+    },
+    "D1": {
+      "status": "candidate",
+      "sample": "voice-reference/D1.wav",
+      "sample_sha256": "82cf26ef4c87fd0508bc9139be1eeb1dc203d13e821df280e113c3917629d751",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-YunxiNeural",
+        "rate": "+10%",
+        "pitch": "+6Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "这哪是开会啊，这是我的灵感大戏，先来一段！"
+    },
+    "D2": {
+      "status": "candidate",
+      "sample": "voice-reference/D2.wav",
+      "sample_sha256": "3a21eaa2d1e83646a0ac304b7f4dc25de13e73ac4193a819071eb5cf24f0eba1",
+      "sample_stage": "historical-edge-synthesis-current-profile",
+      "config": {
+        "voice": "zh-CN-liaoning-XiaobeiNeural",
+        "rate": "+0%",
+        "pitch": "+2Hz"
+      },
+      "approval_evidence": null,
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "大家都支持这个想法，那最后谁来把它做完呢？"
+    }
+  },
+  "en": {
+    "A1": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "A2": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "B1": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "B2": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "C1": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "C2": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "D1": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    },
+    "D2": {
+      "status": "unreviewed",
+      "sample": null,
+      "approval_evidence": null
+    }
+  },
+  "policy": "Historical free Edge audition candidates. No per-role final approval is inferred."
+}

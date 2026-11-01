@@ -45,13 +45,13 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" 09 next-topic /path/to/video-pro
 ## 按认可的效果制作
 
 1. 按skill完成选题和对白；用户已认可脚本并要求开工时直接进入制作，不重复索要确认。
-2. 在新项目编写 `lines.json`、`story.js`、`main.js` 与必要道具；新建的20秒模板只是接线示例。
+2. 在新项目编写 `lines.json`、`story.js`、`scenes.js`（横版）或 `portrait.js`（竖版）与必要道具；`main.js` 是固定制作壳，不在单期改写。新建的20秒模板只是接线示例。
 3. `python3 /path/to/episode/fonts/fetch_fonts.py` 下载本期文字子集；改了画面文字要重新取字体。若本机联网条件要求，可在Windows Python运行此步。
 4. `sh /path/to/episode/build.sh` 完整制作；`from=events`可从已核查配音之后接续。ASR失败先核实发音；保留用户已认可文字，不为绕过检查随便改字幕。
 5. `music/selection.json` 默认Vibe音源、增益+9dB。《We Never》使用 `track_id: "we-never-hi-noise"`；按主题选，不能把未核实音轨写成原创。关键定义使用 `music_key: true` 轻降配乐，仍需成片核查。
 6. 按 `distribution.md` 交付中英文横竖四版、各自字幕、四种尺寸封面及英文适配封面、充分的中文六平台与英文海外平台介绍及对应章节；额外切片按需求制作。新主题使用真实内容，不复制示例发布文案。
 
-每期制作默认四版时，先读 `references/vertical.md`。模板 `build.sh` 默认只渲染单语言横版；须分别准备中英文稿件、配音和时间线，为单期接入 `mode=portrait` 原生画面分支，再用随包渲染器制作与验收两种语言的竖版。中文横版渲染成功不等于另外三版已经完成。
+每期制作默认四版时，先读 `references/vertical.md`。新建时使用 --language 和 --aspect 分别建立工程；原生竖版分支已随模板提供。分别准备中英文及缩减稿、配音与时间线，按同一 build.sh 构建，不能替换固定包装。中文横版渲染成功不等于另外三版已经完成。
 
 最终执行解码、黑帧、字幕和响度检查，用混音听写检查对白；实际看样帧和动作。机器听写不等于真人试听。未接工作台就明确本地保存，未经用户指令不向平台发布。
 

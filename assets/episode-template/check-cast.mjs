@@ -21,7 +21,8 @@ let browser;
 try {
   const opened = await openDemo(here, { w, h, q });
   browser = opened.browser;
-  const report = await opened.page.evaluate(scanCast);
+  const expected=lines.map(l=>({id:l.id,who:l.who,duration:preview?(durs[l.id]??l.text.length*.2):durs[l.id]}));
+  const report = await opened.page.evaluate(scanCast, expected);
   console.log(JSON.stringify({ ...report, mode: preview ? 'preview-estimated-timing' : 'real-voice-timing' }, null, 2));
   if (!report.passed) process.exitCode = 1;
 } finally {

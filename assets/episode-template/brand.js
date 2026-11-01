@@ -3,6 +3,8 @@ import { clamp, lerp, seg, ss, back, hash } from '/core/lib.js';
 import { W, H, INK, g, push, pop, translate, scale, shape, fillOnly, stroke, ell, rr, rect, text, screenRect, reset } from './toon.js';
 import { C } from './chars.js';
 import { CHARACTERS, CHARACTER_IDS } from './characters.js';
+let LANGUAGE='zh';
+export function setBrandLanguage(language){if(!['zh','en'].includes(language))throw new Error('Unknown brand language');LANGUAGE=language;}
 export const SERIF = '"Noto Serif SC"', SANS = '"Noto Sans SC"';
 const { BLUE, GREY, LIGHT, PAPER, RING } = C;
 
@@ -28,7 +30,7 @@ export function ringWipe(t, WIPES, hw = .24) {
 export function tag(t, TAGS, NO) {
   for (const tg of TAGS) {
     if (t < tg.t0 || t >= tg.t1) continue;
-    const n = Math.floor((t - tg.t0) * 20), str = `No.${String(NO).padStart(2, '0')} · ${tg.text}`, s = [...str].slice(0, n).join('');
+    const n = Math.floor((t - tg.t0) * 20), str = `${NO==null?'':`No.${String(NO).padStart(2,'0')} · `}${tg.text}`, s = [...str].slice(0, n).join('');
     reset(); g.setTransform(1, 0, 0, 1, 0, 0); g.font = `400 30px ${SERIF}`;
     const w = g.measureText(str).width + 74;
     push(); translate(56, 50); scale(back(seg(t, tg.t0, tg.t0 + .18), 2));
@@ -50,30 +52,46 @@ const WHO = {
   })),
 };
 const SUBF = `900 52px ${SANS}`;
-function wrap(str, max = 1300) {
-  g.setTransform(1, 0, 0, 1, 0, 0); g.font = SUBF;
-  if (g.measureText(str).width < max) return [str];
-  const cs = [...str], mid = cs.length / 2; let best = -1;
-  cs.forEach((c, i) => { if ('，。：；？！、'.includes(c) && i < cs.length - 1 && (best < 0 || Math.abs(i + 1 - mid) < Math.abs(best - mid))) best = i + 1; });
-  if (best < 0) best = Math.round(mid);
-  return [cs.slice(0, best).join(''), cs.slice(best).join('')];
+function wrap(str,max,font=SUBF){
+  g.font=font;
+  // 中文按实际字宽均衡分行；禁则标点不能独占下一行。英文仍保留词边界。
+  if(!/\s/.test(str)){
+    const balanced=value=>{
+      const width=g.measureText(value).width;if(width<=max)return [value];
+      const cs=[...value],rows=Math.ceil(width/max),target=width/rows;let best=null;
+      for(let i=1;i<cs.length;i++){
+        if('，。！？、；：,.!?;:）)]】》」』”’'.includes(cs[i])||'（([【《「『“‘'.includes(cs[i-1]))continue;
+        const left=cs.slice(0,i).join(''),right=cs.slice(i).join(''),w=g.measureText(left).width;
+        if(w>max||g.measureText(right).width>max*(rows-1))continue;
+        const score=Math.abs(w-target)-('，。！？、；：'.includes(cs[i-1])?48:0);
+        if(!best||score<best.score)best={left,right,score};
+      }
+      return best?[best.left,...balanced(best.right)]:[value];
+    };
+    return balanced(str);
+  }
+  const words=str.split(/\s+/),join=' ';
+  const lines=[];let line='';
+  for(const word of words){const next=line?line+join+word:word;if(g.measureText(next).width>max&&line){lines.push(line);line=word;}else line=next;}
+  if(line)lines.push(line);return lines;
 }
-export function subs(t, SUBS) {
-  const act = SUBS.filter(s => t >= s.t0 && t < s.t1).slice(-2);
-  let y = H - 86;
-  for (let i = act.length - 1; i >= 0; i--) {
-    const s = act[i], a = i === act.length - 1 ? 1 : .7, lines = wrap(s.text), [name, bg, fg] = WHO[s.who] || [s.who || '未命名角色', INK, PAPER];
-    g.setTransform(1, 0, 0, 1, 0, 0); g.font = SUBF;
-    const tw = Math.max(...lines.map(l => g.measureText(l).width)), nw = Math.max(96, g.measureText(name).width + 24);
-    const x0 = (W - (nw + 18 + tw)) / 2, y0 = y - (lines.length - 1) * 68;
-    reset(); g.globalAlpha = a;
-    push(); translate(x0 + nw / 2, y0); scale(back(seg(t, s.t0, s.t0 + .12), 2)); translate(-nw / 2, 0);
-    shape(rr(0, -24, nw, 48, 14), { fill: bg, lw: 4 });
-    text(name, nw / 2, 2, { font: `900 28px ${SANS}`, fill: fg });
-    pop();
-    lines.forEach((l, k) => text(l, x0 + nw + 18, y0 + k * 68, { font: SUBF, fill: PAPER, align: 'left', outlineW: 11 }));
-    g.globalAlpha = 1;
-    y = y0 - 88;
+export function subs(t,SUBS){
+  const act=SUBS.filter(s=>t>=s.t0&&t<s.t1).slice(-1);
+  for(const s of act){
+    const portrait=H>W,font=`900 ${portrait?48:52}px ${SANS}`,max=portrait?W-180:1300;
+    const lines=wrap(s.text,max,font),[name,bg,fg]=WHO[s.who]||(()=>{throw new Error('Unknown subtitle speaker: '+s.who);})();
+    if(lines.length>3||lines.some(line=>g.measureText(line).width>max))throw new Error('字幕超过安全区，请拆短台词：'+s.id);
+    const y=portrait?H-370:H-86-(lines.length-1)*68;
+    reset();g.setTransform(1,0,0,1,0,0);g.font=font;
+    const tw=Math.max(...lines.map(l=>g.measureText(l).width)),nw=Math.max(96,g.measureText(name).width+24);
+    if(portrait){
+      shape(rr(80,y-94,nw,48,14),{fill:bg,lw:4});text(name,80+nw/2,y-68,{font:`900 28px ${SANS}`,fill:fg});
+      lines.forEach((l,k)=>text(l,80,y+k*64,{font,fill:PAPER,align:'left',outlineW:11}));
+    }else{
+      const x0=(W-(nw+18+tw))/2;
+      shape(rr(x0,y-24,nw,48,14),{fill:bg,lw:4});text(name,x0+nw/2,y+2,{font:`900 28px ${SANS}`,fill:fg});
+      lines.forEach((l,k)=>text(l,x0+nw+18,y+k*68,{font,fill:PAPER,align:'left',outlineW:11}));
+    }
   }
 }
 // 由台词和时间线生成字幕区间：至少停留 max(语音 + 0.35, 0.9 + 字数/17)，不跨过下一句和转场
@@ -98,12 +116,8 @@ export function ringsLogo(cx, cy, r, t, { spread = 1, alpha = 1 } = {}) {
 }
 
 function wrapQ(str, max, font) {
-  g.setTransform(1, 0, 0, 1, 0, 0); g.font = font;
-  if (g.measureText(str).width <= max) return [str];
-  const cs = [...str], mid = cs.length / 2; let best = -1;
-  cs.forEach((c, i) => { if ('，。：；？！、'.includes(c) && i < cs.length - 1 && (best < 0 || Math.abs(i + 1 - mid) < Math.abs(best - mid))) best = i + 1; });
-  if (best < 0) best = Math.round(mid);
-  return [cs.slice(0, best).join(''), cs.slice(best).join('')];
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  return wrap(str,max,font);
 }
 const letterSpaced = s => [...s].join('  ');
 
@@ -112,13 +126,13 @@ export function opener(t, t0, d, NO, QUESTION) {
   const u = t - t0;
   reset(); screenRect(PAPER);
   g.setTransform(1, 0, 0, 1, 0, 0); g.strokeStyle = INK; g.lineWidth = 1.5; g.strokeRect(40, 40, W - 80, H - 80);
-  g.fillStyle = BLUE; g.fillRect(1776, 84, 26, 26);
+  g.fillStyle = BLUE; g.fillRect(W-144, 84, 26, 26);
   text(letterSpaced('BAIDONG'), 120, 98, { font: '400 24px sans-serif', fill: GREY, align: 'left' });
   reset(); ringsLogo(W / 2, 400, 70 * back(clamp(u / .35), 2.2), u);
   const a = ss(seg(u, .25, .6));
   g.globalAlpha = a;
-  text(`白洞 No.${String(NO).padStart(2, '0')}`, W / 2, 610, { font: `400 34px ${SERIF}`, fill: GREY });
-  const lines = wrapQ(QUESTION, 1500, `900 76px ${SERIF}`);
+  text(`${LANGUAGE==='en'?'BAIDONG':'白洞'}${NO==null?'':` No.${String(NO).padStart(2,'0')}`}`, W / 2, 610, { font: `400 34px ${SERIF}`, fill: GREY });
+  const lines = wrapQ(QUESTION, W-160, `900 76px ${SERIF}`);
   lines.forEach((l, i) => text(l, W / 2, 720 + i * 96, { font: `900 76px ${SERIF}` }));
   g.globalAlpha = 1;
 }
@@ -127,13 +141,13 @@ export function endCard(t, t0, d, { COMMENT_Q = '', NEXT = '' } = {}) {
   const u = t - t0;
   reset(); screenRect(PAPER);
   g.setTransform(1, 0, 0, 1, 0, 0); g.strokeStyle = INK; g.lineWidth = 1.5; g.strokeRect(40, 40, W - 80, H - 80);
-  g.fillStyle = BLUE; g.fillRect(1776, 84, 26, 26);
+  g.fillStyle = BLUE; g.fillRect(W-144, 84, 26, 26);
   text(letterSpaced('BAIDONG'), 120, 98, { font: '400 24px sans-serif', fill: GREY, align: 'left' });
   reset(); ringsLogo(W / 2, 250, 46, u, { spread: .7 });
   const f = k => ss(seg(u, .15 + k * .25, .5 + k * .25));
-  g.globalAlpha = f(0); text('每期看懂一个机制。', W / 2, 450, { font: `900 84px ${SERIF}` });
-  g.globalAlpha = f(1); if (COMMENT_Q) text(`评论区聊聊：${COMMENT_Q}`, W / 2, 590, { font: `400 40px ${SERIF}`, fill: '#333333' });
-  g.globalAlpha = f(2); if (NEXT) text(`下期：${NEXT}`, W / 2, 690, { font: `400 36px ${SERIF}`, fill: '#333333' });
-  g.globalAlpha = f(3); text('下一个为什么，白洞见。', W / 2, 850, { font: `400 34px ${SERIF}`, fill: GREY });
+  g.globalAlpha = f(0); text(LANGUAGE==='en'?'Understand one mechanism.':'每期看懂一个机制。', W / 2, 450, { font: `900 ${H>W?48:84}px ${SERIF}` });
+  g.globalAlpha = f(1); if (COMMENT_Q) text(`${LANGUAGE==='en'?'Discuss:':'评论区聊聊：'}${COMMENT_Q}`, W / 2, 590, { font: `400 ${H>W?28:40}px ${SERIF}`, fill: '#333333' });
+  g.globalAlpha = f(2); if (NEXT) text(`${LANGUAGE==='en'?'Next:':'下期：'}${NEXT}`, W / 2, 690, { font: `400 ${H>W?28:36}px ${SERIF}`, fill: '#333333' });
+  g.globalAlpha = f(3); text(LANGUAGE==='en'?'See you at the next why.':'下一个为什么，白洞见。', W / 2, 850, { font: `400 34px ${SERIF}`, fill: GREY });
   g.globalAlpha = 1;
 }

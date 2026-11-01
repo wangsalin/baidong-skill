@@ -1,7 +1,43 @@
 [
-  {"id": "a1", "who": "A1", "text": "明明困得要死，我为什么就是不想睡？", "voice": "zh-CN-YunyangNeural", "rate": "-6%", "pitch": "-4Hz"},
-  {"id": "a2", "who": "A2", "text": "因为白天的时间，都不是你的。", "voice": "zh-CN-XiaoyiNeural", "rate": "+12%", "pitch": "+5Hz"},
-  {"id": "b1", "who": "B1", "text": "那晚上的呢？", "voice": "zh-CN-YunxiaNeural", "rate": "+2%", "pitch": "+1Hz"},
-  {"id": "b2", "who": "B2", "text": "晚上那两个小时，是你唯一说了算的时间。", "asr": "晚上那两个小时是你唯一说了算的事件", "voice": "zh-CN-XiaoxiaoNeural", "rate": "-2%", "pitch": "+0Hz"},
-  {"id": "c1", "who": "C1", "text": "所以我熬的不是夜，是自由？", "voice": "zh-CN-YunjianNeural", "rate": "-4%", "pitch": "-2Hz"}
+  {
+    "id": "a1",
+    "who": "A1",
+    "text": "明明困得要死，我为什么就是不想睡？",
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-6%",
+    "pitch": "-4Hz"
+  },
+  {
+    "id": "a2",
+    "who": "A2",
+    "text": "因为白天的时间，都不是你的。",
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+12%",
+    "pitch": "+5Hz"
+  },
+  {
+    "id": "b1",
+    "who": "B1",
+    "text": "那晚上的呢？",
+    "voice": "zh-CN-YunxiaNeural",
+    "rate": "+2%",
+    "pitch": "+1Hz"
+  },
+  {
+    "id": "b2",
+    "who": "B2",
+    "text": "晚上那两个小时，是你唯一说了算的时间。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-2%",
+    "pitch": "+0Hz"
+  },
+  {
+    "id": "c1",
+    "who": "C1",
+    "text": "所以我熬的不是夜，是自由？",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "-4%",
+    "pitch": "-2Hz",
+    "asr": "所以我熬的不是业是自由"
+  }
 ]

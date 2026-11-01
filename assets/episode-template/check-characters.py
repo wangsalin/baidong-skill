@@ -6,6 +6,7 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 EXPECTED_IDS = {'A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'}
+EXPECTED_NAMES = dict(zip(('A1','A2','B1','B2','C1','C2','D1','D2'),('阿津','跳跳','丁叔','小算盘','流程哥','小账本','有戏','反问姐')))
 
 
 def load_config(root):
@@ -29,6 +30,8 @@ def validate(registry, lines, language='zh', mode='formal'):
     names = [v['name'] for v in formal.values()]
     if len(names) != len(set(names)):
         raise ValueError('正式角色姓名重复。')
+    if any(formal[k]['name'] != EXPECTED_NAMES[k] for k in EXPECTED_IDS):
+        raise ValueError('正式角色姓名与确认名单不一致。')
     if language not in ('zh', 'en') or mode not in ('formal', 'legacy'):
         raise ValueError('语言或角色模式无效。')
     voices = formal if language == 'zh' else registry.get('languages', {}).get(language, {})

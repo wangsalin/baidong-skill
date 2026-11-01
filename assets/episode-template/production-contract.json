@@ -1,0 +1,33 @@
+{
+  "version": "confirmed-cast-safe-production-20261101",
+  "identity_reference": "confirmed-design-20261030",
+  "locked_files": {
+    "main.js": "ac5205b6065e2d8dd4dcac9430224dda03e16e11cbc5724a16794bcbcffd94fe",
+    "brand.js": "9ab2af5bd3c5818d0007fdaf41d7fa515782fd83da6e9201497aa5ce1bdc4f61",
+    "chars.js": "e13fe6348f82245c08b4f7b8d05d891bd66936f7f80974c5aa96951417f1d92c",
+    "formal-art.js": "f0e2fa97084f963c825ecf0b48a54d528f2da2719145b8f43ad26329ae18a7a6",
+    "characters.js": "9623eae52ce6ef94c36998498dbcd88c1981529e58c05418caedcd008ab1f8cc",
+    "characters.json": "521e8dd4b141513bafd09f5e8e30640f8c96c0f899ee21b0539ddfc9bccc5e84",
+    "voice.py": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+    "check-production.py": "8c570dd4378630dd023f3c559cd3aa6a8181677907009bd75bb4a431d9b53bcf",
+    "check-characters.py": "1d9203058867bbe42be0557eb833295d864ed678ea882fe39973943be28c4548",
+    "cast-check.js": "efb29fd3ac729b8c7958584676d7daed93748fa434afbebfd77b5e6dd6646477",
+    "check-cast.mjs": "915ff91149896511646e1e30b71e6ea7f008d07150643c70bf5dbd6c582b2bf2",
+    "build.sh": "745d40e1c4c2175f42ae3999eb6a2bb8cb64c3898a6e4f52c588d945a0584b74",
+    "toon.js": "4dd6d76f4f7aa00fe054401af4de6052b234c3ddb8b764b830932180506cf9b9",
+    "timeline.js": "e7e330bd3b18fde21f386d968eac89e4c9d26173917d1919d04ef16900ad967a",
+    "index.html": "0f01fe684644ee3a97a720049fc6b3bef1ed8ce16597a0c118d8d413f8be7e94",
+    "mix.py": "037ea3b6b75c25bba035fd67268165f8a2ed6c65e4d60b7803c6ddcb39efccfd",
+    "srt.mjs": "d8224480d0f1909b48899e016cc8bb2762886eb31138a01fc38c7ac25243bdd8",
+    "fonts/fetch_fonts.py": "eb8f91718bf7ad82675c0ded1da39ad903d8d1b47571715f0e18c426bf1ea8f0"
+  },
+  "editable": [
+    "scenes.js",
+    "portrait.js",
+    "story.js",
+    "lines.json",
+    "cover.js",
+    "worlds.js",
+    "episode.json"
+  ]
+}
