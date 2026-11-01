@@ -15,7 +15,7 @@ def chars():
         if os.path.exists(p):
             with open(p, encoding='utf-8') as source:
                 s |= set(source.read())
-    keep = {c for c in s if ord(c) > 0x2000}
+    keep = {c for c in s if ord(c) > 127 and not c.isspace()}
     keep |= set('0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,:;!?-–·()/"\'%+')
     return ''.join(sorted(keep))
 

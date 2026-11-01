@@ -19,7 +19,7 @@
     "index.html": "0f01fe684644ee3a97a720049fc6b3bef1ed8ce16597a0c118d8d413f8be7e94",
     "mix.py": "037ea3b6b75c25bba035fd67268165f8a2ed6c65e4d60b7803c6ddcb39efccfd",
     "srt.mjs": "d8224480d0f1909b48899e016cc8bb2762886eb31138a01fc38c7ac25243bdd8",
-    "fonts/fetch_fonts.py": "a04993e373772520dab028cbc4bdf26314fd7ac3ca97d1ea83b9e231f5eb0c9f"
+    "fonts/fetch_fonts.py": "a29597d8fb5981499caf1dff1701d5e3d0741dae364ed12bd610ea70863fac8a"
   },
   "editable": [
     "scenes.js",

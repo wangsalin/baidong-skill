@@ -12,6 +12,18 @@ spec.loader.exec_module(module)
 
 
 class FontRequestTests(unittest.TestCase):
+    def test_accented_latin_is_not_silently_dropped(self):
+        import json
+        old_root = module.ROOT
+        with tempfile.TemporaryDirectory() as directory:
+            try:
+                module.ROOT = directory
+                Path(directory, 'lines.json').write_text(json.dumps([{'text': 'café ¥20'}], ensure_ascii=False), encoding='utf-8')
+                self.assertIn('é', module.chars())
+                self.assertIn('¥', module.chars())
+            finally:
+                module.ROOT = old_root
+
     def test_long_text_preserved_with_bounded_requests(self):
         text = ''.join(chr(0x4E00 + i) for i in range(1200)) + 'ABC 123!'
         chunks = module.text_chunks(text)
