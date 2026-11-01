@@ -1,6 +1,6 @@
 # 白洞 · 科幻情景喜剧卡通
 
-写分镜、设计道具、画角色、制作封面和检查成片时使用。账号配色见 `account.md`，角色造型和参数见 `characters.md`，执行命令见 `production.md`。
+写分镜、设计道具、画角色、制作封面和检查成片时使用。账号配色见 `account.md`，角色造型和参数见 `characters.md`，封面三种风格与横竖实图见 `covers.md`，执行命令见 `production.md`。
 
 风格依据：Lemo-Opuscar 的 [scifi-toon / STYLE.md](https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/scifi-toon/STYLE.md) 和 [DIRECTOR.md](https://github.com/lemomo-ai/lemo-opuscar/blob/main/DIRECTOR.md)。学习画法、表演和镜头语言，使用白洞自己的角色、道具与故事。保留用户确认的黑白灰主角、蓝围巾、中文字体和选定 BGM；这些是白洞对原风格的品牌适配。
 

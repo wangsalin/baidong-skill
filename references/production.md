@@ -52,7 +52,7 @@ sh "C:/Users/Administrator/.claude/skills/baidong/scripts/new_episode.sh" <期�
 | `characters.js` / `characters.json` | 八位正式人物的姓名、造型、性格、说话方式、固定 TTS 音色和校验数据 | 角色调整时同步改 |
 | `brand.js` | 镜头 `cam()`、白洞转场、场景标签、按角色注册表显示字幕姓名、片头、片尾 | 一般不改 |
 | `timeline.js` | 按 BEATS 和配音时长自动排时间线 | 不改 |
-| `cover.js` | 封面和竖版切片底图 | 不改 |
+| `cover.js` | 封面；旧版切片底图仅兼容 | 按 `covers.md` 在本期工程实现风格、场景和四尺寸构图；不改声音与角色身份 |
 | `check-characters.py` `voice.py` `mix.py` `music/score.py` `srt.mjs` `build.sh` | 角色校验、按人物处理配音、混音、配乐、字幕、一键构建 | 一般不改；新音效加在 `mix.py` 的 `FX` 里 |
 | `TREATMENT.md` `FACTS.md` `CREDITS` | 本期的分析和脚本、事实表、素材许可 | 写 |
 

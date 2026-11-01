@@ -4,17 +4,21 @@
 
 ## 1. 封面（四种尺寸）
 
-按 `visual.md` 选本期矛盾最清楚的一瞬间：人物反应、关键物件和短标题共同说明问题。需要票据、装置或其他道具时，在本期 `cover.js` 中实际绘制；仅给 `COVER` 添加未被读取的字段不会生成道具。检查各尺寸的构图与表情，不把同一套头像换标题作为每期固定方案。
+出封面前先读 `covers.md`，并查看随包 `assets/examples/cover-styles/contact-sheet.png`。当前暂用 A 深蓝边界制止、B 朱红言语冲突、C 蓝色行动离开三种风格；按本期疑问、人物动机与行动选择，不把示例标题、丁叔和反问姐固定到所有选题。
 
-先在 `story.js` 的 `COVER` 里写好：`title`（≤12 字，用 `/` 分两行）、`hl`（用克莱因蓝的关键词）、`bg`（明亮饱和的背景色）、`pop`（与背景撞色的图形色）、`laobai` 和 `xiaowen` 的表情名。颜色随本期情绪轮换；先确认黑字和蓝色关键词清楚可读，再在 WSL 里：
+按 `visual.md` 与 `covers.md` 选本期矛盾最清楚的一瞬间。短标题、人物反应与背景空间共同说明问题；标题用粗黑体大字，关键词可用黄、白或蓝，按背景对比选择，不强制旧的黑字蓝词亮底。封面沿用角色身份和画法，不连带改变正片的色彩、字体和字幕版式。
 
+在本期 `cover.js` 实际实现场景、标题排版与人物动作，按四种比例分别构图。模板旧底稿不会自动生成这三种风格：只改 `COVER` 的 `bg` / `pop`，或新增未被读取的 `style`、道具字段，都不算完成新风格。`story.js` 的 `COVER` 保留本期标题、强调词与已有角色设置的接线；只使用当前渲染代码真正支持的字段。
+
+完成绘制、字体和四尺寸适配后，在 WSL 中从实际 Skill 根目录执行：
+
+```sh
+sh "$BAIDONG_SKILL_ROOT/scripts/cover.sh" /path/to/episode
 ```
-sh /mnt/c/Users/Administrator/.claude/skills/baidong/scripts/cover.sh /mnt/g/vibe/baidong/ep<期号>-<短名>
-```
 
-得到 `cover-4x3.jpg`（B 站，1440×1080）、`cover-16x9.jpg`（抖音横封面、视频号、快手、YouTube）、`cover-3x4.jpg`（小红书、抖音竖封面）、`cover-9x16.jpg`（完整竖屏版、竖屏短片、Shorts、Reels）。用 Read 逐张看：标题有没有被人物挡住或裁切、关键词是否清楚、背景和撞色图形是否醒目、人物表情是否匹配主题。人物主体保持黑白，老白的蓝围巾保留；场景色彩不再受“每帧只能有一处蓝色”限制。
+得到 `cover-4x3.jpg`（B 站，1440×1080）、`cover-16x9.jpg`（横版，1920×1080）、`cover-3x4.jpg`（小红书等，1080×1440）、`cover-9x16.jpg`（竖版，1080×1920）。逐张检查完整图和缩略图：标题、表情、手势与识别配饰清楚，气泡话语归属正确，没有意外裁切或遮挡；不能将横版机械拉伸或直接裁切作为竖版交付。
 
-英文发布使用对应的英文封面标题和画面文字，沿用本期视觉方向，重新检查英文断行与遮挡；不能用中文封面冒充已完成的英文物料。
+英文发布使用对应英文标题和画面文字，独立改写、断行和检查遮挡。随包六图是当前风格参考，不是本期已经做好的中文或英文封面，也不代表平台点击率已验证。
 
 ## 2. 竖屏成片
 
@@ -77,7 +81,7 @@ python C:/Users/Administrator/.claude/skills/baidong/scripts/chapters.py G:/vibe
 | `seg` | `{s1: {title, text}, …, s6: {title, text}}`：六段的标题和台词 |
 | `check` | 留存自查清单，`{键: true/false}` |
 | `facts` | `{f1: {o, claim, url}, …}` |
-| `coverText`、`coverHighlight` | 封面大字（用 `/` 分行）、蓝色关键词 |
+| `coverText`、`coverHighlight` | 封面大字（用 `/` 分行）、强调关键词；颜色按 `covers.md`，不新增数据库字段 |
 | `covers` | `{"16x9": {path}, "4x3": {path}, "3x4": {path}, "9x16": {path}}`，path 写本地路径 |
 | `prod` | `{step, stuck, stuckNote, note, paths}`。`step` 是步骤序号：0 脚本、1 配音、2 关键镜头确认、3 成片、4 封面、5 竖版切片；`paths` 是 `{p0: 脚本路径, p1: 配音目录, …, p3: 成片路径, p5: 切片路径}` |
 | `mat` | `{douyin: {title, desc, tags}, xhs: {…}, bili: {…}, sph: {…}, ks: {…}, yt: {…}}` |

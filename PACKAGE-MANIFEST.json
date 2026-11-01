@@ -1,7 +1,7 @@
 {
-  "version": "v4-full-20261101-daily-life",
-  "created_utc": "2026-11-01T05:47:17.796191+00:00",
-  "skill_commit": "633e476fa2ce8d4f00a46a86595d90512cdb7675",
+  "version": "v4-full-20261101-cover-styles",
+  "created_utc": "2026-11-01T07:24:28.059195+00:00",
+  "skill_commit": "a8f1f82af90133436b9284d11c9610793c6b0751",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -1001,8 +1001,8 @@
     },
     {
       "path": "references/account.md",
-      "bytes": 6516,
-      "sha256": "1e453e7e5817d317e624c15bf2fb6acb6bcd17a59b96e4a953b8fd774449752a"
+      "bytes": 6732,
+      "sha256": "35f84bc8e8e776595866fc7a135026477de6bb7b377de52d396327a100219afb"
     },
     {
       "path": "references/characters.md",
@@ -1016,18 +1016,18 @@
     },
     {
       "path": "references/distribution.md",
-      "bytes": 10054,
-      "sha256": "3844108639d23c666c0e449b2ebc227f4442e69d1650b614da2a8c807a0ad3c3"
+      "bytes": 10423,
+      "sha256": "e117c4fa34cb178fb44673ca2071a680645f63921a1b05feec3e26d38ab82dcf"
     },
     {
       "path": "references/installation.md",
-      "bytes": 5967,
-      "sha256": "6f1e6eb1fca627e1be0efb3a3b20d07da4c852dc6c58b28b8cf5e7b90328fd0c"
+      "bytes": 6144,
+      "sha256": "2d6c0757aa175186e2df9921aeb2096f9bed12cf9c5202ec456c27f9e17740c1"
     },
     {
       "path": "references/production.md",
-      "bytes": 14530,
-      "sha256": "ef03a6dd9eaf309f1bb36fb81dde4d4366ef51577c3e30b84c32b60cb7df45f7"
+      "bytes": 14633,
+      "sha256": "d8b22aee650d41e1418a3fd6a477f242faeec312fcabdf6a663e17ef08480d45"
     },
     {
       "path": "references/vertical.md",
@@ -1036,8 +1036,8 @@
     },
     {
       "path": "references/visual.md",
-      "bytes": 8377,
-      "sha256": "75040a3f49180ece3a8e206da410b5a419d08ea466f2ddf4f458adf3e1eb68aa"
+      "bytes": 8428,
+      "sha256": "99fb3234d2c498fb2a09430b77792de43b499aeee6b6f074d3381616e0034ad5"
     },
     {
       "path": "scripts/chapters.py",
@@ -1086,8 +1086,48 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 11337,
-      "sha256": "c9dc564f183f5f7570b984274cde57c57a23fb70a668b0b8696d92a806c9da54"
+      "bytes": 11658,
+      "sha256": "da321f0c8c006760b456e454414c3b98bb0c784ca1224688d2edc975ad8eb1bf"
+    },
+    {
+      "path": "assets/examples/cover-styles/a-boundary-16x9.jpg",
+      "bytes": 217720,
+      "sha256": "48477a45b90b0a117df4236078305dfb3049027d721c859135c096dbf6af16db"
+    },
+    {
+      "path": "assets/examples/cover-styles/a-boundary-9x16.jpg",
+      "bytes": 229548,
+      "sha256": "166506d3cc9aa982d5f02577ece4a201683d5dc8caf7425f8d613c683e7f4d25"
+    },
+    {
+      "path": "assets/examples/cover-styles/b-resistance-16x9.jpg",
+      "bytes": 283077,
+      "sha256": "7802f801ec0b41d43e6bbe550264ab1e4766c8515136683ba25cb045a072bd2c"
+    },
+    {
+      "path": "assets/examples/cover-styles/b-resistance-9x16.jpg",
+      "bytes": 306150,
+      "sha256": "a37d967065134abee7ef30b0ed79e388a7b00f7a9af30b63992c3012c6b2224f"
+    },
+    {
+      "path": "assets/examples/cover-styles/c-escape-16x9.jpg",
+      "bytes": 310478,
+      "sha256": "115cc8219d9446112e1e7fb1ce27f232970bd109d9794fda6f76ce162f04af3d"
+    },
+    {
+      "path": "assets/examples/cover-styles/c-escape-9x16.jpg",
+      "bytes": 307773,
+      "sha256": "6bf155a95b65c193c08528249d0cf69af69658d03f77bf3bac94ea2f133c8346"
+    },
+    {
+      "path": "assets/examples/cover-styles/contact-sheet.png",
+      "bytes": 433577,
+      "sha256": "fe12ee458b0865a1be1af64613aec1cd6091819f817923e2b84a00a761f48248"
+    },
+    {
+      "path": "references/covers.md",
+      "bytes": 5928,
+      "sha256": "d1f8f10a77de380c0f3377c044153e1650f3f7a3cdc0de37903e137e319294e8"
     }
   ],
   "excluded": [
