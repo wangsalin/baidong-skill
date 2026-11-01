@@ -1,7 +1,7 @@
 {
   "version": "v4-full-20261031-roles",
   "created_utc": "2026-10-31T10:39:06.664029+00:00",
-  "skill_commit": "6e03786d8d0eb22133ce86e98ad9e9065280836f",
+  "skill_commit": "32bdcaf3de9428613e6570eefe9b5d52c848bf79",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -1001,8 +1001,8 @@
     },
     {
       "path": "references/account.md",
-      "bytes": 6176,
-      "sha256": "0d8c531c9d8ca5d23cb437293dbc56317ffa6f43a1ea2c3ec9a5bdd73987a254"
+      "bytes": 6510,
+      "sha256": "39e6a088952934d137997ec6c4358af5ad39a68b8d0b1b2da7a07c9c8ccbb2fa"
     },
     {
       "path": "references/characters.md",
@@ -1011,8 +1011,8 @@
     },
     {
       "path": "references/content.md",
-      "bytes": 16464,
-      "sha256": "b46cc30eee85e3febde773c624b25c1daa3e64995a7a4271dd97f2119076c173"
+      "bytes": 21344,
+      "sha256": "5200b7dd95a82fa9e71cbea1dfd8fe1f136cce70dab335841e88da180d5ea144"
     },
     {
       "path": "references/distribution.md",
@@ -1031,8 +1031,8 @@
     },
     {
       "path": "references/vertical.md",
-      "bytes": 6946,
-      "sha256": "0374248f2e30d545698678c17fab27d05f4c6c04f63eb01ee2d0852df2486aa6"
+      "bytes": 7829,
+      "sha256": "3726707f378be9740dc9b78e0522f47391671250be9d9574e2a25e065f6a31be"
     },
     {
       "path": "references/visual.md",
@@ -1086,8 +1086,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 10990,
-      "sha256": "7b887e43136314cb86bd4fb8f5d555bd9dde23f8839322de3a2c9b7faa2c307b"
+      "bytes": 10844,
+      "sha256": "ce69f83732464e9c662b25f2aa2d6ae1c33c46859d62366e780f53951fca2bb8"
     }
   ],
   "excluded": [
