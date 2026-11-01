@@ -1,7 +1,7 @@
 {
   "version": "v4-full-20261031-roles",
   "created_utc": "2026-10-31T10:39:06.664029+00:00",
-  "skill_commit": "32bdcaf3de9428613e6570eefe9b5d52c848bf79",
+  "skill_commit": "3f2c79b963b8e8bf7966678031d4896a667e35a2",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -1011,8 +1011,8 @@
     },
     {
       "path": "references/content.md",
-      "bytes": 21344,
-      "sha256": "5200b7dd95a82fa9e71cbea1dfd8fe1f136cce70dab335841e88da180d5ea144"
+      "bytes": 25218,
+      "sha256": "52ecec1a8690e9a1acca8ee6d457555d17640de4327cef4fe5f8f024e9c43513"
     },
     {
       "path": "references/distribution.md",
@@ -1086,8 +1086,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 10844,
-      "sha256": "ce69f83732464e9c662b25f2aa2d6ae1c33c46859d62366e780f53951fca2bb8"
+      "bytes": 11078,
+      "sha256": "a5e9952f5361c750c8f5afeb12d003b5a9b8427f7d084011f4592ab637d328a2"
     }
   ],
   "excluded": [
