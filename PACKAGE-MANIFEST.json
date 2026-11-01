@@ -1,5 +1,5 @@
 {
-  "version": "v4-full-20261101-independent-covers",
+  "version": "v4-full-20261101-conflict-portrait-covers-v5",
   "created_utc": "2026-11-01T07:24:28.059195+00:00",
   "skill_commit": "a8f1f82af90133436b9284d11c9610793c6b0751",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
@@ -13,6 +13,16 @@
       "path": ".gitignore",
       "bytes": 133,
       "sha256": "b36f7758b6bfa2af05920728e17bc88666ce9b1900833d7396e6b713ae2dc76a"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 11812,
+      "sha256": "063c29781e5003bb3d09d02e295d49af74706bde67a4f7342295ab45df263c14"
+    },
+    {
+      "path": "assets/episode-template/CREDITS",
+      "bytes": 1763,
+      "sha256": "6efaeb69c994d996a1851911aefc6647d99f4bdfd8ba1606abb25914261b66ef"
     },
     {
       "path": "assets/episode-template/brand.js",
@@ -48,11 +58,6 @@
       "path": "assets/episode-template/cover.js",
       "bytes": 7237,
       "sha256": "4a7ac8b9ee6a25e68308edd5cfb961344beafd0a244c75be5a7008a6de3ccb7f"
-    },
-    {
-      "path": "assets/episode-template/CREDITS",
-      "bytes": 1763,
-      "sha256": "6efaeb69c994d996a1851911aefc6647d99f4bdfd8ba1606abb25914261b66ef"
     },
     {
       "path": "assets/episode-template/fonts/fetch_fonts.py",
@@ -130,6 +135,196 @@
       "sha256": "c7fcbd878b3536241d57a9d8ee36fffbed9e8324eb456c30afbd6104ba147c01"
     },
     {
+      "path": "assets/examples/cover-styles/a-boundary-16x9.jpg",
+      "bytes": 217720,
+      "sha256": "48477a45b90b0a117df4236078305dfb3049027d721c859135c096dbf6af16db"
+    },
+    {
+      "path": "assets/examples/cover-styles/a-boundary-9x16.jpg",
+      "bytes": 229548,
+      "sha256": "166506d3cc9aa982d5f02577ece4a201683d5dc8caf7425f8d613c683e7f4d25"
+    },
+    {
+      "path": "assets/examples/cover-styles/b-resistance-16x9.jpg",
+      "bytes": 283077,
+      "sha256": "7802f801ec0b41d43e6bbe550264ab1e4766c8515136683ba25cb045a072bd2c"
+    },
+    {
+      "path": "assets/examples/cover-styles/b-resistance-9x16.jpg",
+      "bytes": 306150,
+      "sha256": "a37d967065134abee7ef30b0ed79e388a7b00f7a9af30b63992c3012c6b2224f"
+    },
+    {
+      "path": "assets/examples/cover-styles/c-escape-16x9.jpg",
+      "bytes": 310478,
+      "sha256": "115cc8219d9446112e1e7fb1ce27f232970bd109d9794fda6f76ce162f04af3d"
+    },
+    {
+      "path": "assets/examples/cover-styles/c-escape-9x16.jpg",
+      "bytes": 307773,
+      "sha256": "6bf155a95b65c193c08528249d0cf69af69658d03f77bf3bac94ea2f133c8346"
+    },
+    {
+      "path": "assets/examples/cover-styles/contact-sheet.png",
+      "bytes": 433577,
+      "sha256": "fe12ee458b0865a1be1af64613aec1cd6091819f817923e2b84a00a761f48248"
+    },
+    {
+      "path": "assets/examples/cover-v5/catalog.json",
+      "bytes": 12639,
+      "sha256": "70687c339db9f3e153d329088961863fe6bf89b7804dbf22ac50c6f5dc82361e"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep01-zh-16x9.jpg",
+      "bytes": 240116,
+      "sha256": "be0ac71c4df2ced0eb12f90bfa41b8804683c740ec8db964d8111e0087524242"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep01-zh-3x4.jpg",
+      "bytes": 260281,
+      "sha256": "05e19b3a607a89e5ee13570354d73847799696797b86a3b81bf3e4ac323f870b"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep01-zh-4x3.jpg",
+      "bytes": 200812,
+      "sha256": "4585bd0d7027a770d5a45487c50f1ccf95bfe1be854bd167ca6d969c88e181e3"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep01-zh-9x16.jpg",
+      "bytes": 306144,
+      "sha256": "bdedc6d7408eedb131d117e146c61dd3b715a6a8d33a73a45cdc1c78779202ef"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep09-zh-16x9.jpg",
+      "bytes": 224639,
+      "sha256": "5d13928300c98a49019912afe9f1c5842ae584de5665f292da329f9a923def13"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep09-zh-3x4.jpg",
+      "bytes": 215931,
+      "sha256": "2947c954079a846ed4c473915a5a4f2ee3ce6871569e2b82f4a9dbe4acedf633"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep09-zh-4x3.jpg",
+      "bytes": 187104,
+      "sha256": "710fbb958bed6b697e11fee3a260aa07938a41539da658a40de7183e23943d6c"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep09-zh-9x16.jpg",
+      "bytes": 254695,
+      "sha256": "321338dc7b1857ef9214ee72a8730784ca42f6dd6e3cddbbbfcf65ad4ad6defb"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-en-16x9.jpg",
+      "bytes": 226823,
+      "sha256": "b09696cbe844ae5166f0598795c86a6c690053317b205e4aeb6f2f51a941832b"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-en-3x4.jpg",
+      "bytes": 183632,
+      "sha256": "a7e05a5bd27e058afe153926f5ba66795e4e753d430fad513fd4da851e468908"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-en-4x3.jpg",
+      "bytes": 178587,
+      "sha256": "8d6c9c760dcdf8d35028306853bc24dec42a57db935ce63e33de4afabe41a18a"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-en-9x16.jpg",
+      "bytes": 207317,
+      "sha256": "8b1c1551463029cb9aa63bcc6636e0bc2a81b1b7eda050eb7b25608ee9278c88"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-zh-16x9.jpg",
+      "bytes": 247671,
+      "sha256": "51b9204ffb51c585744f277b4b2dcf640ac43273ec841dcb6a196a383d5d9045"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-zh-3x4.jpg",
+      "bytes": 218012,
+      "sha256": "8ef0698aad29d3e1606df122bbf5e61012c10e146ad1cba70943472e1d23de41"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-zh-4x3.jpg",
+      "bytes": 194287,
+      "sha256": "db13f2b70ff906408bd5eb8e7a6a76af984090309b30e699cd5acde943fe36d7"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep13-zh-9x16.jpg",
+      "bytes": 240363,
+      "sha256": "ace7571125ed4094a2181dd853e77444d92bfc1a5b73f4f7eb5ba3f6e7350470"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep14-zh-16x9.jpg",
+      "bytes": 260893,
+      "sha256": "61ec5a0d151b1c48fb79719ebe71cc7257101b66fd78dcb7c81b038d0fc59607"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep14-zh-3x4.jpg",
+      "bytes": 219441,
+      "sha256": "82451a4b8f65f406c72c2291a2d7386ec0423ab717cdb481c138eba28b234840"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep14-zh-4x3.jpg",
+      "bytes": 222982,
+      "sha256": "65991d122b737a103a301843eb80773a7938d8c88f229c4fe2ce22ce2ebc2105"
+    },
+    {
+      "path": "assets/examples/cover-v5/ep14-zh-9x16.jpg",
+      "bytes": 255048,
+      "sha256": "fc462588aa48dbed62fd9f553081e466438bc54799ec61ea231f820c2b9d66d7"
+    },
+    {
+      "path": "assets/examples/cover-v5/overview-3x4.jpg",
+      "bytes": 580643,
+      "sha256": "64f862d7fde4935673fb22f5d6719f2769df9e68971b3271d945d12b27757f43"
+    },
+    {
+      "path": "assets/examples/cover-v5/overview-9x16.jpg",
+      "bytes": 670715,
+      "sha256": "f0b70d3987fef48a5b414897eac61e8cd641940f857f081c3fd34f2fe1d0a686"
+    },
+    {
+      "path": "assets/examples/cover-v5/portrait-highlights.jpg",
+      "bytes": 269857,
+      "sha256": "1947587a5df051e38be842517455d2fc78695c2d79a1b2f69a540276958fbf13"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/CREDITS",
+      "bytes": 1598,
+      "sha256": "8e03d0d42f256826e8e6bba62a83ecd2aa9834b6688296599abd91d8b3b802cf"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/DELIVERY.md",
+      "bytes": 1730,
+      "sha256": "b818e2c9a0bc547a633406d90b6089636f8614d68feb5da4b878fc4293e6d985"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/FACTS.md",
+      "bytes": 2779,
+      "sha256": "a67cd60ace6b868104b2493e7a1154b249cdbeca6bc2a530eab552f722d4b834"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/LICENSE-lemo.txt",
+      "bytes": 1064,
+      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/PROGRESS.md",
+      "bytes": 1336,
+      "sha256": "edc8a0bb4487d441d71ef3ed3f59b4832af1a75ccc662a8b497b94aeede22422"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/REFERENCE.md",
+      "bytes": 1049,
+      "sha256": "5307bd28c4c62f7934a803d30708287a525023bf43f721ed1bfd5e3e63d8f9d7"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/TREATMENT.md",
+      "bytes": 5436,
+      "sha256": "0db43676a4ba9b9c1e54e0ab241a35efe196cf74d9de0a4e74fff339ade1945b"
+    },
+    {
       "path": "assets/examples/ep08-sunk-cost/brand.js",
       "bytes": 7348,
       "sha256": "1bfea85fa38fb2af1f822879133cd2dda56d4499da7f1fa85aa00b26f95c97ed"
@@ -165,19 +360,9 @@
       "sha256": "1209ae340ab486f5dd7f14e12e81213c651817bbcda4ea9447b7a36979b34c00"
     },
     {
-      "path": "assets/examples/ep08-sunk-cost/CREDITS",
-      "bytes": 1598,
-      "sha256": "8e03d0d42f256826e8e6bba62a83ecd2aa9834b6688296599abd91d8b3b802cf"
-    },
-    {
       "path": "assets/examples/ep08-sunk-cost/delivery-qa.json",
       "bytes": 6141,
       "sha256": "c11e21b071f5cfaaebb2220ff8d2703ef99afb685a2ba6d63c38840e76f9839e"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/DELIVERY.md",
-      "bytes": 1730,
-      "sha256": "b818e2c9a0bc547a633406d90b6089636f8614d68feb5da4b878fc4293e6d985"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/ep08-sunk-cost.mp4",
@@ -195,9 +380,14 @@
       "sha256": "91b1886640647e2b54e2a7b130460a736b67f39ed2ee0c83540c40f569ad6f5a"
     },
     {
-      "path": "assets/examples/ep08-sunk-cost/FACTS.md",
-      "bytes": 2779,
-      "sha256": "a67cd60ace6b868104b2493e7a1154b249cdbeca6bc2a530eab552f722d4b834"
+      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notosanssc.txt",
+      "bytes": 4387,
+      "sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
+    },
+    {
+      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notoserifsc.txt",
+      "bytes": 4350,
+      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/fonts/fetch_fonts.py",
@@ -225,24 +415,9 @@
       "sha256": "abf374aa70549c1d050de016ae600d07edd5bd42b50174ffa94741c202b22492"
     },
     {
-      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notosanssc.txt",
-      "bytes": 4387,
-      "sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/fonts/OFL-notoserifsc.txt",
-      "bytes": 4350,
-      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6"
-    },
-    {
       "path": "assets/examples/ep08-sunk-cost/index.html",
       "bytes": 332,
       "sha256": "0f01fe684644ee3a97a720049fc6b3bef1ed8ce16597a0c118d8d413f8be7e94"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/LICENSE-lemo.txt",
-      "bytes": 1064,
-      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/lines.json",
@@ -305,11 +480,6 @@
       "sha256": "565c4294521ecff182fd510ae908bd8151550ce0e26664805b8bec2fdc27ccb3"
     },
     {
-      "path": "assets/examples/ep08-sunk-cost/PROGRESS.md",
-      "bytes": 1336,
-      "sha256": "edc8a0bb4487d441d71ef3ed3f59b4832af1a75ccc662a8b497b94aeede22422"
-    },
-    {
       "path": "assets/examples/ep08-sunk-cost/publish.md",
       "bytes": 8140,
       "sha256": "1cff6d905d459694f9e501baf1f9f940a2851f94fa4b307e643aafe97ad9c6de"
@@ -318,11 +488,6 @@
       "path": "assets/examples/ep08-sunk-cost/qa.json",
       "bytes": 2433,
       "sha256": "9adbc3456c7d666a1d3330a27f6e6671b70e961e899bf162832ad7fad6eb8e74"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/REFERENCE.md",
-      "bytes": 1049,
-      "sha256": "5307bd28c4c62f7934a803d30708287a525023bf43f721ed1bfd5e3e63d8f9d7"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/srt.mjs",
@@ -378,11 +543,6 @@
       "path": "assets/examples/ep08-sunk-cost/toon.js",
       "bytes": 8921,
       "sha256": "23467f5855ee1c80cbdbe828a63a4ce198b80320bab6d976e8ed724a5a8f095b"
-    },
-    {
-      "path": "assets/examples/ep08-sunk-cost/TREATMENT.md",
-      "bytes": 5436,
-      "sha256": "0db43676a4ba9b9c1e54e0ab241a35efe196cf74d9de0a4e74fff339ade1945b"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/voice-check.json",
@@ -730,6 +890,11 @@
       "sha256": "c7fcbd878b3536241d57a9d8ee36fffbed9e8324eb456c30afbd6104ba147c01"
     },
     {
+      "path": "assets/examples/vertical-layout-demo/README.md",
+      "bytes": 588,
+      "sha256": "1aed7286dfde009ac1a37368434ba4933b8c6a3c22961208c3e61826fe4e8c0a"
+    },
+    {
       "path": "assets/examples/vertical-layout-demo/contact-sheet.jpg",
       "bytes": 476859,
       "sha256": "64829046847ea96c226352cf730949b6ec834618de7d135ed09ea70efdc6b861"
@@ -740,11 +905,6 @@
       "sha256": "4df58de637962d274023c78d6f9748db873d8d01b9dcc9a62b6d6789b3dc74ef"
     },
     {
-      "path": "assets/examples/vertical-layout-demo/README.md",
-      "bytes": 588,
-      "sha256": "1aed7286dfde009ac1a37368434ba4933b8c6a3c22961208c3e61826fe4e8c0a"
-    },
-    {
       "path": "assets/lemo-runtime/AGENTS.md",
       "bytes": 10132,
       "sha256": "511015d34b8705ebd6d758ec6424be0dcb0eacc0f83283ffcc27460fccfd7d66"
@@ -753,6 +913,31 @@
       "path": "assets/lemo-runtime/BUNDLED-SOURCE.json",
       "bytes": 239,
       "sha256": "e63f9f7d6f61ef4dfe14ee8e3996df7aa5d99b96ec5a9b030ee156d334436c67"
+    },
+    {
+      "path": "assets/lemo-runtime/DIRECTOR.md",
+      "bytes": 11356,
+      "sha256": "3b8b0c40011a0cea796bb1afe6dae0f212115b57e2aa4c9a976b1994a923d564"
+    },
+    {
+      "path": "assets/lemo-runtime/LICENSE",
+      "bytes": 1064,
+      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
+    },
+    {
+      "path": "assets/lemo-runtime/README.zh-CN.md",
+      "bytes": 33864,
+      "sha256": "425c9d46319bf71726f88aeeadffa4bc799912a2443e57b7de36ac46e4c3dcf3"
+    },
+    {
+      "path": "assets/lemo-runtime/TECHNIQUE.md",
+      "bytes": 13269,
+      "sha256": "8790803f846846032cba16c11c6f1c477625460e9df74f32d1c650717ea8526b"
+    },
+    {
+      "path": "assets/lemo-runtime/core/README.md",
+      "bytes": 7456,
+      "sha256": "c13c11532dda994b3e4c0933e8756286fa4f8b7f288cb47ba0beee26d399dbfa"
     },
     {
       "path": "assets/lemo-runtime/core/audio/INSTRUMENTS.md",
@@ -788,11 +973,6 @@
       "path": "assets/lemo-runtime/core/post/crt.js",
       "bytes": 10958,
       "sha256": "19d5385b5df36026dd13075a7a0fef2bc7c8763e8f3d719316dbf62ad4872a5c"
-    },
-    {
-      "path": "assets/lemo-runtime/core/README.md",
-      "bytes": 7456,
-      "sha256": "c13c11532dda994b3e4c0933e8756286fa4f8b7f288cb47ba0beee26d399dbfa"
     },
     {
       "path": "assets/lemo-runtime/core/render/browser.mjs",
@@ -870,16 +1050,6 @@
       "sha256": "ee0196eb3c665531411be5721186e4f4f0514d1404ba439dc4a85aab31678aff"
     },
     {
-      "path": "assets/lemo-runtime/DIRECTOR.md",
-      "bytes": 11356,
-      "sha256": "3b8b0c40011a0cea796bb1afe6dae0f212115b57e2aa4c9a976b1994a923d564"
-    },
-    {
-      "path": "assets/lemo-runtime/LICENSE",
-      "bytes": 1064,
-      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33"
-    },
-    {
       "path": "assets/lemo-runtime/package-lock.json",
       "bytes": 1063,
       "sha256": "813ec295dae53e681217533ebc9babd2eedb170fc69a3c8b33a6df266d5248ac"
@@ -888,11 +1058,6 @@
       "path": "assets/lemo-runtime/package.json",
       "bytes": 363,
       "sha256": "6b8067aaba294772db54db7d2763300021e0d1fe97b5f108c10ae7c42aa1350d"
-    },
-    {
-      "path": "assets/lemo-runtime/README.zh-CN.md",
-      "bytes": 33864,
-      "sha256": "425c9d46319bf71726f88aeeadffa4bc799912a2443e57b7de36ac46e4c3dcf3"
     },
     {
       "path": "assets/lemo-runtime/requirements-music.txt",
@@ -920,19 +1085,14 @@
       "sha256": "9a720a57ce50dc554e9237e698a979cdf7311527e6e6a0dad803278dfe8ad2ce"
     },
     {
-      "path": "assets/lemo-runtime/TECHNIQUE.md",
-      "bytes": 13269,
-      "sha256": "8790803f846846032cba16c11c6f1c477625460e9df74f32d1c650717ea8526b"
-    },
-    {
       "path": "assets/lemo-runtime/tools/assets.json",
       "bytes": 1220,
       "sha256": "a03a688203dbce22968f2a4b54dc9e19b7014051929084e2a7f6adebd2bd7240"
     },
     {
-      "path": "assets/lemo-runtime/tools/directory/library-setup.sh",
-      "bytes": 3895,
-      "sha256": "fe0135ca42ebc73731ebf1fb44a6c488f8219e3efcff72b2c0080212b6767b09"
+      "path": "assets/lemo-runtime/tools/directory.py",
+      "bytes": 17910,
+      "sha256": "8286dab12ced9b0eb448a9dd067dd202d821b9a3301f89c484f11ed93c929377"
     },
     {
       "path": "assets/lemo-runtime/tools/directory/README.md",
@@ -945,19 +1105,19 @@
       "sha256": "5f51b4a71db2b6b24e430339cc3cda2f375de08342c2e52613d290e48cc39af7"
     },
     {
-      "path": "assets/lemo-runtime/tools/directory/setup.sh",
-      "bytes": 1406,
-      "sha256": "bd1f641bb8c6bc89c82e284741205a3b2eae8cd05feb9aeb3cc005cefca02809"
-    },
-    {
       "path": "assets/lemo-runtime/tools/directory/SKILL.md",
       "bytes": 4139,
       "sha256": "6b5948c594dd9fdb1c544e19fd0d0ecafefd9fb86bbee125299a5fd865c6c9cc"
     },
     {
-      "path": "assets/lemo-runtime/tools/directory.py",
-      "bytes": 17910,
-      "sha256": "8286dab12ced9b0eb448a9dd067dd202d821b9a3301f89c484f11ed93c929377"
+      "path": "assets/lemo-runtime/tools/directory/library-setup.sh",
+      "bytes": 3895,
+      "sha256": "fe0135ca42ebc73731ebf1fb44a6c488f8219e3efcff72b2c0080212b6767b09"
+    },
+    {
+      "path": "assets/lemo-runtime/tools/directory/setup.sh",
+      "bytes": 1406,
+      "sha256": "bd1f641bb8c6bc89c82e284741205a3b2eae8cd05feb9aeb3cc005cefca02809"
     },
     {
       "path": "assets/lemo-runtime/tools/fetch.sh",
@@ -1015,14 +1175,19 @@
       "sha256": "6803ef7cc13ca9b3a165b106b5e90c788487c12b7b6865a858e6593b6af86125"
     },
     {
+      "path": "references/covers.md",
+      "bytes": 11988,
+      "sha256": "7805240cc512f2de33ec4050261b63af5edfdd0f131fc67ef2d47e3aad7669e3"
+    },
+    {
       "path": "references/distribution.md",
-      "bytes": 10423,
-      "sha256": "e117c4fa34cb178fb44673ca2071a680645f63921a1b05feec3e26d38ab82dcf"
+      "bytes": 10812,
+      "sha256": "8f47da0f3151f3f2b858963e6a04ebe78af8771f7b2fa539ea01aa6a88e9f1f4"
     },
     {
       "path": "references/installation.md",
-      "bytes": 6144,
-      "sha256": "2d6c0757aa175186e2df9921aeb2096f9bed12cf9c5202ec456c27f9e17740c1"
+      "bytes": 6473,
+      "sha256": "f430a72533be2e588f0a7a6c64d8f51ec1cd84a2780b66e2fdc708bb68f1054f"
     },
     {
       "path": "references/production.md",
@@ -1083,51 +1248,6 @@
       "path": "scripts/verify_package.py",
       "bytes": 2564,
       "sha256": "fdefd684498f48cd8bca2284b5c48ae52be3299d8808009bb762dad98d3071ce"
-    },
-    {
-      "path": "SKILL.md",
-      "bytes": 11721,
-      "sha256": "06b2141d407f310b11da463f1cbf9a5f380eed832ed741452e28c166a796876f"
-    },
-    {
-      "path": "assets/examples/cover-styles/a-boundary-16x9.jpg",
-      "bytes": 217720,
-      "sha256": "48477a45b90b0a117df4236078305dfb3049027d721c859135c096dbf6af16db"
-    },
-    {
-      "path": "assets/examples/cover-styles/a-boundary-9x16.jpg",
-      "bytes": 229548,
-      "sha256": "166506d3cc9aa982d5f02577ece4a201683d5dc8caf7425f8d613c683e7f4d25"
-    },
-    {
-      "path": "assets/examples/cover-styles/b-resistance-16x9.jpg",
-      "bytes": 283077,
-      "sha256": "7802f801ec0b41d43e6bbe550264ab1e4766c8515136683ba25cb045a072bd2c"
-    },
-    {
-      "path": "assets/examples/cover-styles/b-resistance-9x16.jpg",
-      "bytes": 306150,
-      "sha256": "a37d967065134abee7ef30b0ed79e388a7b00f7a9af30b63992c3012c6b2224f"
-    },
-    {
-      "path": "assets/examples/cover-styles/c-escape-16x9.jpg",
-      "bytes": 310478,
-      "sha256": "115cc8219d9446112e1e7fb1ce27f232970bd109d9794fda6f76ce162f04af3d"
-    },
-    {
-      "path": "assets/examples/cover-styles/c-escape-9x16.jpg",
-      "bytes": 307773,
-      "sha256": "6bf155a95b65c193c08528249d0cf69af69658d03f77bf3bac94ea2f133c8346"
-    },
-    {
-      "path": "assets/examples/cover-styles/contact-sheet.png",
-      "bytes": 433577,
-      "sha256": "fe12ee458b0865a1be1af64613aec1cd6091819f817923e2b84a00a761f48248"
-    },
-    {
-      "path": "references/covers.md",
-      "bytes": 6138,
-      "sha256": "e7850c0fd80e4278ffe9e395ca13896e18dd949a4996e07fc11d1cf6837dd03f"
     }
   ],
   "excluded": [
@@ -1143,8 +1263,13 @@
     "SKILL.md",
     "references/account.md",
     "references/content.md",
+    "references/covers.md",
+    "references/distribution.md",
+    "references/installation.md",
     "references/production.md",
     "references/vertical.md",
     "references/visual.md"
-  ]
+  ],
+  "updated_utc": "2026-11-01T08:44:18.845444+00:00",
+  "cover_reference_version": "20261101-conflict-portrait-v5"
 }

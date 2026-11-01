@@ -1,0 +1,424 @@
+{
+  "version": "20261101-conflict-portrait-v5",
+  "purpose": "已认可封面案例。正文来源为历史工程溯源，未随包提供的单图不计入附件；不改变当前角色注册表、选题范围或正文。",
+  "source_commit": "e51439d",
+  "preview_commit": "1dcb5ce",
+  "sizes": [
+    [
+      "16x9",
+      1920,
+      1080
+    ],
+    [
+      "4x3",
+      1440,
+      1080
+    ],
+    [
+      "3x4",
+      1080,
+      1440
+    ],
+    [
+      "9x16",
+      1080,
+      1920
+    ]
+  ],
+  "episodes": [
+    {
+      "no": 0,
+      "slug": "ep00-codex-preview",
+      "topic": "睡前不肯睡·早期样片",
+      "style": "A",
+      "scene": "night",
+      "title": [
+        "困到睁不开",
+        "就是不肯睡"
+      ],
+      "tag": "明天还要早起",
+      "pose": "phone",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "bedside-clock",
+      "art_direction": "夜钟从背后逼近，困倦近景与亮屏手机形成反差",
+      "viewer_question": "困到睁不开，为什么仍放不下手机？",
+      "content_basis": "TREATMENT.md：眼睛很困、手指继续滑；非失眠诊断",
+      "portrait_layout": "bedside-clock-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 1,
+      "slug": "ep01-pay-gap",
+      "topic": "能力与工资",
+      "style": "B",
+      "scene": "work",
+      "title": [
+        "你工资更高",
+        "凭啥我干？"
+      ],
+      "tag": "这活，你自己做！",
+      "pose": "overload",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "workload-pay",
+      "art_direction": "斜向推回交付文件，前景小问拒绝，后景老白被挡住",
+      "viewer_question": "高薪同事的工作，为什么又交给我？",
+      "content_basis": "TREATMENT.md / SCRIPT.md：拒绝替高薪同事兜底，文件被推回",
+      "portrait_layout": "workload-pay-native-portrait",
+      "bundled_files": {
+        "zh": {
+          "16x9": "ep01-zh-16x9.jpg",
+          "4x3": "ep01-zh-4x3.jpg",
+          "3x4": "ep01-zh-3x4.jpg",
+          "9x16": "ep01-zh-9x16.jpg"
+        }
+      }
+    },
+    {
+      "no": 2,
+      "slug": "ep02-hot-spending",
+      "topic": "情绪消费",
+      "style": "A",
+      "scene": "shopping",
+      "title": [
+        "心情越差",
+        "钱包越松"
+      ],
+      "tag": "又想下单了",
+      "pose": "phone",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "shopping-portal",
+      "art_direction": "大购物屏向外涌出包裹，人物与支付按钮被挤在一起",
+      "viewer_question": "为什么越难受，越容易下单？",
+      "content_basis": "TREATMENT.md：饿累烦急使眼前消费更重",
+      "portrait_layout": "shopping-portal-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 3,
+      "slug": "ep03-friend-success",
+      "topic": "朋友成功与嫉妒",
+      "style": "B",
+      "scene": "success",
+      "title": [
+        "他升职了",
+        "我却笑不出"
+      ],
+      "tag": "明明是朋友…",
+      "pose": "envy",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "split-emotion",
+      "art_direction": "大近景笑脸与难受脸上下错开，升职消息横穿中间",
+      "viewer_question": "明明是朋友，为什么收到好消息却笑不出来？",
+      "content_basis": "TREATMENT.md：恭喜发出后开始比较自己",
+      "portrait_layout": "split-emotion-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 4,
+      "slug": "ep04-last-one",
+      "topic": "再刷一条就睡",
+      "style": "A",
+      "scene": "scroll",
+      "title": [
+        "最后一条",
+        "你信几次了？"
+      ],
+      "tag": "说好刷完就睡",
+      "pose": "phone",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "endless-scroll",
+      "art_direction": "人物侧面刷手机，视频卡片从手边盘向画外",
+      "viewer_question": "为什么每次说最后一条，还是继续刷？",
+      "content_basis": "TREATMENT.md：停在信息流没有自然终点的机制",
+      "portrait_layout": "endless-scroll-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 5,
+      "slug": "ep05-hometown",
+      "topic": "不愿离开家乡",
+      "style": "C",
+      "scene": "station",
+      "title": [
+        "车票改两次",
+        "还是舍不得走"
+      ],
+      "tag": "到家报平安",
+      "pose": "hesitate",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "station-platform",
+      "art_direction": "人物与行李堵在站台，暖色家门和冷色车门拉向两边",
+      "viewer_question": "已经决定返程，为什么仍一次次停留？",
+      "content_basis": "TREATMENT.md：开场车票改两次，家乡细节与两把钥匙",
+      "portrait_layout": "station-platform-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 6,
+      "slug": "ep06-gold-war",
+      "topic": "战争与黄金价格",
+      "style": "B",
+      "scene": "gold",
+      "title": [
+        "不是避险吗",
+        "怎么还跌？"
+      ],
+      "tag": "黄金",
+      "pose": "shocked",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "gold-collapse",
+      "art_direction": "巨大金条下坠压入红色场景，惊讶人物靠近下坠路径",
+      "viewer_question": "为什么战争发生时，黄金也可能下跌？",
+      "content_basis": "TREATMENT.md：避险需求不是唯一价格驱动",
+      "portrait_layout": "gold-collapse-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 7,
+      "slug": "ep07-market-last",
+      "topic": "为什么一买就跌",
+      "style": "B",
+      "scene": "market",
+      "title": [
+        "我一买就跌",
+        "市场盯上我？"
+      ],
+      "tag": "我刚入场",
+      "pose": "shocked",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "market-cliff",
+      "art_direction": "人物站在行情转折边缘，近景惊讶脸与向下折线呼应",
+      "viewer_question": "为什么总感觉自己接了最后一棒？",
+      "content_basis": "TREATMENT.md：信息重叠、怕错过与价格预期；示意非真实行情",
+      "portrait_layout": "market-cliff-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 8,
+      "slug": "ep08-sunk-cost",
+      "topic": "沉没成本",
+      "style": "C",
+      "scene": "cinema",
+      "title": [
+        "亏了票钱",
+        "还赔时间？"
+      ],
+      "tag": "这票，退不了",
+      "pose": "leave",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "cinema-beam",
+      "art_direction": "巨大撕票横穿前景，影院出口和回身人物指向另一种选择",
+      "viewer_question": "为什么为了不心疼旧投入，还要付出新的时间？",
+      "content_basis": "TREATMENT.md：100元不可退，剩余一小时仍可选择",
+      "portrait_layout": "cinema-beam-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 9,
+      "slug": "ep09-refusal",
+      "topic": "拒绝与人情压力",
+      "style": "A",
+      "scene": "boundary",
+      "title": [
+        "拒绝一次",
+        "就不够朋友？"
+      ],
+      "tag": "我真的没空",
+      "pose": "stop",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "boundary-palm",
+      "art_direction": "门前伸掌人物成为边界，请求卡片从右方挤向手掌",
+      "viewer_question": "说不之后，为什么还要证明自己够朋友？",
+      "content_basis": "TREATMENT.md：出门被修机器请求堵住、关系施压",
+      "portrait_layout": "boundary-palm-native-portrait",
+      "bundled_files": {
+        "zh": {
+          "16x9": "ep09-zh-16x9.jpg",
+          "4x3": "ep09-zh-4x3.jpg",
+          "3x4": "ep09-zh-3x4.jpg",
+          "9x16": "ep09-zh-9x16.jpg"
+        }
+      }
+    },
+    {
+      "no": 10,
+      "slug": "ep10-defensiveness",
+      "topic": "纠正与自我防御",
+      "style": "B",
+      "scene": "kitchen",
+      "title": [
+        "我说盐放错",
+        "你说我不行？"
+      ],
+      "tag": "我说的是布丁",
+      "pose": "defiant",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "kitchen-argument",
+      "art_direction": "厨房两张脸拉近，指向盐罐的动作与挡住反馈的反应对冲",
+      "viewer_question": "为什么一件事做错，会被听成整个人不行？",
+      "content_basis": "TREATMENT.md：盐糖放错、布丁停机，防御阻碍修正",
+      "portrait_layout": "kitchen-argument-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 11,
+      "slug": "ep11-possible-self",
+      "topic": "准备三年不敢开始",
+      "style": "C",
+      "scene": "deadline",
+      "title": [
+        "准备了三年",
+        "却怕这一下"
+      ],
+      "tag": "提交",
+      "pose": "hesitate",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "draft-maze",
+      "art_direction": "一个巨型提交按钮与悬停的手，稿纸和倒计时围住犹豫人物",
+      "viewer_question": "准备很久，为什么临提交仍想再改一次？",
+      "content_basis": "TREATMENT.md：作品不交，想象中的可能性不必接受检验",
+      "portrait_layout": "draft-maze-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 12,
+      "slug": "ep12-ask-experts",
+      "topic": "高手为何不想教你",
+      "style": "B",
+      "scene": "advice",
+      "title": [
+        "高手不想教",
+        "你问错了啥？"
+      ],
+      "tag": "你直接告诉我怎么办",
+      "pose": "ask",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "layout": "question-wall",
+      "art_direction": "空白提问纸挡在两人之间，小问伸手，老白抱臂看向纸面",
+      "viewer_question": "请教时缺了什么，才让对方像在替我做决定？",
+      "content_basis": "TREATMENT.md：先拿自己的判断换下一步信息",
+      "portrait_layout": "question-wall-native-portrait",
+      "bundled_files": {}
+    },
+    {
+      "no": 13,
+      "slug": "ep13-profit-guilt",
+      "topic": "报价时的道德内疚",
+      "style": "A",
+      "scene": "quote",
+      "title": [
+        "客户没嫌贵",
+        "我先打折了"
+      ],
+      "tag": "报价，不是认罪",
+      "pose": "guilt",
+      "cast": [
+        "LAOBAI",
+        "XIAOWEN"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "english": {
+        "title": [
+          "THEY DID NOT ASK.",
+          "I CUT MY PRICE."
+        ],
+        "tag": "A QUOTE, NOT AN APOLOGY."
+      },
+      "layout": "guilty-invoice",
+      "art_direction": "大报价纸上的删价红线连向低头人物，红笔仍停在纸前",
+      "viewer_question": "客户还没反对，为什么自己先让出报酬？",
+      "content_basis": "TREATMENT.md：开场删报价、获利被自动当作他人损失",
+      "portrait_layout": "guilty-invoice-native-portrait",
+      "bundled_files": {
+        "zh": {
+          "16x9": "ep13-zh-16x9.jpg",
+          "4x3": "ep13-zh-4x3.jpg",
+          "3x4": "ep13-zh-3x4.jpg",
+          "9x16": "ep13-zh-9x16.jpg"
+        },
+        "en": {
+          "16x9": "ep13-en-16x9.jpg",
+          "4x3": "ep13-en-4x3.jpg",
+          "3x4": "ep13-en-3x4.jpg",
+          "9x16": "ep13-en-9x16.jpg"
+        }
+      }
+    },
+    {
+      "no": 14,
+      "slug": "ep14-human-colleagues",
+      "topic": "开会时点子不敢先说",
+      "style": "A",
+      "scene": "meeting",
+      "title": [
+        "明明先想到",
+        "却只敢附和"
+      ],
+      "tag": "我也是这么想的…",
+      "pose": "hesitate",
+      "cast": [
+        "A1",
+        "A2",
+        "B2",
+        "C1"
+      ],
+      "lead": "A2",
+      "support": "C1",
+      "layout": "meeting-silence",
+      "art_direction": "会议前后纵深，前景跳跳犹豫，后景流程哥发言，附和句悬在桌边",
+      "viewer_question": "为什么等别人先说，我才敢表示赞同？",
+      "content_basis": "TREATMENT.md：想被看见与怕出错、要求低调的拉扯",
+      "portrait_layout": "meeting-silence-native-portrait",
+      "bundled_files": {
+        "zh": {
+          "16x9": "ep14-zh-16x9.jpg",
+          "4x3": "ep14-zh-4x3.jpg",
+          "3x4": "ep14-zh-3x4.jpg",
+          "9x16": "ep14-zh-9x16.jpg"
+        }
+      }
+    }
+  ]
+}

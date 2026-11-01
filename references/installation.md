@@ -10,6 +10,7 @@
 - `assets/lemo-runtime/`：本次实际使用的Lemo轻量源码、`scifi-toon`风格文档、MIT许可、依赖锁文件；上游版本 `413a6bd6d78ebd3bdd5abaec9538a26867f890df`。不包含其他风格的演示、乐器采样或英文模型。
 - `assets/examples/ep08-sunk-cost/`：已认可的完整成片、封面、源码、62句处理后配音、字幕、发布介绍及原QA记录。用途是观察动作、解释和色彩，不让下一期照抄剧情。`REFERENCE.md` 说明重建方式。
 - `assets/examples/cover-styles/`：用户暂用的三种封面风格，含六张横竖参考图与总览；规则见 `references/covers.md`，不把样图冒充本期输出。
+- `assets/examples/cover-v5/`：用户认可的 V5 具体冲突与原生竖版案例；含 15 期设计索引、两种竖版总览、四张代表图总览，第 1/9/13/14 期四比例中文图及第 13 期四比例英文图。样例随包读取，不依赖原本机预览站；历史案例不替代正式八人角色注册表。
 - `assets/examples/vertical-layout-demo/`：已确认的第九期式竖屏版面演示和总览图。仅参考画面分区、主体位置与字幕安全区；演示配色不固定，也不是一条完整视频。
 - `PACKAGE-MANIFEST.json`：包内文件大小与SHA256。安装后产生的缓存不属于原始清单。
 
