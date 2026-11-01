@@ -1,5 +1,5 @@
 {
-  "version": "v4-full-20261101-cover-styles",
+  "version": "v4-full-20261101-independent-covers",
   "created_utc": "2026-11-01T07:24:28.059195+00:00",
   "skill_commit": "a8f1f82af90133436b9284d11c9610793c6b0751",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
@@ -1086,8 +1086,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 11658,
-      "sha256": "da321f0c8c006760b456e454414c3b98bb0c784ca1224688d2edc975ad8eb1bf"
+      "bytes": 11721,
+      "sha256": "06b2141d407f310b11da463f1cbf9a5f380eed832ed741452e28c166a796876f"
     },
     {
       "path": "assets/examples/cover-styles/a-boundary-16x9.jpg",
@@ -1126,8 +1126,8 @@
     },
     {
       "path": "references/covers.md",
-      "bytes": 5928,
-      "sha256": "d1f8f10a77de380c0f3377c044153e1650f3f7a3cdc0de37903e137e319294e8"
+      "bytes": 6138,
+      "sha256": "e7850c0fd80e4278ffe9e395ca13896e18dd949a4996e07fc11d1cf6837dd03f"
     }
   ],
   "excluded": [
