@@ -68,6 +68,24 @@ class TemplateRegression(unittest.TestCase):
             with self.subTest(field=field), self.assertRaisesRegex(ValueError, field):
                 CHECK.validate(REGISTRY, [dict(LINES[0], **{field: value})])
 
+    def test_js_json_registry_same_names_and_voices(self):
+        uri = (TEMPLATE / 'characters.js').as_uri()
+        script = f"import {{CHARACTER_IDS,CHARACTERS,getVoice}} from {json.dumps(uri)}; console.log(JSON.stringify(CHARACTER_IDS.map(id=>({{id,name:CHARACTERS[id].name,zh:getVoice(id,'zh'),en:getVoice(id,'en')}}))));"
+        result = subprocess.run(['node', '--input-type=module', '-e', script], check=True, capture_output=True, text=True, encoding='utf-8')
+        for item in json.loads(result.stdout):
+            self.assertEqual(item['name'], REGISTRY['formal'][item['id']]['name'])
+            for lang in ('zh', 'en'):
+                spec = REGISTRY['formal'][item['id']] if lang == 'zh' else REGISTRY['languages'][lang][item['id']]
+                for field in ('voice', 'rate', 'pitch'):
+                    self.assertEqual(item[lang][field], spec[field])
+
+    def test_invalid_language_rejected(self):
+        with tempfile.TemporaryDirectory(prefix='baidong-config-') as tmp:
+            root = Path(tmp)
+            (root / 'episode.json').write_text('{"language":"de"}', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, '不支持的配音语言'):
+                CHECK.load_config(root)
+
     def test_duplicate_registry_voice_rejected(self):
         reg = copy.deepcopy(REGISTRY)
         reg['formal']['A2']['voice'] = reg['formal']['A1']['voice']
@@ -126,6 +144,9 @@ class TemplateRegression(unittest.TestCase):
                 result = subprocess.run(['sh', str(project / 'build.sh'), 'from=asr'], env={**os.environ, 'LIB': str(lib)}, capture_output=True, text=True, encoding='utf-8')
                 self.assertEqual(result.returncode, 77, result.stderr)
                 self.assertIn('ASR_LANGUAGE=' + lang, result.stdout)
+                invalid = subprocess.run(['sh', str(project / 'build.sh'), 'from=typo'], env={**os.environ, 'LIB': str(lib)}, capture_output=True, text=True, encoding='utf-8')
+                self.assertEqual(invalid.returncode, 2)
+                self.assertNotIn('done:', invalid.stdout)
 
 
 if __name__ == '__main__':

@@ -18,6 +18,8 @@ args = ap.parse_args()
 skill = Path(__file__).resolve().parent.parent
 archive = args.output.resolve()
 stage = archive.with_suffix('') / 'baidong'
+if archive.is_relative_to(skill) or stage.is_relative_to(skill):
+    ap.error('输出必须放在 Skill 源目录之外，避免把新包再次打进自身。')
 if archive.exists() or stage.parent.exists():
     ap.error('输出压缩包或暂存目录已存在；请指定新的输出文件名，保留旧包。')
 stage.mkdir(parents=True)
@@ -31,10 +33,25 @@ def copy(src, dst):
         shutil.copy2(src, dst)
 
 def revision(root):
+    result = subprocess.run(['git', '-C', str(root), 'rev-parse', '--show-toplevel'], capture_output=True, text=True, encoding='utf-8')
+    if result.returncode or Path(result.stdout.strip()).resolve() != root.resolve():
+        return None  # 随包参考工程没有独立 .git，不能冒用父目录的提交。
     return subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True, encoding='utf-8').strip()
+
+def reference_revision(root):
+    commit = revision(root)
+    if commit:
+        return commit
+    for parent in root.resolve().parents:
+        manifest = parent / 'PACKAGE-MANIFEST.json'
+        if manifest.is_file() and root.resolve().relative_to(parent).as_posix() == 'assets/examples/ep08-sunk-cost':
+            return json.loads(manifest.read_text(encoding='utf-8')).get('reference_episode_commit')
+    return None
 
 files = subprocess.check_output(['git', '-C', str(skill), 'ls-files', '-c', '-o', '--exclude-standard', '-z'], encoding='utf-8').split('\0')
 for name in sorted(set(filter(None, files))):
+    if name == 'PACKAGE-MANIFEST.json':
+        continue  # 清单在所有复制和适配结束后生成，不能把旧清单纳入自身。
     copy(skill / name, stage / name)
 
 # 轻量运行源码；不触发稀疏仓库的远程对象拉取，不复制环境、模型或采样。
@@ -81,8 +98,12 @@ for name in ('source.json', 'mix-levels.json', 'credits.txt'):
 # 仅在分发副本中把参考工程的本机路径改为LIB；原工程保持原样。
 for name in ('asr-context.py', 'check-context.py'):
     p = example / 'tools' / name
-    text = p.read_text(encoding='utf-8').replace('import json', 'import os\nimport json', 1).replace("'/home/salin/lemo-opuscar/core/tts'", "os.path.join(os.environ.get('LIB', os.path.expanduser('~/lemo-opuscar')), 'core/tts')")
-    p.write_text(text, encoding='utf-8')
+    text = p.read_text(encoding='utf-8')
+    if "'/home/salin/lemo-opuscar/core/tts'" in text:
+        if 'import os' not in text:
+            text = text.replace('import json', 'import os\nimport json', 1)
+        text = text.replace("'/home/salin/lemo-opuscar/core/tts'", "os.path.join(os.environ.get('LIB', os.path.expanduser('~/lemo-opuscar')), 'core/tts')")
+    p.write_text(text, encoding='utf-8', newline='\n')
 for name in ('inspect.mjs', 'check-playback.mjs'):
     p = example / 'tools' / name
     p.write_text(p.read_text(encoding='utf-8').replace("'/home/salin/lemo-opuscar/core/render/page.mjs'", "path.join(process.env.LIB || path.join(process.env.HOME,'lemo-opuscar'),'core/render/page.mjs')"), encoding='utf-8')
@@ -101,11 +122,12 @@ p.write_text(p.read_text(encoding='utf-8').replace('LIB=${LIB:-$HOME/lemo-opusca
 
 payloads = []
 for p in sorted(stage.rglob('*')):
-    if p.is_file():
+    if p.is_file() and p.relative_to(stage).as_posix() != 'PACKAGE-MANIFEST.json':
         data = p.read_bytes()
         payloads.append({'path': p.relative_to(stage).as_posix(), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
-manifest = {'version': args.version, 'created_utc': datetime.now(timezone.utc).isoformat(), 'skill_commit': revision(skill), 'reference_episode_commit': revision(args.example), 'files': payloads, 'excluded': ['.git', '.venv', 'node_modules', 'Chromium', 'Whisper models', 'instrument sample libraries'], 'verification': '文件内容SHA256；清单本身不计入自校验。'}
-(stage / 'PACKAGE-MANIFEST.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+dirty = bool(subprocess.check_output(['git', '-C', str(skill), 'status', '--porcelain'], encoding='utf-8').strip())
+manifest = {'version': args.version, 'created_utc': datetime.now(timezone.utc).isoformat(), 'skill_commit': revision(skill), 'skill_dirty': dirty, 'reference_episode_commit': reference_revision(args.example), 'files': payloads, 'excluded': ['.git', '.venv', 'node_modules', 'Chromium', 'Whisper models', 'instrument sample libraries'], 'verification': '文件内容SHA256；清单本身不计入自校验。'}
+(stage / 'PACKAGE-MANIFEST.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
 with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z:
     for p in sorted(stage.rglob('*')):
         if p.is_file():

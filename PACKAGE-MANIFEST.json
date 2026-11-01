@@ -1,7 +1,7 @@
 {
   "version": "v4-full-20261101-conflict-portrait-covers-v5",
   "created_utc": "2026-11-01T07:24:28.059195+00:00",
-  "skill_commit": "a8f1f82af90133436b9284d11c9610793c6b0751",
+  "skill_commit": "416f0d75e46328b2dd69bf52cc3182a79a068481",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -31,8 +31,13 @@
     },
     {
       "path": "assets/episode-template/build.sh",
-      "bytes": 3057,
-      "sha256": "a56cc68ec0620725eb0212df1956416ff192c8dfa1920f73c76386100ef8db8d"
+      "bytes": 3184,
+      "sha256": "7d141bca0700a487cd119e099897f3b7b275088459c3728c26a9a8f9d1c33741"
+    },
+    {
+      "path": "assets/episode-template/cast-check.js",
+      "bytes": 1338,
+      "sha256": "6cb2e142c4b56df12fccbe17efd9b5778ef1fcb370cb38c2565fa5e51a71b52f"
     },
     {
       "path": "assets/episode-template/characters.js",
@@ -46,13 +51,13 @@
     },
     {
       "path": "assets/episode-template/chars.js",
-      "bytes": 34670,
-      "sha256": "112f7d832e61187d9404d9816752e608f1cd9095e96e303977c2b1a3e2902172"
+      "bytes": 38368,
+      "sha256": "5f874900c3acd2dcda3fd4e56525aa4bb4910bb57cc2c4ef913190013586dd15"
     },
     {
       "path": "assets/episode-template/check-cast.mjs",
-      "bytes": 2490,
-      "sha256": "eb709c410c31192c962f2562fd3d7579c18279b3c7351aaa8411b5d7aff5ea3b"
+      "bytes": 1656,
+      "sha256": "d4c943d338d8b562be03a9c349bde23856d4669f59b56e79272766a66471ebe7"
     },
     {
       "path": "assets/episode-template/check-characters.py",
@@ -86,8 +91,8 @@
     },
     {
       "path": "assets/episode-template/main.js",
-      "bytes": 7805,
-      "sha256": "03b90984be631c0d9b0e25ce918e8faf06020fc158862c89b1ae27426780cd65"
+      "bytes": 7995,
+      "sha256": "3229d9e9fb7d240dae25c003e10fe0d61283504926b28a2cc08e15a8697d9c61"
     },
     {
       "path": "assets/episode-template/mix.py",
@@ -136,8 +141,8 @@
     },
     {
       "path": "assets/episode-template/voice.py",
-      "bytes": 3183,
-      "sha256": "f66baa737938bed199575d71b0fd5968a225b076717d6a5a8fc88b2aba7d1a5f"
+      "bytes": 3411,
+      "sha256": "940e377dc378dd3a9147a51385f547626de49b4c5f99017fd6211f80f64ad40a"
     },
     {
       "path": "assets/episode-template/worlds.js",
@@ -1176,8 +1181,8 @@
     },
     {
       "path": "references/characters.md",
-      "bytes": 9435,
-      "sha256": "0d78cb2ac1c4d7f8ffadb51915498ad3746d29e31fca21bf85fc0357b1b7bddd"
+      "bytes": 10638,
+      "sha256": "6f644f284aada16dab4abae435f1e1eedca9bdb049467debe0c69eceb1f51e52"
     },
     {
       "path": "references/content.md",
@@ -1201,13 +1206,13 @@
     },
     {
       "path": "references/production.md",
-      "bytes": 15738,
-      "sha256": "197dc9ae6844fa8d2d4efd96b259991eab3443db75f80e176903ace60c1400b3"
+      "bytes": 16905,
+      "sha256": "4830205ae59a9f3139fdebdc701630dacf691b8e89a4bdf654ff6ebf68af969c"
     },
     {
       "path": "references/vertical.md",
-      "bytes": 7511,
-      "sha256": "08d0ae51774845a5fd95241d287d853cbb8b2fc5b62fe090b16555f9c87f2cd6"
+      "bytes": 7583,
+      "sha256": "a0c53fed8d60dbd6db4a46125c278ff78d490c0769bd8ec1c3647416a144cdc7"
     },
     {
       "path": "references/visual.md",
@@ -1241,8 +1246,8 @@
     },
     {
       "path": "scripts/package_skill.py",
-      "bytes": 8184,
-      "sha256": "b79094232f72391191a0961e385835dc280c4653888269fc659ea3e10ae5ccaf"
+      "bytes": 9599,
+      "sha256": "faa513a3697b271fc4792b0dbd8d97f620ab0c9ba4bebe2c5defb22ecda3c89d"
     },
     {
       "path": "scripts/runtime.sh",
@@ -1255,9 +1260,14 @@
       "sha256": "cbc4582d3f9d5a76798226eace491b1082177d7ec02eeeeb1c252fa058534d5c"
     },
     {
+      "path": "scripts/test_characters.mjs",
+      "bytes": 6273,
+      "sha256": "c95b5e2d4950c1f68d8ec4b6fdb64e16209096182acc1c8799f200aafdf36120"
+    },
+    {
       "path": "scripts/test_template.py",
-      "bytes": 7420,
-      "sha256": "441047976c4bcea822cd74f5215a0fd615ea207f9589036fe7431b214fa48f21"
+      "bytes": 8948,
+      "sha256": "e1808d589d404f69d544297758535f86909d534cab02396e59101181172979cc"
     },
     {
       "path": "scripts/verify_package.py",
@@ -1285,6 +1295,7 @@
     "references/vertical.md",
     "references/visual.md"
   ],
-  "updated_utc": "2026-11-01T08:44:18.845444+00:00",
-  "cover_reference_version": "20261101-conflict-portrait-v5"
+  "updated_utc": "2026-11-01T09:18:14.489781+00:00",
+  "cover_reference_version": "20261101-conflict-portrait-v5",
+  "skill_dirty": true
 }

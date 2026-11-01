@@ -3,7 +3,7 @@
 // view：'q'（3/4 侧面，默认）| 'front' 正面 | 'side' 正侧面（朝右，用 face:-1 朝左）| 'back' 背面
 // 动作：POSES 里是现成的整套姿势，用法 laobai({ x, y, ...POSES.laobai.explain, talk, t })
 import { hash } from '/core/lib.js';
-import { W, H, tx, INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, quad, dot } from './toon.js';
+import { g, tx, INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, quad, dot } from './toon.js';
 import { CHARACTER_IDS, CHARACTERS, getCharacter } from './characters.js';
 
 export const C = { BLUE: '#002FA7', GREY: '#8A8A8A', LIGHT: '#E6E6E6', PAPER: '#FFFFFF', RING: '#C3C3C3', SK: '#F3F1EE', SKS: '#DCD8D2', MOUTH: '#3A1420', TONGUE: '#B8B8B8' };
@@ -128,6 +128,7 @@ export function headLaobaiBack() {
 // ———————— 老白 · 全身 ————————
 // P: {x, y, s, face, view, expr, E, talk:{o,w,talking}, blink, armF, armB, lean, headTilt, bob, sq, walk, sit, scarf}
 export function laobai(P = {}) {
+  recordLegacyHead('LAOBAI', P, -604 + (P.sit ? 100 : 0), 80, 100);
   const view = P.view || 'q';
   if (view === 'front') return laobaiFront(P);
   if (view === 'side') return laobaiSide(P);
@@ -246,6 +247,7 @@ export function headXiaowenBack() {
 // ———————— 小问 · 全身 ————————
 // P: {x, y, s, face, t, view, expr, E, talk, blink, armF, armB, nerv, lean, headTilt, bob, sq, walk, sit}
 export function xiaowen(P = {}) {
+  recordLegacyHead('XIAOWEN', P, -334 + (P.sit ? 74 : 0), 84, 88);
   const view = P.view || 'q';
   if (view === 'side') return xiaowenSide(P);
   if (view === 'back') return xiaowenBack(P);
@@ -336,12 +338,30 @@ export const FORMAL_POSES = Object.freeze(Object.fromEntries(CHARACTER_IDS.map(i
     think: { expr: light ? 'calm' : 'think', armF: a.chin || a.headF || a.rest },
     shrug: { expr: light ? 'sad' : 'speechless', armF: a.shrugF || a.droop || a.rest, armB: a.shrugB || a.restB },
     cross: { expr: light ? 'defiant' : 'seeThrough', armF: a.crossF || a.fist || a.rest, armB: a.crossB || a.fistB || a.restB },
+    walk: { expr: 'calm', walk: .131, armF: { h: [36, 126], bend: 14 }, armB: { h: [-36, 130], bend: -10 } },
+    sit: { expr: 'calm', sit: true, armF: { h: [46, 85], bend: 18 }, armB: { h: [-12, 88], bend: -8 } },
+    front: { expr: 'calm', view: 'front' },
+    side: { expr: 'calm', view: 'side' },
+    back: { expr: 'calm', view: 'back' },
   }];
 })));
 
-function formalHead(spec, E) {
+function formalHead(spec, E, view = 'q') {
   const { headW: w, headH: h, variant } = spec;
   const angular = variant === 'angular' || variant === 'diamond';
+  if (view === 'side') {
+    const profile = [[-w * .52, -h * .7], [0, -h], [w * .48, -h * .76], [w * .53, -h * .1], [w * .96, h * .12], [w * .55, h * .25], [w * .52, h * .75], [w * .12, h], [-w * .5, h * .58]];
+    shape(angular ? profile : spline(profile), { fill: SK, shade: () => fillOnly(spline([[-w * .5, -h * .6], [-w * .12, -h * .7], [-w * .06, h * .9], [-w * .5, h * .5]]), SKS, { boil: .35 }) });
+    shape(ell(-w * .37, h * .1, w * .17, h * .22), { fill: SK, lw: 4 });
+    if (variant === 'tall' || variant === 'long') stroke(spline([[-10, -h * .94], [-20, -h * 1.3], [0, -h * 1.46], [18, -h * 1.25]], false), 7);
+    if (variant === 'slim' || variant === 'broad' || variant === 'long') shape(spline([[-w * .57, h * .4], [-w * .6, -h * .7], [0, -h * 1.03], [w * .46, -h * .78], [w * .46, -h * .43], [-w * .17, -h * .45], [-w * .23, h * .33]]), { fill: variant === 'broad' ? '#343434' : INK });
+    eye(w * .3, -h * .1, w * .17 * (E.eS ?? 1), h * .25 * (E.eS ?? 1), { lid: E.lid ?? 0, look: E.look || [.7, 0], pupil: E.pupil ?? 4 });
+    brow(w * .29, -h * .48, w * .33, E.br ?? 0, 1, E.brDy || 0, 6);
+    if (variant === 'broad') stroke(arc(w * .3, -h * .1, w * .23, h * .3, 0, Math.PI * 2, 20), 4);
+    mouth(w * .57, h * .63, w * .3, { sm: -.15, ...E.m });
+    if (E.sweat) sweat(-w * .63, -h * .1, .8);
+    return;
+  }
   const outline = angular
     ? [[0, -h], [w * .72, -h * .72], [w * .84, h * .12], [w * .45, h * .78], [0, h], [-w * .45, h * .78], [-w * .84, h * .12], [-w * .72, -h * .72]]
     : spline([[-w * .72, h * .2], [-w * .82, -h * .45], [-w * .42, -h * .92], [0, -h], [w * .48, -h * .84], [w * .82, -h * .35], [w * .74, h * .38], [w * .35, h], [-w * .34, h]]);
@@ -351,6 +371,16 @@ function formalHead(spec, E) {
   if (variant === 'broad') shape(spline([[-w * .88, -h * .25], [-w * .74, -h * .85], [0, -h * 1.02], [w * .74, -h * .82], [w * .88, -h * .18], [w * .55, -h * .42], [-w * .55, -h * .42]]), { fill: '#343434' });
   if (variant === 'long') shape(spline([[-w * .78, -h * .3], [-w * .72, -h * .86], [-w * .1, -h * 1.04], [w * .72, -h * .76], [w * .78, h * .1], [w * .62, h * .46], [w * .55, -h * .24]]), { fill: INK });
   if (angular) stroke([[0, -h], [w * .72, -h * .72], [w * .84, h * .12]], 5, { line: INK });
+  if (view === 'back') {
+    // 后脑保留脸型、发型与配饰识别，不画眼睛、眉毛或嘴。
+    if (variant === 'slim' || variant === 'broad' || variant === 'long') shape(spline([[-w * .76, h * .3], [-w * .79, -h * .58], [0, -h * 1.02], [w * .78, -h * .55], [w * .76, h * .38], [w * .4, h * .75], [-w * .4, h * .75]]), { fill: variant === 'broad' ? '#343434' : INK });
+    stroke(arc(0, h * .74, w * .38, h * .1, .12 * Math.PI, .88 * Math.PI, 12), 3, { line: '#BDB7AE' });
+    return;
+  }
+  if (view === 'front') {
+    E = { ...E, look: E.look || [0, 0] };
+    stroke([[0, h * .05], [-w * .08, h * .28], [w * .06, h * .28]], 4);
+  }
   const lid = E.lid ?? 0, look = E.look || [.15, 0], es = E.eS ?? 1;
   eye(-w * .31, -h * .08, w * .22 * es, h * .26 * es, { lid, look, pupil: E.pupil ?? 4 });
   eye(w * .3, -h * .08, w * .2 * es, h * .25 * es, { lid, look, pupil: E.pupil ?? 4 });
@@ -361,9 +391,10 @@ function formalHead(spec, E) {
   if (E.sweat) { sweat(-w * .98, -h * .1, .8); sweat(w * .98, h * .1, .65); }
 }
 
-function formalAccessory(spec, character, bodyTop) {
+function formalAccessory(spec, character, bodyTop, view = 'q') {
   const { accessory, accent } = character.visual;
   const w = spec.bodyW;
+  if (view === 'back' && accessory === 'geo-brooch') return;
   if (accessory === 'long-scarf') {
     shape(spline([[-w * .45, bodyTop + 2], [w * .45, bodyTop + 2], [w * .38, bodyTop + 38], [-w * .38, bodyTop + 38]]), { fill: accent });
     shape(spline([[w * .18, bodyTop + 24], [w * .42, bodyTop + 28], [w * .42, bodyTop + 210], [w * .16, bodyTop + 188]]), { fill: accent });
@@ -378,6 +409,7 @@ function formalAccessory(spec, character, bodyTop) {
     stroke(arc(0, bodyTop - 86, spec.headW * 1.16, spec.headH * 1.1, Math.PI * 1.08, Math.PI * 1.92, 18), 8, { line: accent });
     shape(rr(-spec.headW * 1.08, bodyTop - 58, 18, 42, 6), { fill: accent, lw: 4 }); shape(rr(spec.headW * .9, bodyTop - 58, 18, 42, 6), { fill: accent, lw: 4 });
   } else if (accessory === 'badge-bag') {
+    if (view === 'back') { stroke([[-w * .35, bodyTop + 6], [w * .7, bodyTop + 270]], 7, { line: accent }); return; }
     stroke([[w * .35, bodyTop + 6], [w * .7, bodyTop + 270]], 7, { line: accent }); shape(rr(w * .45, bodyTop + 132, 56, 70, 5), { fill: PAPER, lw: 4 }); fillOnly(rect(w * .45 + 12, bodyTop + 151, 32, 9), accent, { boil: 0 });
   } else if (accessory === 'triangle-scarf') {
     shape([[0, bodyTop + 2], [w * .46, bodyTop + 42], [0, bodyTop + 154], [-w * .46, bodyTop + 42]], { fill: accent, lw: 5 });
@@ -388,32 +420,50 @@ function formalAccessory(spec, character, bodyTop) {
 
 export const FRAME_CHARACTERS = new Map();
 export function resetCharacterFrame() { FRAME_CHARACTERS.clear(); }
-
-function drawFormal(id, P = {}) {
-  const character = getCharacter(id), spec = FORMAL_STYLE[id];
-  if (!character || !spec) throw new Error(`Unknown formal character: ${id}`);
-  const base = formalBase(id), E = mergeE(base[P.expr || 'calm'] || {}, P), legs = P.walk != null ? legsWalk(P.walk, P.stride ?? 28) : [[0, 0], [0, 0]];
-  const bodyTop = -spec.bodyH;
-  begin(P);
-  // 使用绘图引擎实际变换后的头部边界检查出镜，避免镜外调用也被当作出镜。
-  const corners = [[-spec.headW, bodyTop - 100 - spec.headH], [spec.headW, bodyTop - 100 + spec.headH]].map(([x, y]) => tx(x, y));
+function recordHead(id, w, h) {
+  const corners = [[-w, -h], [w, -h], [w, h], [-w, h]].map(([x, y]) => tx(x, y));
   const xs = corners.map(p => p[0]), ys = corners.map(p => p[1]);
   const left = Math.min(...xs), right = Math.max(...xs), top = Math.min(...ys), bottom = Math.max(...ys);
-  const visible = Math.max(0, Math.min(right, W) - Math.max(left, 0)) * Math.max(0, Math.min(bottom, H) - Math.max(top, 0));
+  const visible = Math.max(0, Math.min(right, g.canvas.width) - Math.max(left, 0)) * Math.max(0, Math.min(bottom, g.canvas.height) - Math.max(top, 0));
   const area = (right - left) * (bottom - top);
   if (area > 1 && visible >= area * .25) FRAME_CHARACTERS.set(id, true);
+}
+function recordLegacyHead(id, P, y, w, h) {
+  begin(P); translate(0, y); rotate(P.headTilt ?? 0); recordHead(id, w, h); pop();
+}
+
+function drawFormal(id, P = {}) {
+  const character = getCharacter(id), original = FORMAL_STYLE[id], view = P.view || 'q';
+  if (!character || !original) throw new Error(`Unknown formal character: ${id}`);
+  if (!['q', 'front', 'side', 'back'].includes(view)) throw new Error(`Unknown view: ${view}`);
+  const spec = view === 'side' ? { ...original, bodyW: original.bodyW * .72 } : original;
+  const base = formalBase(id), E = mergeE(base[P.expr || 'calm'] || {}, P), legs = P.walk != null ? legsWalk(P.walk, P.stride ?? 28) : [[0, 0], [0, 0]];
+  const bodyTop = -spec.bodyH + (P.sit ? spec.legH * .2 : 0), bodyBottom = P.sit ? -spec.legH * .55 - 12 : -56;
+  begin(P);
+  if (P.sit) {
+    const seat = -spec.legH * .55;
+    shape(rr(-spec.bodyW * .72, seat, spec.bodyW * 1.6, 26, 8), { fill: SEAT });
+    for (const sx of [-1, 1]) {
+      stroke([[sx * spec.bodyW * .58, seat + 24], [sx * spec.bodyW * .66, -4]], 8);
+      const knee = [spec.bodyW * .94 + sx * 12, seat - (sx < 0 ? 8 : 0)];
+      shape(noodle([sx * spec.bodyW * .17, seat], knee, -5, spec.legW, spec.legW * .86), { fill: sx < 0 ? LEGF : GREY });
+      shape(noodle(knee, [knee[0] + 8, -26], 0, spec.legW * .86, spec.legW * .78), { fill: sx < 0 ? LEGF : GREY });
+      shoe(knee[0] + 8, 0, INK, PAPER);
+    }
+  } else {
   for (const [sx, i] of [[-1, 0], [1, 1]]) {
     const lg = legs[i];
     shape(noodle([sx * spec.bodyW * .18, -spec.legH], [sx * spec.bodyW * .2 + lg[0], -26 + lg[1]], 0, spec.legW, spec.legW * .82), { fill: i ? GREY : LEGF });
     shoe(sx * spec.bodyW * .2 + lg[0], lg[1], INK, PAPER);
   }
+  }
   push(); rotate(P.lean ?? 0);
   armOf([-spec.bodyW * .48, bodyTop + 34], P.armB || formalArm(id).restB, spec.variant === 'broad' ? 45 : 34, 30, character.visual.coat);
-  shape(spline([[-spec.bodyW * .5, bodyTop + 18], [-spec.bodyW * .38, bodyTop - 24], [spec.bodyW * .38, bodyTop - 24], [spec.bodyW * .5, bodyTop + 18], [spec.bodyW * .42, -56], [-spec.bodyW * .42, -56]]), { fill: character.visual.coat, shade: () => fillOnly(spline([[spec.bodyW * .34, bodyTop], [spec.bodyW * .6, bodyTop + 30], [spec.bodyW * .54, -62], [spec.bodyW * .25, -62]]), character.visual.shade, { boil: .35 }) });
+  shape(spline([[-spec.bodyW * .5, bodyTop + 18], [-spec.bodyW * .38, bodyTop - 24], [spec.bodyW * .38, bodyTop - 24], [spec.bodyW * .5, bodyTop + 18], [spec.bodyW * .42, bodyBottom], [-spec.bodyW * .42, bodyBottom]]), { fill: character.visual.coat, shade: () => fillOnly(spline([[spec.bodyW * .34, bodyTop], [spec.bodyW * .6, bodyTop + 30], [spec.bodyW * .54, bodyBottom - 6], [spec.bodyW * .25, bodyBottom - 6]]), character.visual.shade, { boil: .35 }) });
   if (id === 'A2' || id === 'D2') for (let k = 0; k < 4; k++) stroke([[-spec.bodyW * .42, bodyTop + 50 + k * 36], [spec.bodyW * .42, bodyTop + 50 + k * 36]], 6, { line: INK });
-  formalAccessory(spec, character, bodyTop);
+  formalAccessory(spec, character, bodyTop, view);
   armOf([spec.bodyW * .48, bodyTop + 34], P.armF || formalArm(id).rest, spec.variant === 'broad' ? 45 : 34, 30, character.visual.coat);
-  push(); translate(0, bodyTop - 100); rotate(P.headTilt ?? 0); formalHead(spec, E); pop();
+  push(); translate(0, bodyTop - 100); rotate(P.headTilt ?? 0); recordHead(id, spec.headW, spec.headH); formalHead(spec, E, view); pop();
   pop(); pop();
 }
 

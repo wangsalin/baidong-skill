@@ -8,6 +8,7 @@ if [ "$(uname -s)" = Linux ]; then PATH="/usr/local/bin:/usr/bin:/bin:$PATH"; ex
 LIB=${LIB:-$HOME/lemo-opuscar}; export LIB
 PY=$LIB/.venv/bin/python
 ARG=${1:-}; FROM=${ARG#from=}; [ "$FROM" = "$ARG" ] && FROM=tts
+case "$FROM" in tts|voice|asr|events|score|mix|srt|video|mux|final) ;; *) echo "未知构建阶段：$FROM" >&2; exit 2;; esac
 STARTED=
 run() { case "$STARTED$1" in "$FROM"*|yes*) STARTED=yes; shift; "$@";; esac; }
 cd "$LIB"

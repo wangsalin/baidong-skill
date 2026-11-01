@@ -45,6 +45,7 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" <期号> <英文短名>
 
 | 文件 | 作用 | 每期要改吗 |
 |---|---|---|
+| `episode.json` | 语言 `zh/en`、角色模式；新期使用 `formal`，历史双人兼容需显式设 `legacy` | 创建时选语言 |
 | `lines.json` | 台词：`id`、`who`（新期使用 `A1`–`D2`；旧期兼容 `LAOBAI`/`XIAOWEN`）、`text`（字幕）、`say`（实际读的文字，数字写汉字）、`asr`（复核时期望听到的文字）、`voice`、`rate`、`pitch` | 改 |
 | `story.js` | 期号、本期问题、评论区问题、下期预告、封面设置、**BEATS 时间线顺序** | 改 |
 | `main.js` | 镜头 `SH.<镜头名>`；新期用 `character('A1', ROLE('A1', t, ...))`，`LB()`/`XW()` 只保留旧期兼容 | 改镜头部分 |
@@ -63,12 +64,13 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" <期号> <英文短名>
 
 ```
 cd $LIB
+LANGUAGE=$(.venv/bin/python <项目>/check-characters.py --language)              # 校验 ID/角色/固定音色，并读取语言
 .venv/bin/python core/tts/tts_zh.py <项目>/lines.json <项目>/voices/raw     # edge-tts，需联网
 .venv/bin/python <项目>/voice.py                                             # 按角色处理 + 口型
-HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目>/lines.json <项目>/voices --lang zh
+HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目>/lines.json <项目>/voices --lang "$LANGUAGE"
 ```
 
-- 新期音色固定：A1–D2 的 `voice`、`rate`、`pitch` 以 `characters.json` 为准，构建前由 `check-characters.py` 校验；旧期老白和小问继续使用原配置。
+- 中文固定参数来自 `characters.json/formal`，英文来自 `languages.en`。逐句严格校验 `voice/rate/pitch`，台词 ID 必须唯一，重播也要另起 ID。历史双人只在 `episode.json` 显式设 `character_mode: "legacy"` 时启用，仍校验固定声音；既有历史工程不自动改写。
 - 复核不通过时先判断：**同音字**（感灯/敢登、他/它、事/是）说明发音没问题，把模型听到的写进 `asr` 字段；**不是同音字**（头版 → 头吧）说明这个词在这个音色下容易听糊，观众也会听不清，改写台词。
 - `build.sh` 里的复核不通过时会停下来（这是有意的）。处理完 `lines.json` 后用 `sh build.sh from=asr` 从复核这一步接着跑；只改了 `asr` 字段时不需要重新生成配音。
 - 生成后看 `voices/dur.json` 的配音时长，再加上必要的表演停顿、片头片尾和转场。按本期内容预算检查，不用固定的“配音时长加八秒”估算，也不加快语速来掩盖内容过量。
@@ -78,7 +80,7 @@ HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目
 
 生成真实配音和口型数据后执行 `LIB="$LIB" node <项目>/check-cast.mjs`。校验逐帧调用实际 `window.render(t)`，读取真实绘制角色及头部是否进入画面；覆盖整句发声区间、切镜前后和转场边界，不能仅检查中点或手写 cast 声明。`build.sh` 在渲染前强制执行，`from=video` 也会检查；发声期间角色不在镜内或被转场遮挡即失败。
 
-无音频时只能用 `--preview` 做估算时长的案头接线检查；它明确不算成片验收。画面覆盖、遮挡、对嘴和口音仍需带声人工复核。自建竖版需维持同样的实际绘制记录，并在 1080×1920 下核验，不能用横版报告替代。
+无音频时只能用 `--preview` 做估算时长的案头接线检查；它明确不算成片验收。画面覆盖、遮挡、对嘴和口音仍需带声人工复核。自建竖版需维持同样的实际绘制记录，并运行 `check-cast.mjs --q mode=portrait --size 1080x1920`，不能用横版报告替代。模板未接竖屏时会明确报错，不静默退回横版。
 
 ## 5. 时间线（story.js）
 
@@ -119,8 +121,8 @@ SH.two = (t, tq) => {
 };
 ```
 
-- **镜头**：`cam(cx, cy, z)`，世界坐标 (cx, cy) 放到画面中心。默认双人中景 `cam(960, 560, 1.0)`。单人近景 z 约 1.8–2.2，**cy 直接取脸的位置再加一点**：老白的脸在 `y - 604*s`（站在地面 900 时约 296），小问的脸在 `y - 334*s`（约 566）。cy 取小了脸会掉进字幕带，取大了头顶会被切掉。改完镜头截一帧看。
-- **角色**：`LB(t, {...})`、`XW(t, {...})` 自带口型、眨眼、呼吸；在后面覆盖位置、`face`、动作（`...POSES.laobai.point`）、表情（`expr` 或 `E`）。两人对话时面朝对方：小问在左 `face: 1`，老白在右 `face: -1`。
+- **镜头**：`cam(cx, cy, z)` 把世界坐标放到画面中心。正式角色近景按本人的实际脸部位置取景：站姿头中心约为 `y - bodyH*s - 100*s`；坐姿、侧面和低头需用本期样帧复核。不要套老白/小问的旧脸高，也不要把脸挤进字幕区。
+- **角色**：正式镜头用 `drawRole(id,t,{...FORMAL_POSES[id].explain})` 或 `character(id, ROLE(id,t,...))`，口型按该 ID 的配音驱动。位置、朝向、表情和手势按本期分镜安排；`LB/XW` 仅历史兼容，不把新的八个人物改叫老白/小问。
 - **动作要有过程**：举手、跳起来这类动作，用 `seg(tq, 开始, 结束)` 插值，不要在某一帧突然切换姿势。
 - **反应镜头**：荒诞揭示、关键反驳或发现之后，切真正受到影响的人；老白和小问都可成为反应主体。用视线、眉毛、嘴型和手势呈现变化，允许必要停顿，不能只给口型和缩放。
 - **机制画面**：先按 `visual.md` 明确人物操作、可见结果和比较关系；科幻装置、分屏模拟或物件特写按题目选。`Wd.board(x, y, w, h, [行...], { title })` 仅保留必要关键词和对比，不能用两人站着读说明牌代替整期情节。
@@ -159,3 +161,9 @@ SH.two = (t, tq) => {
 | 配音某个词总被听错 | 换说法（“头版” → “上了报纸”，“人越壮” → “人越强壮”） |
 | 模型下载失败 | Hugging Face 被墙，加 `HF_ENDPOINT=https://hf-mirror.com` |
 | Docker 容器停了 | `wsl --shutdown` 会停掉 Docker。不要随便关 WSL；必须关时先让 Docker Desktop 正常退出，并征得用户同意 |
+
+## 模板维护回归
+
+修角色、配音接线或创建入口后，先运行 `python scripts/test_template.py`；在实际制作使用的 Linux/WSL 中运行会额外检查构建语言转发。`LIB=... node scripts/test_characters.mjs <QA目录>` 检查八人转面/坐姿、默认造型像素保持，以及错人出镜与转场边界的失败样例。浏览器模板回归使用估算时长，不代替本期真实配音、ASR、混音和整片播放验收。
+
+导出包使用 `scripts/package_skill.py`，输出到源 Skill 之外的新路径，再对 ZIP 与解压目录运行 `scripts/verify_package.py`。清单不包含自身；复用随包参考工程再次导出时，不重复注入导入语句或冒用父目录 Git 提交。

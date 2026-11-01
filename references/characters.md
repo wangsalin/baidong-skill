@@ -35,7 +35,7 @@
 ### 生产调用规则
 
 - `lines.json` 的 `who` 使用 `A1`–`D2`，并填写该角色对应的 `voice`、`rate`、`pitch`。模板中的 `check-characters.py` 会在配音前检查姓名、ID、声音、语速和音调是否一致。
-- `assets/episode-template/characters.js` 是镜头调用入口：`character('A1', P)`。`brand.js` 和 `srt.mjs` 从同一注册表显示姓名，避免字幕叫错人。
+- `assets/episode-template/chars.js` 是镜头调用入口：`character('A1', P)`。`brand.js` 和 `srt.mjs` 从同一注册表显示姓名，避免字幕叫错人。
 - `assets/episode-template/voice.py` 按人物 ID 做固定后处理。不能在不同内容形式里给同一个 ID 换声线。
 - `LAOBAI`、`XIAOWEN` 只作为旧期工程兼容别名，不属于新的八人角色库；`本我`、`自我`、`超我`、`同事`是剧情中的临时叙事身份，不能写进正式角色表。
 
@@ -45,6 +45,16 @@
 本文件与 skill 内 `references/characters.md` 同步维护。角色身份和造型以本设定为准，场景配色与镜头表演按 `references/account.md` 和 `references/visual.md` 执行。
 
 **生产用的绘制代码**：skill 根目录下的 `assets/episode-template/chars.js`，每期新建项目时复制一份。改角色时检查本期使用的代码及后续模板是否都需同步，再重新渲染角色展示板核对。
+
+## 正式人物的绘制与动作
+
+- 全身统一使用 `character('A1', P)`，角色 ID 来自 `characters.js`；姓名、服装和配饰保持八人注册表中的设定。
+- `P.view` 支持 `q/front/side/back` 四个实际角度，侧面配 `face:-1` 可朝左；背面不画五官。原有默认 `q` 造型与修复前逐像素一致，未重做角色设计。
+- `FORMAL_POSES[id]` 提供 `stand/explain/point/think/shrug/cross/walk/sit`，另有 `front/side/back` 转面预设。用 `character(id, {x,y,...FORMAL_POSES[id].sit})` 画坐姿；走路把 `walk` 设为当前时间 `t`，不把预设的单帧值当持续动画。
+- 表演继续通过 `expr/E`、`headTilt`、`lean`、`armF/armB`、`blink` 与 `talk` 控制；预设只是动作起点。坐姿有座椅、弯曲的大腿和小腿；转面不是更名或镜像同一张脸。
+- 运行 `LIB=... node scripts/test_characters.mjs <QA输出目录>` 可检查八人角度/动作差异、默认造型保持、镜外人物、错人出镜和转场抢话，并输出动作总览。该开发回归需要本仓库的历史基线；迁移后的成片验收使用项目自身 `check-cast.mjs`。
+
+## 历史双人绘制 API（仅旧工程）
 
 - 全身：`laobai(P)`、`xiaowen(P)`。常用参数：`x, y, s`（位置和缩放）、`face`（1 朝右 / -1 朝左）、`view`、`expr`（表情名）、`talk`（口型）、`blink`、`armF / armB`（手臂）、`lean`、`headTilt`、`bob`、`walk`、`sit`。
 - **四个角度** `view`：`'q'` 3/4 侧面（默认）、`'front'` 正面、`'side'` 正侧面（朝右，配 `face: -1` 朝左）、`'back'` 背面。
@@ -96,7 +106,7 @@
 - 预设是动作起点，关键动作有预备、动作与收势；用视线、眉毛、嘴型、`lean`、`headTilt` 和手势配合，不靠循环嘴动完成整场戏。
 - 看票、操作装置、松手等动作需要可读的过程；持物跟随手掌。通过实际镜头连续帧核对，不把规则已补齐说成动作已经制作完成。
 
-## 资产进度
+## 历史双人资产进度
 - [x] 转面图：正面、3/4 侧面、正侧面、背面（2026-10-26）
 - [x] 常用动作：每人 8 个（2026-10-26）
 - [ ] 嘉宾（白姐、阿问、洞洞、上班族小问）的转面图和动作：请到哪位嘉宾时再补

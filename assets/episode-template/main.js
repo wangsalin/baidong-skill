@@ -10,6 +10,7 @@ import { NO, QUESTION, COMMENT_Q, NEXT, COVER, BEATS } from './story.js';
 import { renderCover, renderClipFrame } from './cover.js';
 
 const QS = new URLSearchParams(location.search), MODE = QS.get('mode') || 'film';
+if (!['film', 'cover', 'clipframe'].includes(MODE)) throw new Error(`当前模板尚未实现 ${MODE} 模式；原生竖屏需先接入 portrait.js，不允许把横版误当作竖版。`);
 const cv = document.getElementById('c');
 if (MODE !== 'film') { cv.width = innerWidth; cv.height = innerHeight; }
 init(cv);

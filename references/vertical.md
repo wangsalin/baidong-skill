@@ -40,7 +40,7 @@
 
 同一语言的横版和竖版若使用同一脚本，就复用该语言已核验的配音、混音、事件时间和字幕时码；只重新绘制竖屏镜头，不改横版工程的构图或成片。英文稿或竖屏专用稿有改写时，重新生成对应音频、时间线、字幕和事实核对，不能沿用中文时码。
 
-当前 episode 模板的 `build.sh` 默认只生成横版。制作竖屏时，在本期工程增加 `portrait.js` 原生竖屏绘制逻辑，并让 `main.js` 的 `mode=portrait` 调用它；竖屏绘制读取本期相同的角色、台词、时间线和字幕数据。确认这一模式已实现后，用随包 Lemo 渲染器输出：
+当前 episode 模板的 `build.sh` 默认只生成横版。制作竖屏时，在本期工程增加 `portrait.js` 原生竖屏绘制逻辑，并让 `main.js` 的 `mode=portrait` 调用它，同时把该模式加入允许列表并保留实际角色绘制记录；竖屏绘制读取本期相同的角色、台词、时间线和字幕数据。确认这一模式已实现后，用随包 Lemo 渲染器输出：
 
 ```sh
 node "$LIB/core/render/video.mjs" "$PROJECT" --fps 24 --workers 4 --q 'mode=portrait' --size 1080x1920 --out "$PROJECT/out/portrait/video.mp4"

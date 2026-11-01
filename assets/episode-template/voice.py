@@ -4,10 +4,13 @@ voices/raw/<id>.wav (core/tts/tts_zh.py) → voices/<id>.wav (48 kHz)
 每个 A1–D2 都有独立的后处理方向；旧期 LAOBAI/XIAOWEN 保留兼容。
 Usage: python voice.py
 """
-import json, os, numpy as np, soundfile as sf, soxr
+import json, os, runpy, numpy as np, soundfile as sf, soxr
+from pathlib import Path
 from scipy.signal import lfilter
 HERE = os.path.dirname(os.path.abspath(__file__)); SR = 48000
 L = json.load(open(os.path.join(HERE, 'lines.json'), encoding='utf-8'))
+checks = runpy.run_path(os.path.join(HERE, 'check-characters.py'))
+checks['validate'](json.loads(Path(HERE, 'characters.json').read_text(encoding='utf-8')), L, *checks['load_config'](Path(HERE)))
 dur, lips = {}, {}
 
 # 这是音色后处理的固定表。TTS voice、语速和音调由 characters.json 校验；这里再做
