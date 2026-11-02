@@ -43,18 +43,33 @@
       "text": "这事儿我先给你办了，回头咱再唠两句。"
     },
     "B2": {
-      "status": "candidate",
-      "sample": "voice-reference/B2.wav",
-      "sample_sha256": "e5ff05bc01be1c7fd8db798aeb5fde15aee3720df5477efb9c6d8de41b60e36f",
-      "sample_stage": "historical-edge-synthesis-current-profile",
+      "status": "approved",
+      "sample": "voice-reference/final-20261102/zh-B2.wav",
+      "sample_sha256": "2b48fb5ea9eb53c6baa1cf72b043c41fa2405c97f3a7bbbd588c2a0dd2ddf91e",
+      "sample_stage": "actual-delivered-episode-postprocessed-speech",
       "config": {
         "voice": "zh-CN-XiaoxiaoNeural",
         "rate": "-2%",
         "pitch": "+0Hz"
       },
-      "approval_evidence": null,
       "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
-      "text": "先把成本算清楚，省得最后又有人吃暗亏。"
+      "text": "攒了几十万，开店十天，关门。",
+      "approval_evidence": "2026-11-02 用户：按照正式版给我做！；授权本期沿用当前已交付版本的B2/D1中英文固定声音输出final；不声称用户逐条试听、表达音色喜好或确认其余六个角色。",
+      "approval_kind": "explicit-final-production-authorization",
+      "previous_reference": {
+        "status": "candidate",
+        "sample": "voice-reference/B2.wav",
+        "sample_sha256": "e5ff05bc01be1c7fd8db798aeb5fde15aee3720df5477efb9c6d8de41b60e36f",
+        "sample_stage": "historical-edge-synthesis-current-profile",
+        "config": {
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "rate": "-2%",
+          "pitch": "+0Hz"
+        },
+        "approval_evidence": null,
+        "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+        "text": "先把成本算清楚，省得最后又有人吃暗亏。"
+      }
     },
     "C1": {
       "status": "candidate",
@@ -85,18 +100,33 @@
       "text": "记录一下：大家都赞成了，但没人先说。"
     },
     "D1": {
-      "status": "candidate",
-      "sample": "voice-reference/D1.wav",
-      "sample_sha256": "82cf26ef4c87fd0508bc9139be1eeb1dc203d13e821df280e113c3917629d751",
-      "sample_stage": "historical-edge-synthesis-current-profile",
+      "status": "approved",
+      "sample": "voice-reference/final-20261102/zh-D1.wav",
+      "sample_sha256": "19bd065eddf19135bfa63b520062a45e2c1ea88c838036db467a4e21be7ff59e",
+      "sample_stage": "actual-delivered-episode-postprocessed-speech",
       "config": {
         "voice": "zh-CN-YunxiNeural",
         "rate": "+10%",
         "pitch": "+6Hz"
       },
-      "approval_evidence": null,
       "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
-      "text": "这哪是开会啊，这是我的灵感大戏，先来一段！"
+      "text": "我就想给自己当个老板，怎么还得往里掏钱？",
+      "approval_evidence": "2026-11-02 用户：按照正式版给我做！；授权本期沿用当前已交付版本的B2/D1中英文固定声音输出final；不声称用户逐条试听、表达音色喜好或确认其余六个角色。",
+      "approval_kind": "explicit-final-production-authorization",
+      "previous_reference": {
+        "status": "candidate",
+        "sample": "voice-reference/D1.wav",
+        "sample_sha256": "82cf26ef4c87fd0508bc9139be1eeb1dc203d13e821df280e113c3917629d751",
+        "sample_stage": "historical-edge-synthesis-current-profile",
+        "config": {
+          "voice": "zh-CN-YunxiNeural",
+          "rate": "+10%",
+          "pitch": "+6Hz"
+        },
+        "approval_evidence": null,
+        "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+        "text": "这哪是开会啊，这是我的灵感大戏，先来一段！"
+      }
     },
     "D2": {
       "status": "candidate",
@@ -130,9 +160,24 @@
       "approval_evidence": null
     },
     "B2": {
-      "status": "unreviewed",
-      "sample": null,
-      "approval_evidence": null
+      "status": "approved",
+      "sample": "voice-reference/final-20261102/en-B2.wav",
+      "sample_sha256": "efd69b2b7bd709adfc4a166125af375e96d21009092fd077531533d802ce226c",
+      "sample_stage": "actual-delivered-episode-postprocessed-speech",
+      "config": {
+        "voice": "en-US-AriaNeural",
+        "rate": "-2%",
+        "pitch": "+0Hz"
+      },
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "Ten days open. Then closed.",
+      "approval_evidence": "2026-11-02 用户：按照正式版给我做！；授权本期沿用当前已交付版本的B2/D1中英文固定声音输出final；不声称用户逐条试听、表达音色喜好或确认其余六个角色。",
+      "approval_kind": "explicit-final-production-authorization",
+      "previous_reference": {
+        "status": "unreviewed",
+        "sample": null,
+        "approval_evidence": null
+      }
     },
     "C1": {
       "status": "unreviewed",
@@ -145,9 +190,24 @@
       "approval_evidence": null
     },
     "D1": {
-      "status": "unreviewed",
-      "sample": null,
-      "approval_evidence": null
+      "status": "approved",
+      "sample": "voice-reference/final-20261102/en-D1.wav",
+      "sample_sha256": "8560ce9b8eda315021a486dd0626ec56116494c1e3b727b0393fc8d514b01d38",
+      "sample_stage": "actual-delivered-episode-postprocessed-speech",
+      "config": {
+        "voice": "en-US-SteffanNeural",
+        "rate": "+10%",
+        "pitch": "+6Hz"
+      },
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "I wanted to be my own boss. Why am I still putting money in?",
+      "approval_evidence": "2026-11-02 用户：按照正式版给我做！；授权本期沿用当前已交付版本的B2/D1中英文固定声音输出final；不声称用户逐条试听、表达音色喜好或确认其余六个角色。",
+      "approval_kind": "explicit-final-production-authorization",
+      "previous_reference": {
+        "status": "unreviewed",
+        "sample": null,
+        "approval_evidence": null
+      }
     },
     "D2": {
       "status": "unreviewed",
@@ -155,5 +215,5 @@
       "approval_evidence": null
     }
   },
-  "policy": "Historical free Edge audition candidates. No per-role final approval is inferred."
+  "policy": "B2/D1 zh/en retain the exact 2026-11-02 explicit final-production instruction and current processed samples. This records production authorization, not a subjective listening evaluation. Other roles remain unchanged."
 }

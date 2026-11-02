@@ -19,7 +19,7 @@
 
 ### 声音确认与可运行状态
 
-`assets/episode-template/voice-reference.json` 是逐角色声音确认记录。随包保存八条历史免费 Edge 试听，状态为 candidate；当前没有充分证据将它们标为最终认可，英语为 unreviewed。
+`assets/episode-template/voice-reference.json` 是逐角色声音确认记录。八条历史免费 Edge 试听保留。2026-11-02，用户在获知当前开店视频为preview后明确要求“按照正式版给我做！”，本次B2小算盘、D1有戏中英文现有映射据此记录正式制作授权，附本期实际处理后的样音、参数及指纹。该记录表示沿用当前声音制作正式文件，不冒称用户逐条试听或发表音色偏好；其余六人的中文candidate、英语unreviewed状态不变。
 
 - preview：允许制作带水印的测试样片，不会触发付费供应商。
 - final：只接受本期出场角色的 approved 记录，且必须有真实确认依据、样音文件指纹、voice/rate/pitch 和 voice.py 后处理版本。缺少任一项立即阻止。
@@ -27,7 +27,7 @@
 
 ### 英语版本声音
 
-中文现有声音参数不变。英语独立技术默认映射保存于 `characters.json` 的 `languages.en` 与 `characters.js` 的 `ENGLISH_VOICES`；创建英文工程使用 `new_episode.sh ... --language en`。以下音色已通过当前 Edge 服务列表核实存在，但还未进行角色试听确认；不能标为用户已认可。语速、音调沿用同角色的既有参数，后处理仍按角色 ID。
+中文现有声音参数不变。英语独立技术默认映射保存于 `characters.json` 的 `languages.en` 与 `characters.js` 的 `ENGLISH_VOICES`；创建英文工程使用 `new_episode.sh ... --language en`。以下音色已通过当前 Edge 服务列表核实存在；B2/D1的正式制作授权见上节与voice-reference.json，其他角色不能标为用户已认可。语速、音调沿用同角色的既有参数，后处理仍按角色 ID。
 
 | ID | 英语技术默认音色 |
 |---|---|
