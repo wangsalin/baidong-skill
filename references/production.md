@@ -31,16 +31,66 @@
 
 ## 2. 新建一期
 
-在 Git Bash 里：
+### 单期目录、命名与工程保存（铁律）
 
+用户于2026-11-02明确要求正式生成的每期文件沿用以往组织方式。四版参照本机 `G:\vibe\baidong\ep13-profit-guilt\`；画面与表演继续按 `visual.md` 和随包《沉没成本》参考验收，不回退后来确认的八人角色。
+
+本机正式项目根固定为 `G:\vibe\baidong`。一期一个目录 `ep<期号>-<短名>`，期号来自用户或已核实的工作台记录；尚未分配时使用该根下的 `<短名>` 并标注未分配，不能凭目录最大编号推断下一期。跨机器迁移时替换根路径，组织方式保持。工作台 `pending` 可保留选题记录，但不作为正式工程或成片的唯一存放位置。
+
+以本期目录名为 `epNN-topic` 示意，正式交付结构沿用既有四版工程：
+
+```text
+G:/vibe/baidong/epNN-topic/
+  epNN-topic.mp4                  中文横版
+  epNN-topic.srt
+  epNN-topic-vertical.mp4         中文竖版
+  epNN-topic-vertical.srt
+  epNN-topic-en.mp4               英文横版
+  epNN-topic-en.srt
+  epNN-topic-en-vertical.mp4      英文竖版
+  epNN-topic-en-vertical.srt
+  cover-zh-{16x9,4x3,3x4,9x16}.jpg
+  cover-en-{16x9,4x3,3x4,9x16}.jpg
+  variants.json                  各版真实工程、输出与状态的索引
+  variants/
+    zh-film/                     中文横版真实源码与素材
+    zh-portrait/                 中文竖版真实源码与素材
+    en-film/                     英文横版真实源码与素材
+    en-portrait/                 英文竖版真实源码与素材
+  tools/                         本期构建、检查与整理入口
+  out/                           整期检查与中间产物
+  SCRIPT.md                      汇总脚本，注明各版真实台词源
+  TREATMENT.md
+  FACTS.md
+  CREDITS
+  publish.md
+  DELIVERY.md
+  qa.json
 ```
+
+未分配期号时，用真实单期目录名替换上述 `epNN-topic`，不把 `NN` 留在成品文件名。单语言或单画幅只在用户明确缩小范围时省略；额外切片沿用 `clip-1.mp4` / `clip-1.srt`，不替代四版。
+
+各版 `lines.json`、`story.js`、镜头源码、`voices/`、`fonts/`、`music/`、`out/` 及实际使用的配置均保留在对应工程内；共享资产保留真实位置和引用。根目录摘要不能冒充各版真实台词源，不为凑目录放置未使用的源码或配置。`tools/` 记录可执行的现有构建入口、工作目录及版本对应关系；复用固定模板和 Lemo 构建链，不恢复历史工程的旧角色或替换渲染引擎。
+
+当前模板的 `build.sh` 按内层工程目录名输出视频；根目录按上表保存对应正式视频、字幕与封面，并核对内容指纹、语言、画幅和真实时长一致。生成器输出与根目录交付名之间的映射记录在 `variants.json`、`DELIVERY.md` 和实际检查记录内。不能只改文件名把 preview 冒充 final，也不能为改交付名重写固定 `build.sh`。
+
+后续修订在同一单期目录内进行，旧输出按需在 `out/` 留档；迁移已有工程前先检查路径配置、素材引用和校验记录，保留原件与恢复点，不覆盖用户旧文件。不得把 `production/<日期或轮次>/` 多套工程作为新的默认组织方式。正式交付给用户的是单期目录和可直接打开的 MP4；网页仅作辅助，不能替代文件。
+
+### 模板创建入口
+
+先确认本期根目录，将它的绝对路径记为 `EPISODE_ROOT`；在 WSL / Git Bash 中使用相应系统路径。默认四版由同一个模板入口建立在该目录内：
+
+```sh
 # BAIDONG_SKILL_ROOT 指向当前安装的完整包根目录（含本文件的上级目录）
-sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" <期号> <英文短名>
+sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local zh-film "$EPISODE_ROOT/variants" --language zh --aspect landscape
+sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local zh-portrait "$EPISODE_ROOT/variants" --language zh --aspect portrait
+sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-film "$EPISODE_ROOT/variants" --language en --aspect landscape
+sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-portrait "$EPISODE_ROOT/variants" --language en --aspect portrait
 ```
 
-得到 `G:\vibe\baidong\ep<期号>-<短名>\`。然后：写 `lines.json` 和 `story.js` → `python G:/vibe/baidong/ep.../fonts/fetch_fonts.py` 取字体（改了台词要重跑）→ 在 WSL 里生成配音。
+上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。分别写各版 `lines.json` 和 `story.js`，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在 WSL 里生成配音。
 
-每期默认规划中英文横竖四版。新建脚本支持 `--language zh|en --aspect landscape|portrait --stage preview|final`；各版本仍需独立稿件和验收，不能把四次运行同一稿称为四版内容完成。在本期工程内分别维护各语言及竖屏专用稿的台词、配音、时间线、字幕和输出路径，避免覆盖中文工程。英语工程可用 `new_episode.sh <期号> <短名> <输出根目录> --language en` 单独创建。`episode.json` 的 `language` 只接受 `zh/en`，`characters.json` 的 `languages.en` 注册了八个独立英语技术默认音色；已查服务列表，尚未试听确认，不冒称用户认可。英语稿按英语观众改写；`build.sh` 将语言同时用于声音校验与 ASR。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
+每期默认规划中英文横竖四版。新建脚本支持 `--language zh|en --aspect landscape|portrait --stage preview|final`；各版本仍需独立稿件和验收，不能把四次运行同一稿称为四版内容完成。四版放在同一单期根目录下的 `variants/`，不要分别创建四个对外的单期根目录。脚本第三个参数是输出父目录：例如 `sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local zh-film "$EPISODE_ROOT/variants" --language zh --aspect landscape` 会建立 `variants/zh-film/`；其中 `EPISODE_ROOT` 是已核实的本期绝对目录，`local` 用于保持内层目录名，`story.js` 的 `NO` 则按本期已核实期号填写，未分配仍为 null。其余三版依次使用 `zh-portrait`、`en-film`、`en-portrait` 以及对应语言、画幅参数。在各版内分别维护稿件、配音、时间线、字幕和输出路径，避免覆盖中文工程。`episode.json` 的 `language` 只接受 `zh/en`；英文声音按当前注册表及 `voice-reference.json` 的实际状态核验，不把技术默认映射当作用户认可。英语稿按英语观众改写；`build.sh` 将语言同时用于声音校验与 ASR。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
 
 ## 3. 项目里有什么
 

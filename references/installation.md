@@ -51,7 +51,7 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" 09 next-topic /path/to/video-pro
 5. `music/selection.json` 默认Vibe音源、增益+9dB。《We Never》使用 `track_id: "we-never-hi-noise"`；按主题选，不能把未核实音轨写成原创。关键定义使用 `music_key: true` 轻降配乐，仍需成片核查。
 6. 按 `distribution.md` 交付中英文横竖四版、各自字幕、四种尺寸封面及英文适配封面、充分的中文六平台与英文海外平台介绍及对应章节；额外切片按需求制作。新主题使用真实内容，不复制示例发布文案。
 
-每期制作默认四版时，先读 `references/vertical.md`。新建时使用 --language 和 --aspect 分别建立工程；原生竖版分支已随模板提供。分别准备中英文及缩减稿、配音与时间线，按同一 build.sh 构建，不能替换固定包装。中文横版渲染成功不等于另外三版已经完成。
+单期目录、四版工程与正式文件命名按 `references/production.md` 第2节的铁律执行：同一单期根目录内保存四版真实工程，根目录直接交付 MP4、同名 SRT、封面和资料；网页只作辅助。跨机器仅更换项目根路径，不另造深层日期轮次目录作为正式交付。每期制作默认四版时，先读 `references/vertical.md`。新建时使用 --language 和 --aspect 分别建立工程；原生竖版分支已随模板提供。分别准备中英文及缩减稿、配音与时间线，按同一 build.sh 构建，不能替换固定包装。中文横版渲染成功不等于另外三版已经完成。
 
 最终执行解码、黑帧、字幕和响度检查，用混音听写检查对白；实际看样帧和动作。机器听写不等于真人试听。未接工作台就明确本地保存，未经用户指令不向平台发布。
 
