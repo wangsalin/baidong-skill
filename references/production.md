@@ -231,4 +231,4 @@ SH.two = (t, tq) => {
 
 新建无编号项目用 `scripts/new_episode.sh local <短名> <输出根目录> --language zh --aspect portrait`；不得自写复制脚本绕过固定包装。主程序只调用本期 scenes.js/portrait.js，不在单期改 main.js、brand.js、chars.js、formal-art.js、voice.py 或 production-contract.json。
 
-默认 preview 有“测试样片｜声音待确认”标记，输出 preview- 前缀。正式声音记录见 characters.md；未明确认可的音色不能转 final。构建完成只表示媒体生成，仍需本期画面、混音、字幕、黑帧和播放验收。
+默认 preview 有“测试样片｜声音待确认”标记，输出 preview- 前缀。用户明确要求移除画面标记时，可在 `episode.json` 设置 `"preview_watermark": false`；仍保留 preview 状态、文件名前缀和交付说明，不能因此认可声音或转 final。此选项只控制水印绘制，不影响人物、音色和构建校验。已有工程使用该选项前须同步经过验证的模板版本，不在单期修改固定文件或重建约束。正式声音记录见 characters.md；未明确认可的音色不能转 final。构建完成只表示媒体生成，仍需本期画面、混音、字幕、黑帧和播放验收。

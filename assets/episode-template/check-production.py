@@ -38,6 +38,8 @@ def validate(root, phase='draft'):
     aspect = config.get('aspect', 'landscape')
     if stage not in ('preview', 'final') or aspect not in ('landscape', 'portrait'):
         raise ValueError('stage/aspect 无效，禁止静默回退。')
+    if 'preview_watermark' in config and type(config['preview_watermark']) is not bool:
+        raise ValueError('preview_watermark 必须为布尔值；它只控制画面水印，不改变声音认可状态。')
     contract = read(root / 'production-contract.json')
     source = root / '.baidong.json'
     canonical = None

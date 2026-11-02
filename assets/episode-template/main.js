@@ -71,7 +71,7 @@ function render(t) {
   ringWipe(t, WIPES, WIPE_HALF);
   window.FRAME_CAST=visibleCharacterIds();
   window.FRAME_SPEAKING=[...FRAME_CHARACTERS].filter(([id,m])=>m.talking&&m.view!=='back').map(([id])=>id);
-  if(EP.stage!=='final'){g.save();g.font='900 24px sans-serif';g.fillStyle='#B00020';g.textAlign='left';g.fillText(EP.language==='en'?'PREVIEW / VOICES NOT APPROVED':'测试样片｜声音待确认',30,MODE==='portrait'?180:150);g.restore();}
+  if(EP.stage!=='final'&&EP.preview_watermark!==false){g.save();g.font='900 24px sans-serif';g.fillStyle='#B00020';g.textAlign='left';g.fillText(EP.language==='en'?'PREVIEW / VOICES NOT APPROVED':'测试样片｜声音待确认',30,MODE==='portrait'?180:150);g.restore();}
   window.FRAME_OCCLUDED = wiping;
 }
 // —— 声音事件（music/score.py 和 mix.py 读 events.json）——

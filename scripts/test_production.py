@@ -27,8 +27,33 @@ class ProductionRegression(unittest.TestCase):
     def test_preview_explicitly_identified(self):
         self.assertEqual(GATE['validate'](self.root)['voice_status'], 'candidate-preview-only')
 
+    def test_hide_watermark_does_not_approve_voices(self):
+        config = {'language': 'zh', 'stage': 'preview', 'aspect': 'landscape', 'preview_watermark': False}
+        target = self.root / 'episode.json'
+        target.write_text(json.dumps(config), encoding='utf-8')
+        self.assertEqual(GATE['validate'](self.root)['voice_status'], 'candidate-preview-only')
+        config['stage'] = 'final'
+        target.write_text(json.dumps(config), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, '尚无最终认可'):
+            GATE['validate'](self.root)
+
+    def test_watermark_option_requires_boolean(self):
+        for value in ('false', 0, None):
+            config = {'language': 'zh', 'stage': 'preview', 'preview_watermark': value}
+            (self.root / 'episode.json').write_text(json.dumps(config), encoding='utf-8')
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, '布尔值'):
+                GATE['validate'](self.root)
+
     def test_unapproved_final_rejected_in_both_languages(self):
+        originals = json.loads((TEMPLATE / 'lines.json').read_text(encoding='utf-8'))
+        registry = json.loads((TEMPLATE / 'characters.json').read_text(encoding='utf-8'))
         for lang in ('zh', 'en'):
+            lines = copy.deepcopy(originals)
+            if lang == 'en':
+                for line in lines:
+                    spec = registry['languages']['en'][line['who']]
+                    line.update({k: spec[k] for k in ('voice', 'rate', 'pitch')})
+            (self.root / 'lines.json').write_text(json.dumps(lines), encoding='utf-8')
             config = {'language': lang, 'stage': 'final', 'aspect': 'portrait'}
             (self.root / 'episode.json').write_text(json.dumps(config), encoding='utf-8')
             with self.subTest(lang=lang), self.assertRaisesRegex(ValueError, '尚无最终认可'):
