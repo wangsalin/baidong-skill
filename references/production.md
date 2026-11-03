@@ -33,7 +33,7 @@
 
 ### 单期目录、命名与工程保存（铁律）
 
-用户于2026-11-02明确要求正式生成的每期文件沿用以往组织方式。四版参照本机 `G:\vibe\baidong\ep13-profit-guilt\`；画面与表演继续按 `visual.md` 和随包《沉没成本》参考验收，不回退后来确认的八人角色。
+用户于2026-11-02明确要求正式生成的每期文件沿用以往组织方式。四版参照本机 `G:\vibe\baidong\ep13-profit-guilt\`；新期内容与画面按当前 `content.md`、`visual.md` 直接讲解。随包《沉没成本》只参考画法、声音与技术，不延续剧情，不回退后来确认的八人角色。
 
 本机正式项目根固定为 `G:\vibe\baidong`。一期一个目录 `ep<期号>-<短名>`，期号来自用户或已核实的工作台记录；尚未分配时使用该根下的 `<短名>` 并标注未分配，不能凭目录最大编号推断下一期。跨机器迁移时替换根路径，组织方式保持。工作台 `pending` 可保留选题记录，但不作为正式工程或成片的唯一存放位置。
 
@@ -88,7 +88,7 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-film "$EPISODE_ROOT/var
 sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-portrait "$EPISODE_ROOT/variants" --language en --aspect portrait
 ```
 
-上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。分别写各版 `lines.json` 和 `story.js`，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在 WSL 里生成配音。
+上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。模板旧双人对白仅用于技术冒烟，不是新期内容示范。分别用本期主讲稿与解释画面替换各版 `lines.json`、`story.js` 和镜头代码，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在 WSL 里生成配音。
 
 每期默认规划中英文横竖四版。新建脚本支持 `--language zh|en --aspect landscape|portrait --stage preview|final`；各版本仍需独立稿件和验收，不能把四次运行同一稿称为四版内容完成。四版放在同一单期根目录下的 `variants/`，不要分别创建四个对外的单期根目录。脚本第三个参数是输出父目录：例如 `sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local zh-film "$EPISODE_ROOT/variants" --language zh --aspect landscape` 会建立 `variants/zh-film/`；其中 `EPISODE_ROOT` 是已核实的本期绝对目录，`local` 用于保持内层目录名，`story.js` 的 `NO` 则按本期已核实期号填写，未分配仍为 null。其余三版依次使用 `zh-portrait`、`en-film`、`en-portrait` 以及对应语言、画幅参数。在各版内分别维护稿件、配音、时间线、字幕和输出路径，避免覆盖中文工程。`episode.json` 的 `language` 只接受 `zh/en`；英文声音按当前注册表及 `voice-reference.json` 的实际状态核验，不把技术默认映射当作用户认可。英语稿按英语观众改写；`build.sh` 将语言同时用于声音校验与 ASR。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
 
@@ -137,28 +137,25 @@ HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目
 
 ## 5. 时间线（story.js）
 
-不用手算秒数。`BEATS` 按顺序写，`timeline.js` 会按真实配音时长排出每句的开始时间、每个镜头的长度、字幕、音乐段落和章节点：
+不用手算秒数。`BEATS` 按顺序写，`timeline.js` 会按真实配音时长排出每句的开始时间、每个镜头的长度、字幕、音乐段落和章节点。下面仅示意主讲与账目图的接线；`presenter`、`ledger` 须在本期镜头代码中实现，line ID 须对应本期 `lines.json`，不把示例当作可直接发布的稿件：
 
 ```js
 export const BEATS = [
-  { shot: 'hook', world: 'night', seg: 's1', segTitle: '明明很困，为什么不想睡', cue: 'tension', tag: '凌晨两点 · 卧室' },
-  { line: 'x1' },
-  { opener: 2.0, fx: 'opener' },                       // 片头放在钩子之后
-  { shot: 'two', world: 'studio', seg: 's2', segTitle: '……', cue: 'theme' },
-  { line: 'l1' }, { line: 'x2' },
-  { wipe: true, shot: 'ex1', world: 'office', seg: 's4', segTitle: '……', cue: 'think', tag: '下午三点 · 工位' },
-  { line: 'l2', gap: .02 },                            // 短间隔接话，保留上一句完整发声
-  { shot: 'aha', cue: 'resolve', mark: 'aha' }, { line: 'x3' },
-  …
+  { shot: 'presenter', world: 'studio', seg: 's1', segTitle: '营业额高，为什么仍可能亏钱', cue: 'theme' },
+  { line: 'question' },                              // 主讲直接进入问题
+  { shot: 'ledger', world: 'studio', seg: 's2', segTitle: '收入与成本分别算什么', cue: 'think' },
+  { line: 'revenue' }, { line: 'cost' },               // 同一主讲连续解释，图表同步推进
+  { shot: 'presenter', cue: 'resolve' },
+  { line: 'conclusion' },
   { end: 4.0, fx: 'end' },
 ];
 ```
 
 键的含义写在 `timeline.js` 顶部。要点：
-- 根据内容推进安排镜头变化。同场景的线索、反应和机制过程可用硬切、视线或物件承接；跨地点或明显切换模拟时，可用 `wipe: true`。先按 `visual.md` 写清上一镜与下一镜的联系，不为凑频率插转场。圆环遮罩、场景切点与音效共用时间线；新场景应在遮罩覆盖时切入，下一句在遮罩退出后开始。
-- 六段都要标 `seg`，`segTitle` 写成具体内容（会变成 B 站和 YouTube 的章节名），不要写“机制”这种空话。
-- 音乐段落名：`theme` `think` `tension` `resolve` `silence` `end`。按情绪和动作选择；`silence` 可用于被问住、揭示或关键反应，不按段落编号禁止留白。保持用户选定 BGM 的可听度，短暂静音由剧情需要决定。
-- **对白与表演共同排节奏**：默认句间隔仍为 0.08 秒；当前声画校验禁止配音重叠，抢话感用短间隔、切镜和反应动作完成。用 `pause` 留出看、试、犹豫和反应的时间，不设统一半秒上限；短反应可先试约 0.3–1.2 秒，更长时需有可读的表演或转折，并按带声播放结果调整。
+- 根据解释推进安排镜头变化，主讲、账目、图表与资料用明确的对象或信息关系承接；明显切换内容时可用 `wipe: true`，不为凑频率插转场。圆环遮罩、场景切点与音效共用时间线；新场景应在遮罩覆盖时切入，下一句在遮罩退出后开始。不插独立开场片头，保留固定品牌片尾与渲染壳。
+- 按实际章节标 `seg`，沿用当前时间线支持的标识；`segTitle` 写具体内容（会变成 B 站和 YouTube 的章节名），不强制用满六段。工作台 `s1–s6` 仅按 `distribution.md` 做存储适配，不决定讲解结构。
+- 音乐段落名：`theme` `think` `tension` `resolve` `silence` `end`。按讲解与阅读需要选择，关键定义或复杂图表可短暂降配乐或留白；保持用户选定 BGM 的可听度，不为制造人物反应停顿。
+- **口播与阅读共同排节奏**：默认句间隔仍为 0.08 秒，当前声画校验禁止配音重叠。主讲保持自然连续，用 `pause` 留出必要的图表阅读、数字理解和换气时间；停顿长短按带声播放结果调整，不额外演犹豫或搭档反应。
 - 镜头里需要对准某个时刻的动作，用 `mark` 记下来，镜头里读 `T.名字`。
 
 ## 6. 镜头（scenes.js / portrait.js）
@@ -166,19 +163,18 @@ export const BEATS = [
 每个镜头是一个函数 `SH.名字 = (t, tq) => { cam(...); world(...); 角色... }`：
 
 ```js
-SH.two = (t, tq) => {
-  cam(960, 560, lerp(1.0, 1.05, ss(seg(t, T.opener + 2, T.opener + 8))));   // 慢推
+SH.presenter = (t, tq) => {
+  cam(960, 560, 1.02);
   world('studio', t);
-  drawRole('A2', t, { x: 690, face: 1, ...FORMAL_POSES.A2.point });
-  drawRole('B1', t, { x: 1230, face: -1, ...FORMAL_POSES.B1.explain });
+  drawRole('B2', t, { x: 960, face: 1, ...FORMAL_POSES.B2.explain });
 };
 ```
 
 - **镜头**：`cam(cx, cy, z)` 把世界坐标放到画面中心。正式角色近景按本人的实际脸部位置取景：站姿头中心约为 `y - bodyH*s - 100*s`；坐姿、侧面和低头需用本期样帧复核。不要套老白/小问的旧脸高，也不要把脸挤进字幕区。
 - **角色**：正式镜头用 `drawRole(id,t,{...FORMAL_POSES[id].explain})` 或 `character(id, ROLE(id,t,...))`，口型按该 ID 的配音驱动。位置、朝向、表情和手势按本期分镜安排；`LB/XW` 仅历史兼容，不把新的八个人物改叫老白/小问。
 - **动作要有过程**：举手、跳起来这类动作，用 `seg(tq, 开始, 结束)` 插值，不要在某一帧突然切换姿势。
-- **反应镜头**：荒诞揭示、关键反驳或发现之后，切真正受到影响的人；本期选用的八人角色都可成为反应主体。用视线、眉毛、嘴型和手势呈现变化，允许必要停顿，不能只给口型和缩放。
-- **机制画面**：先按 `visual.md` 明确人物操作、可见结果和比较关系；科幻装置、分屏模拟或物件特写按题目选。`Wd.board(x, y, w, h, [行...], { title })` 仅保留必要关键词和对比，不能用两人站着读说明牌代替整期情节。
+- **主讲手势**：用视线、眉毛、嘴型和简洁手势强调当前解释，不要求搭档反应或情节动作。资料占主体时保留清晰的主讲画中画，由本人音频驱动口型并通过逐帧出镜检查。
+- **解释画面**：按 `visual.md` 明确资金流、账目、变化或比较关系；用数据图、资料原页和必要的产品图帮助理解。`Wd.board(x, y, w, h, [行...], { title })` 只放必要关键词和对比，不把整篇口播贴成密集文字墙，也不要求科幻装置或人物操作戏。
 - **场景配色**：每个主要世界使用 3–5 色，至少两种彩色有明显色相和明度差；八位人物保持各自确认稿的服装与识别配饰。蓝色和其他鲜艳色可以出现在场景、说明牌和道具里，不必每帧只留一处颜色。注意字幕与轮廓对比；发生冲突时调整背景明暗和位置，不在单期更换正式角色配饰。
 - **字幕安全区**：画面下方约 170 像素是字幕带，人物的脸不要进去。
 
@@ -186,7 +182,7 @@ SH.two = (t, tq) => {
 
 默认四版分别执行本节检查，不能用中文横版成功代替其他三版的验收。`build.sh` 按 episode.json 的 aspect 调用已接通的原生横竖分支；按 `vertical.md` 改写本期镜头，分别构建和验收；不要把 `clip.sh` 的横版小窗包装当成完整竖屏。横版和竖版共用同语言的对白/音轨时，不改横版画面和成片。
 
-进入制作后，先按 `visual.md` 用真实绘制代码检查两张本期样帧：人物冲突或反应、机制解释。已有角色转面图可复用；关键动作连续帧检查姿态过渡、视线、持物跟手及遮挡。
+进入制作后，先按 `visual.md` 用真实绘制代码检查两张本期样帧：主讲画面与关键图表或资料画面。固定确认角色稿可复用，未确认派生姿态仍按 `characters.md` 限制；手势及图表变化用连续帧检查过渡、视线、标注和遮挡。
 
 数据类选题先读 `content.md` 第6节和 `visual.md` 的“真实资料与 B-roll”。入片前复核数据底稿、素材本地文件与 `CREDITS`；候选链接不计作已完成素材。沿用本 Skill 的模板接入资料镜头，不另换视频引擎；有人物台词的资料镜头也必须通过真实出镜检查。未选到可用真实素材时如实记录，不能声称已接入 B-roll。
 
@@ -195,7 +191,7 @@ SH.two = (t, tq) => {
    cd $LIB && node core/render/still.mjs <项目> --range 0:<时长>:2 --size 1920x1080 --out <项目>/out/review
    .venv/bin/python core/render/sheet.py <项目>/out/sheet.jpg <项目>/out/review/t_*.jpg --cols 10 --w 192
    ```
-   用 Read 看总览图。检查：人物被切、字幕压脸、转场时字幕没清、空镜头、场景是否有主色和对比色、相邻世界是否色相重复、颜色是否抢走字幕和事实重点。关键动作再按 0.2 秒截几帧看；随后带声音播放，确认反应留白、音乐变化和解释的因果能一起读懂。
+   用图像工具看总览图。检查：人物被切、字幕压脸、转场时字幕没清、空镜头、图表与资料可读性、场景是否有主色和对比色、相邻世界是否色相重复、颜色是否抢走字幕和事实重点。关键手势与图表变化再按 0.2 秒截几帧看；随后带声音播放，确认阅读停顿、音乐与解释能一起读懂，字幕始终单行、按语义分屏。
 2. 修完后整片构建（后台运行，约 2–5 分钟）：`sh <项目>/build.sh`。只改了镜头时可以从中间开始：`sh build.sh from=events`（跳过配音）或 `from=video`（只重新渲染和合成）。
 3. 最后检查：
    - 响度：`mux.sh` 会打印，目标 −14 LUFS。
