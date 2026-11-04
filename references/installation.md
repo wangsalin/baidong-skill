@@ -48,7 +48,7 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" 09 next-topic /path/to/video-pro
 2. 在新项目编写 `lines.json`、`story.js`、`scenes.js`（横版）或 `portrait.js`（竖版）与必要图表、真实B-roll；`main.js` 是固定制作壳，不在单期改写。新建的20秒模板只是技术接线示例，旧剧情对白与镜头须替换为本期问答和解释。两位正式角色使用 `formal` 模式，谁说话谁出镜，换人时核对本人音色与口型。
 3. `python3 /path/to/episode/fonts/fetch_fonts.py` 下载本期文字子集；改了画面文字要重新取字体。若本机联网条件要求，可在Windows Python运行此步。
 4. `sh /path/to/episode/build.sh` 完整制作；`from=events`可从已核查配音之后接续。ASR失败先核实发音；保留用户已认可文字，不为绕过检查随便改字幕。
-5. `music/selection.json` 默认Vibe音源、增益+9dB。《We Never》使用 `track_id: "we-never-hi-noise"`；按主题选，不能把未核实音轨写成原创。关键定义使用 `music_key: true` 轻降配乐，仍需成片核查。
+5. `music/selection.json` 以 Cold Funk 为起始配置：`track_id: "kevin-macleod-cold-funk"`、`start_seconds: 16`、`gain_db: -3`。六首已确认入库的配乐按主题和对白节奏选择并轮换，曲目ID、来源及署名见 `assets/music/catalog.json`；旧两首保留历史。关键定义使用 `music_key: true` 轻降配乐，正式混音仍需检查对白清晰度，并将实际用曲的署名、许可链接和处理说明写入发布物料。
 6. 按 `distribution.md` 交付本次范围内的中英文完整横版、主力短竖版、各自字幕、封面和发布物料，完整竖版与额外短片按需制作。交付清单写清用途、实际时长与推荐先看的文件，保留已验收完整版；新主题不复制示例发布文案。
 
 单期目录、四版工程与正式文件命名按 `references/production.md` 第2节的铁律执行：同一单期根目录内保存四版真实工程，根目录直接交付 MP4、同名 SRT、封面和资料；网页只作辅助。跨机器仅更换项目根路径，不另造深层日期轮次目录作为正式交付。每期制作默认四版时，先读 `references/vertical.md`。新建时使用 --language 和 --aspect 分别建立工程；原生竖版分支已随模板提供。分别准备中英文及缩减稿、配音与时间线，按同一 build.sh 构建，不能替换固定包装。中文横版渲染成功不等于另外三版已经完成。

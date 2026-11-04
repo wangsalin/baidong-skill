@@ -1,7 +1,7 @@
 {
   "version": "business-economics-qa-shorts-bgm-20261104",
-  "created_utc": "2026-11-04T12:31:21.064334+00:00",
-  "skill_commit": "61328bee65c3be1345bad3dcf96b8b210d871c0a",
+  "created_utc": "2026-11-04T12:33:27.825484+00:00",
+  "skill_commit": "0a7501cc88fb6e05703d6946015cc06c2982ff3c",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -1516,8 +1516,8 @@
     },
     {
       "path": "references/installation.md",
-      "bytes": 7757,
-      "sha256": "efe2e0ef0de88d230f8e4ed75d3c8dbaa6744075c7b2b00a4dfcef71a648379c"
+      "bytes": 7981,
+      "sha256": "b87cb6c4158e00fce9107a217b4e10658c44973a032b8f105200d1e330819cdb"
     },
     {
       "path": "references/production.md",
