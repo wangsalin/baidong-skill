@@ -1,7 +1,7 @@
 {
   "version": "business-economics-qa-shorts-bgm-20261104",
-  "created_utc": "2026-11-04T12:26:52.980638+00:00",
-  "skill_commit": "9797c052f39f0d36067b9eff14e68968d6f5d951",
+  "created_utc": "2026-11-04T12:31:21.064334+00:00",
+  "skill_commit": "61328bee65c3be1345bad3dcf96b8b210d871c0a",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -1306,8 +1306,8 @@
     },
     {
       "path": "assets/music/README.md",
-      "bytes": 3223,
-      "sha256": "2b8901c3ef70fc7fdae2631c7acbd9a5cf362b6ba72fa70e9bf61212dc92d3f5"
+      "bytes": 3340,
+      "sha256": "ccd34e67dbbf9b84edb4a1a848213bd44862f5ff145a749a8a3f55f8eb250091"
     },
     {
       "path": "assets/music/audio/kevin-macleod-cipher.mp3",
@@ -1351,8 +1351,8 @@
     },
     {
       "path": "assets/music/catalog.json",
-      "bytes": 17071,
-      "sha256": "067c142eada59178f6463156b3d0083ea58e2d6d66245d05e7b8c44fe2a3885c"
+      "bytes": 18605,
+      "sha256": "143368ce90c0035cae220920c00978901aa41084d0a2a469f97db8f7a0534ce3"
     },
     {
       "path": "assets/music/integration-check.json",
@@ -1451,8 +1451,8 @@
     },
     {
       "path": "assets/music/previews/20261104/index.html",
-      "bytes": 6173,
-      "sha256": "fc63267b988c0148e00bc0e3200c7a1009dbbaf018b8a362776908190374ec55"
+      "bytes": 6163,
+      "sha256": "8bfc55da2fe53bfdeaafd64d4f24736cb866ba38c87e1f588e987b31c2670a43"
     },
     {
       "path": "assets/music/previews/20261104/verification.json",
@@ -1481,8 +1481,8 @@
     },
     {
       "path": "assets/music/tools/preview_candidates.py",
-      "bytes": 11420,
-      "sha256": "baf10765ca94261cdae613d07e2683cf98632cdf3da805476df11befbab81c95"
+      "bytes": 11437,
+      "sha256": "fe244fad8548ca1dbccfedcb9de7823b1d14f4500330ed97af7e705420b76b22"
     },
     {
       "path": "assets/requirements-baidong.txt",
@@ -1516,13 +1516,13 @@
     },
     {
       "path": "references/installation.md",
-      "bytes": 7745,
-      "sha256": "7bcb98eac1bc97307b1ba6bdeba0d441fd47819bce7ce67363404157fa8ce6f3"
+      "bytes": 7757,
+      "sha256": "efe2e0ef0de88d230f8e4ed75d3c8dbaa6744075c7b2b00a4dfcef71a648379c"
     },
     {
       "path": "references/production.md",
-      "bytes": 26524,
-      "sha256": "fdc7392e8cf78cc0149d582cd8f4df9bfc2e100a67b333f92f36e47e61b82502"
+      "bytes": 26530,
+      "sha256": "cd23c86c751e05b7870f6b727be00f61b76ae1acdb37f56f859764279e0e3e66"
     },
     {
       "path": "references/vertical.md",

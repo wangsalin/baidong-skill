@@ -14,7 +14,7 @@
 
 ## 1. 环境与命令的写法
 
-跨机器安装以 `installation.md` 为准。`scripts/setup.sh check` 只检查，`install` 才安装依赖。新建脚本支持第三个参数指定项目根目录；包内带六首新配乐候选和两首历史用户音源，不必回到原电脑的 Downloads 寻找。
+跨机器安装以 `installation.md` 为准。`scripts/setup.sh check` 只检查，`install` 才安装依赖。新建脚本支持第三个参数指定项目根目录；包内带六首用户已确认入库的配乐和两首历史用户音源，不必回到原电脑的 Downloads 寻找。
 
 - 视频工具（Node、FFmpeg 8、Python、渲染用的无头浏览器）都在 **WSL 的 Ubuntu** 里，Ubuntu 的磁盘在 F 盘。Lemo-Opuscar 库在 `/home/salin/lemo-opuscar`（下文写作 `$LIB`）。
 - Claude Code 跑在 Windows 上。调用 WSL 时，**`wsl.exe` 会把命令里的 `$变量` 提前展开**，所以凡是带变量的命令，都先写成一个脚本文件（放在 scratchpad），再这样运行：
@@ -26,7 +26,7 @@
 - Windows 上的 Python 打开文件要写 `G:/vibe/...`，不能写 `/g/vibe/...`。
 - `fonts/fetch_fonts.py` 会将长稿字符拆成有界请求，输出多个带 `unicode-range` 的本地子集。不要假设每种字体只有一个文件，也不要手写覆盖指纹；修改台词或画面文字后重新运行。
 - 长任务（逐帧渲染、配乐）尽量在前台一次跑完（超时设到 10 分钟）。必须放后台时，同一回合里接着做别的事，不要留下只写“等通知”的空回合。
-- 选配乐先读 Skill 的 `assets/music/catalog.json` 和 `assets/music/README.md`，本机素材库同步保存在 `G:\vibe\baidong\music-library`。**2026-11-04 用户要求增加配乐、现有曲目已不好听**，因此取消旧 Vibe 音轨优先规则，两首旧曲保留历史。按本期主题、语速与情绪从新候选中选择并轮换；先比较纯音乐和同段双角色对白试听，不把候选或暂用默认写成用户已认可。`music/selection.json` 的 Cold Funk 是暂用推荐，可更换 `track_id`、`start_seconds` 和 `gain_db`。
+- 选配乐先读 Skill 的 `assets/music/catalog.json` 和 `assets/music/README.md`，本机素材库同步保存在 `G:\vibe\baidong\music-library`。**2026-11-04 用户要求增加配乐、现有曲目已不好听**，因此取消旧 Vibe 音轨优先规则，两首旧曲保留历史。用户随后已确认六首全部入库，后续按本期主题、语速与情绪选择并轮换，结合纯音乐及同段双角色对白试听判断。`music/selection.json` 的 Cold Funk 是模板起始配置，可更换 `track_id`、`start_seconds` 和 `gain_db`。
 - 新模板从较低的配乐增益 `gain_db=-3` 起调，仍保留原混音器的对白自动压低。上一版 `+9 dB` 配置测得有声区间音乐只比对白低约 4 dB，不直接沿用到新曲；本轮试听按低 16 dB 比较，正式片按实际听感及测量校准。人声清楚、音乐有节奏且不过分抢旋律优先，关键数字和答案可再压低。新曲来自作者官网，按 CC BY 4.0 保留曲名、作者、来源、许可链接与截取/循环/混音说明，将 `music/credits.txt` 写进 `CREDITS` 及发布简介；历史用户音源不套用该许可。
 - 只有本期确实需要另作配乐时，才使用 `music/score-sampled.py` 的真实乐器采样流程，不默认重复旧 112 拍旋律。音色库 `salamander`、`vsco2ce`、`vcsl` 在本机 `$LIB/core/audio/instruments`（884 MB）；采样脚本打印“跳过”代表音色库不全。钢琴是 CC BY 3.0，其实际采样署名也应写入发布物料，不能替代成品曲目的许可。
 

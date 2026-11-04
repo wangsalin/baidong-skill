@@ -25,7 +25,7 @@ sys.path.insert(0, str(args.skill_root / 'assets/lemo-runtime/core/audio'))
 from sfx import SR, add, compress
 
 catalog = json.loads((LIB / 'catalog.json').read_text(encoding='utf-8'))
-tracks = [t for t in catalog['tracks'] if t.get('priority') == 'new_candidate_pending_user_listen']
+tracks = [t for t in catalog['tracks'] if t.get('priority') in {'new_candidate_pending_user_listen', 'user_approved_library'}]
 events_path = args.voice_project / 'events.json'
 events = json.loads(events_path.read_text(encoding='utf-8'))
 END = 22.446  # 本期第二段场景结束：完整问题、直接答案与供货机制解释。
@@ -178,7 +178,7 @@ page = '''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="vi
 <title>白洞 · 六首新配乐试听</title><style>
 body{font:16px/1.65 system-ui,sans-serif;margin:0;background:#f7f5ef;color:#25322c}main{max-width:850px;margin:auto;padding:32px 20px}h1{font-size:29px;line-height:1.3}h2{font-size:21px;margin:0}p{margin:8px 0}article{padding:24px 0;border-top:1px solid #cbd3ca}a{color:#246541}label{display:block;margin:14px 0}audio{display:block;width:100%;margin-top:7px}summary{cursor:pointer;color:#345f48}footer{font-size:14px;color:#53645a}
 </style><main><h1>白洞 · 六首新配乐试听</h1><p>每段先听8秒音乐，再听同一段有戏问、小算盘答。比较旋律、节奏，以及是否影响听清解说。下面也可单独播放纯音乐和对白。</p>
-<p>新候选尚待试听选择。优先比较 Cold Funk、Space Jazz；旧曲保留历史。候选按官网曲风、乐器与实际混音准备，尚未经过真人听感确认。</p>'''
+<p>六首已确认全部入库，后续按题材和对白节奏选择并轮换。Cold Funk 是模板起始配置；这里保留六首的纯音乐和同段问答试听。</p>'''
 page += '\n'.join(cards)
 page += '''<footer><p>音乐：Kevin MacLeod（incompetech.com），CC BY 4.0。已截取、淡入淡出、调整响度并与对白混音。正式发布须保留曲名、作者、来源、许可链接及改动说明；授权证据和原音指纹见音乐库。</p></footer></main><script>document.addEventListener('play',e=>{if(e.target.tagName==='AUDIO')document.querySelectorAll('audio').forEach(a=>{if(a!==e.target)a.pause()})},true)</script></html>'''
 (OUT / 'index.html').write_text(page, encoding='utf-8', newline='\n')

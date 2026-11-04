@@ -5,14 +5,26 @@
     "preferred_track_id": null,
     "provisional_default_track_id": "kevin-macleod-cold-funk",
     "user_request": "背景音乐需要多弄几个。现在的已经不好听了。",
-    "application": "按主题从新候选中选择并轮换，先比较纯音乐与同段双角色对白试听；Cold Funk 只是制作暂用推荐，不代表用户已认可。旧两首保留历史，不再优先。",
-    "review_status": "六首新曲待用户试听，尚无本轮确认曲目。",
+    "application": "六首新曲已获用户确认全部入库，后续按题材、语速和对白节奏选择并轮换。Cold Funk 为模板起始配置，具体用曲按本期内容决定；旧两首保留历史。",
+    "review_status": "2026-11-04 用户确认六首全部入库，供后续视频选用。",
     "mixing": "对白优先；本轮试听把有声区间音乐RMS设为比人声低16dB，统一试听响度。正式成片再按实际语速与音色校准。",
     "previous_user_preference": {
       "preferred_track_id": "vibe-bgm-reference-20261027",
       "user_request": "以后的音乐尝试使用这个",
       "application": "后续制作优先尝试本次视频中的音乐，按主题情绪、叙事推进和对白节奏选段；We Never 保留备选，不强制每期同曲。",
       "previous_user_preference": "两首都可以使用，根据不同主题选择。"
+    },
+    "library_confirmation": {
+      "date": "2026-11-04",
+      "user_request": "这几个音乐都入库吧。是放在skill里的么",
+      "track_ids": [
+        "kevin-macleod-cold-funk",
+        "kevin-macleod-cipher",
+        "kevin-macleod-space-jazz",
+        "kevin-macleod-mining-by-moonlight",
+        "kevin-macleod-cool-vibes",
+        "kevin-macleod-district-four"
+      ]
     }
   },
   "tracks": [
@@ -26,7 +38,7 @@
       "source_type": "user_provided_video",
       "source_path": "C:/Users/Administrator/Downloads/Vibe知识大赏_最火的那首BGM__vibe知识大赏 _bgm _嘉豪 _抖音科技.mp4",
       "source_sha256": "82d6fbcbf4e3d52161a9e9165f83658c74529dc75e9462426f81ce3bdee8bf93",
-      "audio_path": "G:/vibe/baidong/music-library/audio/vibe-bgm-reference-20261027.m4a",
+      "audio_path": "audio/vibe-bgm-reference-20261027.m4a",
       "audio_sha256": "497d2f3d0f79f60a842ea4b982f2db004dcae42430ff0e131aff057ef002b435",
       "duration_seconds": 160.020998,
       "codec": "aac",
@@ -50,7 +62,7 @@
       "priority": "historical_user_reference",
       "source_type": "user_provided_mp3",
       "source_path": "C:/Users/Administrator/Downloads/We Never-Hi Noise#2pQx22.mp3",
-      "audio_path": "G:/vibe/baidong/music-library/audio/we-never-hi-noise.mp3",
+      "audio_path": "audio/we-never-hi-noise.mp3",
       "audio_sha256": "8098c8811dc231672aa8bc2407832753df281d642336d3529b969303b58aa34a",
       "duration_seconds": 248.571429,
       "previous_use": "ep05-hometown（为什么不愿意离开家乡）"
@@ -62,7 +74,7 @@
       "label": "轻放克 · 吉他与贝斯",
       "suggested_use": "商业案例、价格与赚钱逻辑",
       "bpm": 112.0,
-      "priority": "new_candidate_pending_user_listen",
+      "priority": "user_approved_library",
       "identity_status": "曲名、作者、ISRC、乐器与BPM来自作者官网目录。",
       "source_type": "artist_official_cc_by_download",
       "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100499",
@@ -97,6 +109,11 @@
         "full_audio_decode": "passed",
         "source_bytes_unchanged": true,
         "human_listening": "pending"
+      },
+      "library_approval": {
+        "date": "2026-11-04",
+        "scope": "完整音源入库，后续按题材选用",
+        "user_request": "这几个音乐都入库吧。是放在skill里的么"
       }
     },
     {
@@ -106,7 +123,7 @@
       "label": "电子律动 · 合成器与电钢琴",
       "suggested_use": "平台生意、科技商业与效率话题",
       "bpm": 150.0,
-      "priority": "new_candidate_pending_user_listen",
+      "priority": "user_approved_library",
       "identity_status": "曲名、作者、ISRC、乐器与BPM来自作者官网目录。",
       "source_type": "artist_official_cc_by_download",
       "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100844",
@@ -141,6 +158,11 @@
         "full_audio_decode": "passed",
         "source_bytes_unchanged": true,
         "human_listening": "pending"
+      },
+      "library_approval": {
+        "date": "2026-11-04",
+        "scope": "完整音源入库，后续按题材选用",
+        "user_request": "这几个音乐都入库吧。是放在skill里的么"
       }
     },
     {
@@ -150,7 +172,7 @@
       "label": "太空爵士 · 合成器律动",
       "suggested_use": "日常经济、产品与商业常识",
       "bpm": 89.0,
-      "priority": "new_candidate_pending_user_listen",
+      "priority": "user_approved_library",
       "identity_status": "曲名、作者、ISRC、乐器与BPM来自作者官网目录。",
       "source_type": "artist_official_cc_by_download",
       "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2100030",
@@ -185,6 +207,11 @@
         "full_audio_decode": "passed",
         "source_bytes_unchanged": true,
         "human_listening": "pending"
+      },
+      "library_approval": {
+        "date": "2026-11-04",
+        "scope": "完整音源入库，后续按题材选用",
+        "user_request": "这几个音乐都入库吧。是放在skill里的么"
       }
     },
     {
@@ -194,7 +221,7 @@
       "label": "轻快爵士 · 电钢琴与鼓",
       "suggested_use": "消费行为、算账与轻松问答",
       "bpm": 160.0,
-      "priority": "new_candidate_pending_user_listen",
+      "priority": "user_approved_library",
       "identity_status": "曲名、作者、ISRC、乐器与BPM来自作者官网目录。",
       "source_type": "artist_official_cc_by_download",
       "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200089",
@@ -229,6 +256,11 @@
         "full_audio_decode": "passed",
         "source_bytes_unchanged": true,
         "human_listening": "pending"
+      },
+      "library_approval": {
+        "date": "2026-11-04",
+        "scope": "完整音源入库，后续按题材选用",
+        "user_request": "这几个音乐都入库吧。是放在skill里的么"
       }
     },
     {
@@ -238,7 +270,7 @@
       "label": "慢爵士 · 颤音琴与贝斯",
       "suggested_use": "收入、成本与需要慢慢解释的内容",
       "bpm": 83.0,
-      "priority": "new_candidate_pending_user_listen",
+      "priority": "user_approved_library",
       "identity_status": "曲名、作者、ISRC、乐器与BPM来自作者官网目录。",
       "source_type": "artist_official_cc_by_download",
       "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100863",
@@ -273,6 +305,11 @@
         "full_audio_decode": "passed",
         "source_bytes_unchanged": true,
         "human_listening": "pending"
+      },
+      "library_approval": {
+        "date": "2026-11-04",
+        "scope": "完整音源入库，后续按题材选用",
+        "user_request": "这几个音乐都入库吧。是放在skill里的么"
       }
     },
     {
@@ -282,7 +319,7 @@
       "label": "强节奏 · 贝斯与打击乐",
       "suggested_use": "价格战、商业竞争与快速推进",
       "bpm": 176.0,
-      "priority": "new_candidate_pending_user_listen",
+      "priority": "user_approved_library",
       "identity_status": "曲名、作者、ISRC、乐器与BPM来自作者官网目录。",
       "source_type": "artist_official_cc_by_download",
       "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600039",
@@ -317,6 +354,11 @@
         "full_audio_decode": "passed",
         "source_bytes_unchanged": true,
         "human_listening": "pending"
+      },
+      "library_approval": {
+        "date": "2026-11-04",
+        "scope": "完整音源入库，后续按题材选用",
+        "user_request": "这几个音乐都入库吧。是放在skill里的么"
       }
     }
   ],
