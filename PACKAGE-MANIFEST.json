@@ -1,7 +1,7 @@
 {
-  "version": "business-economics-20261103",
-  "created_utc": "2026-11-03T14:56:11.885147+00:00",
-  "skill_commit": "24460ec7cdef2dcf2205d63843c881d1fe36d4cd",
+  "version": "business-economics-qa-shorts-20261104",
+  "created_utc": "2026-11-04T12:06:35.564438+00:00",
+  "skill_commit": "587f54aa6b1ef0f4349df1ebf72063cfb47cd4f2",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -16,8 +16,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 15245,
-      "sha256": "9c47840182bf4dedfdd75d5113b0cf984236a93fb893adcda1c2a94fa423d0cd"
+      "bytes": 16235,
+      "sha256": "596dfbb2b64daf7eedffbe4fb3f8fa8b68a9280d1acfd7c393e529d0242f66d5"
     },
     {
       "path": "assets/episode-template/CREDITS",
@@ -446,8 +446,8 @@
     },
     {
       "path": "assets/examples/ep08-sunk-cost/REFERENCE.md",
-      "bytes": 1104,
-      "sha256": "18f981104737f4bfd718f32ee9eba9afb08f013693684341c9892b8813d465c0"
+      "bytes": 1146,
+      "sha256": "3de72f588ea1d4d2d2ea6b8403e487f167173c1d0112a6da3f9afe016fcdfe2d"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/TREATMENT.md",
@@ -1321,18 +1321,18 @@
     },
     {
       "path": "references/account.md",
-      "bytes": 9260,
-      "sha256": "929d76fb37fafdc99480fe141ed476c51c0e179aa9743650caf5537ab4d4d5a2"
+      "bytes": 9750,
+      "sha256": "79288ef5f302c2b11eea0a402a18f8acebcf3ae78c0ad208eb2935b6b14cce04"
     },
     {
       "path": "references/characters.md",
-      "bytes": 12614,
-      "sha256": "169f1510911e0703c32c8e4b9c675cd442c664a529ff1dd882f2222eb8170afa"
+      "bytes": 12768,
+      "sha256": "515be3e45fc19e4d032092e135f67dd8d3f8e8adeca4a03c7f5dd982bd7f2a6f"
     },
     {
       "path": "references/content.md",
-      "bytes": 16140,
-      "sha256": "811255a50484134bc3ec0165e437e838e83d10f49b16200d340dfe9ffabdeede"
+      "bytes": 17000,
+      "sha256": "4861a2b74612bdd71def2677f1cf4f0376869ee5ad41ebe19e0e4b1e19bb14e6"
     },
     {
       "path": "references/covers.md",
@@ -1341,28 +1341,28 @@
     },
     {
       "path": "references/distribution.md",
-      "bytes": 13297,
-      "sha256": "d3ef6437d4c4622e53ac4f5569585e3530aab4e4c06357df01b95239b616e993"
+      "bytes": 14124,
+      "sha256": "fcf7bc6ce80104eecb894c2330494ab43bacf298bf67bd718a78f40653b2ce1e"
     },
     {
       "path": "references/installation.md",
-      "bytes": 7246,
-      "sha256": "5ed4a8e0c6ca45814f855085573b9cb23dd7ac9b10dda7e8cd6e4e79b451e984"
+      "bytes": 7585,
+      "sha256": "9e4840700e0f84665c76d3f04b15d851784ec9245bac6f8dca9f5528f909f52e"
     },
     {
       "path": "references/production.md",
-      "bytes": 24345,
-      "sha256": "a9b36baa8146b72598ad4c5e4f99165c5d2d28ca47b3496a3d5fb7e0bfbde48c"
+      "bytes": 26018,
+      "sha256": "120a2d4f658610e2137ec47ee486be1a5d1b3d1f62ab2ffc5e44afa18af5045b"
     },
     {
       "path": "references/vertical.md",
-      "bytes": 7257,
-      "sha256": "a67ef5a99768e061e67d066a8109a8f3a76febd9c1675714a7316717a8ef7e01"
+      "bytes": 8451,
+      "sha256": "279c9622674d0215aa10c06864a36db646faeb1b3bdd2b8bd7703741be4dd77c"
     },
     {
       "path": "references/visual.md",
-      "bytes": 9104,
-      "sha256": "521f939816089358239235aae87806f88469867301ba9486851c977b7db3c8f1"
+      "bytes": 10169,
+      "sha256": "bcaa5462f5a41a36862e43bd9664310a31836d9b86028578c8ce649b343346f3"
     },
     {
       "path": "scripts/chapters.py",
@@ -1391,8 +1391,8 @@
     },
     {
       "path": "scripts/package_skill.py",
-      "bytes": 9654,
-      "sha256": "746c1af1d21b82572b21bae04df7043dd59be9c361e0f9d375d75605acbfbd2b"
+      "bytes": 9717,
+      "sha256": "296c5407d6e67804e82db85bfa211f0d845ebfe278ab768ed4bc497477e0f712"
     },
     {
       "path": "scripts/runtime.sh",

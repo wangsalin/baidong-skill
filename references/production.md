@@ -41,13 +41,13 @@
 
 ```text
 G:/vibe/baidong/epNN-topic/
-  epNN-topic.mp4                  中文横版
+  epNN-topic.mp4                  中文完整横版
   epNN-topic.srt
-  epNN-topic-vertical.mp4         中文竖版
+  epNN-topic-vertical.mp4         中文主力短竖版
   epNN-topic-vertical.srt
-  epNN-topic-en.mp4               英文横版
+  epNN-topic-en.mp4               英文完整横版
   epNN-topic-en.srt
-  epNN-topic-en-vertical.mp4      英文竖版
+  epNN-topic-en-vertical.mp4      英文主力短竖版
   epNN-topic-en-vertical.srt
   cover-zh-{16x9,4x3,3x4,9x16}.jpg
   cover-en-{16x9,4x3,3x4,9x16}.jpg
@@ -70,6 +70,10 @@ G:/vibe/baidong/epNN-topic/
 
 未分配期号时，用真实单期目录名替换上述 `epNN-topic`，不把 `NN` 留在成品文件名。单语言或单画幅只在用户明确缩小范围时省略；额外切片沿用 `clip-1.mp4` / `clip-1.srt`，不替代四版。
 
+新一期的 `zh-portrait` / `en-portrait` 默认承载45—60秒主力短稿；完整横版深入展开案例，完整竖版按需求增加。新建完整竖版可使用 `variants/zh-portrait-full` / `en-portrait-full`，根目录对应 `<本期名>-vertical-full.mp4` / `<本期名>-en-vertical-full.mp4` 及同名SRT。完整竖版复用同语言完整横版的台词、已核验逐句WAV与混音时间线，只重排画面及字幕。
+
+已有工程的 `-vertical` 如果已经交付完整版，保留原名和指纹；新增独立短稿使用 `variants/zh-portrait-short-01` 等目录，根目录用 `<本期名>-short-01.mp4`、同名SRT和 `<本期名>-short-01-cover.jpg`，英文短稿在文件名加入 `-en-`。每条短稿独立保留工程，不直接覆盖完整版；数量按内容价值与本次范围决定。`variants.json`、`DELIVERY.md` 标明每支的语言、画幅、用途、时长与当前状态，短版较多时可在同目录用 `SHORTS.md` 集中索引，不要求用户辨认多套修订目录。
+
 各版 `lines.json`、`story.js`、镜头源码、`voices/`、`fonts/`、`music/`、`out/` 及实际使用的配置均保留在对应工程内；共享资产保留真实位置和引用。根目录摘要不能冒充各版真实台词源，不为凑目录放置未使用的源码或配置。`tools/` 记录可执行的现有构建入口、工作目录及版本对应关系；复用固定模板和 Lemo 构建链，不恢复历史工程的旧角色或替换渲染引擎。
 
 当前模板的 `build.sh` 按内层工程目录名输出视频；根目录按上表保存对应正式视频、字幕与封面，并核对内容指纹、语言、画幅和真实时长一致。生成器输出与根目录交付名之间的映射记录在 `variants.json`、`DELIVERY.md` 和实际检查记录内。不能只改文件名把 preview 冒充 final，也不能为改交付名重写固定 `build.sh`。
@@ -88,7 +92,7 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-film "$EPISODE_ROOT/var
 sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-portrait "$EPISODE_ROOT/variants" --language en --aspect portrait
 ```
 
-上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。模板旧双人对白仅用于技术冒烟，不是新期内容示范。分别用本期主讲稿与解释画面替换各版 `lines.json`、`story.js` 和镜头代码，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在 WSL 里生成配音。
+上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。模板旧剧情对白仅用于技术冒烟，不是新期内容示范。分别用本期双角色问答稿与解释画面替换各版 `lines.json`、`story.js` 和镜头代码，默认D1提问、B2解答，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在WSL里生成配音。正式问答仍使用 `formal` 角色模式，不因有两位角色而启用旧 `legacy` 模式。
 
 每期默认规划中英文横竖四版。新建脚本支持 `--language zh|en --aspect landscape|portrait --stage preview|final`；各版本仍需独立稿件和验收，不能把四次运行同一稿称为四版内容完成。四版放在同一单期根目录下的 `variants/`，不要分别创建四个对外的单期根目录。脚本第三个参数是输出父目录：例如 `sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local zh-film "$EPISODE_ROOT/variants" --language zh --aspect landscape` 会建立 `variants/zh-film/`；其中 `EPISODE_ROOT` 是已核实的本期绝对目录，`local` 用于保持内层目录名，`story.js` 的 `NO` 则按本期已核实期号填写，未分配仍为 null。其余三版依次使用 `zh-portrait`、`en-film`、`en-portrait` 以及对应语言、画幅参数。在各版内分别维护稿件、配音、时间线、字幕和输出路径，避免覆盖中文工程。`episode.json` 的 `language` 只接受 `zh/en`；英文声音按当前注册表及 `voice-reference.json` 的实际状态核验，不把技术默认映射当作用户认可。英语稿按英语观众改写；`build.sh` 将语言同时用于声音校验与 ASR。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
 
@@ -137,14 +141,16 @@ HF_ENDPOINT=https://hf-mirror.com .venv/bin/python core/tts/asr_check.py <项目
 
 ## 5. 时间线（story.js）
 
-不用手算秒数。`BEATS` 按顺序写，`timeline.js` 会按真实配音时长排出每句的开始时间、每个镜头的长度、字幕、音乐段落和章节点。下面仅示意主讲与账目图的接线；`presenter`、`ledger` 须在本期镜头代码中实现，line ID 须对应本期 `lines.json`，不把示例当作可直接发布的稿件：
+不用手算秒数。`BEATS` 按顺序写，`timeline.js` 会按真实配音时长排出每句的开始时间、每个镜头的长度、字幕、音乐段落和章节点。下面仅示意不同角色的问答与账目图接线；`questioner`、`presenter`、`ledger` 须在本期镜头代码中实现，line ID须对应本期 `lines.json`。问题由D1发声、答案及解释由B2发声，镜头使用各自的正式绘制入口；不把示例当作可直接发布的稿件：
 
 ```js
 export const BEATS = [
-  { shot: 'presenter', world: 'studio', seg: 's1', segTitle: '营业额高，为什么仍可能亏钱', cue: 'theme' },
-  { line: 'question' },                              // 主讲直接进入问题
+  { shot: 'questioner', world: 'studio', seg: 's1', segTitle: '营业额高，为什么仍可能亏钱', cue: 'theme' },
+  { line: 'question' },                              // D1直接提问
+  { shot: 'presenter', world: 'studio' },
+  { line: 'answer' },                                // B2立即给出答案
   { shot: 'ledger', world: 'studio', seg: 's2', segTitle: '收入与成本分别算什么', cue: 'think' },
-  { line: 'revenue' }, { line: 'cost' },               // 同一主讲连续解释，图表同步推进
+  { line: 'revenue' }, { line: 'cost' },               // B2连续解释，图表同步推进
   { shot: 'presenter', cue: 'resolve' },
   { line: 'conclusion' },
   { end: 4.0, fx: 'end' },
@@ -156,6 +162,7 @@ export const BEATS = [
 - 按实际章节标 `seg`，沿用当前时间线支持的标识；`segTitle` 写具体内容（会变成 B 站和 YouTube 的章节名），不强制用满六段。工作台 `s1–s6` 仅按 `distribution.md` 做存储适配，不决定讲解结构。
 - 音乐段落名：`theme` `think` `tension` `resolve` `silence` `end`。按讲解与阅读需要选择，关键定义或复杂图表可短暂降配乐或留白；保持用户选定 BGM 的可听度，不为制造人物反应停顿。
 - **口播与阅读共同排节奏**：默认句间隔仍为 0.08 秒，当前声画校验禁止配音重叠。主讲保持自然连续，用 `pause` 留出必要的图表阅读、数字理解和换气时间；停顿长短按带声播放结果调整，不额外演犹豫或搭档反应。
+- **问答交接**：D1的问题说完后B2紧接回答，切镜与本人音频时点一致；必要的短停顿服务听辨，不增加剧情反应。每次交接核对真实出镜、姓名、口型和字幕，不把一人音轨映射到另一人的脸。
 - 镜头里需要对准某个时刻的动作，用 `mark` 记下来，镜头里读 `T.名字`。
 
 ## 6. 镜头（scenes.js / portrait.js）
@@ -182,7 +189,7 @@ SH.presenter = (t, tq) => {
 
 默认四版分别执行本节检查，不能用中文横版成功代替其他三版的验收。`build.sh` 按 episode.json 的 aspect 调用已接通的原生横竖分支；按 `vertical.md` 改写本期镜头，分别构建和验收；不要把 `clip.sh` 的横版小窗包装当成完整竖屏。横版和竖版共用同语言的对白/音轨时，不改横版画面和成片。
 
-进入制作后，先按 `visual.md` 用真实绘制代码检查两张本期样帧：主讲画面与关键图表或资料画面。固定确认角色稿可复用，未确认派生姿态仍按 `characters.md` 限制；手势及图表变化用连续帧检查过渡、视线、标注和遮挡。
+进入制作后，先按 `visual.md` 用真实绘制代码检查本期问答角色与关键图表或资料样帧。固定确认角色稿可复用，未确认派生姿态仍按 `characters.md` 限制；每次角色交接、手势及图表变化用连续帧检查过渡、视线、标注和遮挡。
 
 数据类选题先读 `content.md` 第6节和 `visual.md` 的“真实资料与 B-roll”。入片前复核数据底稿、素材本地文件与 `CREDITS`；候选链接不计作已完成素材。沿用本 Skill 的模板接入资料镜头，不另换视频引擎；有人物台词的资料镜头也必须通过真实出镜检查。未选到可用真实素材时如实记录，不能声称已接入 B-roll。
 
