@@ -1,4 +1,4 @@
-"""使用所选用户音源，原速原调；沿用ep08的电平、淡入淡出和交叉衔接。"""
+"""按目录选曲与起点，原速原调，保留原音指纹、许可和实际剪裁记录。"""
 import hashlib
 import json
 import os
@@ -32,6 +32,11 @@ duration = events['dur']
 n = round(duration * SR)
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(SOURCE), '-ar', str(SR), '-ac', '2', '-f', 'f32le', '-'], capture_output=True, check=True).stdout
 music = np.frombuffer(raw, dtype=np.float32).reshape(-1, 2).copy()
+source_seconds = len(music) / SR
+start_seconds = float(selection.get('start_seconds', track.get('recommended_selection', {}).get('start_seconds', 0)))
+if not np.isfinite(start_seconds) or start_seconds < 0 or start_seconds >= source_seconds:
+    raise SystemExit('start_seconds 必须在音源时长范围内且非负。')
+music = music[round(start_seconds * SR):]
 overlap = 3 * SR
 if len(music) <= overlap:
     raise SystemExit('音源需长于3秒，以便交叉衔接。')
@@ -51,9 +56,16 @@ result[-fadeout:] *= np.linspace(1, 0, fadeout)[:, None]
 sf.write(ROOT / 'music/score.wav', result, SR, subtype='PCM_16')
 record = {'source': str(SOURCE), 'sourceSha256': digest, 'trackId': track_id,
           'title': track.get('title') or '未核实曲名：用户提供的Vibe知识大赏视频音轨',
-          'author': track.get('artist') or '未核实', 'sourceSeconds': len(music) / SR,
+          'author': track.get('artist') or '未核实', 'sourceSeconds': source_seconds,
+          'sourceStartSeconds': start_seconds, 'excerptSeconds': len(music) / SR,
           'durationSeconds': duration, 'crossfadeSeconds': 3, 'loopSeams': seams,
-          'speed': 1, 'pitchChange': False, 'license': track.get('credit_status', '用户提供的音源；未另行核实传播授权')}
+          'speed': 1, 'pitchChange': False,
+          'sourceUrl': track.get('source_url'), 'licenseId': track.get('license_id'),
+          'licenseUrl': track.get('license_url'), 'attribution': track.get('attribution'),
+          'license': track.get('credit_status', '用户提供的音源；未另行核实传播授权')}
 (ROOT / 'music/source.json').write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-(ROOT / 'music/credits.txt').write_text(f'配乐：{record["title"]}；作者：{record["author"]}。来源与许可记录：music/source.json。\n', encoding='utf-8')
+credit = record['attribution'] or f'配乐：{record["title"]}；作者：{record["author"]}。'
+credit += f'\n来源：{record["sourceUrl"] or "用户提供音源，详见 music/source.json"}。'
+credit += f'\n本期处理：从 {start_seconds:g} 秒截取，按需循环与交叉淡化、淡入淡出、调整电平并与对白混音；原速原调。\n'
+(ROOT / 'music/credits.txt').write_text(credit, encoding='utf-8')
 print(f'Music: {duration:.3f}s; track: {track_id}; loop seams: {seams}')

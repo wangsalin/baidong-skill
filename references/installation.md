@@ -6,7 +6,7 @@
 
 - `SKILL.md`、`references/`：账号定位、商业案例研究、数据分析、直接口语讲解、科幻卡通、角色、制作与分发规则。
 - `assets/episode-template/`：新一期模板、角色代码、时间线、配音处理、可听BGM混音和封面。
-- `assets/music/`：用户指定的Vibe音轨与《We Never — Hi Noise》，目录使用相对路径并保留原始SHA256和来源记录。
+- `assets/music/`：六首商业经济解说配乐候选及两首历史用户音轨，包含原音、纯音乐/双角色对白试听、作者官网与CC BY 4.0证据、相对路径、SHA256和署名。Cold Funk 为暂用推荐，新候选尚待用户试听选择；不再默认优先旧 Vibe 音轨。
 - `assets/lemo-runtime/`：本次实际使用的Lemo轻量源码、`scifi-toon`风格文档、MIT许可、依赖锁文件；上游版本 `413a6bd6d78ebd3bdd5abaec9538a26867f890df`。不包含其他风格的演示、乐器采样或英文模型。
 - `assets/examples/ep08-sunk-cost/`：已认可的完整成片、封面、源码、62句处理后配音、字幕、发布介绍及原QA记录。只参考画法、配色、声音与技术，不恢复新期剧情要求。`REFERENCE.md` 说明重建方式。
 - `assets/examples/cover-styles/`：用户暂用的三种封面风格，含六张横竖参考图与总览；规则见 `references/covers.md`，不把样图冒充本期输出。

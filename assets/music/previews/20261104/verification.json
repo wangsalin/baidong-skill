@@ -1,0 +1,264 @@
+{
+  "created_utc": "2026-11-04T12:26:19.258372+00:00",
+  "voice": {
+    "path": "G:\\vibe\\baidong\\mixue-business-model\\variants\\zh-portrait-short-01",
+    "events_sha256": "9477920cc857522587dab656f663674d10491738e1dd0130b6e029ba28e12014",
+    "from_seconds": 0,
+    "to_seconds": 22.446,
+    "source": "原始逐句WAV按原时间线和处理重建；没有读取含旧BGM的mix.wav。",
+    "voices": [
+      {
+        "id": "l001",
+        "who": "D1",
+        "start_seconds": 0,
+        "sha256": "ff4cea0f16fdd737e54c598936a53087acb7f0148c6c2799ea32d449dbd66046"
+      },
+      {
+        "id": "qa001",
+        "who": "B2",
+        "start_seconds": 3.09,
+        "sha256": "bb5c7ca71c210bdc1fb2d58443726e3514ccc90d4e8461342c1ccf96673f019a"
+      },
+      {
+        "id": "l006",
+        "who": "B2",
+        "start_seconds": 7.506,
+        "sha256": "a06d0dc8f254693a8da60a89f4f02c5ed00c26877575ca53aab073917f044ca0"
+      },
+      {
+        "id": "l007",
+        "who": "B2",
+        "start_seconds": 10.461,
+        "sha256": "ed6187f3b3e3749a9d9b05dd8fd088f31d270d7d3a191c694862436cf3ffbe00"
+      },
+      {
+        "id": "l008",
+        "who": "B2",
+        "start_seconds": 13.595,
+        "sha256": "0298f4b0c8562e0a5483a2a197e585084db8ab6ab303ca9c2049dee24bbcb5f0"
+      },
+      {
+        "id": "l009",
+        "who": "B2",
+        "start_seconds": 17.407,
+        "sha256": "3cc1cf88beb1293b92caad9c4262c268c13fba6277e2012f4cff3d384b358669"
+      }
+    ]
+  },
+  "music_only_target_lufs": -20,
+  "voice_only_target_lufs": -16,
+  "preview_rule": "先8秒纯音乐，再接22.446秒相同双角色问答；不是正式成片。",
+  "subjective_status": "未进行真人听感确认；技术检测不代表用户已认可曲目。",
+  "tracks": [
+    {
+      "track_id": "kevin-macleod-cold-funk",
+      "source_start_seconds": 16,
+      "voice_music_gap_db_during_speech": 16.0,
+      "human_listening": "pending",
+      "files": [
+        {
+          "path": "01-cold-funk-pure.mp3",
+          "duration_seconds": 25.0,
+          "sha256": "118096e09a21b365dd6c28c01aa68ea53c3eb0caaa229ecaaf973b5f0e1e509a",
+          "integrated_lufs": -20.0,
+          "true_peak_dbtp": -4.25,
+          "encoded_loudness_correction_db": 0.25,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "01-cold-funk-dialogue.mp3",
+          "duration_seconds": 22.446,
+          "sha256": "969a35ff89c615556a9294ac533e73374d2ee13830b975284709eedeae68d989",
+          "integrated_lufs": -16.29,
+          "true_peak_dbtp": -1.75,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "01-cold-funk-demo.mp3",
+          "duration_seconds": 30.446,
+          "sha256": "f49c5204cc7c0c48385ff02ed15aaa4fe089bae161ee33f0b7adde24c1dea9d2",
+          "integrated_lufs": -16.87,
+          "true_peak_dbtp": -1.67,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        }
+      ]
+    },
+    {
+      "track_id": "kevin-macleod-cipher",
+      "source_start_seconds": 16,
+      "voice_music_gap_db_during_speech": 16.0,
+      "human_listening": "pending",
+      "files": [
+        {
+          "path": "02-cipher-pure.mp3",
+          "duration_seconds": 25.0,
+          "sha256": "af1253762231d951c4d2eb35fcb43e7de869edfc3dc267ade3428199cb84ad20",
+          "integrated_lufs": -20.0,
+          "true_peak_dbtp": -5.61,
+          "encoded_loudness_correction_db": 1.9299999999999997,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "02-cipher-dialogue.mp3",
+          "duration_seconds": 22.446,
+          "sha256": "20813ae3edc8f46a5da7e2ec66007223b7d633442babde483ffd4755c1ff9d84",
+          "integrated_lufs": -16.29,
+          "true_peak_dbtp": -2.03,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "02-cipher-demo.mp3",
+          "duration_seconds": 30.446,
+          "sha256": "eabb4ac5099183b9c7a06d7f8cc4f761b0961ab9f2c1f7f2c1ad8f779b7ef1a6",
+          "integrated_lufs": -17.18,
+          "true_peak_dbtp": -2.1,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        }
+      ]
+    },
+    {
+      "track_id": "kevin-macleod-space-jazz",
+      "source_start_seconds": 24,
+      "voice_music_gap_db_during_speech": 16.0,
+      "human_listening": "pending",
+      "files": [
+        {
+          "path": "03-space-jazz-pure.mp3",
+          "duration_seconds": 25.0,
+          "sha256": "4cf17dcc24379766fb4ca67496ab5b0e93928c5374bee1b43f59300a0c17b8c9",
+          "integrated_lufs": -20.0,
+          "true_peak_dbtp": -8.27,
+          "encoded_loudness_correction_db": 0.2699999999999996,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "03-space-jazz-dialogue.mp3",
+          "duration_seconds": 22.446,
+          "sha256": "af1f67b6778206a4c85c63841bcb42ad16ef57cc2792cd54d3b9a2848c53170c",
+          "integrated_lufs": -16.25,
+          "true_peak_dbtp": -2.05,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "03-space-jazz-demo.mp3",
+          "duration_seconds": 30.446,
+          "sha256": "d23a2c2a174b0da2a47c21982954054da03501bfc04991d1c203db2d2ba96e5c",
+          "integrated_lufs": -16.95,
+          "true_peak_dbtp": -2.04,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        }
+      ]
+    },
+    {
+      "track_id": "kevin-macleod-mining-by-moonlight",
+      "source_start_seconds": 12,
+      "voice_music_gap_db_during_speech": 16.0,
+      "human_listening": "pending",
+      "files": [
+        {
+          "path": "04-mining-by-moonlight-pure.mp3",
+          "duration_seconds": 25.0,
+          "sha256": "0fdbe486ae25ef25cc16b87a30b3677f5160d63dd54afc6716d976683cc69522",
+          "integrated_lufs": -20.0,
+          "true_peak_dbtp": -5.68,
+          "encoded_loudness_correction_db": 0.2699999999999996,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "04-mining-by-moonlight-dialogue.mp3",
+          "duration_seconds": 22.446,
+          "sha256": "17e0369914a6b51008a2d161afa4407e7ba03ce02933b7e7bec37bae454ba3c1",
+          "integrated_lufs": -16.27,
+          "true_peak_dbtp": -1.62,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "04-mining-by-moonlight-demo.mp3",
+          "duration_seconds": 30.446,
+          "sha256": "0d497270373fd4ffd88afb55ed393d70ccf929918549ffb25451d8dd61691ddd",
+          "integrated_lufs": -16.93,
+          "true_peak_dbtp": -1.73,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        }
+      ]
+    },
+    {
+      "track_id": "kevin-macleod-cool-vibes",
+      "source_start_seconds": 16,
+      "voice_music_gap_db_during_speech": 16.0,
+      "human_listening": "pending",
+      "files": [
+        {
+          "path": "05-cool-vibes-pure.mp3",
+          "duration_seconds": 25.0,
+          "sha256": "ae5813f1589f26a559d8f6a7d29180dc68eb1f0975dee0bf1ee46353ef661f5f",
+          "integrated_lufs": -20.01,
+          "true_peak_dbtp": -5.04,
+          "encoded_loudness_correction_db": 0.25,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "05-cool-vibes-dialogue.mp3",
+          "duration_seconds": 22.446,
+          "sha256": "86045cf6ba55ebf57eabdf2cb27903ff8e12b6946237e837be36586582bab96a",
+          "integrated_lufs": -16.3,
+          "true_peak_dbtp": -1.78,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "05-cool-vibes-demo.mp3",
+          "duration_seconds": 30.446,
+          "sha256": "f1e715e6e684c6df6c8622f4d55bfba71368a3d53e02e1ee182eb6ec0a17d952",
+          "integrated_lufs": -16.74,
+          "true_peak_dbtp": -1.77,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        }
+      ]
+    },
+    {
+      "track_id": "kevin-macleod-district-four",
+      "source_start_seconds": 16,
+      "voice_music_gap_db_during_speech": 16.0,
+      "human_listening": "pending",
+      "files": [
+        {
+          "path": "06-district-four-pure.mp3",
+          "duration_seconds": 25.0,
+          "sha256": "532a81f28a27a680747f282753616ea6d0ef2a5c01d09673d2c84b264a750c27",
+          "integrated_lufs": -20.0,
+          "true_peak_dbtp": -7.79,
+          "encoded_loudness_correction_db": 0.25,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "06-district-four-dialogue.mp3",
+          "duration_seconds": 22.446,
+          "sha256": "f2c0edf03790c9fe19179ef2d4b8a82ba063b2d9ee744ec01c7b5625ebaa69a4",
+          "integrated_lufs": -16.23,
+          "true_peak_dbtp": -1.56,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        },
+        {
+          "path": "06-district-four-demo.mp3",
+          "duration_seconds": 30.446,
+          "sha256": "8940a22f19d4b8af858be3545c3d3aa970c59654c7aa737ae840c0595b3f91d1",
+          "integrated_lufs": -16.86,
+          "true_peak_dbtp": -1.56,
+          "encoded_loudness_correction_db": 0,
+          "full_audio_decode": "passed"
+        }
+      ]
+    }
+  ]
+}

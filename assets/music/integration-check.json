@@ -1,0 +1,43 @@
+{
+  "scope": "仅隔离工程中的六曲配乐生成与Cold Funk真实对白混音；未覆盖原成片。",
+  "results": [
+    {
+      "track_id": "kevin-macleod-cold-funk",
+      "score_render": "passed",
+      "start_seconds": 16.0,
+      "credits_check": "passed",
+      "original_mixer": "passed",
+      "voice_music_gap_db": 16.629126250992105
+    },
+    {
+      "track_id": "kevin-macleod-cipher",
+      "score_render": "passed",
+      "start_seconds": 16.0,
+      "credits_check": "passed"
+    },
+    {
+      "track_id": "kevin-macleod-space-jazz",
+      "score_render": "passed",
+      "start_seconds": 24.0,
+      "credits_check": "passed"
+    },
+    {
+      "track_id": "kevin-macleod-mining-by-moonlight",
+      "score_render": "passed",
+      "start_seconds": 12.0,
+      "credits_check": "passed"
+    },
+    {
+      "track_id": "kevin-macleod-cool-vibes",
+      "score_render": "passed",
+      "start_seconds": 16.0,
+      "credits_check": "passed"
+    },
+    {
+      "track_id": "kevin-macleod-district-four",
+      "score_render": "passed",
+      "start_seconds": 16.0,
+      "credits_check": "passed"
+    }
+  ]
+}

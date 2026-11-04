@@ -13,7 +13,7 @@ ap.add_argument('--lemo', type=Path, required=True)
 ap.add_argument('--music', type=Path, required=True)
 ap.add_argument('--example', type=Path, required=True)
 ap.add_argument('--output', type=Path, required=True)
-ap.add_argument('--version', default='business-economics-qa-shorts-20261104')
+ap.add_argument('--version', default='business-economics-qa-shorts-bgm-20261104')
 args = ap.parse_args()
 skill = Path(__file__).resolve().parent.parent
 archive = args.output.resolve()
@@ -91,7 +91,8 @@ for directory, patterns in {'fonts': ['*.woff2', '*.css', '*.txt', '*.py'], 'voi
             copy(src, example / directory / src.name)
 copy(args.example / 'mix.py', example / 'mix.py')
 copy(stage / 'assets/episode-template/music/score.py', example / 'music/score.py')
-copy(stage / 'assets/episode-template/music/selection.json', example / 'music/selection.json')
+example_selection = args.example / 'music/selection.json'
+copy(example_selection if example_selection.is_file() else stage / 'assets/episode-template/music/selection.json', example / 'music/selection.json')
 for name in ('source.json', 'mix-levels.json', 'credits.txt'):
     copy(args.example / 'music' / name, example / 'music' / name)
 

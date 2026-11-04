@@ -1,0 +1,128 @@
+{
+  "retrieved_utc": "2026-11-04T12:14:00.222875+00:00",
+  "catalog_url": "https://incompetech.com/music/royalty-free/pieces.json",
+  "selected_original_records": [
+    {
+      "title": "Cold Funk",
+      "filename": "Cold Funk.mp3",
+      "length": "00:04:48",
+      "instruments": "Guitar, Bass, Drum Kit, Electric Piano, Bells",
+      "genre": "19",
+      "bpm": "112",
+      "description": "A calming rock piece.  Repeated guitar chords as well as bass throughout.  Very light use of bells.  Great for looping if needed.",
+      "feel": "Calming, Grooving, Relaxed",
+      "uploaded": "2008-08-23",
+      "isrc": "USUAN1100499",
+      "collection": "11",
+      "sheetmusic": null,
+      "video": null,
+      "itunes": "https://itunes.apple.com/us/album/cold-funk/id945494837?i=945494841",
+      "filmmusicURL": "https://incompetech.filmmusic.io/song/3522-cold-funk/"
+    },
+    {
+      "title": "Cipher",
+      "filename": "Cipher2.mp3",
+      "length": "00:03:51",
+      "instruments": "Synths, Electric Piano, Percussion, Strings",
+      "genre": "7",
+      "bpm": "150",
+      "description": "I've been told this is R&B, but could be a few other things. It is certainly pretty neat. Warning: Very sticky hook.",
+      "feel": "Bright, Grooving, Uplifting",
+      "uploaded": "2011-07-29",
+      "isrc": "USUAN1100844",
+      "collection": null,
+      "sheetmusic": "Cipher.pdf",
+      "video": null,
+      "itunes": "https://itunes.apple.com/us/album/cipher/id945174678?i=945174697",
+      "filmmusicURL": null
+    },
+    {
+      "title": "Space Jazz",
+      "filename": "Space Jazz.mp3",
+      "length": "00:06:10",
+      "instruments": "Synths",
+      "genre": "11",
+      "bpm": "89",
+      "description": "While working on a video game, the script called for \"Space Jazz\". I don't know if that is a thing, but this is what I made. Sounds like Space Jazz to me!",
+      "feel": "Bright, Grooving, Relaxed",
+      "uploaded": "2021-09-29",
+      "isrc": "USUAN2100030",
+      "collection": "14",
+      "sheetmusic": null,
+      "video": "https://youtu.be/5vX9A0XTc6I",
+      "itunes": "https://music.apple.com/us/album/space-jazz-single/1586899409",
+      "filmmusicURL": "https://incompetech.filmmusic.io/song/8328-space-jazz"
+    },
+    {
+      "title": "Mining by Moonlight",
+      "filename": "Mining by Moonlight.mp3",
+      "length": "00:03:24",
+      "instruments": "Electric Piano, Bass, Drum Kit",
+      "genre": "11",
+      "bpm": "160",
+      "description": "Light, upbeat, cool - useful for video game montages, and telephone on-hold music... and... nearly anything where you need something interesting - but not TOO interesting.",
+      "feel": "Bouncy, Bright, Grooving, Relaxed",
+      "uploaded": "2012-08-09",
+      "isrc": "USUAN1200089",
+      "collection": "7",
+      "sheetmusic": null,
+      "video": "https://youtu.be/bAYKt6yW23M",
+      "itunes": "https://itunes.apple.com/us/album/mining-by-moonlight/id942756205?i=942756229",
+      "filmmusicURL": null
+    },
+    {
+      "title": "Cool Vibes",
+      "filename": "Cool Vibes.mp3",
+      "length": "00:03:38",
+      "instruments": "Vibraphone, Bass, Drum Kit",
+      "genre": "11",
+      "bpm": "83",
+      "description": "A simple little slow trio for use in such things that require a slow jazz trio. Modulates at the midpoint.",
+      "feel": "Calming, Relaxed",
+      "uploaded": "2011-10-14",
+      "isrc": "USUAN1100863",
+      "collection": "42",
+      "sheetmusic": null,
+      "video": null,
+      "itunes": "https://itunes.apple.com/us/album/cool-vibes/id945463110?i=945463116",
+      "filmmusicURL": "https://incompetech.filmmusic.io/song/3553-cool-vibes/"
+    },
+    {
+      "title": "District Four",
+      "filename": "District Four.mp3",
+      "length": "00:04:08",
+      "instruments": "Bass, Guitar, Organ, Percussion",
+      "genre": "8",
+      "bpm": "176",
+      "description": "Deep grooving crazy big percussion. Super danceable! High energy, without every getting the way. Useful for tech videos, badass characters, or general listenings! The download comes with all the parts separated out as well as a bonus track at 165 beats per minute (slightly slower and even deeper grooving!).",
+      "feel": "Aggressive, Bouncy, Grooving",
+      "uploaded": "2016-07-11",
+      "isrc": "USUAN1600039",
+      "collection": "11",
+      "sheetmusic": null,
+      "video": "https://youtu.be/yZX7eF_KClk",
+      "itunes": null,
+      "filmmusicURL": "https://incompetech.filmmusic.io/song/3662-district-four/"
+    }
+  ],
+  "license_evidence": [
+    {
+      "url": "https://incompetech.com/music/royalty-free/music.html",
+      "file": "sources/incompetech-music.html",
+      "sha256": "cef5484ed154f14f7e4aa9dbc8f126209af5c22c5bb664615e5f728e0017718a",
+      "retrieved_utc": "2026-11-04T12:14:00.222875+00:00"
+    },
+    {
+      "url": "https://incompetech.com/music/royalty-free/licenses/",
+      "file": "sources/incompetech-licenses.html",
+      "sha256": "479019ed42fd8384c63c04bd95dc6d0e0e0da505ddd6f567a13018c724f8416d",
+      "retrieved_utc": "2026-11-04T12:14:00.222875+00:00"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "sources/cc-by-4.0-deed.html",
+      "sha256": "8dda1ccec4be91fc80821d4e4fd5c568072b9a3a74b2fdc07c249a27e920ef01",
+      "retrieved_utc": "2026-11-04T12:14:00.222875+00:00"
+    }
+  ]
+}

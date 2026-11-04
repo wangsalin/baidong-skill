@@ -1,13 +1,13 @@
 {
-  "version": "business-economics-qa-shorts-20261104",
-  "created_utc": "2026-11-04T12:06:35.564438+00:00",
-  "skill_commit": "587f54aa6b1ef0f4349df1ebf72063cfb47cd4f2",
+  "version": "business-economics-qa-shorts-bgm-20261104",
+  "created_utc": "2026-11-04T12:26:52.980638+00:00",
+  "skill_commit": "9797c052f39f0d36067b9eff14e68968d6f5d951",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 112,
-      "sha256": "49c2d32dd428314eab9fe270a3d5cf0a0cbee7a923d915e61e2250e054aa0a59"
+      "bytes": 147,
+      "sha256": "438a9f9e61dc2e29db5187edc753c31d79d74266810b09eba1f4ee622109d266"
     },
     {
       "path": ".gitignore",
@@ -141,13 +141,13 @@
     },
     {
       "path": "assets/episode-template/music/score.py",
-      "bytes": 3283,
-      "sha256": "56edbdd28e89ceddaddfb1788c73ebf2811f98cc65402b7574511ba88e1fd348"
+      "bytes": 4170,
+      "sha256": "d0498acb2f84e84d90f29d9b9b5114a639c633c42596ac47176162c0b5bca2ab"
     },
     {
       "path": "assets/episode-template/music/selection.json",
-      "bytes": 90,
-      "sha256": "4fdd3a156c5d2ebae354ef23c47c2fb4c1cd2ad427834f07b49c87db98631e56"
+      "bytes": 110,
+      "sha256": "21af09931f8884eab659c443f34834bdef19683ed5efe4149077f7c10b958984"
     },
     {
       "path": "assets/episode-template/package.json",
@@ -1300,6 +1300,46 @@
       "sha256": "240f236cd6caea06dc7c3ffb2f2b1b10d3b0db5d2021a309ad95b7e89f60543b"
     },
     {
+      "path": "assets/music/CREDITS.txt",
+      "bytes": 1884,
+      "sha256": "3d9943e49aef0db131c75701bd068786f6bbdb9cccb1a88e04784128da06d8be"
+    },
+    {
+      "path": "assets/music/README.md",
+      "bytes": 3223,
+      "sha256": "2b8901c3ef70fc7fdae2631c7acbd9a5cf362b6ba72fa70e9bf61212dc92d3f5"
+    },
+    {
+      "path": "assets/music/audio/kevin-macleod-cipher.mp3",
+      "bytes": 9252699,
+      "sha256": "d3d0614535a61d748e2fd8d5117fc4d781022a7624794802a2462d8af3fdd522"
+    },
+    {
+      "path": "assets/music/audio/kevin-macleod-cold-funk.mp3",
+      "bytes": 11690312,
+      "sha256": "a7d0b772f05b99c4ac3df28cb2feaa5190781c2b87bceef5052cc45408b6fc75"
+    },
+    {
+      "path": "assets/music/audio/kevin-macleod-cool-vibes.mp3",
+      "bytes": 8737561,
+      "sha256": "86e5afb1f71da4c45927bb693cc32e2f72954137cf010599a912fa89cfd4db2e"
+    },
+    {
+      "path": "assets/music/audio/kevin-macleod-district-four.mp3",
+      "bytes": 7945923,
+      "sha256": "b9ba021b1ac9632adc8cd67a99f001466b43b7e703b6eb2184e1ac225c9a9b79"
+    },
+    {
+      "path": "assets/music/audio/kevin-macleod-mining-by-moonlight.mp3",
+      "bytes": 8148691,
+      "sha256": "683e5638ab2b3017a89d9c9a2ab7a3b516956f9dc5651740fed3508eddd35997"
+    },
+    {
+      "path": "assets/music/audio/kevin-macleod-space-jazz.mp3",
+      "bytes": 7392261,
+      "sha256": "51924be4565a2f101f4daa45998aa4c3577dab05ba5d1067ffb7bc57583ad503"
+    },
+    {
       "path": "assets/music/audio/vibe-bgm-reference-20261027.m4a",
       "bytes": 2589726,
       "sha256": "497d2f3d0f79f60a842ea4b982f2db004dcae42430ff0e131aff057ef002b435"
@@ -1311,8 +1351,138 @@
     },
     {
       "path": "assets/music/catalog.json",
-      "bytes": 2816,
-      "sha256": "55086c76dacd26a544d5d6e60245ddeef09d22709e60ba53b21af8b7103f3548"
+      "bytes": 17071,
+      "sha256": "067c142eada59178f6463156b3d0083ea58e2d6d66245d05e7b8c44fe2a3885c"
+    },
+    {
+      "path": "assets/music/integration-check.json",
+      "bytes": 1131,
+      "sha256": "8e8416748cb3f6d215bdad1412263a7111a2f5145f1adc46247832802ac9537b"
+    },
+    {
+      "path": "assets/music/previews/20261104/01-cold-funk-demo.mp3",
+      "bytes": 732141,
+      "sha256": "f49c5204cc7c0c48385ff02ed15aaa4fe089bae161ee33f0b7adde24c1dea9d2"
+    },
+    {
+      "path": "assets/music/previews/20261104/01-cold-funk-dialogue.mp3",
+      "bytes": 540333,
+      "sha256": "969a35ff89c615556a9294ac533e73374d2ee13830b975284709eedeae68d989"
+    },
+    {
+      "path": "assets/music/previews/20261104/01-cold-funk-pure.mp3",
+      "bytes": 601389,
+      "sha256": "118096e09a21b365dd6c28c01aa68ea53c3eb0caaa229ecaaf973b5f0e1e509a"
+    },
+    {
+      "path": "assets/music/previews/20261104/02-cipher-demo.mp3",
+      "bytes": 732141,
+      "sha256": "eabb4ac5099183b9c7a06d7f8cc4f761b0961ab9f2c1f7f2c1ad8f779b7ef1a6"
+    },
+    {
+      "path": "assets/music/previews/20261104/02-cipher-dialogue.mp3",
+      "bytes": 540333,
+      "sha256": "20813ae3edc8f46a5da7e2ec66007223b7d633442babde483ffd4755c1ff9d84"
+    },
+    {
+      "path": "assets/music/previews/20261104/02-cipher-pure.mp3",
+      "bytes": 601389,
+      "sha256": "af1253762231d951c4d2eb35fcb43e7de869edfc3dc267ade3428199cb84ad20"
+    },
+    {
+      "path": "assets/music/previews/20261104/03-space-jazz-demo.mp3",
+      "bytes": 732141,
+      "sha256": "d23a2c2a174b0da2a47c21982954054da03501bfc04991d1c203db2d2ba96e5c"
+    },
+    {
+      "path": "assets/music/previews/20261104/03-space-jazz-dialogue.mp3",
+      "bytes": 540333,
+      "sha256": "af1f67b6778206a4c85c63841bcb42ad16ef57cc2792cd54d3b9a2848c53170c"
+    },
+    {
+      "path": "assets/music/previews/20261104/03-space-jazz-pure.mp3",
+      "bytes": 601389,
+      "sha256": "4cf17dcc24379766fb4ca67496ab5b0e93928c5374bee1b43f59300a0c17b8c9"
+    },
+    {
+      "path": "assets/music/previews/20261104/04-mining-by-moonlight-demo.mp3",
+      "bytes": 732141,
+      "sha256": "0d497270373fd4ffd88afb55ed393d70ccf929918549ffb25451d8dd61691ddd"
+    },
+    {
+      "path": "assets/music/previews/20261104/04-mining-by-moonlight-dialogue.mp3",
+      "bytes": 540333,
+      "sha256": "17e0369914a6b51008a2d161afa4407e7ba03ce02933b7e7bec37bae454ba3c1"
+    },
+    {
+      "path": "assets/music/previews/20261104/04-mining-by-moonlight-pure.mp3",
+      "bytes": 601389,
+      "sha256": "0fdbe486ae25ef25cc16b87a30b3677f5160d63dd54afc6716d976683cc69522"
+    },
+    {
+      "path": "assets/music/previews/20261104/05-cool-vibes-demo.mp3",
+      "bytes": 732141,
+      "sha256": "f1e715e6e684c6df6c8622f4d55bfba71368a3d53e02e1ee182eb6ec0a17d952"
+    },
+    {
+      "path": "assets/music/previews/20261104/05-cool-vibes-dialogue.mp3",
+      "bytes": 540333,
+      "sha256": "86045cf6ba55ebf57eabdf2cb27903ff8e12b6946237e837be36586582bab96a"
+    },
+    {
+      "path": "assets/music/previews/20261104/05-cool-vibes-pure.mp3",
+      "bytes": 601389,
+      "sha256": "ae5813f1589f26a559d8f6a7d29180dc68eb1f0975dee0bf1ee46353ef661f5f"
+    },
+    {
+      "path": "assets/music/previews/20261104/06-district-four-demo.mp3",
+      "bytes": 732141,
+      "sha256": "8940a22f19d4b8af858be3545c3d3aa970c59654c7aa737ae840c0595b3f91d1"
+    },
+    {
+      "path": "assets/music/previews/20261104/06-district-four-dialogue.mp3",
+      "bytes": 540333,
+      "sha256": "f2c0edf03790c9fe19179ef2d4b8a82ba063b2d9ee744ec01c7b5625ebaa69a4"
+    },
+    {
+      "path": "assets/music/previews/20261104/06-district-four-pure.mp3",
+      "bytes": 601389,
+      "sha256": "532a81f28a27a680747f282753616ea6d0ef2a5c01d09673d2c84b264a750c27"
+    },
+    {
+      "path": "assets/music/previews/20261104/index.html",
+      "bytes": 6173,
+      "sha256": "fc63267b988c0148e00bc0e3200c7a1009dbbaf018b8a362776908190374ec55"
+    },
+    {
+      "path": "assets/music/previews/20261104/verification.json",
+      "bytes": 9367,
+      "sha256": "9cb82b7dd9176ce8f9e2cf68ec4774fa5221939abf89a7a8aae05aee0e8a7787"
+    },
+    {
+      "path": "assets/music/sources/cc-by-4.0-deed.html",
+      "bytes": 31950,
+      "sha256": "8dda1ccec4be91fc80821d4e4fd5c568072b9a3a74b2fdc07c249a27e920ef01"
+    },
+    {
+      "path": "assets/music/sources/incompetech-licenses.html",
+      "bytes": 12146,
+      "sha256": "479019ed42fd8384c63c04bd95dc6d0e0e0da505ddd6f567a13018c724f8416d"
+    },
+    {
+      "path": "assets/music/sources/incompetech-music.html",
+      "bytes": 29776,
+      "sha256": "cef5484ed154f14f7e4aa9dbc8f126209af5c22c5bb664615e5f728e0017718a"
+    },
+    {
+      "path": "assets/music/sources/incompetech-selected-20261104.json",
+      "bytes": 5355,
+      "sha256": "a0d35ce310ceca2611ed21aca213a171c5f41fe43ed1e80a21bbedf361ea0f6e"
+    },
+    {
+      "path": "assets/music/tools/preview_candidates.py",
+      "bytes": 11420,
+      "sha256": "baf10765ca94261cdae613d07e2683cf98632cdf3da805476df11befbab81c95"
     },
     {
       "path": "assets/requirements-baidong.txt",
@@ -1346,13 +1516,13 @@
     },
     {
       "path": "references/installation.md",
-      "bytes": 7585,
-      "sha256": "9e4840700e0f84665c76d3f04b15d851784ec9245bac6f8dca9f5528f909f52e"
+      "bytes": 7745,
+      "sha256": "7bcb98eac1bc97307b1ba6bdeba0d441fd47819bce7ce67363404157fa8ce6f3"
     },
     {
       "path": "references/production.md",
-      "bytes": 26018,
-      "sha256": "120a2d4f658610e2137ec47ee486be1a5d1b3d1f62ab2ffc5e44afa18af5045b"
+      "bytes": 26524,
+      "sha256": "fdc7392e8cf78cc0149d582cd8f4df9bfc2e100a67b333f92f36e47e61b82502"
     },
     {
       "path": "references/vertical.md",
@@ -1391,8 +1561,8 @@
     },
     {
       "path": "scripts/package_skill.py",
-      "bytes": 9717,
-      "sha256": "296c5407d6e67804e82db85bfa211f0d845ebfe278ab768ed4bc497477e0f712"
+      "bytes": 9833,
+      "sha256": "f882aad740e8a9aedac0932b6b1621fad5c7036dd734191ebec6c5c9310b27ad"
     },
     {
       "path": "scripts/runtime.sh",
