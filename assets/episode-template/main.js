@@ -33,7 +33,7 @@ function talk(who, t) {
   for (const [id, t0] of Object.entries(VO)) {
     const L = LINE[id]; if (!L || L.who !== who) continue;
     if (t >= t0 && t < t0 + vdur(id)) {
-      const k = Math.floor((t - t0) * 24), lp = LIPS[id];
+      const k = Math.max(0, Math.floor((tq - t0) * 24)), lp = LIPS[id];
       const o = lp ? (lp.o[k] ?? 0) : .25 + .3 * Math.abs(Math.sin(tq * 11)), b = lp ? (lp.b[k] ?? .5) : .5;
       return { o, w: .8 + .45 * b - .2 * o, talking: true };
     }
@@ -43,7 +43,7 @@ function talk(who, t) {
 const autoBlink = (t, seed) => { const k = Math.floor(t * 12), c = Math.floor(k / 30); return hash(c * 7.1 + seed) > .35 && k % 30 < 2; };
 // 新期角色入口：固定人物 ID、固定声音；内容形式只决定谁出场，不改变角色身份。
 const ROLE_SEED = { A1: 3, A2: 9, B1: 13, B2: 17, C1: 21, C2: 25, D1: 29, D2: 33 };
-const ROLE = (id, t, o = {}) => ({ x: 960, y: FLOOR, s: 1, face: 1, t, talk: talk(id, t), blink: autoBlink(t, ROLE_SEED[id] || 1), ...o, allowUnapprovedMotion: EP.stage!=='final' });
+const ROLE = (id, t, o = {}) => ({ x: 960, y: FLOOR, s: 1, face: 1, t, talk: talk(id, t), blink: autoBlink(t, ROLE_SEED[id] || 1), sq: 1 + .008 * Math.sin(q(t) * 2.3 + ROLE_SEED[id]), ...o, allowUnapprovedMotion: EP.stage!=='final' });
 const drawRole = (id, t, o = {}) => character(id, ROLE(id, t, o));
 // 旧期两位主角的兼容入口，老项目仍可继续渲染。
 const LB = (t, o = {}) => { const m = talk('LAOBAI', t), tq = q(t); return { x: 1230, y: FLOOR, s: 1, face: -1, talk: m, blink: autoBlink(t, 3), sq: 1 + .008 * Math.sin(tq * 2.3), headTilt: m.talking ? (m.o - .3) * .05 : 0, ...o }; };
@@ -52,12 +52,18 @@ const XW = (t, o = {}) => { const m = talk('XIAOWEN', t), tq = q(t); return { x:
 const WORLD = { studio: Wd.studio, office: Wd.office, street: Wd.street, home: Wd.home, night: t => Wd.home(t, { night: true }) };
 const world = (name, t, o) => (WORLD[name] || Wd.studio)(t, o);
 
-const sceneContext={cam,world,drawRole,FORMAL_POSES,T,lerp,seg,ss,Wd};
+// 物件/资料插入镜头须明确声明声音归属；默认仍逐帧检查出镜本人。
+function present({ mode, speaker, subject }) {
+  if (!['insert','broll'].includes(mode) || !ROLE_SEED[speaker] || typeof subject !== 'string' || !subject.trim()) throw new Error('资料/物件镜头须填写 mode、正式 speaker 与 subject');
+  window.FRAME_PRESENTATION = { mode, speaker, subject };
+}
+const sceneContext={cam,world,drawRole,FORMAL_POSES,T,lerp,seg,ss,Wd,present};
 const SH=MODE==='portrait'?createPortraitScenes(sceneContext):createScenes(sceneContext);
 
 // —— 渲染 ——
 const SUBS = buildSubs(VO, LINE, vdur, CUTS);
 function render(t) {
+  window.FRAME_PRESENTATION = { mode: 'onscreen' };
   frame(t); resetCharacterFrame(); reset(); screenRect(C.PAPER);
   const [, , name] = shotAt(t), tq = q(t);
   if (name === 'opener') opener(t, T.opener, 2, NO, QUESTION);
@@ -84,7 +90,7 @@ function events() {
   for (const [a, b, , w] of SHOTS) { if (cur && cur.w === w) cur.b = b; else { if (cur) add('amb', cur.a, { w: cur.w, d: +(cur.b - cur.a).toFixed(3) }); cur = { a, b, w }; } }
   if (cur) add('amb', cur.a, { w: cur.w, d: +(cur.b - cur.a).toFixed(3) });
   for (const tc of WIPES) add('wipe', tc - WIPE_HALF);
-  for (let i = 1; i < SHOTS.length; i++) {   // 普通切镜头加一声短促的“嗖”（转场、片头、片尾自己有音效）
+  for (let i = 1; EP.cut_sfx !== false && i < SHOTS.length; i++) { // 可关闭普通切镜音效，动作音按本期 FX 单独排。
     const [a, , name] = SHOTS[i];
     if (name !== 'opener' && name !== 'end' && !WIPES.some(w => Math.abs(w - a) < .4)) add('cut', a - .04);
   }

@@ -1,7 +1,8 @@
 {
-  "version": "business-economics-qa-shorts-bgm-20261104",
-  "created_utc": "2026-11-04T12:33:27.825484+00:00",
-  "skill_commit": "0a7501cc88fb6e05703d6946015cc06c2982ff3c",
+  "version": "scifi-camera-cutaways-20261105",
+  "created_utc": "2026-11-05T08:41:42.375787+00:00",
+  "source_base_commit": "8bca4b649b3a4877578af3ccbf6b94b3a21a796f",
+  "snapshot_kind": "开发目录当前文件；提交前生成，源提交记录为基线；实际文件以SHA256为准。分发ZIP另生成独立清单。",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
   "files": [
     {
@@ -16,8 +17,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 16235,
-      "sha256": "596dfbb2b64daf7eedffbe4fb3f8fa8b68a9280d1acfd7c393e529d0242f66d5"
+      "bytes": 17550,
+      "sha256": "c12eb2b979f49f73f5ade5d69c1feb759774f724a25efc14386710658a25a4d5"
     },
     {
       "path": "assets/episode-template/CREDITS",
@@ -36,8 +37,8 @@
     },
     {
       "path": "assets/episode-template/cast-check.js",
-      "bytes": 3001,
-      "sha256": "efb29fd3ac729b8c7958584676d7daed93748fa434afbebfd77b5e6dd6646477"
+      "bytes": 3924,
+      "sha256": "de1bed4672db2afaf98d978a66e6652ffca057a989da86f6beb1c20a23259668"
     },
     {
       "path": "assets/episode-template/characters.js",
@@ -111,8 +112,8 @@
     },
     {
       "path": "assets/episode-template/formal-art.js",
-      "bytes": 17310,
-      "sha256": "f0e2fa97084f963c825ecf0b48a54d528f2da2719145b8f43ad26329ae18a7a6"
+      "bytes": 17899,
+      "sha256": "722471736be49f386444c347befacf4975f8ad537369c98cd754c8b3505b5624"
     },
     {
       "path": "assets/episode-template/index.html",
@@ -126,8 +127,8 @@
     },
     {
       "path": "assets/episode-template/main.js",
-      "bytes": 7685,
-      "sha256": "c58210c249d403d513192ef278a213561dd3d4de1341d94a88ed488c2e230b62"
+      "bytes": 8211,
+      "sha256": "fdcc653af94cc7d419988fada36175a96e4b85dea0bbb8eb02db74e9570e589c"
     },
     {
       "path": "assets/episode-template/mix.py",
@@ -161,8 +162,8 @@
     },
     {
       "path": "assets/episode-template/production-contract.json",
-      "bytes": 1853,
-      "sha256": "4d102d90f21263dafd35cbb202ac85a997a7a8784bec8341186f5ec6d20baf1f"
+      "bytes": 1844,
+      "sha256": "ffb41717d1127b8c6fc5e61a8d2a5964a4c3a571fe5fb1896afb3481ab71a596"
     },
     {
       "path": "assets/episode-template/scenes.js",
@@ -191,8 +192,8 @@
     },
     {
       "path": "assets/episode-template/voice-reference.json",
-      "bytes": 9139,
-      "sha256": "fda5adb40e4126e330f1df414f00c1b43ddd2b0ffb25417e327a56cb7d1265b4"
+      "bytes": 13042,
+      "sha256": "5aa7568d91c9668b8d71ed59c8dcaf94d01214b7156a607486bd9d71b5ce564f"
     },
     {
       "path": "assets/episode-template/voice-reference/A1.wav",
@@ -253,6 +254,26 @@
       "path": "assets/episode-template/voice-reference/final-20261102/zh-D1.wav",
       "bytes": 266820,
       "sha256": "19bd065eddf19135bfa63b520062a45e2c1ea88c838036db467a4e21be7ff59e"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/rotation-20261105/en-A2.wav",
+      "bytes": 338152,
+      "sha256": "ad75534b9fc62399206b6a8abd1f5f8d87e0e376ccb17800f6dda785bb01f7c7"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/rotation-20261105/en-C1.wav",
+      "bytes": 662008,
+      "sha256": "2e44b4ccd51a07213e53d3823efffc622a8c128b5911a9c4a2c069249494adab"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/rotation-20261105/zh-A2.wav",
+      "bytes": 380160,
+      "sha256": "19560b8e4873849be18afed3c86f8a0d064b220736c2d0564c329c3743c2c737"
+    },
+    {
+      "path": "assets/episode-template/voice-reference/rotation-20261105/zh-C1.wav",
+      "bytes": 530144,
+      "sha256": "4b419bbb116067632e4315f5bf2856d836a630783c95a3da7446569a63d4146a"
     },
     {
       "path": "assets/episode-template/voice.py",
@@ -1020,6 +1041,66 @@
       "sha256": "c7fcbd878b3536241d57a9d8ee36fffbed9e8324eb456c30afbd6104ba147c01"
     },
     {
+      "path": "assets/examples/scifi-business-style-proof/README.md",
+      "bytes": 2191,
+      "sha256": "fac49b575757c2aee7281c48fe7a4b078c2d06defbdff15fb98f1675cbb91419"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/caption-times.js",
+      "bytes": 2297,
+      "sha256": "5b6bc2b85d7824409388443b97f3130ac43307fa879841753434592de37f05cb"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/captions.js",
+      "bytes": 1816,
+      "sha256": "951d24de857207d4d1d7f664f7d5e25e7cb382ca6a9d66f495473264a7e5cb7d"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/comparison.jpg",
+      "bytes": 225562,
+      "sha256": "845b75af4e74ac9ffe838d06ffdd05a29f25bc506c1f345fa6770442d9dcadb0"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/contact-landscape.jpg",
+      "bytes": 267530,
+      "sha256": "bca096541b38a009cd7008d9081544b109093c411fc08a2d4d4321d576dd1435"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/contact-portrait.jpg",
+      "bytes": 242641,
+      "sha256": "76d02f9f7327e0420fa82d34d11f94a472cdcbff4df34e5b4fd25d309ef126a3"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/lines.json",
+      "bytes": 1224,
+      "sha256": "6d6228247b2a08a71271934b755d1b12e519441ef2dcfcbf4bb5142104998235"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/portrait.js",
+      "bytes": 101,
+      "sha256": "f669c76b4c595ce39d4239ff9084a80bba006cafe164aa6cb1465de1adc88506"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/preview-landscape.mp4",
+      "bytes": 4135664,
+      "sha256": "f57153129b09d65e848cf222ef76b4894deeb1b9c0587b89aba77ef9fbd63e68"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/preview-portrait.mp4",
+      "bytes": 3037615,
+      "sha256": "5a231c6cbef331df46385988141c4f695385f85fe20cf9d5bd1ed299235f90c6"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/scenes.js",
+      "bytes": 6754,
+      "sha256": "b5498d936a4b8a6b5fa424715e6325ba98a13427db55b3ee054e9b9f189d1aee"
+    },
+    {
+      "path": "assets/examples/scifi-business-style-proof/story.js",
+      "bytes": 657,
+      "sha256": "8b5fd0c3f65e09522ed5f638bbc49b1c2b1b6b93614fca78ace801d75f99b76a"
+    },
+    {
       "path": "assets/examples/vertical-layout-demo/README.md",
       "bytes": 588,
       "sha256": "1aed7286dfde009ac1a37368434ba4933b8c6a3c22961208c3e61826fe4e8c0a"
@@ -1491,18 +1572,18 @@
     },
     {
       "path": "references/account.md",
-      "bytes": 9750,
-      "sha256": "79288ef5f302c2b11eea0a402a18f8acebcf3ae78c0ad208eb2935b6b14cce04"
+      "bytes": 9782,
+      "sha256": "7f4e27d7c1a89f26fb8195a20b6ca4cf031b3544c5ace0371300d0def186e9b7"
     },
     {
       "path": "references/characters.md",
-      "bytes": 12768,
-      "sha256": "515be3e45fc19e4d032092e135f67dd8d3f8e8adeca4a03c7f5dd982bd7f2a6f"
+      "bytes": 13529,
+      "sha256": "22da9392a435ecf3e3117db555147d088697ac9937f1981df718092efa7b0eff"
     },
     {
       "path": "references/content.md",
-      "bytes": 17000,
-      "sha256": "4861a2b74612bdd71def2677f1cf4f0376869ee5ad41ebe19e0e4b1e19bb14e6"
+      "bytes": 17038,
+      "sha256": "d81567b340e6be2901ab5bef53e292dfea7de385bff26fd57c1319b68acd00b0"
     },
     {
       "path": "references/covers.md",
@@ -1516,23 +1597,23 @@
     },
     {
       "path": "references/installation.md",
-      "bytes": 7981,
-      "sha256": "b87cb6c4158e00fce9107a217b4e10658c44973a032b8f105200d1e330819cdb"
+      "bytes": 8268,
+      "sha256": "6fa29a24a3513ca70eb7c000d50d64de66081956f5ae1e4de5fa98834508e6a2"
     },
     {
       "path": "references/production.md",
-      "bytes": 26530,
-      "sha256": "cd23c86c751e05b7870f6b727be00f61b76ae1acdb37f56f859764279e0e3e66"
+      "bytes": 26790,
+      "sha256": "dd401b97cc5a42e6b7bf639abb42f17c133a732e6a4e9da0514805a5f4624a6e"
     },
     {
       "path": "references/vertical.md",
-      "bytes": 8451,
-      "sha256": "279c9622674d0215aa10c06864a36db646faeb1b3bdd2b8bd7703741be4dd77c"
+      "bytes": 8595,
+      "sha256": "0caeef71dd56675b906c6b548393c601379b8916c8a666d654d74c82a1232619"
     },
     {
       "path": "references/visual.md",
-      "bytes": 10169,
-      "sha256": "bcaa5462f5a41a36862e43bd9664310a31836d9b86028578c8ce649b343346f3"
+      "bytes": 7820,
+      "sha256": "e658a23103f532a43873bc3f5f70a79ee47c8fb35d0e1ccc5b0e8dca26bb89ce"
     },
     {
       "path": "scripts/chapters.py",
@@ -1561,8 +1642,8 @@
     },
     {
       "path": "scripts/package_skill.py",
-      "bytes": 9833,
-      "sha256": "f882aad740e8a9aedac0932b6b1621fad5c7036dd734191ebec6c5c9310b27ad"
+      "bytes": 9875,
+      "sha256": "69f572214a5ef1d754e32bfc94e842a1cfc8eb67a64ea3f760e61757fa42c19a"
     },
     {
       "path": "scripts/runtime.sh",
@@ -1591,8 +1672,8 @@
     },
     {
       "path": "scripts/test_production.py",
-      "bytes": 9761,
-      "sha256": "0921ea5fae9fa9bad917f9640825196a3ae8892eaf78a37c4323fcd2ae2ca900"
+      "bytes": 11746,
+      "sha256": "9be95c3697ca6073aef75a6bb836806f61198086a74ac8b153e8556b83a80769"
     },
     {
       "path": "scripts/test_template.py",
@@ -1613,19 +1694,5 @@
     "Whisper models",
     "instrument sample libraries"
   ],
-  "verification": "File SHA256 plus independently frozen identity reference and locked production assets; technical validation is not user approval.",
-  "modified_from_commit": [
-    "SKILL.md",
-    "references/account.md",
-    "references/content.md",
-    "references/covers.md",
-    "references/distribution.md",
-    "references/installation.md",
-    "references/production.md",
-    "references/vertical.md",
-    "references/visual.md"
-  ],
-  "updated_utc": "2026-11-01T09:18:14.489781+00:00",
-  "cover_reference_version": "20261101-conflict-portrait-v5",
-  "skill_dirty": true
+  "verification": "文件内容SHA256；清单本身不计入自校验。"
 }

@@ -148,6 +148,33 @@ class ProductionRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, '重新执行'):
             GATE['validate'](self.root, 'render')
 
+    def test_declared_cutaways_keep_speaker_and_visibility_checks(self):
+        script = r'''
+import assert from 'node:assert/strict';
+import {scanCast} from SCANNER;
+const cues=[{id:'one',who:'A1',t0:0,t1:1},{id:'two',who:'A1',t0:1,t1:2},{id:'three',who:'B2',t0:2,t1:3}];
+globalThis.window={DUR:3,CAST_CUES:cues,EV:cues.map(c=>({type:'vo',id:c.id,who:c.who,t:c.t0})),CAST_BOUNDARIES:[0,.5,1,2,3]};
+const healthy=t=>{const who=t<2?'A1':'B2';window.FRAME_CAST=[who];window.FRAME_SPEAKING=[who];window.FRAME_OCCLUDED=false;
+ if(t>=.5&&t<2){window.FRAME_CAST=[];window.FRAME_SPEAKING=[];window.FRAME_PRESENTATION={mode:'insert',speaker:'A1',subject:'本轮讲解的账单'};}};
+window.render=healthy;
+const ok=scanCast();assert.equal(ok.passed,true);assert.ok(ok.cutawayFrames>24);
+for(const mode of ['insert','broll']){
+ window.render=t=>{healthy(t);if(t>=.5&&t<2)window.FRAME_PRESENTATION.mode=mode;};
+ assert.equal(scanCast().passed,true);
+}
+const reject=(f)=>{window.render=t=>{healthy(t);f(t);};assert.equal(scanCast().passed,false);};
+reject(t=>{if(t<.5){window.FRAME_CAST=[];window.FRAME_SPEAKING=[];window.FRAME_PRESENTATION={mode:'insert',speaker:'A1',subject:'未建立身份'};}});
+reject(t=>{if(t>=2){window.FRAME_CAST=[];window.FRAME_SPEAKING=[];window.FRAME_PRESENTATION={mode:'insert',speaker:'B2',subject:'换人后尚未交代身份'};}});
+reject(t=>{if(t>=.5&&t<2)window.FRAME_PRESENTATION.speaker='B2';});
+reject(t=>{if(t>=.5&&t<2)window.FRAME_PRESENTATION.subject=' ';});
+reject(t=>{if(t>=.5&&t<2)window.FRAME_SPEAKING=['B2'];});
+reject(t=>{if(t>=.5&&t<2)delete window.FRAME_PRESENTATION;});
+reject(t=>{if(t>=.5&&t<2)window.FRAME_OCCLUDED=true;});
+reject(t=>{if(t>=.5&&t<2)window.FRAME_PRESENTATION.mode='anything';});
+'''.replace('SCANNER', json.dumps((TEMPLATE / 'cast-check.js').as_uri()))
+        result = subprocess.run(['node', '--input-type=module', '-e', script], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_cast_missing_records_duplicates_and_omissions_rejected(self):
         script = r'''
 import assert from 'node:assert/strict';

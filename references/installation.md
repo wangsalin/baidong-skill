@@ -14,6 +14,8 @@
 - `assets/examples/vertical-layout-demo/`：已确认的第九期式竖屏版面演示和总览图。仅参考画面分区、主体位置与字幕安全区；演示配色不固定，也不是一条完整视频。
 - `PACKAGE-MANIFEST.json`：包内文件大小与SHA256。安装后产生的缓存不属于原始清单。
 
+2026-11-05 的镜头/插入特写修订升级了 `production-contract.json`。旧工程的成片可继续观看；重建前应从新模板完整迁移本期内容、核对声音与字体并重验画面，不能只替换旧工程的指纹清单。新建工程自动使用当前模板。
+
 Node/Python本体、FFmpeg、`node_modules`、Python虚拟环境、Chromium、Whisper模型和可选乐器采样库不适合跨系统直接复制，因此不随包打入。完整skill不代表已经装好了这些软件。
 
 ## 在 OpenClaw 使用

@@ -13,7 +13,7 @@ ap.add_argument('--lemo', type=Path, required=True)
 ap.add_argument('--music', type=Path, required=True)
 ap.add_argument('--example', type=Path, required=True)
 ap.add_argument('--output', type=Path, required=True)
-ap.add_argument('--version', default='business-economics-qa-shorts-bgm-20261104')
+ap.add_argument('--version', default='scifi-camera-cutaways-20261105')
 args = ap.parse_args()
 skill = Path(__file__).resolve().parent.parent
 archive = args.output.resolve()
@@ -112,7 +112,7 @@ p = example / 'build.sh'
 p.write_text(p.read_text(encoding='utf-8').replace('LIB=${LIB:-$HOME/lemo-opuscar}; export LIB', 'BAIDONG_SKILL_ROOT=$(cd "$(dirname "$0")/../../.." && pwd); export BAIDONG_SKILL_ROOT\n. "$BAIDONG_SKILL_ROOT/scripts/runtime.sh"'), encoding='utf-8', newline='\n')
 (example / 'REFERENCE.md').write_text('''# 已认可参考工程：沉没成本
 
-用户于2026-10-28认可，153.250秒、62句对白、29个镜头。只用于参考科幻卡通画法、配色、声音与制作技术；2026-11-04起的新期采用商业经济双角色直接问答，默认有戏问、小算盘立即答，不沿用该片剧情、捧哏或反应镜头要求。
+用户于2026-10-28认可，153.250秒、62句对白、29个镜头。只用于参考科幻卡通画法、配色、声音与制作技术；2026-11-04起的新期采用商业经济双角色直接问答，默认有戏问、小算盘立即答，不沿用该片故事与捧哏；服务解释的表情、反应镜头和动作按当前 visual.md 设计。
 
 包内原成片、横版封面、处理后配音和原QA记录按原样保留。其余封面和竖版切片未放入参考附件，原DELIVERY.md中的本机路径属于当时交付记录。没有打入raw配音、mix.wav与大量抽帧缓存。
 

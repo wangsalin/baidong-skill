@@ -4,7 +4,12 @@ import {eye,mouth,shoe} from './chars.js';
 const SK='#F3F1EE', SHADE='#DAD6CF', WHITE='#FFFFFF', BLUE='#002FA7', BLACK='#25242A', GREY='#97979B';
 let motion = {};
 export const HEAD_CENTERS={A1:-473,A2:-385,B1:-421,B2:-390,C1:-475,C2:-431,D1:-454,D2:-378};
-const p=(pts,fill=SK,lw=6)=>shape(spline(pts),{fill,lw});
+const p=(pts,fill=SK,lw=6)=>shape(spline(pts),{fill,lw,shade:motion.celShade&&/^#[0-9a-f]{6}$/i.test(fill)?()=>{
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),x=Math.min(...xs),y=Math.min(...ys),w=Math.max(...xs)-x,h=Math.max(...ys)-y;
+  const shadow=fill===SK||fill===WHITE?SHADE:'#'+fill.slice(1).match(/../g).map(v=>Math.round(parseInt(v,16)*.76).toString(16).padStart(2,'0')).join('');
+  const facet=[[x+w*.79,y-4],[x+w+4,y-4],[x+w+4,y+h+4],[x+w*.61,y+h+4]];
+  fillOnly(motion.shadeSide<0?facet.map(([px,py])=>[2*x+w-px,py]):facet,shadow,{boil:0});
+}:undefined});
 const box=(x,y,w,h,r,fill=WHITE,lw=6)=>shape(rr(x,y,w,h,r),{fill,lw});
 const ln=(pts,lw=5,col=INK)=>stroke(pts,lw,{line:col});
 function logo(x,y,r=15){shape(ell(x,y,r,r),{fill:WHITE,lw:3});stroke(ell(x,y,r*.62,r*.62),2.5);dot(x,y,r*.23);}
@@ -284,9 +289,10 @@ export const STYLES=[
   {id:'D',title:'几何怪咖',tag:'三角领巾 × 斜方胸针',note:'D1 三角领巾与长方脸；D2 斜方胸针与宽条纹。',detail:'加粗轮廓、减少细节；适合夸张表演与表情包。'},
 ];
 export function actor({id,kind,x,y,s=1,face=1,mood='roast',pose='explain',...options}){
-  motion=options;
+  motion={...options,shadeSide:face<0?-1:1};
   const plan=armPlan(id,kind,pose),late=pose==='facepalm'||pose==='think';
   push();translate(x,y);scale(s*face,s);
+  if(options.sq){scale(1/options.sq,options.sq);}
   if(options.lean)rotate(options.lean);
   if(options.bob)translate(0,options.bob);
   if(options.sit){box(-100,-143,205,23,8,'#C7C7C7',5);ln([[-85,-120],[-88,0]],7);ln([[88,-120],[91,0]],7);translate(0,65);}
