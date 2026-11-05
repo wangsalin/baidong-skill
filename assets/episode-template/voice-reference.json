@@ -15,18 +15,34 @@
       "text": "我有个没想全的想法，先抛出来，咱们慢慢捋。"
     },
     "A2": {
-      "status": "candidate",
-      "sample": "voice-reference/A2.wav",
-      "sample_sha256": "7879723d866bafaa5fcca39ae0332f365588421a1b46b553f2236e8ecbe33cdf",
-      "sample_stage": "historical-edge-synthesis-current-profile",
+      "status": "approved",
+      "sample": "voice-reference/rotation-20261105/zh-A2.wav",
+      "sample_sha256": "19560b8e4873849be18afed3c86f8a0d064b220736c2d0564c329c3743c2c737",
+      "sample_stage": "actual-episode-postprocessed-speech",
       "config": {
         "voice": "zh-CN-XiaoyiNeural",
         "rate": "+12%",
         "pitch": "+5Hz"
       },
-      "approval_evidence": null,
       "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
-      "text": "等等，我刚想到一个点子，先说出来，再看哪里不对！"
+      "text": "团购价这么低，买来的是回头客，还是只来一次的客人？",
+      "approval_evidence": "2026-11-05 用户明确授权：调整！每期的内容和角色都可以随机更换。按各自现有固定声音制作本期及后续轮换内容；这是制作授权，不是主观试听认可。",
+      "approval_kind": "explicit-cast-rotation-production-authorization",
+      "human_audio_listening": false,
+      "previous_reference": {
+        "status": "candidate",
+        "sample": "voice-reference/A2.wav",
+        "sample_sha256": "7879723d866bafaa5fcca39ae0332f365588421a1b46b553f2236e8ecbe33cdf",
+        "sample_stage": "historical-edge-synthesis-current-profile",
+        "config": {
+          "voice": "zh-CN-XiaoyiNeural",
+          "rate": "+12%",
+          "pitch": "+5Hz"
+        },
+        "approval_evidence": null,
+        "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+        "text": "等等，我刚想到一个点子，先说出来，再看哪里不对！"
+      }
     },
     "B1": {
       "status": "candidate",
@@ -72,18 +88,34 @@
       }
     },
     "C1": {
-      "status": "candidate",
-      "sample": "voice-reference/C1.wav",
-      "sample_sha256": "8b79ec2b4c4efd82662c2344de9a75c277ea8538b025d3d018780fb016867cb6",
-      "sample_stage": "historical-edge-synthesis-current-profile",
+      "status": "approved",
+      "sample": "voice-reference/rotation-20261105/zh-C1.wav",
+      "sample_sha256": "4b419bbb116067632e4315f5bf2856d836a630783c95a3da7446569a63d4146a",
+      "sample_stage": "actual-episode-postprocessed-speech",
       "config": {
         "voice": "zh-CN-YunjianNeural",
         "rate": "-4%",
         "pitch": "-2Hz"
       },
-      "approval_evidence": null,
       "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
-      "text": "现象已经确认，方案仍需验证，先按流程推进。"
+      "text": "两种都有。低价能让人先来尝试，不能保证人家下次还来。",
+      "approval_evidence": "2026-11-05 用户明确授权：调整！每期的内容和角色都可以随机更换。按各自现有固定声音制作本期及后续轮换内容；这是制作授权，不是主观试听认可。",
+      "approval_kind": "explicit-cast-rotation-production-authorization",
+      "human_audio_listening": false,
+      "previous_reference": {
+        "status": "candidate",
+        "sample": "voice-reference/C1.wav",
+        "sample_sha256": "8b79ec2b4c4efd82662c2344de9a75c277ea8538b025d3d018780fb016867cb6",
+        "sample_stage": "historical-edge-synthesis-current-profile",
+        "config": {
+          "voice": "zh-CN-YunjianNeural",
+          "rate": "-4%",
+          "pitch": "-2Hz"
+        },
+        "approval_evidence": null,
+        "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+        "text": "现象已经确认，方案仍需验证，先按流程推进。"
+      }
     },
     "C2": {
       "status": "candidate",
@@ -150,9 +182,25 @@
       "approval_evidence": null
     },
     "A2": {
-      "status": "unreviewed",
-      "sample": null,
-      "approval_evidence": null
+      "status": "approved",
+      "sample": "voice-reference/rotation-20261105/en-A2.wav",
+      "sample_sha256": "ad75534b9fc62399206b6a8abd1f5f8d87e0e376ccb17800f6dda785bb01f7c7",
+      "sample_stage": "actual-episode-postprocessed-speech",
+      "config": {
+        "voice": "en-US-JennyNeural",
+        "rate": "+12%",
+        "pitch": "+5Hz"
+      },
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "Do deep discounts bring repeat customers, or people who only visit once?",
+      "approval_evidence": "2026-11-05 用户明确授权：调整！每期的内容和角色都可以随机更换。按各自现有固定声音制作本期及后续轮换内容；这是制作授权，不是主观试听认可。",
+      "approval_kind": "explicit-cast-rotation-production-authorization",
+      "human_audio_listening": false,
+      "previous_reference": {
+        "status": "unreviewed",
+        "sample": null,
+        "approval_evidence": null
+      }
     },
     "B1": {
       "status": "unreviewed",
@@ -180,9 +228,25 @@
       }
     },
     "C1": {
-      "status": "unreviewed",
-      "sample": null,
-      "approval_evidence": null
+      "status": "approved",
+      "sample": "voice-reference/rotation-20261105/en-C1.wav",
+      "sample_sha256": "2e44b4ccd51a07213e53d3823efffc622a8c128b5911a9c4a2c069249494adab",
+      "sample_stage": "actual-episode-postprocessed-speech",
+      "config": {
+        "voice": "en-US-EricNeural",
+        "rate": "-4%",
+        "pitch": "-2Hz"
+      },
+      "profile_sha256": "28d6a494fe803a23ca9e303f69ed5d2dba33463da43f331ad9fb5308c3c3a50e",
+      "text": "Both are possible. A deal can buy a first try. It cannot promise a second visit.",
+      "approval_evidence": "2026-11-05 用户明确授权：调整！每期的内容和角色都可以随机更换。按各自现有固定声音制作本期及后续轮换内容；这是制作授权，不是主观试听认可。",
+      "approval_kind": "explicit-cast-rotation-production-authorization",
+      "human_audio_listening": false,
+      "previous_reference": {
+        "status": "unreviewed",
+        "sample": null,
+        "approval_evidence": null
+      }
     },
     "C2": {
       "status": "unreviewed",
@@ -215,5 +279,5 @@
       "approval_evidence": null
     }
   },
-  "policy": "B2/D1 zh/en retain the exact 2026-11-02 explicit final-production instruction and current processed samples. This records production authorization, not a subjective listening evaluation. Other roles remain unchanged."
+  "policy": "保留B2/D1于2026-11-02的明确制作授权。2026-11-05用户明确允许正式角色轮换及随机更换，支持沿用每人固定映射制作；本次A2/C1中英文已生成实际样音并通过真实ASR后登记。其余角色首次使用时生成、检查并登记真实固定样音，无需重复索要既有制作授权。不记录为真人试听通过。"
 }

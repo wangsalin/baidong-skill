@@ -93,7 +93,7 @@ sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-film "$EPISODE_ROOT/var
 sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local en-portrait "$EPISODE_ROOT/variants" --language en --aspect portrait
 ```
 
-上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。模板旧剧情对白仅用于技术冒烟，不是新期内容示范。分别用本期双角色问答稿与解释画面替换各版 `lines.json`、`story.js` 和镜头代码，默认D1提问、B2解答，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在WSL里生成配音。正式问答仍使用 `formal` 角色模式，不因有两位角色而启用旧 `legacy` 模式。
+上述命令仅用于尚不存在的各版目录，脚本拒绝覆盖；已有工程在原处修改，不重复初始化。模板旧剧情对白仅用于技术冒烟，不是新期内容示范。分别用本期双角色问答稿与解释画面替换各版 `lines.json`、`story.js` 和镜头代码，按本期内容轮换或随机选两位不同角色完成提问和解答，运行各版 `fonts/fetch_fonts.py` 取字体（改了台词要重跑），再在WSL里生成配音。正式问答仍使用 `formal` 角色模式，不因有两位角色而启用旧 `legacy` 模式。
 
 每期默认规划中英文横竖四版。新建脚本支持 `--language zh|en --aspect landscape|portrait --stage preview|final`；各版本仍需独立稿件和验收，不能把四次运行同一稿称为四版内容完成。四版放在同一单期根目录下的 `variants/`，不要分别创建四个对外的单期根目录。脚本第三个参数是输出父目录：例如 `sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local zh-film "$EPISODE_ROOT/variants" --language zh --aspect landscape` 会建立 `variants/zh-film/`；其中 `EPISODE_ROOT` 是已核实的本期绝对目录，`local` 用于保持内层目录名，`story.js` 的 `NO` 则按本期已核实期号填写，未分配仍为 null。其余三版依次使用 `zh-portrait`、`en-film`、`en-portrait` 以及对应语言、画幅参数。在各版内分别维护稿件、配音、时间线、字幕和输出路径，避免覆盖中文工程。`episode.json` 的 `language` 只接受 `zh/en`；英文声音按当前注册表及 `voice-reference.json` 的实际状态核验，不把技术默认映射当作用户认可。英语稿按英语观众改写；`build.sh` 将语言同时用于声音校验与 ASR。中英文不能共享配音或字幕时码；同语言同稿的横竖版可复用已核验音轨。
 
