@@ -1,0 +1,46 @@
+name: 仓库校验
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline:
+    name: 文件完整性与离线回归
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          package-manager-cache: false
+      - name: 校验文件清单与冻结资产
+        run: python -B scripts/verify_package.py . --source-tree
+      - name: 检查空白与 Shell 语法
+        run: |
+          git show --format= --check HEAD
+          git ls-files -z '*.sh' | xargs -0 -r -n 1 bash -n
+      - name: 验证清单维护行为
+        run: python -B scripts/test_manifest.py
+      - name: 验证模板、语言与新期隔离
+        run: python -B scripts/test_template.py
+      - name: 验证固定包装、声音与声画记录
+        run: python -B scripts/test_production.py
+      - name: 验证字库覆盖
+        run: python -B scripts/test_fonts.py

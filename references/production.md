@@ -16,13 +16,13 @@
 
 跨机器安装以 `installation.md` 为准。`scripts/setup.sh check` 只检查，`install` 才安装依赖。新建脚本支持第三个参数指定项目根目录；包内带六首用户已确认入库的配乐和两首历史用户音源，不必回到原电脑的 Downloads 寻找。
 
-- 视频工具（Node、FFmpeg 8、Python、渲染用的无头浏览器）都在 **WSL 的 Ubuntu** 里，Ubuntu 的磁盘在 F 盘。Lemo-Opuscar 库在 `/home/salin/lemo-opuscar`（下文写作 `$LIB`）。
-- Claude Code 跑在 Windows 上。调用 WSL 时，**`wsl.exe` 会把命令里的 `$变量` 提前展开**，所以凡是带变量的命令，都先写成一个脚本文件（放在 scratchpad），再这样运行：
+- 本机视频工具（Node、FFmpeg 8、Python、渲染用的无头浏览器）在 **WSL 的 Ubuntu** 里，Ubuntu 的磁盘在 F 盘。已有 Lemo-Opuscar 库在 `/home/salin/lemo-opuscar`（下文写作 `$LIB`）；新机器可按 `installation.md` 显式使用包内 `assets/lemo-runtime`，无需创建同名用户。
+- 从 Windows Shell 向 WSL 传递带 `$变量` 或多层引号的复杂命令时，可能在到达 Bash 前发生展开或引号丢失。将复杂命令写入脚本文件，再用实际路径调用。Git Bash 示例：
   ```
   MSYS_NO_PATHCONV=1 wsl.exe -d Ubuntu -- bash /mnt/g/.../脚本.sh
   ```
-  `MSYS_NO_PATHCONV=1` 不能省，否则 Git Bash 会把 `/mnt/...` 改成 Windows 路径。脚本里的路径都用 WSL 写法（`/mnt/g/...`、`/mnt/c/...`）。
-- 需要访问 Google（取字体）的命令在 **Windows 的 Git Bash** 里运行，那边走代理 127.0.0.1:10808；WSL 访问不到这个代理。
+  Git Bash 中保留 `MSYS_NO_PATHCONV=1`，避免 `/mnt/...` 被转换为 Windows 路径；PowerShell 直接使用 `wsl.exe -d Ubuntu -- bash /mnt/g/.../脚本.sh`，不使用该环境变量前缀。脚本里的路径都用 WSL 写法（`/mnt/g/...`、`/mnt/c/...`）。
+- 本机取字体曾使用 Windows Git Bash 的代理；这是原开发机的网络配置。迁移后按实际网络选择可用环境，不假定固定代理端口或修改全局网络设置。
 - Windows 上的 Python 打开文件要写 `G:/vibe/...`，不能写 `/g/vibe/...`。
 - `fonts/fetch_fonts.py` 会将长稿字符拆成有界请求，输出多个带 `unicode-range` 的本地子集。不要假设每种字体只有一个文件，也不要手写覆盖指纹；修改台词或画面文字后重新运行。
 - 长任务（逐帧渲染、配乐）尽量在前台一次跑完（超时设到 10 分钟）。必须放后台时，同一回合里接着做别的事，不要留下只写“等通知”的空回合。

@@ -1,6 +1,6 @@
 {
-  "version": "scifi-camera-cutaways-20261105",
-  "created_utc": "2026-11-05T08:41:42.375787+00:00",
+  "version": "repository-maintenance-20261123",
+  "created_utc": "2026-11-23T06:41:03.542452+00:00",
   "source_base_commit": "8bca4b649b3a4877578af3ccbf6b94b3a21a796f",
   "snapshot_kind": "开发目录当前文件；提交前生成，源提交记录为基线；实际文件以SHA256为准。分发ZIP另生成独立清单。",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
@@ -11,14 +11,29 @@
       "sha256": "438a9f9e61dc2e29db5187edc753c31d79d74266810b09eba1f4ee622109d266"
     },
     {
+      "path": ".github/workflows/verify.yml",
+      "bytes": 1294,
+      "sha256": "d517022e921697e5d9b55a9c771acc6cf0eb5aa75750d473edaaa613e052bc52"
+    },
+    {
       "path": ".gitignore",
       "bytes": 133,
       "sha256": "b36f7758b6bfa2af05920728e17bc88666ce9b1900833d7396e6b713ae2dc76a"
     },
     {
+      "path": "README.md",
+      "bytes": 8838,
+      "sha256": "2042b31133d86098f9a2d13c8daf10a9ca39af4e94574b2533d5bacb2f7d7511"
+    },
+    {
       "path": "SKILL.md",
-      "bytes": 17550,
-      "sha256": "c12eb2b979f49f73f5ade5d69c1feb759774f724a25efc14386710658a25a4d5"
+      "bytes": 17767,
+      "sha256": "75a5c2a6a713e18c2b323cc42119013a045fa03658d91a63caf4a879121ad1c9"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 309,
+      "sha256": "c57f22f74e5e3f116624cdc5f1f61708968aee8498c061007e4ceb2006fba573"
     },
     {
       "path": "assets/episode-template/CREDITS",
@@ -467,8 +482,8 @@
     },
     {
       "path": "assets/examples/ep08-sunk-cost/REFERENCE.md",
-      "bytes": 1146,
-      "sha256": "3de72f588ea1d4d2d2ea6b8403e487f167173c1d0112a6da3f9afe016fcdfe2d"
+      "bytes": 1248,
+      "sha256": "9ff1b6b5d913ddaef1ecc8c64bd43b5ec0f1818d0d7cea334d48df888b1e593a"
     },
     {
       "path": "assets/examples/ep08-sunk-cost/TREATMENT.md",
@@ -1597,13 +1612,13 @@
     },
     {
       "path": "references/installation.md",
-      "bytes": 8268,
-      "sha256": "6fa29a24a3513ca70eb7c000d50d64de66081956f5ae1e4de5fa98834508e6a2"
+      "bytes": 8731,
+      "sha256": "732e6bdc58746a5d6b0f4edcd3588e0e384817e0e06aa9bf98941509e159a88a"
     },
     {
       "path": "references/production.md",
-      "bytes": 26790,
-      "sha256": "dd401b97cc5a42e6b7bf639abb42f17c133a732e6a4e9da0514805a5f4624a6e"
+      "bytes": 27056,
+      "sha256": "dda2a6f2fc27faf921a0a22aa37736c0f63fe2efd11083c3ecf9c21c2ee5f2a5"
     },
     {
       "path": "references/vertical.md",
@@ -1642,8 +1657,8 @@
     },
     {
       "path": "scripts/package_skill.py",
-      "bytes": 9875,
-      "sha256": "69f572214a5ef1d754e32bfc94e842a1cfc8eb67a64ea3f760e61757fa42c19a"
+      "bytes": 9924,
+      "sha256": "f112884fbe10c3c55fcbc16c4d188c286c0dc727daf079d4b135784c1727605b"
     },
     {
       "path": "scripts/runtime.sh",
@@ -1671,6 +1686,11 @@
       "sha256": "3596ecca5c35ef6bb36d1211a65243431bdd9e916c73d334e768b5835692015a"
     },
     {
+      "path": "scripts/test_manifest.py",
+      "bytes": 3447,
+      "sha256": "ad199e6336339b9ec7f65c80c465820a9623bfe8508f91f16b00b789857bac08"
+    },
+    {
       "path": "scripts/test_production.py",
       "bytes": 11746,
       "sha256": "9be95c3697ca6073aef75a6bb836806f61198086a74ac8b153e8556b83a80769"
@@ -1679,6 +1699,11 @@
       "path": "scripts/test_template.py",
       "bytes": 8950,
       "sha256": "b6753c8f38b7e362dd9ec0502efcc92e60acd7ed77579650af56e90d53ee4571"
+    },
+    {
+      "path": "scripts/update_manifest.py",
+      "bytes": 2293,
+      "sha256": "27fd65c4157cde7566197ec35fb064c425604d35f901995472205ea6dc8ddcdd"
     },
     {
       "path": "scripts/verify_package.py",
@@ -1694,5 +1719,7 @@
     "Whisper models",
     "instrument sample libraries"
   ],
-  "verification": "文件内容SHA256；清单本身不计入自校验。"
+  "verification": "文件内容SHA256；清单本身不计入自校验。",
+  "skill_commit": "184c99486f18e332032e091d20c0ec553a998bf6",
+  "skill_dirty": true
 }

@@ -1,6 +1,8 @@
 # 白洞 v4 完整包：安装与迁移
 
-内容规则于2026-11-04更新：面向普通人的商业与经济知识解说，以商业案例、生活经济、工作与收入为主线，不同角色提问与解答，默认有戏问、小算盘答，问题后立即回答再解释，去掉剧情演绎。抖音以45—60秒独立短竖版为主力，完整横版深入讲案例，完整竖版按需求补充；不固定每期短版数量。每期完整制作仍默认中英文各一支完整横版与主力短竖版，用户明确缩小范围时除外。保留Sci-Fi Sitcom Toon画法、八位角色、固定声音与制作链，真实B-roll按台词和可核实来源接入；《沉没成本》只参考画法、声音与技术。中英文竖屏采用原生9:16构图，配色按主题变化，字幕单行、按语义分屏。
+当前内容定位为面向普通人的商业与经济知识解说，以商业案例、生活经济、工作与收入为主线。按2026-11-05确认的规则，每期从A1–D2八人库轮换或随机选择两位不同角色，一位提问、一位解答，问题后立即回答再解释；不固定有戏与小算盘组合。抖音以45—60秒独立短竖版为主力，完整横版深入讲案例，完整竖版按需求补充；不固定每期短版数量。每期完整制作仍默认中英文各一支完整横版与主力短竖版，用户明确缩小范围时除外。保留Sci-Fi Sitcom Toon画法、八位角色、固定声音与制作链，真实B-roll按台词和可核实来源接入；《沉没成本》只参考画法、声音与技术。中英文竖屏采用原生9:16构图，配色按主题变化，字幕单行、按语义分屏。
+
+GitHub 克隆、Agent 安装入口及日常维护见仓库根目录 [README.md](../README.md)。Git 检出目录使用 `python3 -B scripts/verify_package.py . --source-tree`；纯解压目录不加 `--source-tree`。安装依赖会产生不属于分发清单的文件，先校验再安装。
 
 ## 包里有什么
 
@@ -39,7 +41,8 @@ export BAIDONG_SKILL_ROOT=/path/to/skills/baidong
 export LIB="$BAIDONG_SKILL_ROOT/assets/lemo-runtime"
 sh "$BAIDONG_SKILL_ROOT/scripts/setup.sh" install
 sh "$BAIDONG_SKILL_ROOT/scripts/setup.sh" check
-sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" 09 next-topic /path/to/video-projects
+# 新建工程的四版目录与命令见 production.md 第2节；未核实期号时使用 local。
+sh "$BAIDONG_SKILL_ROOT/scripts/new_episode.sh" local next-topic /path/to/video-projects
 ```
 
 `install`只向所选LIB安装npm依赖、浏览器和Python虚拟环境；不会自动运行apt、修改DNS或下载英文配音模型。`check`实际导入Python包、核对Node/FFmpeg版本并启动浏览器，缺失即非零退出。新建项目会记录skill路径；搬动已建项目后更新 `.baidong.json`、`.baidong-runtime.sh`，或通过环境变量指定新目录。WSL内使用Linux版Node，避免PATH误选Windows版。
