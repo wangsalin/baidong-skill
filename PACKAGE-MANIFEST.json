@@ -1,6 +1,6 @@
 {
   "version": "repository-maintenance-20261123",
-  "created_utc": "2026-11-23T06:41:03.542452+00:00",
+  "created_utc": "2026-11-23T06:43:25.991455+00:00",
   "source_base_commit": "8bca4b649b3a4877578af3ccbf6b94b3a21a796f",
   "snapshot_kind": "开发目录当前文件；提交前生成，源提交记录为基线；实际文件以SHA256为准。分发ZIP另生成独立清单。",
   "reference_episode_commit": "6a8bdc70d724b2a561218674de97aee938981f4a",
@@ -12,8 +12,8 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "bytes": 1294,
-      "sha256": "d517022e921697e5d9b55a9c771acc6cf0eb5aa75750d473edaaa613e052bc52"
+      "bytes": 1319,
+      "sha256": "db0b6f5de2800bd0b449f563ce08c78f9f06a62c2ab5d45f28f7d1ed4a02ce99"
     },
     {
       "path": ".gitignore",
@@ -1720,6 +1720,6 @@
     "instrument sample libraries"
   ],
   "verification": "文件内容SHA256；清单本身不计入自校验。",
-  "skill_commit": "184c99486f18e332032e091d20c0ec553a998bf6",
+  "skill_commit": "61c29b07a52ec8db06b16f108c04915506ea51f0",
   "skill_dirty": true
 }
